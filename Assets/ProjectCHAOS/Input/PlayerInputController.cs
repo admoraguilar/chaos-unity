@@ -1,15 +1,14 @@
 using UnityEngine;
-using ProjectCHAOS.Weapons;
-using ProjectCHAOS.Utilities;
-using ProjectCHAOS.Characters;
 
 namespace ProjectCHAOS.Inputs
 {
     public class PlayerInputController : MonoBehaviour
     {
-        private Vector3 _moveInputAxis = Vector3.zero;
-
+		[Header("References")]
+		[SerializeField]
 		private CharacterMechanic _characterMechanic = null;
+		
+		[SerializeField]
 		private MachineGun _machineGun = null;
 
 		public CharacterMechanic characterMechanic => this.GetCachedComponent(ref _characterMechanic);
@@ -17,16 +16,13 @@ namespace ProjectCHAOS.Inputs
 
 		private void Update()
 		{
-			_moveInputAxis.x = Input.GetAxisRaw("Horizontal");
-			_moveInputAxis.z = Input.GetAxisRaw("Vertical");
+			characterMechanic.Move(GameInput.movementInputMap.moveInputAxis);
 
-			characterMechanic.Move(_moveInputAxis);
-
-			if(Input.GetKeyDown(KeyCode.Mouse0)) {
+			if(GameInput.combatInputMap.isFiringDown) {
 				machineGun.StartFiring();
 			}
 
-			if(Input.GetKeyUp(KeyCode.Mouse0)) {
+			if(GameInput.combatInputMap.isFiringUp) {
 				machineGun.StopFiring();
 			}
 		}

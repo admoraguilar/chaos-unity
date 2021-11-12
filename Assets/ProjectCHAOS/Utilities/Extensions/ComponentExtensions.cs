@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ProjectCHAOS.Utilities
+namespace ProjectCHAOS
 {
     public static class ComponentExtensions
     {
