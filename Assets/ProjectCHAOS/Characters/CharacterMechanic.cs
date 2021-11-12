@@ -11,8 +11,6 @@ namespace ProjectCHAOS.Characters
 		private Vector3 _currentMotion = Vector3.zero;
 		private Vector3 _currentRotation = Vector3.zero;
 
-		private Vector3 _moveInputAxis = Vector3.zero;
-
         private Transform _transform = null;
 
         public new Transform transform => this.GetCachedComponent(ref _transform);
@@ -20,14 +18,6 @@ namespace ProjectCHAOS.Characters
 		public void Move(Vector3 motion)
 		{
 			_currentMotion = motion;
-		}
-
-		private void Update()
-		{
-			_moveInputAxis.x = Input.GetAxisRaw("Horizontal");
-			_moveInputAxis.z = Input.GetAxisRaw("Vertical");
-
-			Move(_moveInputAxis);
 		}
 
 		private void FixedUpdate()
