@@ -10,7 +10,7 @@ namespace ProjectCHAOS
 
         private static GameInput _instance = null;
 
-        private IMovementInputMap _movementInputMap = new PCMovementInputMap();
+        private IMovementInputMap _movementInputMap = new MobileMovementInputMap();
         private ICombatInputMap _combatInputMap = new PCCombatInputMap();
 
         public void Init()

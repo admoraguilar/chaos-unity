@@ -20,4 +20,23 @@ namespace ProjectCHAOS
 			}
 		}
 	}
+
+	public class MobileMovementInputMap : IMovementInputMap
+	{
+		private Joystick _joystick = null;
+		private Vector3 _moveInputAxis = Vector3.zero;
+
+		public Vector3 moveInputAxis
+		{
+			get {
+				if(_joystick == null) {
+					_joystick = Object.FindObjectOfType<Joystick>();
+				}
+
+				_moveInputAxis.x = _joystick.Horizontal;
+				_moveInputAxis.z = _joystick.Vertical;
+				return _moveInputAxis;
+			}
+		}
+	}
 }
