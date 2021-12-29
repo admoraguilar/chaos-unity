@@ -27,6 +27,11 @@ namespace ProjectCHAOS.Inputs
 			//}
 
 			machineGun.StartFiring();
+
+			if(GameInput.movementInputMap.didTap) {
+				Debug.Log("Did tap");
+				characterMechanic.Deploy(!characterMechanic.isDeployed);
+			}
 		}
 	}
 }

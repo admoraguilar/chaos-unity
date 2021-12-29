@@ -5,6 +5,7 @@ namespace ProjectCHAOS
 	public interface IMovementInputMap
 	{
 		public Vector3 moveInputAxis { get; }
+		public bool didTap { get; }
 	}
 
 	public class PCMovementInputMap : IMovementInputMap
@@ -19,6 +20,8 @@ namespace ProjectCHAOS
 				return _moveInputAxis;
 			}
 		}
+
+		public bool didTap => Input.GetMouseButtonUp(0);
 	}
 
 	public class MobileMovementInputMap : IMovementInputMap
@@ -38,5 +41,7 @@ namespace ProjectCHAOS
 				return _moveInputAxis;
 			}
 		}
+
+		public bool didTap => Input.GetMouseButtonUp(0);
 	}
 }
