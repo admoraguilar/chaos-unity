@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace ProjectCHAOS
 {
-	public interface IMovementInputMap
+	public interface IMovementInputMap : IInputMap
 	{
 		public Vector3 moveInputAxis { get; }
 		public bool didTap { get; }
@@ -22,6 +22,12 @@ namespace ProjectCHAOS
 		}
 
 		public bool didTap => Input.GetMouseButtonUp(0);
+
+		public void Initialize() { }
+		public void Deinitialize() { }
+		public void Update() { }
+		public void FixedUpdate() { }
+		public void LateUpdate() { }
 	}
 
 	public class MobileMovementInputMap : IMovementInputMap
@@ -43,5 +49,18 @@ namespace ProjectCHAOS
 		}
 
 		public bool didTap => Input.GetMouseButtonUp(0);
+
+		public void Initialize() { }
+
+		public void Deinitialize() { }
+		
+		public void Update() 
+		{ 
+			
+		}
+		
+		public void FixedUpdate() { }
+		
+		public void LateUpdate() { }
 	}
 }
