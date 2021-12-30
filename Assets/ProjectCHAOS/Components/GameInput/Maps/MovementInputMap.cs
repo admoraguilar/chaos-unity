@@ -52,34 +52,37 @@ namespace ProjectCHAOS.Inputs
 		public bool didTap => _didTap;
 		private bool _didTap = false;
 
-		private float _tapDuration = 0.2f;
-		private float _tapTimer = 0f;
-
 		public void Initialize() 
 		{
 			_touchUI = MInput.GetController<TouchUIController>(0);
+			_touchUI.controller.swipe.OnDelta.AddListener(OnSwipeDelta);
+			_touchUI.controller.tap.OnCount.AddListener(OnTapCount);
 		}
 
-		public void Deinitialize() { }
-		
-		public void Update() 
+		public void Deinitialize() 
 		{
-			_didTap = false;
-
-			if(Input.GetMouseButton(0)) {
-				_tapTimer += Time.deltaTime;
-			}
-
-			if(Input.GetMouseButtonUp(0) && _tapTimer > 0f) {
-				if(_tapTimer <= _tapDuration) {
-					_didTap = true;
-				}
-				_tapTimer = 0f;
-			}
+			_touchUI.controller.swipe.OnDelta.RemoveListener(OnSwipeDelta);
+			_touchUI.controller.tap.OnCount.RemoveListener(OnTapCount);
 		}
+		
+		private void OnSwipeDelta(Vector2 delta)
+		{
+			Debug.Log($"Swipe: {delta}");
+		}
+		
+		private void OnTapCount(int count)
+		{
+			Debug.Log($"Tap: {count}");
+			_didTap = true;
+		}
+
+		public void Update() { }
 		
 		public void FixedUpdate() { }
 		
-		public void LateUpdate() { }
+		public void LateUpdate() 
+		{
+			_didTap = false;
+		}
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Lean.Touch;
 
 namespace ProjectCHAOS.Inputs
 {
@@ -7,6 +8,14 @@ namespace ProjectCHAOS.Inputs
 		public Joystick joystick => _joystick;
 		[SerializeField]
 		private Joystick _joystick = null;
+
+		public LeanSwipeBase swipe => _swipe;
+		[SerializeField]
+		private LeanSwipeBase _swipe = null;
+
+		public LeanFingerTap tap => _tap;
+		[SerializeField]
+		private LeanFingerTap _tap = null;
 
 		private void OnEnable()
 		{
