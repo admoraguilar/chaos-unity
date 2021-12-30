@@ -18,9 +18,12 @@ namespace ProjectCHAOS
 
 		private void OnEnable()
 		{
-			if(_instance == null) {
-				_instance = this as T;
+			if(_instance != null && _instance != this) {
+				Destroy(this);
+				return;
 			}
+
+			_instance = this as T;
 		}
 
 		private void OnDisable()

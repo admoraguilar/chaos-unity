@@ -1,56 +1,53 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-using UObject = UnityEngine.Object;
-
-namespace ProjectCHAOS
+namespace ProjectCHAOS.Inputs
 {
 	[CreateAssetMenu(menuName = "ProjectCHAOS/Game Input")]
 	public class GameInput : ScriptableSingleton<GameInput>
 	{
-		private class GameInputMono : MonoBehaviour
+		internal static void Initialize()
 		{
-			public event Action UpdateCallback = delegate { };
-			public event Action FixedUpdateCallback = delegate { };
-			public event Action LateUpdateCallback = delegate { };
-
-			private void Update() => UpdateCallback();
-			private void FixedUpdate() => FixedUpdateCallback();
-			private void LateUpdate() => LateUpdateCallback();
+			foreach(IInputControl control in Instance._controls) { control.Initialize(); }
+			foreach(Player player in Instance._players.Values) { player.Initialize(); }
 		}
 
+		public static Player GetPlayer(int index)
+		{
+			if(!Instance._players.TryGetValue(index, out Player player)) {
+				Instance._players[index] = player = CreateDefaultPlayer();
+			}
+			return player;
 
+			Player CreateDefaultPlayer()
+			{
+				Player player = new Player();
+				player.Initialize();
+				player.AddMap(new MobileMovementInputMap());
+				player.AddMap(new PCCombatInputMap());
+				return player;
+			}
+		}
 
-		public static IMovementInputMap movementInputMap => Instance._movementInputMap;
-		public static ICombatInputMap combatInputMap => Instance._combatInputMap;
+		public static void AddPlayer(Player player)
+		{
+
+		}
+
+		public static void RemovePlayer(Player player)
+		{
+
+		}
 
 		[RuntimeInitializeOnLoadMethod]
 		private static void RunOnLoad()
 		{
-			Instance.Initialize();
+			Initialize();
 		}
 
 
-		private GameInputMono _mono = null;
 
-		private IMovementInputMap _movementInputMap = new MobileMovementInputMap();
-		private ICombatInputMap _combatInputMap = new PCCombatInputMap();
-
-		private void Initialize()
-		{
-			GameObject monoGO = new GameObject(nameof(GameInput));
-			UObject.DontDestroyOnLoad(monoGO);
-
-			_mono = monoGO.AddComponent<GameInputMono>();
-			RegisterInputMap(_mono, _movementInputMap);
-			RegisterInputMap(_mono, _combatInputMap);
-
-			void RegisterInputMap(GameInputMono mono, IInputMap inputMap)
-			{
-				mono.UpdateCallback += inputMap.Update;
-				mono.FixedUpdateCallback += inputMap.FixedUpdate;
-				mono.LateUpdateCallback += inputMap.LateUpdate;
-			}
-		}
+		private List<IInputControl> _controls = new List<IInputControl>();
+		private Dictionary<int, Player> _players = new Dictionary<int, Player>();
 	}
 }

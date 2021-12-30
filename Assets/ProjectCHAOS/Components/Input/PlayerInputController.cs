@@ -14,21 +14,30 @@ namespace ProjectCHAOS.Inputs
 		public CharacterMechanic characterMechanic => this.GetCachedComponent(ref _characterMechanic);
 		public MachineGun machineGun => this.GetCachedComponent(ref _machineGun);
 
+		private IMovementInputMap _movementInputMap = null;
+		private ICombatInputMap _combatInputMap = null;
+
+		private void Awake()
+		{
+			_movementInputMap = GameInput.GetPlayer(0).GetMap<IMovementInputMap>();
+			_combatInputMap = GameInput.GetPlayer(0).GetMap<ICombatInputMap>();
+		}
+
 		private void Update()
 		{
-			characterMechanic.Move(GameInput.movementInputMap.moveInputAxis);
+			characterMechanic.Move(_movementInputMap.moveInputAxis);
 
-			//if(GameInput.combatInputMap.isFiringDown) {
+			//if(_combatInputMap.isFiringDown) {
 			//	machineGun.StartFiring();
 			//}
 
-			//if(GameInput.combatInputMap.isFiringUp) {
+			//if(_combatInputMap.isFiringUp) {
 			//	machineGun.StopFiring();
 			//}
 
 			machineGun.StartFiring();
 
-			if(GameInput.movementInputMap.didTap) {
+			if(_movementInputMap.didTap) {
 				Debug.Log("Did tap");
 				characterMechanic.Deploy(!characterMechanic.isDeployed);
 			}
