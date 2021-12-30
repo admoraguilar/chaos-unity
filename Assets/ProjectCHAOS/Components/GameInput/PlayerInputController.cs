@@ -19,8 +19,8 @@ namespace ProjectCHAOS.Inputs
 
 		private void Awake()
 		{
-			_movementInputMap = GameInput.GetPlayer(0).GetMap<IMovementInputMap>();
-			_combatInputMap = GameInput.GetPlayer(0).GetMap<ICombatInputMap>();
+			_movementInputMap = MInput.GetPlayer(0).GetMap<IMovementInputMap>();
+			_combatInputMap = MInput.GetPlayer(0).GetMap<ICombatInputMap>();
 		}
 
 		private void Update()

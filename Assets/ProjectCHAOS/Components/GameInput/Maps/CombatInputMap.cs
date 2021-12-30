@@ -2,7 +2,7 @@
 
 namespace ProjectCHAOS.Inputs
 {
-	public interface ICombatInputMap : IInputMap
+	public interface ICombatInputMap : IMap
 	{
 		public bool isFiringDown { get; }
 		public bool isFiringUp { get; }

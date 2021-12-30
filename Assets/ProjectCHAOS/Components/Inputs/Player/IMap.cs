@@ -1,7 +1,7 @@
 ﻿
 namespace ProjectCHAOS
 {
-	public interface IInputMap
+	public interface IMap
 	{
 		void Initialize();
 		void Deinitialize();
