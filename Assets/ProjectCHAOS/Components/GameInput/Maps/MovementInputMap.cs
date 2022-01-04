@@ -6,6 +6,7 @@ namespace ProjectCHAOS.Inputs
 	{
 		public Vector3 moveInputAxis { get; }
 		public bool didTap { get; }
+		public bool didDoubleTap { get; }
 	}
 
 	public class PCMovementInputMap : IMovementInputMap
@@ -22,6 +23,7 @@ namespace ProjectCHAOS.Inputs
 		}
 
 		public bool didTap => Input.GetMouseButtonUp(0);
+		public bool didDoubleTap => false;
 
 		public void Initialize() { }
 		public void Deinitialize() { }
@@ -48,9 +50,11 @@ namespace ProjectCHAOS.Inputs
 		}
 
 		private Vector3 _moveInputAxis = Vector3.zero;
+		private bool _didTap = false;
+		private bool _didDoubleTap = false;
 
 		public bool didTap => _didTap;
-		private bool _didTap = false;
+		public bool didDoubleTap => _didDoubleTap;
 
 		public void Initialize() 
 		{
@@ -65,15 +69,12 @@ namespace ProjectCHAOS.Inputs
 			_touchUI.controller.tap.OnCount.RemoveListener(OnTapCount);
 		}
 		
-		private void OnSwipeDelta(Vector2 delta)
-		{
-			Debug.Log($"Swipe: {delta}");
-		}
+		private void OnSwipeDelta(Vector2 delta) { }
 		
 		private void OnTapCount(int count)
 		{
-			Debug.Log($"Tap: {count}");
-			_didTap = true;
+			//if(count == 1) { _didTap = true; }
+			if(count == 2) { _didDoubleTap = true; }
 		}
 
 		public void Update() { }
@@ -83,6 +84,7 @@ namespace ProjectCHAOS.Inputs
 		public void LateUpdate() 
 		{
 			_didTap = false;
+			_didDoubleTap = false;
 		}
 	}
 }

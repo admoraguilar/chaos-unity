@@ -11,11 +11,11 @@ namespace ProjectCHAOS.Inputs
 		[SerializeField]
 		private MachineGun _machineGun = null;
 
-		public CharacterMechanic characterMechanic => this.GetCachedComponent(ref _characterMechanic);
-		public MachineGun machineGun => this.GetCachedComponent(ref _machineGun);
-
 		private IMovementInputMap _movementInputMap = null;
 		private ICombatInputMap _combatInputMap = null;
+
+		public CharacterMechanic characterMechanic => this.GetCachedComponent(ref _characterMechanic);
+		public MachineGun machineGun => this.GetCachedComponent(ref _machineGun);
 
 		private void Awake()
 		{
@@ -38,8 +38,11 @@ namespace ProjectCHAOS.Inputs
 			machineGun.StartFiring();
 
 			if(_movementInputMap.didTap) {
-				Debug.Log("Did tap");
 				characterMechanic.Deploy(!characterMechanic.isDeployed);
+			}
+
+			if(_movementInputMap.didDoubleTap) {
+				characterMechanic.Tackle(characterMechanic.transform.forward);
 			}
 		}
 	}
