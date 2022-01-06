@@ -973,6 +973,7 @@ GameObject:
   - component: {fileID: 1010662049}
   - component: {fileID: 1010662048}
   - component: {fileID: 1010662050}
+  - component: {fileID: 1010662051}
   m_Layer: 0
   m_Name: Jacket
   m_TagString: Untagged
@@ -1027,6 +1028,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterMechanic: {fileID: 1010662048}
   _machineGun: {fileID: 1392818344}
+--- !u!114 &1010662051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010662047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14310496ce5cc2549aa4769b073572f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  responses: []
 --- !u!1 &1088315347
 GameObject:
   m_ObjectHideFlags: 0

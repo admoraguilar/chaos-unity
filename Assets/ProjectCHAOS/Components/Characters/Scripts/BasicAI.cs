@@ -18,7 +18,6 @@ namespace ProjectCHAOS
 
 		private void OnCollisionEnter(Collision collision)
 		{
-			Debug.Log("OnCollisionEnter");
 			if(collision.gameObject.TryGetComponent(out Bullet bullet)) {
 				Destroy(gameObject);
 				Destroy(bullet.gameObject);
