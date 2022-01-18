@@ -11,6 +11,13 @@ namespace ProjectCHAOS
 
 		public new Transform transform => this.GetCachedComponent(ref _transform);
 
+		private void Awake()
+		{
+			SceneBlackboard sceneBlackboard = Blackboard.Get<SceneBlackboard>();
+			CharacterMechanic characterMechanic = sceneBlackboard.Get<CharacterMechanic>();
+			Debug.Log($"Targetting: {characterMechanic.name} by {name}");
+		}
+
 		private void FixedUpdate()
 		{
 			transform.Translate(direction * speed * Time.deltaTime, Space.Self);
