@@ -7,10 +7,13 @@ namespace ProjectCHAOS.Characters.AIs
 {
 	public class BasicAI : MonoBehaviour
 	{
-		public Vector3 direction = Vector3.zero;
-		public float speed = 10f;
-
 		private CharacterMechanic _characterMechanic = null;
+
+		[SerializeField]
+		private Movement _movement = null;
+
+		[SerializeField]
+		private Targetting _targetting = null;
 
 		private Transform _transform = null;
 
@@ -19,20 +22,24 @@ namespace ProjectCHAOS.Characters.AIs
 		private void Awake()
 		{
 			SceneBlackboard sceneBlackboard = Blackboard.Get<SceneBlackboard>();
-			
 			_characterMechanic = sceneBlackboard.Get<CharacterMechanic>();
-			Debug.Log($"Targetting: {_characterMechanic.name} by {name}");
+
+			_movement = new Movement();
+			_movement.Initialize(transform);
+
+			_targetting = new Targetting();
+			_targetting.Initialize(transform);
+			_targetting.target = _characterMechanic.transform;
 		}
 
 		private void Start()
 		{
-			Vector3 dir = _characterMechanic.transform.position - transform.position;
-			direction = dir.normalized;
+			_movement.direction = _targetting.GetDirectionToTarget();
 		}
 
 		private void FixedUpdate()
 		{
-			transform.Translate(direction * speed * Time.deltaTime, Space.Self);
+			_movement.FixedUpdate();
 		}
 
 		private void OnCollisionEnter(Collision collision)
