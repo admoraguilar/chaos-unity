@@ -10,6 +10,8 @@ namespace ProjectCHAOS.Characters.AIs
 		public Vector3 direction = Vector3.zero;
 		public float speed = 10f;
 
+		private CharacterMechanic _characterMechanic = null;
+
 		private Transform _transform = null;
 
 		public new Transform transform => this.GetCachedComponent(ref _transform);
@@ -17,8 +19,15 @@ namespace ProjectCHAOS.Characters.AIs
 		private void Awake()
 		{
 			SceneBlackboard sceneBlackboard = Blackboard.Get<SceneBlackboard>();
-			CharacterMechanic characterMechanic = sceneBlackboard.Get<CharacterMechanic>();
-			Debug.Log($"Targetting: {characterMechanic.name} by {name}");
+			
+			_characterMechanic = sceneBlackboard.Get<CharacterMechanic>();
+			Debug.Log($"Targetting: {_characterMechanic.name} by {name}");
+		}
+
+		private void Start()
+		{
+			Vector3 dir = _characterMechanic.transform.position - transform.position;
+			direction = dir.normalized;
 		}
 
 		private void FixedUpdate()
