@@ -1,6 +1,9 @@
 using UnityEngine;
+using ProjectCHAOS.Weapons;
+using ProjectCHAOS.Utilities;
+using ProjectCHAOS.Blackboards;
 
-namespace ProjectCHAOS
+namespace ProjectCHAOS.Characters.AIs
 {
 	public class BasicAI : MonoBehaviour
 	{

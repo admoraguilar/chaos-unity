@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ProjectCHAOS
+namespace ProjectCHAOS.Blackboards
 {
 	public class SceneBlackboardBridge : MonoBehaviour
 	{

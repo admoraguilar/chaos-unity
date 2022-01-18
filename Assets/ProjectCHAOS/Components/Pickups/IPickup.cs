@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-namespace ProjectCHAOS.Items
+namespace ProjectCHAOS.Interactions
 {
 	public interface IPickup
 	{

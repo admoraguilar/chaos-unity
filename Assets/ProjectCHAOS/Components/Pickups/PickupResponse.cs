@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ProjectCHAOS.Items
+namespace ProjectCHAOS.Interactions
 {
 	public abstract class PickupResponse : ScriptableObject 
 	{

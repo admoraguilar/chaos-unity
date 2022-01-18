@@ -1,6 +1,7 @@
 using UnityEngine;
+using ProjectCHAOS.Utilities;
 
-namespace ProjectCHAOS
+namespace ProjectCHAOS.Characters
 {
     public class CharacterMechanic : MonoBehaviour
     {

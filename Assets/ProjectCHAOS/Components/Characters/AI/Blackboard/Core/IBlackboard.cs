@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ProjectCHAOS
+namespace ProjectCHAOS.Blackboards
 {
 	public interface IBlackboard
 	{

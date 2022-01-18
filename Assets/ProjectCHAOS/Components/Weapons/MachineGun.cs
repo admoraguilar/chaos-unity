@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ProjectCHAOS
+namespace ProjectCHAOS.Weapons
 {
     public class MachineGun : MonoBehaviour
     {

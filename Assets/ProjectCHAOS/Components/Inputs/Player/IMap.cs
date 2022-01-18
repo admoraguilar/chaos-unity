@@ -1,5 +1,5 @@
 ﻿
-namespace ProjectCHAOS
+namespace ProjectCHAOS.Inputs
 {
 	public interface IMap
 	{

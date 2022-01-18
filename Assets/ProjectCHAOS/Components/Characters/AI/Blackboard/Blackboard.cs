@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ProjectCHAOS
+namespace ProjectCHAOS.Blackboards
 {
 	public static class Blackboard
 	{

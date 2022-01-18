@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using ProjectCHAOS.Utilities;
 
-namespace ProjectCHAOS.Bootup
+namespace ProjectCHAOS.Bootstrappers
 {
     [CreateAssetMenu(menuName = "ProjectCHAOS/Bootstrapper")]
     public class Bootstrapper : ScriptableSingleton<Bootstrapper>

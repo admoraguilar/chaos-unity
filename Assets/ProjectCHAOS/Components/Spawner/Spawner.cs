@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ProjectCHAOS
+namespace ProjectCHAOS.Rules
 {
     public class Spawner : MonoBehaviour
     {
