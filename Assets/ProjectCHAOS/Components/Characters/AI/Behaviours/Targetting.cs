@@ -7,6 +7,7 @@ namespace ProjectCHAOS.Characters.AIs
 	public class Targetting
 	{
 		public Transform target;
+		public Vector3 targetPoint;
 
 		private Transform _owner = null;
 
@@ -17,12 +18,19 @@ namespace ProjectCHAOS.Characters.AIs
 
 		public Vector3 GetDirectionToTarget()
 		{
-			if(target == null) {
-				throw new NullReferenceException("Targetting has no target, please set one.");
-			}
+			//if(target == null) {
+			//	throw new NullReferenceException("Targetting has no target, please set one.");
+			//}
 
-			Vector3 dir = target.position - _owner.position;
+			Vector3 point = target == null ? targetPoint : target.position;
+			Vector3 dir = point - _owner.position;
 			return dir.normalized;
+		}
+
+		public float GetDistanceToTaget()
+		{
+			Vector3 point = target == null ? targetPoint : target.position;
+			return Vector3.Distance(point, _owner.position);
 		}
 	}
 }

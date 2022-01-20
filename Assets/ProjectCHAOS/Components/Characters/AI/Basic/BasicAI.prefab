@@ -127,5 +127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44352d1d35a7147408c0899188fe0176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0, z: -1}
-  speed: 10
+  _movement:
+    direction: {x: 0, y: 0, z: 0}
+    speed: 10
+  _targetting:
+    target: {fileID: 0}
+    targetPoint: {x: 0, y: 0, z: 0}
