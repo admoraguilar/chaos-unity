@@ -14,8 +14,6 @@ namespace ProjectCHAOS.Bootstrappers
 			SceneManager.LoadSceneAsync(Instance.sceneName, LoadSceneMode.Additive);
 		}
 
-
-
 		public bool isEnabled = false;
         public string sceneName = string.Empty;
 	}
