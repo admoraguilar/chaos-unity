@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using ProjectCHAOS.Utilities;
+using ProjectCHAOS.Common;
 
 namespace ProjectCHAOS.Inputs
 {

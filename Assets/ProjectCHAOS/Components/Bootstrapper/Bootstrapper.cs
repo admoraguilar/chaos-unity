@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using ProjectCHAOS.Utilities;
+using ProjectCHAOS.Common;
 
 namespace ProjectCHAOS.Bootstrappers
 {

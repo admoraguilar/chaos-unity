@@ -1,7 +1,7 @@
 using UnityEngine;
 using ProjectCHAOS.Levels;
 using ProjectCHAOS.Weapons;
-using ProjectCHAOS.Utilities;
+using ProjectCHAOS.Common;
 using ProjectCHAOS.Blackboards;
 
 namespace ProjectCHAOS.Characters.AIs

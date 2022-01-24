@@ -1,5 +1,5 @@
 using UnityEngine;
-using ProjectCHAOS.Utilities;
+using ProjectCHAOS.Common;
 
 namespace ProjectCHAOS.Rules.Scores
 {
@@ -16,6 +16,6 @@ namespace ProjectCHAOS.Rules.Scores
 		}
 
 		// Add saving mechanism of the scores here like
-		// best scores and save it to a file...
+		// best scores and save it to a file.
 	}
 }

@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using ProjectCHAOS.Utilities;
+using ProjectCHAOS.Common;
 
 using SObject = System.Object;
 using UObject = UnityEngine.Object;

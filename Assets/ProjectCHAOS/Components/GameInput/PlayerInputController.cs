@@ -1,6 +1,6 @@
 using UnityEngine;
 using ProjectCHAOS.Weapons;
-using ProjectCHAOS.Utilities;
+using ProjectCHAOS.Common;
 using ProjectCHAOS.Characters;
 
 namespace ProjectCHAOS.Inputs

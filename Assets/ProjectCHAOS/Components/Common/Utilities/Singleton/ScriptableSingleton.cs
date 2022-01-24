@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ProjectCHAOS.Utilities
+namespace ProjectCHAOS.Common
 {
 	public class ScriptableSingleton<T> : ScriptableObject where T : ScriptableObject
 	{

@@ -5,7 +5,7 @@ using UnityEngine;
 
 using UObject = UnityEngine.Object;
 
-namespace ProjectCHAOS.Utilities
+namespace ProjectCHAOS.Common
 {
 	public class MonoDelegate : MonoBehaviour
 	{

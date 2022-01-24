@@ -1,5 +1,5 @@
 using UnityEngine;
-using ProjectCHAOS.Utilities;
+using ProjectCHAOS.Common;
 
 namespace ProjectCHAOS.Characters
 {
