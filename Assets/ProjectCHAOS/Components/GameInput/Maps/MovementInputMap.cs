@@ -1,4 +1,5 @@
 using UnityEngine;
+using Lean.Touch;
 
 namespace ProjectCHAOS.Inputs
 {
@@ -59,22 +60,34 @@ namespace ProjectCHAOS.Inputs
 		public void Initialize() 
 		{
 			_touchUI = MInput.GetController<TouchUIController>(0);
-			_touchUI.controller.swipe.OnDelta.AddListener(OnSwipeDelta);
-			_touchUI.controller.tap.OnCount.AddListener(OnTapCount);
+			_touchUI.controller.swipeLean.OnFinger.AddListener(OnSwipeFinger);
+			_touchUI.controller.tapLean.OnFinger.AddListener(OnTapFinger);
 		}
 
 		public void Deinitialize() 
 		{
-			_touchUI.controller.swipe.OnDelta.RemoveListener(OnSwipeDelta);
-			_touchUI.controller.tap.OnCount.RemoveListener(OnTapCount);
+			_touchUI.controller.swipeLean.OnFinger.RemoveListener(OnSwipeFinger);
+			_touchUI.controller.tapLean.OnFinger.RemoveListener(OnTapFinger);
 		}
 		
-		private void OnSwipeDelta(Vector2 delta) { }
-		
-		private void OnTapCount(int count)
+		private void OnSwipeFinger(LeanFinger finger)
 		{
-			//if(count == 1) { _didTap = true; }
-			if(count == 2) { _didDoubleTap = true; }
+			bool isInImage = RectTransformUtility.RectangleContainsScreenPoint(
+				_touchUI.controller.swipeImage.rectTransform, 
+				finger.StartScreenPosition);
+			if(!isInImage) { return; }
+
+			if(finger.Swipe) { _didDoubleTap = true; }
+		}
+
+		private void OnTapFinger(LeanFinger finger)
+		{
+			bool isInImage = RectTransformUtility.RectangleContainsScreenPoint(
+				_touchUI.controller.tapImage.rectTransform, 
+				finger.StartScreenPosition);
+			if(!isInImage) { return; }
+
+			if(finger.TapCount == 1) { _didTap = true; }
 		}
 
 		public void Update() { }

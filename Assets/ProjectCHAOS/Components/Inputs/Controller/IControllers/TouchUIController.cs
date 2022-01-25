@@ -1,21 +1,31 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using Lean.Touch;
 
 namespace ProjectCHAOS.Inputs
 {
 	public class TouchUIController : MonoBehaviour, IController
 	{
-		public Joystick joystick => _joystick;
 		[SerializeField]
 		private Joystick _joystick = null;
 
-		public LeanSwipeBase swipe => _swipe;
+		[SerializeField]
+		private Image _swipeImage = null;
+
 		[SerializeField]
 		private LeanSwipeBase _swipe = null;
 
-		public LeanFingerTap tap => _tap;
+		[SerializeField]
+		private Image _tapImage = null;
+		
 		[SerializeField]
 		private LeanFingerTap _tap = null;
+
+		public Joystick joystick => _joystick;
+		public Image swipeImage => _swipeImage;
+		public LeanSwipeBase swipeLean => _swipe;
+		public Image tapImage => _tapImage;
+		public LeanFingerTap tapLean => _tap;
 
 		private void OnEnable()
 		{
