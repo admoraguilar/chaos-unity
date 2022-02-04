@@ -1,0 +1,2 @@
+- double click 'CClubHDR';
+- install hdrp: Window > Package Manager > hdrp.
