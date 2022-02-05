@@ -60,14 +60,15 @@ namespace ProjectCHAOS.Inputs
 		public void Initialize() 
 		{
 			_touchUI = MInput.GetController<TouchUIController>(0);
-			_touchUI.controller.swipeLean.OnFinger.AddListener(OnSwipeFinger);
-			_touchUI.controller.tapLean.OnFinger.AddListener(OnTapFinger);
+			_touchUI.OnInitialize += OnTouchUIInitialize;
+			_touchUI.OnDeinitialize += OnTouchUIDeinitialize;
 		}
 
 		public void Deinitialize() 
 		{
-			_touchUI.controller.swipeLean.OnFinger.RemoveListener(OnSwipeFinger);
-			_touchUI.controller.tapLean.OnFinger.RemoveListener(OnTapFinger);
+			_touchUI = MInput.GetController<TouchUIController>(0);
+			_touchUI.OnInitialize -= OnTouchUIInitialize;
+			_touchUI.OnDeinitialize -= OnTouchUIDeinitialize;
 		}
 		
 		private void OnSwipeFinger(LeanFinger finger)
@@ -88,6 +89,18 @@ namespace ProjectCHAOS.Inputs
 			if(!isInImage) { return; }
 
 			if(finger.TapCount == 1) { _didTap = true; }
+		}
+
+		private void OnTouchUIInitialize()
+		{
+			_touchUI.controller.swipeLean.OnFinger.AddListener(OnSwipeFinger);
+			_touchUI.controller.tapLean.OnFinger.AddListener(OnTapFinger);
+		}
+
+		private void OnTouchUIDeinitialize()
+		{
+			_touchUI.controller.swipeLean.OnFinger.RemoveListener(OnSwipeFinger);
+			_touchUI.controller.tapLean.OnFinger.RemoveListener(OnTapFinger);
 		}
 
 		public void Update() { }

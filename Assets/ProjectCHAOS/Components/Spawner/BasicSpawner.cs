@@ -19,6 +19,7 @@ namespace ProjectCHAOS.Spawners
 		[SerializeField]
 		private bool _shouldSpawnOnStart = false;
 
+		private List<GameObject> _spawnedList = new List<GameObject>();
 		private bool _isSpawning = false;
 
 		public List<GameObject> toSpawnPrefabList
@@ -61,10 +62,19 @@ namespace ProjectCHAOS.Spawners
 			isSpawning = false;
 		}
 
+		public void DespawnAll()
+		{
+			_spawnedList.RemoveAll(go => go == null);
+			foreach(GameObject go in _spawnedList) {
+				Destroy(go);
+			}
+		}
+
 		public void Spawn()
 		{
 			Transform spawnPoint = _spawnPointsList.Random();
-			Instantiate(_toSpawnPrefabList.Random(), spawnPoint);
+			GameObject spawnedObject = Instantiate(_toSpawnPrefabList.Random(), spawnPoint);
+			_spawnedList.Add(spawnedObject);
 		}
 
 		private void Start()

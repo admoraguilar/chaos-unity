@@ -1,8 +1,12 @@
-﻿
+﻿using System;
+
 namespace ProjectCHAOS.Inputs
 {
 	public sealed class Controller<T> : Controller where T : class, IController
 	{
+		public event Action OnInitialize = delegate { };
+		public event Action OnDeinitialize = delegate { };
+
 		public T controller => _controller;
 		private T _controller = null;
 
@@ -12,11 +16,13 @@ namespace ProjectCHAOS.Inputs
 		public void Initialize(T controller)
 		{
 			_controller = controller;
+			OnInitialize();
 			_isReady = true;
 		}
 
 		public void Deinitialize()
 		{
+			OnDeinitialize();
 			_controller = null;
 			_isReady = false;
 		}
