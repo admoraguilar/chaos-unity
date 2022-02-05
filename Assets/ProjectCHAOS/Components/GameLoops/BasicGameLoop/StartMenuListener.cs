@@ -5,19 +5,8 @@ using ProjectCHAOS.Common;
 
 namespace ProjectCHAOS.GameLoops
 {
-	public class StartMenuListener : MonoBehaviour
+	public class StartMenuListener : GameLoopListener
 	{
-		[SerializeField]
-		private Node _startMenuNode = null;
 
-		private void OnEnable()
-		{
-			
-		}
-
-		private void OnDisable()
-		{
-			
-		}
 	}
 }

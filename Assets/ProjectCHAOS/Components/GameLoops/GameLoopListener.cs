@@ -10,6 +10,9 @@ namespace ProjectCHAOS.GameLoops
 		protected Node _node = null;
 
 		[SerializeField]
+		protected List<GameObject> _disabledObjectsOnVisitList = new List<GameObject>();
+
+		[SerializeField]
 		protected List<GameObject> _activeObjectsList = new List<GameObject>();
 
 		[SerializeField]
@@ -17,6 +20,7 @@ namespace ProjectCHAOS.GameLoops
 
 		protected virtual void OnVisit() 
 		{ 
+			foreach(GameObject go in _disabledObjectsOnVisitList) { go.SetActive(false); }
 			foreach(GameObject go in _activeObjectsList) { go.SetActive(true); }
 		}
 

@@ -14,7 +14,12 @@ namespace ProjectCHAOS.Spawners
 		private Timing _spawnRate = null;
 
 		[SerializeField]
-		private List<Transform> _spawnPoints = new List<Transform>();
+		private List<Transform> _spawnPointsList = new List<Transform>();
+
+		[SerializeField]
+		private bool _shouldSpawnOnStart = false;
+
+		private bool _isSpawning = false;
 
 		public List<GameObject> toSpawnPrefabList
 		{
@@ -22,14 +27,43 @@ namespace ProjectCHAOS.Spawners
 			set => _toSpawnPrefabList = value;
 		}
 
-		public Timing spawnRate => _spawnRate;
-
-		public List<Transform> spawnPoints => _spawnPoints;
-
-		private void Spawn()
+		public Timing spawnRate
 		{
-			int randomSpawnPointIndex = Random.Range(0, _spawnPoints.Count);
-			Transform spawnPoint = _spawnPoints[randomSpawnPointIndex];
+			get => _spawnRate;
+			private set => _spawnRate = value;
+		}
+
+		public List<Transform> spawnPoints
+		{
+			get => _spawnPointsList;
+			private set => _spawnPointsList = value;
+		}
+
+		public bool shouldSpawnOnStart
+		{
+			get => _shouldSpawnOnStart;
+			private set => _shouldSpawnOnStart = value;
+		}
+
+		public bool isSpawning
+		{
+			get => _isSpawning;
+			private set => _isSpawning = value;
+		}
+
+		public void Run()
+		{
+			isSpawning = true;
+		}
+
+		public void Stop()
+		{
+			isSpawning = false;
+		}
+
+		public void Spawn()
+		{
+			Transform spawnPoint = _spawnPointsList.Random();
 			Instantiate(_toSpawnPrefabList.Random(), spawnPoint);
 		}
 

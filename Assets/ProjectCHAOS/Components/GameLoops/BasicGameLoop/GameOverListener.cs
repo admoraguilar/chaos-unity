@@ -4,18 +4,8 @@ using UnityEngine;
 
 namespace ProjectCHAOS.GameLoops
 {
-	public class GameOverListener : MonoBehaviour
+	public class GameOverListener : GameLoopListener
 	{
-		// Start is called before the first frame update
-		void Start()
-		{
 
-		}
-
-		// Update is called once per frame
-		void Update()
-		{
-
-		}
 	}
 }
