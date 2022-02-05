@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfdfc98970ca90e4080e525f94873ba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _toSpawnPrefab: {fileID: 4028546202609538081, guid: 6438d8b11a86ee44c9cf626872a60a39, type: 3}
+  _toSpawnPrefab: {fileID: 4028546202609538081, guid: d3d943ca9316b2e4981d2048956ea905, type: 3}
   _spawnRate:
     _current: 0
     _max: 1

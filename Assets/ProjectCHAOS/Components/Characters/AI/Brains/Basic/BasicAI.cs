@@ -22,12 +22,8 @@ namespace ProjectCHAOS.Characters.AIs
 		private Targetting _targetting = null;
 
 		private Transform _transform = null;
-		private Rigidbody _rigidbody = null;
-		private Collider _collider = null;
 
 		public new Transform transform => this.GetCachedComponent(ref _transform);
-		public new Rigidbody rigidbody => this.GetCachedComponent(ref _rigidbody);
-		public new Collider collider => this.GetCachedComponent(ref _collider);
 
 		private void Awake()
 		{
@@ -37,7 +33,7 @@ namespace ProjectCHAOS.Characters.AIs
 			_characterMechanic = sceneBlackboard.Get<CharacterMechanic>();
 
 			_positioning = new Positioning();
-			_positioning.Initialize(collider, _levelArea);
+			_positioning.Initialize(_levelArea);
 
 			_movement = new Movement();
 			_movement.Initialize(transform);
@@ -61,19 +57,17 @@ namespace ProjectCHAOS.Characters.AIs
 			}
 		}
 
-		private void OnCollisionEnter(Collision collision)
-		{
-			if(collision.gameObject.TryGetComponent(out Bullet bullet)) {
-				Destroy(gameObject);
-				Destroy(bullet.gameObject);
-			}
-		}
+#if UNITY_EDITOR
 
 		private void OnDrawGizmos()
 		{
-			Gizmos.color = Color.yellow;
-			Gizmos.DrawSphere(_targetting.targetPoint, 2f);
-			Gizmos.DrawRay(transform.position, _movement.direction);
+			if(Application.isPlaying) {
+				Gizmos.color = Color.yellow;
+				Gizmos.DrawSphere(_targetting.targetPoint, 1f);
+				Gizmos.DrawRay(transform.position, _movement.direction);
+			}
 		}
+
+#endif
 	}
 }

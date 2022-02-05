@@ -1,6 +1,6 @@
 using System;
-using ProjectCHAOS.Levels;
 using UnityEngine;
+using ProjectCHAOS.Levels;
 
 namespace ProjectCHAOS.Behave
 {
@@ -10,22 +10,35 @@ namespace ProjectCHAOS.Behave
 		private Collider _ownerCollider = null;
 		private LevelArea _levelArea = null;
 
-		public void Initialize(Collider ownerCollider, LevelArea levelArea)
+		public Collider ownerCollider
 		{
-			_ownerCollider = ownerCollider;
+			get => _ownerCollider;
+			set => _ownerCollider = value;
+		}
+
+		public LevelArea levelArea
+		{
+			get => _levelArea;
+			set => _levelArea = value;
+		}
+
+		public void Initialize(LevelArea levelArea)
+		{
 			_levelArea = levelArea;
 		}
 
 		public Vector3 GetPosition()
 		{
 			Vector3 position = _levelArea.GetRandomPointXZ();
-			Vector3 ownerCenter = _ownerCollider.bounds.center;
-			Vector3 ownerMin = _ownerCollider.bounds.min;
+			float yOffset = 0f;
 
-			return new Vector3(
-				position.x,
-				position.y + Mathf.Abs(ownerCenter.y - ownerMin.y),
-				position.z);
+			if(_ownerCollider != null) {
+				Vector3 ownerCenter = _ownerCollider.bounds.center;
+				Vector3 ownerMin = _ownerCollider.bounds.min;
+				yOffset = Mathf.Abs(ownerCenter.y - ownerMin.y);
+			}
+
+			return new Vector3(position.x, position.y + yOffset, position.z);
 		}
 	}
 }
