@@ -64,11 +64,10 @@ namespace ProjectCHAOS.Scores
 	}
 
 
+#if UNITY_EDITOR
 
 	class _ScorerEditor
 	{
-#if UNITY_EDITOR
-
 		[InitializeOnLoadMethod]
 		private static void OnEditorInitialize()
 		{
@@ -82,6 +81,7 @@ namespace ProjectCHAOS.Scores
 			}
 		}
 
-#endif
 	}
+
+#endif
 }

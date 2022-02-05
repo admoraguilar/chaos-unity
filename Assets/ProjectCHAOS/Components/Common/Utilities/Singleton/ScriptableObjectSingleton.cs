@@ -38,15 +38,14 @@ namespace ProjectCHAOS.Common
 				_instance = null;
 			}
 		}
-
-
 	}
 
 
+#if UNITY_EDITOR
 
 	class _ScriptableSingletonEditor
 	{
-#if UNITY_EDITOR
+
 
 		[InitializeOnLoadMethod]
 		private static void OnEditorInitialize()
@@ -54,7 +53,7 @@ namespace ProjectCHAOS.Common
 			// Touch the preloaded assets so it'll always be loaded upon the opening of the editor
 			PlayerSettings.GetPreloadedAssets();
 		}
+	}
 
 #endif
-	}
 }
