@@ -5,7 +5,7 @@ using ProjectCHAOS.Common;
 namespace ProjectCHAOS.Bootstrappers
 {
     [CreateAssetMenu(menuName = "ProjectCHAOS/Bootstrapper")]
-    public class Bootstrapper : ScriptableSingleton<Bootstrapper>
+    public class Bootstrapper : ScriptableObjectSingleton<Bootstrapper>
     {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void RunOnLoad()

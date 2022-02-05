@@ -2,7 +2,7 @@
 
 namespace ProjectCHAOS.Common
 {
-	public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
+	public class MonoBehaviourSingleton<T> : MonoBehaviour where T : MonoBehaviour
 	{
 		public static T Instance
 		{

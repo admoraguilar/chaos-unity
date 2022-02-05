@@ -9,7 +9,7 @@ using UnityEditor;
 
 namespace ProjectCHAOS.Common
 {
-	public class ScriptableSingleton<T> : ScriptableObject where T : ScriptableObject
+	public class ScriptableObjectSingleton<T> : ScriptableObject where T : ScriptableObject
 	{
 		public static T Instance
 		{
