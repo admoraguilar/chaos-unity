@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ProjectCHAOS.Behave;
+using ProjectCHAOS.Common;
 
 namespace ProjectCHAOS.Spawners
 {
     public class BasicSpawner : MonoBehaviour
     {
 		[SerializeField]
-        private GameObject _toSpawnPrefab = null;
+        private List<GameObject> _toSpawnPrefabList = null;
 
 		[SerializeField]
 		private Timing _spawnRate = null;
@@ -15,12 +16,10 @@ namespace ProjectCHAOS.Spawners
 		[SerializeField]
 		private List<Transform> _spawnPoints = new List<Transform>();
 
-		private float spawnTimer = 0f;
-
-		public GameObject toSpawnPrefab
+		public List<GameObject> toSpawnPrefabList
 		{
-			get => _toSpawnPrefab;
-			set => _toSpawnPrefab = value;
+			get => _toSpawnPrefabList;
+			set => _toSpawnPrefabList = value;
 		}
 
 		public Timing spawnRate => _spawnRate;
@@ -31,7 +30,7 @@ namespace ProjectCHAOS.Spawners
 		{
 			int randomSpawnPointIndex = Random.Range(0, _spawnPoints.Count);
 			Transform spawnPoint = _spawnPoints[randomSpawnPointIndex];
-			Instantiate(_toSpawnPrefab, spawnPoint);
+			Instantiate(_toSpawnPrefabList.Random(), spawnPoint);
 		}
 
 		private void Start()
