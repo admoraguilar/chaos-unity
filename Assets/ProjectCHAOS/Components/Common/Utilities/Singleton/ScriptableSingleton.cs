@@ -1,6 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
+#if UNITY_EDITOR
+
+using UnityEditor;
+
+#endif
+
 namespace ProjectCHAOS.Common
 {
 	public class ScriptableSingleton<T> : ScriptableObject where T : ScriptableObject
@@ -32,5 +38,16 @@ namespace ProjectCHAOS.Common
 				_instance = null;
 			}
 		}
+
+#if UNITY_EDITOR
+
+		[InitializeOnLoadMethod]
+		private void OnEditorInitialize()
+		{
+			// Touch the preloaded assets so it'll always be loaded upon the opening of the editor
+			PlayerSettings.GetPreloadedAssets();
+		}
+
+#endif
 	}
 }
