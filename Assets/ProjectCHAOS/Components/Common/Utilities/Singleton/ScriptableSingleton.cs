@@ -39,10 +39,17 @@ namespace ProjectCHAOS.Common
 			}
 		}
 
+
+	}
+
+
+
+	class _ScriptableSingletonEditor
+	{
 #if UNITY_EDITOR
 
 		[InitializeOnLoadMethod]
-		private void OnEditorInitialize()
+		private static void OnEditorInitialize()
 		{
 			// Touch the preloaded assets so it'll always be loaded upon the opening of the editor
 			PlayerSettings.GetPreloadedAssets();

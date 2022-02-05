@@ -1,4 +1,5 @@
 using UnityEngine;
+using ProjectCHAOS.Behave;
 using ProjectCHAOS.Levels;
 using ProjectCHAOS.Weapons;
 using ProjectCHAOS.Common;
@@ -47,14 +48,16 @@ namespace ProjectCHAOS.Characters.AIs
 
 		private void Start()
 		{
-			_targetting.targetPoint = _positioning.GetPosition();
+			_targetting.SetTarget(_positioning.GetPosition());
+			
+			_movement.space = Space.World;
 			_movement.direction = _targetting.GetDirectionToTarget();
 		}
 
 		private void FixedUpdate()
 		{
-			if(_targetting.GetDistanceToTaget() > 0.5f) {
-				_movement.FixedUpdate();
+			if(_targetting.GetDistanceToTarget() > 0.5f) {
+				_movement.Update();
 			}
 		}
 
@@ -64,6 +67,13 @@ namespace ProjectCHAOS.Characters.AIs
 				Destroy(gameObject);
 				Destroy(bullet.gameObject);
 			}
+		}
+
+		private void OnDrawGizmos()
+		{
+			Gizmos.color = Color.yellow;
+			Gizmos.DrawSphere(_targetting.targetPoint, 2f);
+			Gizmos.DrawRay(transform.position, _movement.direction);
 		}
 	}
 }

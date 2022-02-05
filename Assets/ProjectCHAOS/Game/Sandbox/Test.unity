@@ -183,9 +183,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfdfc98970ca90e4080e525f94873ba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toSpawnPrefab: {fileID: 4028546202609538081, guid: 6438d8b11a86ee44c9cf626872a60a39, type: 3}
-  spawnRate: 1
-  spawnPoints:
+  _toSpawnPrefab: {fileID: 4028546202609538081, guid: 6438d8b11a86ee44c9cf626872a60a39, type: 3}
+  _spawnRate:
+    _current: 0
+    _max: 1
+    _isResetOnMaxSet: 1
+  _spawnPoints:
   - {fileID: 1174383321}
   - {fileID: 1929792048}
   - {fileID: 588368117}
@@ -542,7 +545,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.7965195, y: 1}
+    m_SensorSize: {x: 0.5622932, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1877,7 +1880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd2813337dfa634dab812c03a803fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 15
   rotateSpeed: 500
   tackleSpeed: 25
   tackleLength: 4

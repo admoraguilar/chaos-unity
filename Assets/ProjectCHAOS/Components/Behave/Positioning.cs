@@ -2,7 +2,7 @@ using System;
 using ProjectCHAOS.Levels;
 using UnityEngine;
 
-namespace ProjectCHAOS.Characters.AIs
+namespace ProjectCHAOS.Behave
 {
 	[Serializable]
 	public class Positioning
