@@ -48,5 +48,16 @@ namespace ProjectCHAOS.Scores
 		{
 			this.id = id;
 		}
+
+		public void Reset()
+		{
+			current = 0;
+		}
+
+		public void ResetAll()
+		{
+			current = 0;
+			best = 0;
+		}
 	}
 }

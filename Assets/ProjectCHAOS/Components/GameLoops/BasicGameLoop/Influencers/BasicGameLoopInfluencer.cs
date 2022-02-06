@@ -1,6 +1,8 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using ProjectCHAOS.Menus;
 using ProjectCHAOS.Common;
+using ProjectCHAOS.Scores;
 using ProjectCHAOS.Sandbox;
 
 namespace ProjectCHAOS.GameLoops
@@ -13,6 +15,9 @@ namespace ProjectCHAOS.GameLoops
 		[SerializeField]
 		private OnEnemyCollisionResponse _onPlayerEnemyCollisionResponse = null;
 
+		[SerializeField]
+		private DynamicJoystick _joystick = null;
+
 		[Space]
 		[SerializeField]
 		private Node _startMenu = null;
@@ -20,14 +25,23 @@ namespace ProjectCHAOS.GameLoops
 		[SerializeField]
 		private Node _game = null;
 
+		private Score _score = null;
+
 		private void OnStartMenuTouchScreen()
 		{
+			_score.Reset();
 			_startMenu.Next();
 		}
 
 		private void OnPlayerDies()
 		{
 			_game.Next();
+			_joystick.OnPointerUp(new PointerEventData(EventSystem.current));
+		}
+
+		private void Awake()
+		{
+			_score = Scorer.Instance.GetScore(0);
 		}
 
 		private void OnEnable()
