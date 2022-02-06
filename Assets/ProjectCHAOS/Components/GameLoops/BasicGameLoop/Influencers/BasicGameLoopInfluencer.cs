@@ -35,8 +35,8 @@ namespace ProjectCHAOS.GameLoops
 
 		private void OnPlayerDies()
 		{
-			_game.Next();
-			_joystick.OnPointerUp(new PointerEventData(EventSystem.current));
+			//_game.Next();
+			//_joystick.OnPointerUp(new PointerEventData(EventSystem.current));
 		}
 
 		private void Awake()

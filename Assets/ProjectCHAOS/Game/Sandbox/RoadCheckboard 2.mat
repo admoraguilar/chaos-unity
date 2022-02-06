@@ -37,8 +37,8 @@ Material:
     - _EmissionGain: 0.223
     - _LineWidth: 0.082
     - _ParcelSize: 1
-    - _Specular: 50
-    - _UseSpecular: 0
+    - _Specular: 635
+    - _UseSpecular: 1
     m_Colors:
     - _EmissionColor: {r: 0, g: 1, b: 0.95686275, a: 1}
     - _LineColor: {r: 0, g: 1, b: 0.95686275, a: 1}
