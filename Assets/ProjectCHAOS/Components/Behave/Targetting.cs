@@ -34,6 +34,7 @@ namespace ProjectCHAOS.Behave
 		{
 			Vector3 point = target == null ? targetPoint : target.position;
 			Vector3 dir = point - _owner.position;
+			dir.y = 0f;
 			return dir.normalized;
 		}
 

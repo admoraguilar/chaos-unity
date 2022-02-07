@@ -73,7 +73,11 @@ namespace ProjectCHAOS.Spawners
 		public void Spawn()
 		{
 			Transform spawnPoint = _spawnPointsList.Random();
-			GameObject spawnedObject = Instantiate(_toSpawnPrefabList.Random(), spawnPoint);
+			GameObject spawnedObject = Instantiate(_toSpawnPrefabList.Random(), spawnPoint, false);
+
+			Vector3 spawnedObjectPosition = spawnedObject.transform.localPosition;
+			spawnedObject.transform.position.Set(spawnedObjectPosition.x, 0f, spawnedObjectPosition.z);
+
 			_spawnedList.Add(spawnedObject);
 		}
 
