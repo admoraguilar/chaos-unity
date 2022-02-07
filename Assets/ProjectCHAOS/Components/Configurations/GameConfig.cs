@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ProjectCHAOS.Configurations
 {
-	[CreateAssetMenu(menuName = "ProjectCHAOS/Game Config")]
+	[CreateAssetMenu(menuName = "ProjectCHAOS/Configurations/Game Config")]
 	public class GameConfig : ScriptableObjectSingleton<GameConfig>
 	{
 		public static int targetFramerate
@@ -19,7 +19,7 @@ namespace ProjectCHAOS.Configurations
 		private static void RunOnLoad()
 		{
 			if(Instance == null) {
-				Debug.LogWarning("There's no GameConfig, please create one.");
+				Debug.LogWarning($"[{typeof(GameConfig)}] There's no GameConfig, please create one.");
 				return;
 			}
 

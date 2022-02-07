@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using ProjectCHAOS.Menus;
 using ProjectCHAOS.Common;
 using ProjectCHAOS.Scores;
 using ProjectCHAOS.Sandbox;
+using ProjectCHAOS.GUI.Menus;
 
 namespace ProjectCHAOS.GameLoops
 {

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Lean.Touch;
 
-namespace ProjectCHAOS.Menus
+namespace ProjectCHAOS.GUI.Menus
 {
 	public class StartMenuUI : MonoBehaviour
 	{

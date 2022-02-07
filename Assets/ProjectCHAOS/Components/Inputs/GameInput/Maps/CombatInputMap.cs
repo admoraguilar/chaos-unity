@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ProjectCHAOS.Inputs
+namespace ProjectCHAOS.Inputs.GameInputs
 {
 	public interface ICombatInputMap : IMap
 	{

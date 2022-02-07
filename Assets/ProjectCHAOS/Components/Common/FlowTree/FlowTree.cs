@@ -233,7 +233,7 @@ namespace ProjectCHAOS.Common
 		{
 			if(node == null) { return false; }
 
-			Debug.Log($"{operationName}: {node.name.Replace(_currentPrepend, string.Empty)}");
+			Debug.Log($"[{typeof(FlowTree)}] {operationName}: {node.name.Replace(_currentPrepend, string.Empty)}");
 			node.name = current.name.Insert(0, _currentPrepend);
 			return true;
 		}
@@ -242,7 +242,7 @@ namespace ProjectCHAOS.Common
 		{
 			if(node == null) { return false; }
 
-			Debug.Log($"{operationName}: {node.name.Replace(_currentPrepend, string.Empty)}");
+			Debug.Log($"[{typeof(FlowTree)}] {operationName}: {node.name.Replace(_currentPrepend, string.Empty)}");
 			node.name = node.name.Replace(_currentPrepend, string.Empty);
 			return true;
 		}

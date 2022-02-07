@@ -1,7 +1,7 @@
 using UnityEngine;
 using ProjectCHAOS.Common;
 
-namespace ProjectCHAOS.Sandbox
+namespace ProjectCHAOS.Levels
 {
 	public class MaterialOffsetScroller : MonoBehaviour
 	{

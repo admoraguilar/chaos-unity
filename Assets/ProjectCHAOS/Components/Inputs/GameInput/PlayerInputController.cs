@@ -3,7 +3,7 @@ using ProjectCHAOS.Weapons;
 using ProjectCHAOS.Common;
 using ProjectCHAOS.Characters;
 
-namespace ProjectCHAOS.Inputs
+namespace ProjectCHAOS.Inputs.GameInputs
 {
     public class PlayerInputController : MonoBehaviour
     {

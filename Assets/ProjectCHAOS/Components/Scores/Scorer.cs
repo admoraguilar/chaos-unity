@@ -39,7 +39,7 @@ namespace ProjectCHAOS.Scores
 		public void Load()
 		{
 			if(!File.Exists(_dataStoreLocation)) {
-				Debug.LogWarning("No score data exists.");
+				Debug.LogWarning($"[{typeof(Scorer)}] No score data exists.");
 				return;
 			}
 

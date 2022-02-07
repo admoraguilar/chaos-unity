@@ -26,7 +26,7 @@ namespace ProjectCHAOS.Common
 			set {
 				UObject typeCheck = value as UObject;
 				if(typeCheck == null) {
-					Debug.LogError("Cannot assign an object that's not of type UnityEngine.Object!");
+					Debug.LogError($"[{typeof(SerializableInterface)}] Cannot assign an object that's not of type UnityEngine.Object!");
 					return;
 				}
 
