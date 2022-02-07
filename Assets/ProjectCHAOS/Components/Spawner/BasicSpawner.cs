@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ProjectCHAOS.Behave;
@@ -7,6 +8,8 @@ namespace ProjectCHAOS.Spawners
 {
     public class BasicSpawner : MonoBehaviour
     {
+		public event Action<GameObject> OnSpawn = delegate { };
+
 		[SerializeField]
         private List<GameObject> _toSpawnPrefabList = null;
 
@@ -74,11 +77,9 @@ namespace ProjectCHAOS.Spawners
 		{
 			Transform spawnPoint = _spawnPointsList.Random();
 			GameObject spawnedObject = Instantiate(_toSpawnPrefabList.Random(), spawnPoint, false);
-
-			Vector3 spawnedObjectPosition = spawnedObject.transform.localPosition;
-			spawnedObject.transform.position.Set(spawnedObjectPosition.x, 0f, spawnedObjectPosition.z);
-
 			_spawnedList.Add(spawnedObject);
+
+			OnSpawn(spawnedObject);
 		}
 
 		private void Start()
