@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using MoreMountains.Feedbacks;
 using ProjectCHAOS.Common;
 using ProjectCHAOS.Behave;
 using ProjectCHAOS.Scores;
@@ -61,7 +62,12 @@ namespace ProjectCHAOS.GameLoops
 				void OnBulletCollisionResponse(Collision collision)
 				{
 					if(collision.gameObject.TryGetComponent(out Bullet bullet)) {
-						Destroy(collisionEvent.gameObject);
+						//Destroy(collisionEvent.gameObject);
+						MMFeedbacks feedbacks = collisionEvent.gameObject.GetComponentInChildren<MMFeedbacks>();
+						if(feedbacks != null && !feedbacks.IsPlaying) {
+							feedbacks.PlayFeedbacks();
+						}
+						
 						Destroy(bullet.gameObject);
 
 						_score.current += Random.Range(1, 5);
