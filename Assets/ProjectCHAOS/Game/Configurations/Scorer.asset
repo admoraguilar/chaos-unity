@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc9e813eeb5c5a4c94451d187afc2cf, type: 3}
   m_Name: Scorer
   m_EditorClassIdentifier: 
+  _scoreList: []
