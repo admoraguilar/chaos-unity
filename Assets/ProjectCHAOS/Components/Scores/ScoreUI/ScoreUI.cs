@@ -11,6 +11,9 @@ namespace ProjectCHAOS.Scores
 		[SerializeField]
 		private TMP_Text _bestText = null;
 
+		[SerializeField]
+		private Scorer _scorer = null;
+
 		private Score _score = null;
 
 		private void OnScoreUpdate(int score)
@@ -27,7 +30,7 @@ namespace ProjectCHAOS.Scores
 
 		private void Awake()
 		{
-			_score = Scorer.Instance.GetScore(0);
+			_score = _scorer.GetScore(0);
 		}
 
 		private void OnEnable()

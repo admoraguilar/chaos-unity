@@ -4,16 +4,9 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using ProjectCHAOS.Common;
 
-#if UNITY_EDITOR
-
-using UnityEditor;
-
-#endif
-
 namespace ProjectCHAOS.Scores
 {
-	[CreateAssetMenu(menuName = "ProjectCHAOS/Scorer")]
-	public class Scorer : ScriptableObjectSingleton<Scorer>
+	public class Scorer : MonoBehaviour
 	{
 		[SerializeField]
 		private List<Score> _scoreList = new List<Score>();
@@ -62,26 +55,4 @@ namespace ProjectCHAOS.Scores
 			_scoreList.Clear();
 		}
 	}
-
-
-#if UNITY_EDITOR
-
-	class _ScorerEditor
-	{
-		[InitializeOnLoadMethod]
-		private static void OnEditorInitialize()
-		{
-			EditorApplication.playModeStateChanged += OnEditorPlayModeStateChanged;
-		}
-
-		private static void OnEditorPlayModeStateChanged(PlayModeStateChange state)
-		{
-			if(state == PlayModeStateChange.ExitingPlayMode) {
-				Scorer.Instance.Clear();
-			}
-		}
-
-	}
-
-#endif
 }

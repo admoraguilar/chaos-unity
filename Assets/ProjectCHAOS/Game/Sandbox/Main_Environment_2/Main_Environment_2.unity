@@ -568,7 +568,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.56268775, y: 1}
+    m_SensorSize: {x: 0.5630342, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3229,6 +3229,7 @@ MonoBehaviour:
   _joystick: {fileID: 669503642}
   _startMenu: {fileID: 1908573656}
   _game: {fileID: 79157431}
+  _scorer: {fileID: 0}
 --- !u!1 &1173754108
 GameObject:
   m_ObjectHideFlags: 0
@@ -3570,7 +3571,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 146.05
+  m_fontSize: 146.1
   m_fontSizeBase: 161.6
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6251,7 +6252,7 @@ MonoBehaviour:
   Cull: 0
   CullDistance: 0
   TextureSize: 2
-  ManualSize: 374
+  ManualSize: 263
   UseCameraClipPlane: 0
   ClipPlaneOffset: 0
   ReflectLayers:
@@ -6328,7 +6329,7 @@ MonoBehaviour:
   Cull: 0
   CullDistance: 0
   TextureSize: 1
-  ManualSize: 749
+  ManualSize: 527
   UseCameraClipPlane: 0
   ClipPlaneOffset: 0
   ReflectLayers:

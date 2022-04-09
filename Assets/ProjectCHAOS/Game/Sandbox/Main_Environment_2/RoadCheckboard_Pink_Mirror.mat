@@ -119,7 +119,7 @@ Material:
     - _EnableRipple: -1
     - _EnableSimpleDepth: -1
     - _EnableWave: -1
-    - _FarClip: 1027335.3
+    - _FarClip: 65597.8
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -131,7 +131,7 @@ Material:
     - _Metallic: 0
     - _MixBlackColor: 0
     - _Mode: 3
-    - _NearClip: 5.1366763
+    - _NearClip: 0.32798898
     - _OcclusionStrength: 0
     - _Parallax: 0.02
     - _ParcelSize: 1

@@ -1,34 +1,24 @@
-using ProjectCHAOS.Common;
 using UnityEngine;
 
 namespace ProjectCHAOS.Configurations
 {
-	[CreateAssetMenu(menuName = "ProjectCHAOS/Configurations/Game Config")]
-	public class GameConfig : ScriptableObjectSingleton<GameConfig>
+	public class GameConfig : MonoBehaviour
 	{
-		public static int targetFramerate
+		public int targetFramerate
 		{
-			get => Instance._targetFramerate;
+			get => _targetFramerate;
 			set {
-				Instance._targetFramerate = value;
-				Application.targetFrameRate = Instance._targetFramerate;
+				_targetFramerate = value;
+				Application.targetFrameRate = _targetFramerate;
 			}
 		}
-
-		[RuntimeInitializeOnLoadMethod]
-		private static void RunOnLoad()
-		{
-			if(Instance == null) {
-				Debug.LogWarning($"[{typeof(GameConfig)}] There's no GameConfig, please create one.");
-				return;
-			}
-
-			targetFramerate = targetFramerate;
-		}
-
-
 
 		[SerializeField]
 		private int _targetFramerate = 60;
+
+		private void Awake()
+		{
+			targetFramerate = targetFramerate;
+		}
 	}
 }

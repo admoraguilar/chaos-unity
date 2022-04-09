@@ -32,6 +32,8 @@ namespace ProjectCHAOS.GameLoops
 		[SerializeField]
 		private Node _game = null;
 
+		[SerializeField]
+		private Scorer _scorer = null;
 		private Score _score = null;
 
 		private void OnStartMenuTouchScreen()
@@ -78,7 +80,7 @@ namespace ProjectCHAOS.GameLoops
 
 		private void Awake()
 		{
-			_score = Scorer.Instance.GetScore(0);
+			_score = _scorer.GetScore(0);
 		}
 
 		private void OnEnable()
