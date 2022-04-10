@@ -4,6 +4,9 @@ namespace ProjectCHAOS.Configurations
 {
 	public class GameConfig : MonoBehaviour
 	{
+		[SerializeField]
+		private int _targetFramerate = 60;
+
 		public int targetFramerate
 		{
 			get => _targetFramerate;
@@ -12,9 +15,6 @@ namespace ProjectCHAOS.Configurations
 				Application.targetFrameRate = _targetFramerate;
 			}
 		}
-
-		[SerializeField]
-		private int _targetFramerate = 60;
 
 		private void Awake()
 		{

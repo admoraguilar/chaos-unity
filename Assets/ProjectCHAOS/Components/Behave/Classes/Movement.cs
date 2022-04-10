@@ -6,15 +6,9 @@ namespace ProjectCHAOS.Behave
 	[Serializable]
 	public class Movement
 	{
-		[SerializeField]
 		private Vector3 _direction = Vector3.zero;
-
-		[SerializeField]
-		private float _speed = 10f;
-
-		[SerializeField]
+		private float _speed = 0f;
 		private Space _space = Space.Self;
-
 		private Transform _owner = null;
 
 		public Vector3 direction
@@ -35,14 +29,27 @@ namespace ProjectCHAOS.Behave
 			set => _space = value;
 		}
 
+		public Transform owner
+		{
+			get => _owner;
+			set => _owner = value;
+		}
+
+		public bool isFunctional
+		{
+			get => owner != null;
+		}
+
 		public void Initialize(Transform owner)
 		{
-			_owner = owner;
+			this.owner = owner;
 		}
 
 		public void Update()
 		{
-			_owner.Translate(direction * speed * Time.deltaTime, _space);
+			if(!isFunctional) { return; }
+
+			owner.Translate(direction * speed * Time.deltaTime, space);
 		}
 	}
 }

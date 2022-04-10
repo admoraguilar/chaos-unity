@@ -16,6 +16,19 @@ namespace ProjectCHAOS.Scores
 
 		private Score _score = null;
 
+		public Scorer scorer
+		{
+			get => _scorer;
+			private set => _scorer = value;
+		}
+
+		public void Initialize(Scorer scorer)
+		{
+			this.scorer = scorer;
+
+			_score = _scorer.GetScore(0);
+		}
+
 		private void OnScoreUpdate(int score)
 		{
 			if(_currentText == null) { return; }
@@ -26,11 +39,6 @@ namespace ProjectCHAOS.Scores
 		{
 			if(_bestText == null) { return; }
 			_bestText.text = newBestScore.ToString();
-		}
-
-		private void Awake()
-		{
-			_score = _scorer.GetScore(0);
 		}
 
 		private void OnEnable()

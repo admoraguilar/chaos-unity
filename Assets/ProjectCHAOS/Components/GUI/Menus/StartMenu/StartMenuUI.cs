@@ -11,6 +11,22 @@ namespace ProjectCHAOS.GUI.Menus
 		[SerializeField]
 		private LeanFingerTap _fingerTap = null;
 
+		public LeanFingerTap fingerTap
+		{
+			get => _fingerTap;
+			private set => _fingerTap = value;
+		}
+
+		public void Initialize(LeanFingerTap fingerTap)
+		{
+			if(this.fingerTap != null) {
+				this.fingerTap.OnFinger.RemoveListener(OnLeanFinger);
+			}
+
+			this.fingerTap = fingerTap;
+			this.fingerTap.OnFinger.AddListener(OnLeanFinger);
+		}
+
 		private void OnLeanFinger(LeanFinger finger)
 		{
 			OnTouchScreen();
@@ -18,12 +34,12 @@ namespace ProjectCHAOS.GUI.Menus
 
 		private void OnEnable()
 		{
-			_fingerTap.OnFinger.AddListener(OnLeanFinger);
+			if(fingerTap != null) { fingerTap.OnFinger.AddListener(OnLeanFinger); }
 		}
 
 		private void OnDisable()
 		{
-			_fingerTap.OnFinger.RemoveListener(OnLeanFinger);
+			if(fingerTap != null) { fingerTap.OnFinger.RemoveListener(OnLeanFinger); }
 		}
 	}
 }

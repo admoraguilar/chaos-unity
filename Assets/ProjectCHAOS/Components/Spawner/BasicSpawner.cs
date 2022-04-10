@@ -58,11 +58,18 @@ namespace ProjectCHAOS.Spawners
 		public void Run()
 		{
 			isSpawning = true;
+			
+		}
+
+		public void Pause()
+		{
+			isSpawning = false;
 		}
 
 		public void Stop()
 		{
 			isSpawning = false;
+			spawnRate.Reset();
 		}
 
 		public void DespawnAll()
@@ -87,8 +94,14 @@ namespace ProjectCHAOS.Spawners
 			spawnRate.OnReachMax += Spawn;
 		}
 
+		private void OnDestroy()
+		{
+			spawnRate.OnReachMax -= Spawn;
+		}
+
 		private void FixedUpdate()
 		{
+			if(!isSpawning) { return; }
 			spawnRate.Update();
 		}
 	}

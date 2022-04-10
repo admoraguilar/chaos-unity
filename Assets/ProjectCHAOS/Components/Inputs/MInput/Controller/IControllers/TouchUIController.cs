@@ -13,19 +13,49 @@ namespace ProjectCHAOS.Inputs
 		private Image _swipeImage = null;
 
 		[SerializeField]
+		private Image _tapImage = null;
+
+		[SerializeField]
 		private LeanSwipeBase _swipe = null;
 
 		[SerializeField]
-		private Image _tapImage = null;
-		
-		[SerializeField]
 		private LeanFingerTap _tap = null;
 
-		public Joystick joystick => _joystick;
-		public Image swipeImage => _swipeImage;
-		public LeanSwipeBase swipeLean => _swipe;
-		public Image tapImage => _tapImage;
-		public LeanFingerTap tapLean => _tap;
+		public Joystick joystick
+		{
+			get => _joystick;
+			private set => joystick = value;
+		}
+
+		public Image swipeImage
+		{
+			get => _swipeImage;
+			private set => _swipeImage = value;
+		}
+
+		public LeanSwipeBase swipe
+		{
+			get => _swipe;
+			private set => _swipe = value;
+		}
+
+		public Image tapImage
+		{
+			get => _tapImage;
+			private set => _tapImage = value;
+		}
+
+		public LeanFingerTap tap
+		{
+			get => _tap;
+			private set => _tap = value;
+		}
+
+		public void Initialize(LeanSwipeBase swipe, LeanFingerTap tap)
+		{
+			this.swipe = swipe;
+			this.tap = tap;
+		}
 
 		private void OnEnable()
 		{

@@ -50,6 +50,11 @@ namespace ProjectCHAOS.Behave
 		{
 			current += Time.deltaTime;
 		}
+
+		public void Reset()
+		{
+			current = 0f;
+		}
 	}
 }
 

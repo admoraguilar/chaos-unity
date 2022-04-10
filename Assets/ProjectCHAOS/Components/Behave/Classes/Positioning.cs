@@ -22,13 +22,20 @@ namespace ProjectCHAOS.Behave
 			set => _levelArea = value;
 		}
 
+		public bool isFunctional
+		{
+			get => levelArea != null;
+		}
+
 		public void Initialize(LevelArea levelArea)
 		{
-			_levelArea = levelArea;
+			this.levelArea = levelArea;
 		}
 
 		public Vector3 GetPosition()
 		{
+			if(!isFunctional) { return Vector3.zero; }
+
 			Vector3 position = _levelArea.GetRandomPointXZ();
 			float yOffset = 0f;
 

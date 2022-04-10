@@ -93,14 +93,14 @@ namespace ProjectCHAOS.Inputs.GameInputs
 
 		private void OnTouchUIInitialize()
 		{
-			_touchUI.controller.swipeLean.OnFinger.AddListener(OnSwipeFinger);
-			_touchUI.controller.tapLean.OnFinger.AddListener(OnTapFinger);
+			_touchUI.controller.swipe.OnFinger.AddListener(OnSwipeFinger);
+			_touchUI.controller.tap.OnFinger.AddListener(OnTapFinger);
 		}
 
 		private void OnTouchUIDeinitialize()
 		{
-			_touchUI.controller.swipeLean.OnFinger.RemoveListener(OnSwipeFinger);
-			_touchUI.controller.tapLean.OnFinger.RemoveListener(OnTapFinger);
+			_touchUI.controller.swipe.OnFinger.RemoveListener(OnSwipeFinger);
+			_touchUI.controller.tap.OnFinger.RemoveListener(OnTapFinger);
 		}
 
 		public void Update() { }
