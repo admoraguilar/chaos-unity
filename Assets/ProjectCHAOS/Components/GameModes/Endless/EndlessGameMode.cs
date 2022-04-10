@@ -14,6 +14,9 @@ using ProjectCHAOS.Characters.AIs;
 
 namespace ProjectCHAOS.GameModes
 {
+	/// <summary>
+	/// Could be split to small sub-classes in order to have better readability.
+	/// </summary>
 	[DefaultExecutionOrder(-1)]
 	public class EndlessGameMode : MonoBehaviour
 	{
