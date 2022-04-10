@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using Lean.Touch;
+using ProjectCHAOS.Scores;
 
 namespace ProjectCHAOS.GUI.Menus
 {
@@ -11,13 +12,28 @@ namespace ProjectCHAOS.GUI.Menus
 		[SerializeField]
 		private LeanFingerTap _fingerTap = null;
 
+		[SerializeField]
+		private Scorer _scorer = null;
+
+		[SerializeField]
+		private ScoreUI _currentScoreUI = null;
+
+		[SerializeField]
+		private ScoreUI _bestScoreUI = null;
+
 		public LeanFingerTap fingerTap
 		{
 			get => _fingerTap;
 			private set => _fingerTap = value;
 		}
 
-		public void Initialize(LeanFingerTap fingerTap)
+		public Scorer scorer
+		{
+			get => _scorer;
+			private set => _scorer = value;
+		}
+
+		public void Initialize(LeanFingerTap fingerTap, Scorer scorer)
 		{
 			if(this.fingerTap != null) {
 				this.fingerTap.OnFinger.RemoveListener(OnLeanFinger);
@@ -25,6 +41,11 @@ namespace ProjectCHAOS.GUI.Menus
 
 			this.fingerTap = fingerTap;
 			this.fingerTap.OnFinger.AddListener(OnLeanFinger);
+
+			this.scorer = scorer;
+
+			_currentScoreUI.Initialize(this.scorer);
+			_bestScoreUI.Initialize(this.scorer);
 		}
 
 		private void OnLeanFinger(LeanFinger finger)

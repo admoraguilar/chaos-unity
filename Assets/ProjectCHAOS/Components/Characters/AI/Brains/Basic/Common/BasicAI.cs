@@ -49,6 +49,8 @@ namespace ProjectCHAOS.Characters.AIs
 			positioning.Initialize(levelArea);
 			movement.Initialize(transform);
 			targetting.Initialize(transform);
+
+			Reposition();
 		}
 
 		public void Reposition()
@@ -59,6 +61,7 @@ namespace ProjectCHAOS.Characters.AIs
 			targetting.targetPoint = positioning.GetPosition();
 
 			movement.space = Space.World;
+			movement.speed = 10f;
 			movement.direction = targetting.GetDirectionToTarget();
 		}
 

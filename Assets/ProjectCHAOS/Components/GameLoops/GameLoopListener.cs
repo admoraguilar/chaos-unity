@@ -4,7 +4,7 @@ using ProjectCHAOS.Common;
 
 namespace ProjectCHAOS.GameLoops
 {
-	public abstract class GameLoopListener : MonoBehaviour
+	public class GameLoopListener : MonoBehaviour
 	{
 		[SerializeField]
 		protected Node _node = null;

@@ -1,46 +1,73 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Lean.Touch;
 using MoreMountains.Feedbacks;
-using ProjectCHAOS.Common;
 using ProjectCHAOS.Behave;
+using ProjectCHAOS.Common;
+using ProjectCHAOS.Inputs;
 using ProjectCHAOS.Scores;
-using ProjectCHAOS.Spawners;
+using ProjectCHAOS.Levels;
 using ProjectCHAOS.Weapons;
+using ProjectCHAOS.Spawners;
 using ProjectCHAOS.GUI.Menus;
 using ProjectCHAOS.Characters.AIs;
 
-namespace ProjectCHAOS.GameLoops
+namespace ProjectCHAOS.GameModes
 {
-	public class BasicGameLoopInfluencer : MonoBehaviour
+	[DefaultExecutionOrder(-1)]
+	public class EndlessGameMode : MonoBehaviour
 	{
-		[SerializeField]
-		private CollisionEvents _playerCollisionEvents = null;
-
-		[SerializeField]
-		private BasicSpawner _spawner = null;
-
-		[Space]
-		[SerializeField]
-		private StartMenuUI _startMenuUI = null;
-
-		[SerializeField]
-		private DynamicJoystick _joystick = null;
-
-		[Space]
-		[SerializeField]
-		private Node _startMenu = null;
-
-		[SerializeField]
-		private Node _game = null;
-
+		[Header("Systems")]
 		[SerializeField]
 		private Scorer _scorer = null;
 		private Score _score = null;
 
+		[SerializeField]
+		private LeanFingerTap _tap = null;
+
+		[SerializeField]
+		private LeanFingerSwipe _swipe = null;
+
+		[Header("Game States")]
+		[SerializeField]
+		private Node _initializeFlow = null;
+		
+		[SerializeField]
+		private Node _startMenuFlow = null;
+
+		[SerializeField]
+		private Node _gameFlow = null;
+
+		[SerializeField]
+		private Node _gameOverFlow = null;
+
+		[Header("Gameplay")]
+		[SerializeField]
+		private CollisionEvents _playerCollisionEvents = null;
+
+		[SerializeField]
+		private LevelArea _levelArea = null;
+
+		[SerializeField]
+		private BasicSpawner _spawner = null;
+
+		[Header("UIs")]
+		[SerializeField]
+		private DynamicJoystick _joystick = null;
+
+		[SerializeField]
+		private TouchUIController _touchUi = null;
+
+		[SerializeField]
+		private StartMenuUI _startMenuUi = null;
+
+		[SerializeField]
+		private ScoreUI _hudScoreUi = null;
+
 		private void OnStartMenuTouchScreen()
 		{
 			_score.Reset();
-			_startMenu.Next();
+			_startMenuFlow.Next();
 		}
 
 		private void OnPlayerDies(Collision collision)
@@ -54,6 +81,11 @@ namespace ProjectCHAOS.GameLoops
 
 		private void OnSpawn(GameObject go)
 		{
+			BasicAI basicAI = go.GetComponent<BasicAI>();
+			if(basicAI != null) {
+				basicAI.Initialize(_levelArea);
+			}
+
 			// Get all collision events of enemy prefab
 			List<CollisionEvents> collisionEvents = new List<CollisionEvents>();
 			go.GetComponentsInChildren(collisionEvents);
@@ -70,7 +102,7 @@ namespace ProjectCHAOS.GameLoops
 						if(feedbacks != null && !feedbacks.IsPlaying) {
 							feedbacks.PlayFeedbacks();
 						}
-						
+
 						Destroy(bullet.gameObject);
 
 						_score.current += Random.Range(1, 5);
@@ -79,25 +111,45 @@ namespace ProjectCHAOS.GameLoops
 			}
 		}
 
+		private void OnGameFlowVisit()
+		{
+			_spawner.Run();
+		}
+
+		private void OnGameOverFlowVisit()
+		{
+			_spawner.DespawnAll();
+		}
+
 		private void Awake()
 		{
+			_touchUi.Initialize(_swipe, _tap);
+			_startMenuUi.Initialize(_tap, _scorer);
+			_hudScoreUi.Initialize(_scorer);
+
 			_score = _scorer.GetScore(0);
 		}
 
 		private void OnEnable()
 		{
-			_startMenuUI.OnTouchScreen += OnStartMenuTouchScreen;
+			_startMenuUi.OnTouchScreen += OnStartMenuTouchScreen;
 			_playerCollisionEvents.OnCollisionEnterResponse += OnPlayerDies;
 
 			_spawner.OnSpawn += OnSpawn;
+
+			_gameFlow.OnVisit += OnGameFlowVisit;
+			_gameOverFlow.OnVisit += OnGameOverFlowVisit;
 		}
 
 		private void OnDisable()
 		{
-			_startMenuUI.OnTouchScreen -= OnStartMenuTouchScreen;
+			_startMenuUi.OnTouchScreen -= OnStartMenuTouchScreen;
 			_playerCollisionEvents.OnCollisionEnterResponse -= OnPlayerDies;
 
 			_spawner.OnSpawn -= OnSpawn;
+
+			_gameFlow.OnVisit -= OnGameFlowVisit;
+			_gameOverFlow.OnVisit -= OnGameOverFlowVisit;
 		}
 	}
 }
