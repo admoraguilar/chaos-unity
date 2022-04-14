@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace ProjectCHAOS.Common
+namespace ProjectCHAOS.Systems.FlowTrees
 {
 	public class NodeObjectEventListener : MonoBehaviour
 	{

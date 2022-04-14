@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using ProjectCHAOS.Behave;
-using ProjectCHAOS.Common;
+using ProjectCHAOS.Systems;
+using ProjectCHAOS.Gameplay.Behave;
 
-namespace ProjectCHAOS.Spawners
+namespace ProjectCHAOS.Gameplay.Spawners
 {
     public class BasicSpawner : MonoBehaviour
     {

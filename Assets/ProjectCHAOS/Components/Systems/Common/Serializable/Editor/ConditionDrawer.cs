@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-namespace ProjectCHAOS.Common.Editor
+namespace ProjectCHAOS.Systems.Editor
 {
 	[CustomPropertyDrawer(typeof(Condition))]
 	public class ConditionDrawer : PropertyDrawer

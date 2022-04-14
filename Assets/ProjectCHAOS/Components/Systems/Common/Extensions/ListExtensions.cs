@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using SRandom = System.Random;
 using URandom = UnityEngine.Random;
 
-namespace ProjectCHAOS.Common
+namespace ProjectCHAOS.Systems
 {
 	/*
 		Source: https://gist.github.com/omgwtfgames/f917ca28581761b8100f

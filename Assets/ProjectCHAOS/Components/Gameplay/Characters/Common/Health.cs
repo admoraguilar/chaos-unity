@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ProjectCHAOS.Characters
+namespace ProjectCHAOS.Gameplay.Characters
 {
 	[Serializable]
 	public class Health

@@ -1,12 +1,12 @@
-using ProjectCHAOS.Characters;
-using ProjectCHAOS.Inputs;
-using ProjectCHAOS.Levels;
-using ProjectCHAOS.Scores;
+using ProjectCHAOS.Gameplay.Characters;
+using ProjectCHAOS.Systems.Inputs;
+using ProjectCHAOS.Gameplay.Levels;
+using ProjectCHAOS.Gameplay.Scores;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ProjectCHAOS.GameModes
+namespace ProjectCHAOS.Gameplay.GameModes
 {
 	[DefaultExecutionOrder(-1)]
 	public class SurvivalGameMode : MonoBehaviour

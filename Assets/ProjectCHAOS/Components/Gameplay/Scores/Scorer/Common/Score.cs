@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ProjectCHAOS.Scores
+namespace ProjectCHAOS.Gameplay.Scores
 {
 	[Serializable]
 	public class Score

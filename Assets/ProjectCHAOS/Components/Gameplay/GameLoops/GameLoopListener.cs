@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
-using ProjectCHAOS.Common;
+using ProjectCHAOS.Systems.FlowTrees;
 
-namespace ProjectCHAOS.GameLoops
+namespace ProjectCHAOS.Gameplay.GameLoops
 {
 	public class GameLoopListener : MonoBehaviour
 	{

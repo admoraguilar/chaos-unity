@@ -1,10 +1,10 @@
-using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
+using UnityEngine;
 using Newtonsoft.Json;
-using ProjectCHAOS.Common;
+using ProjectCHAOS.Systems;
 
-namespace ProjectCHAOS.Scores
+namespace ProjectCHAOS.Gameplay.Scores
 {
 	public class Scorer : MonoBehaviour
 	{

@@ -1,5 +1,5 @@
 
-namespace ProjectCHAOS.Common
+namespace ProjectCHAOS.Systems
 {
 	public class Singleton<T> where T : new()
 	{

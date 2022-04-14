@@ -2,12 +2,12 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using ProjectCHAOS.Common;
+using ProjectCHAOS.Systems;
 
 using SObject = System.Object;
 using UObject = UnityEngine.Object;
 
-namespace ProjectCHAOS.Blackboards
+namespace ProjectCHAOS.Systems.Blackboards
 {
 	[DefaultExecutionOrder(-1)]
 	public class SceneBlackboard : MonoBehaviour, IBlackboard

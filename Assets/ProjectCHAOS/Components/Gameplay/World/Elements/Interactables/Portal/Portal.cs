@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ProjectCHAOS.Levels
+namespace ProjectCHAOS.Gameplay.Levels
 {
 	public class Portal : MonoBehaviour
 	{

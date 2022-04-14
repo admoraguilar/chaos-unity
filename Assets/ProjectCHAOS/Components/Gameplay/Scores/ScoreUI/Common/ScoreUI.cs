@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-namespace ProjectCHAOS.Scores
+namespace ProjectCHAOS.Gameplay.Scores
 {
 	public class ScoreUI : MonoBehaviour
 	{

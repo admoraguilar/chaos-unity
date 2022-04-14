@@ -7,7 +7,7 @@ using UnityEditor;
 
 #endif
 
-namespace ProjectCHAOS.Common
+namespace ProjectCHAOS.Systems
 {
 	public class ScriptableObjectSingleton<T> : ScriptableObject where T : ScriptableObject
 	{

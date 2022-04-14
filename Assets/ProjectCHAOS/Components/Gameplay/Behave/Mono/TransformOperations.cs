@@ -1,7 +1,7 @@
 using UnityEngine;
-using ProjectCHAOS.Common;
+using ProjectCHAOS.Systems;
 
-namespace ProjectCHAOS.Behave
+namespace ProjectCHAOS.Gameplay.Behave
 {
 	public class TransformOperations : MonoBehaviour
 	{

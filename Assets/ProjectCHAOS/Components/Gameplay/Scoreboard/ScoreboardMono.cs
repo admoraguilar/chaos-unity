@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using ProjectCHAOS.BaseClasses;
+using ProjectCHAOS.Systems;
 
-namespace ProjectCHAOS.Scoreboards
+namespace ProjectCHAOS.Gameplay.Scoreboards
 {
     public class ScoreboardMono : MonoBehaviour
     {

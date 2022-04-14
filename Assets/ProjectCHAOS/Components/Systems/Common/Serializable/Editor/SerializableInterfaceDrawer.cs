@@ -5,7 +5,7 @@ using UnityEditor;
 
 using UObject = UnityEngine.Object;
 
-namespace ProjectCHAOS.Common.Editor
+namespace ProjectCHAOS.Systems.Editor
 {
 	[CustomPropertyDrawer(typeof(SerializableInterface), true)]
 	public class SerializableInterfaceDrawer : PropertyDrawer

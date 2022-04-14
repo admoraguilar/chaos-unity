@@ -1,7 +1,7 @@
 using System;
-using ProjectCHAOS.BaseClasses;
+using ProjectCHAOS.Systems;
 
-namespace ProjectCHAOS.Scoreboards
+namespace ProjectCHAOS.Gameplay.Scoreboards
 {
 	[Serializable]
     public class Scoreboard : ValueBoard<ScoreObject> { }

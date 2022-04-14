@@ -1,5 +1,5 @@
 
-namespace ProjectCHAOS.Inputs
+namespace ProjectCHAOS.Systems.Inputs
 {
 	public interface IController 
 	{

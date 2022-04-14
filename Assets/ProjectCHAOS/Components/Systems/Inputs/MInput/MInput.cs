@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using ProjectCHAOS.Inputs.GameInputs;
+using ProjectCHAOS.Systems.Inputs.GameInputs;
 
-namespace ProjectCHAOS.Inputs
+namespace ProjectCHAOS.Systems.Inputs
 {
 	public static class MInput
 	{

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace ProjectCHAOS.Common
+namespace ProjectCHAOS.Systems.FlowTrees
 {
 	public abstract class Node : MonoBehaviour
 	{

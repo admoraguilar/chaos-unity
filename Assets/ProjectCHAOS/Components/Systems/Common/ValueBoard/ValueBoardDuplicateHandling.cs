@@ -1,4 +1,4 @@
-﻿namespace ProjectCHAOS.BaseClasses
+﻿namespace ProjectCHAOS.Systems
 {
     public enum ValueBoardDuplicateHandling
     {

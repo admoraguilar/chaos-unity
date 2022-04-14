@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace ProjectCHAOS.Common
+namespace ProjectCHAOS.Systems
 {
 	public static class SetPropertyUtility
 	{

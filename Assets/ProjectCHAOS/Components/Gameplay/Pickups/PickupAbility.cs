@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ProjectCHAOS.Interactions
+namespace ProjectCHAOS.Gameplay.Interactions
 {
 	public class PickupAbility : MonoBehaviour
 	{

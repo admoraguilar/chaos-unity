@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ProjectCHAOS.Common
+namespace ProjectCHAOS.Systems.FlowTrees
 {
 	[CreateAssetMenu(menuName = "Midnight.Unity/Flow Tree/Node Object")]
 	public class NodeObject : ScriptableObject

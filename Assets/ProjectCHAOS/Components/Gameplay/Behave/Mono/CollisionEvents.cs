@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ProjectCHAOS.Behave
+namespace ProjectCHAOS.Gameplay.Behave
 {
 	public class CollisionEvents : MonoBehaviour
 	{

@@ -1,8 +1,7 @@
-using ProjectCHAOS.Weapons;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ProjectCHAOS.Behave
+namespace ProjectCHAOS.Gameplay.Weapons
 {
 	public class GunEvents : MonoBehaviour
 	{

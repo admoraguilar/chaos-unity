@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ProjectCHAOS.Levels
+namespace ProjectCHAOS.Gameplay.Levels
 {
 	public class Map : MonoBehaviour
 	{

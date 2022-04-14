@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 using Lean.Touch;
-using ProjectCHAOS.Inputs;
-using ProjectCHAOS.Scores;
+using ProjectCHAOS.Systems.Inputs;
+using ProjectCHAOS.Gameplay.Scores;
 
-namespace ProjectCHAOS.GUI.Menus
+namespace ProjectCHAOS.UI.Menus
 {
 	public class StartMenuUI : MonoBehaviour
 	{

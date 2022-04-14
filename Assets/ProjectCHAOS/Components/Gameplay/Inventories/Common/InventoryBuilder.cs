@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ProjectCHAOS.Inventories
+namespace ProjectCHAOS.Gameplay.Inventories
 {
     [CreateAssetMenu(menuName = "Playground/Inventory Builder")]
     public class InventoryBuilder : ScriptableObject

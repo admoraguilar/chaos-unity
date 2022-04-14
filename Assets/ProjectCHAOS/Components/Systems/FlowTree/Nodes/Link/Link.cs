@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ProjectCHAOS.Common
+namespace ProjectCHAOS.Systems.FlowTrees
 {
 	public class Link : Node
 	{

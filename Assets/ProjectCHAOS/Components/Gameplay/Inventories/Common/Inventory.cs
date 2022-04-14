@@ -1,7 +1,7 @@
 using System;
-using ProjectCHAOS.BaseClasses;
+using ProjectCHAOS.Systems;
 
-namespace ProjectCHAOS.Inventories
+namespace ProjectCHAOS.Gameplay.Inventories
 {
 	[Serializable]
     public class Inventory : ValueBoard<ItemObject> { }

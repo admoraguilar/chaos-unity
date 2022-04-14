@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace ProjectCHAOS.BaseClasses
+namespace ProjectCHAOS.Systems
 {
     [Serializable]
     public class ValueBoard<T> where T : ValueObject

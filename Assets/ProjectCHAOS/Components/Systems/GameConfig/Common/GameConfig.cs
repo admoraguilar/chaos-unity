@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ProjectCHAOS.Configurations
+namespace ProjectCHAOS.Systems.Configurations
 {
 	public class GameConfig : MonoBehaviour
 	{

@@ -1,7 +1,7 @@
 using UnityEngine;
 using Lean.Touch;
 
-namespace ProjectCHAOS.Inputs
+namespace ProjectCHAOS.Systems.Inputs
 {
 	public class LeanTouchInput : MonoBehaviour
 	{

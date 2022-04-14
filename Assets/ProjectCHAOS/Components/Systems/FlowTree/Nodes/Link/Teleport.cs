@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ProjectCHAOS.Common
+namespace ProjectCHAOS.Systems.FlowTrees
 {
 	public class Teleport : Link
 	{

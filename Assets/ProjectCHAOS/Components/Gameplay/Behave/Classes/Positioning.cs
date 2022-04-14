@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
-using ProjectCHAOS.Levels;
+using ProjectCHAOS.Gameplay.Levels;
 
-namespace ProjectCHAOS.Behave
+namespace ProjectCHAOS.Gameplay.Behave
 {
 	[Serializable]
 	public class Positioning

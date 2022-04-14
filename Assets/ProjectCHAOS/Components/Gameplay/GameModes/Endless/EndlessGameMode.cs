@@ -1,18 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Lean.Touch;
 using MoreMountains.Feedbacks;
-using ProjectCHAOS.Behave;
-using ProjectCHAOS.Common;
-using ProjectCHAOS.Inputs;
-using ProjectCHAOS.Scores;
-using ProjectCHAOS.Levels;
-using ProjectCHAOS.Weapons;
-using ProjectCHAOS.Spawners;
-using ProjectCHAOS.GUI.Menus;
-using ProjectCHAOS.Characters.AIs;
+using ProjectCHAOS.UI.Menus;
+using ProjectCHAOS.Systems.FlowTrees;
+using ProjectCHAOS.Systems.Inputs;
+using ProjectCHAOS.Gameplay.Behave;
+using ProjectCHAOS.Gameplay.Scores;
+using ProjectCHAOS.Gameplay.Levels;
+using ProjectCHAOS.Gameplay.Weapons;
+using ProjectCHAOS.Gameplay.Spawners;
+using ProjectCHAOS.Gameplay.Characters.AIs;
 
-namespace ProjectCHAOS.GameModes
+namespace ProjectCHAOS.Gameplay.GameModes
 {
 	/// <summary>
 	/// Could be split to small sub-classes in order to have better readability.

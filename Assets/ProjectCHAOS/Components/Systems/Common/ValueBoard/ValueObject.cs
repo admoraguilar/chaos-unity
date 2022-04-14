@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace ProjectCHAOS.BaseClasses
+namespace ProjectCHAOS.Systems
 {
     public class ValueObject
     {

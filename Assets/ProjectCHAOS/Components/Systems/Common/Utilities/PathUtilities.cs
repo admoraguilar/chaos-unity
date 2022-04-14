@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace ProjectCHAOS.Common
+namespace ProjectCHAOS.Systems
 {
 	public class PathUtilities
 	{

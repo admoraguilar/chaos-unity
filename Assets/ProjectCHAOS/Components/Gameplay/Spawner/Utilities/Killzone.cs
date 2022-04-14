@@ -1,7 +1,7 @@
 using UnityEngine;
-using ProjectCHAOS.Common;
+using ProjectCHAOS.Systems;
 
-namespace ProjectCHAOS.Spawners
+namespace ProjectCHAOS.Gameplay.Spawners
 {
 	public class Killzone : MonoBehaviour
 	{

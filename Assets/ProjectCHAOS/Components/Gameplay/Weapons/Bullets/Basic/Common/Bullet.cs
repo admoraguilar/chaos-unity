@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using ProjectCHAOS.Common;
+using ProjectCHAOS.Systems;
 
-namespace ProjectCHAOS.Weapons
+namespace ProjectCHAOS.Gameplay.Weapons
 {
 	public class Bullet : MonoBehaviour
 	{

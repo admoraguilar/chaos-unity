@@ -1,5 +1,5 @@
 ﻿
-namespace ProjectCHAOS.Common
+namespace ProjectCHAOS.Systems.FlowTrees
 {
 	public abstract class Branch : Link
 	{

@@ -1,7 +1,7 @@
 using UnityEngine;
 using Lean.Touch;
 
-namespace ProjectCHAOS.Inputs.GameInputs
+namespace ProjectCHAOS.Systems.Inputs.GameInputs
 {
 	public interface IMovementInputMap : IMap
 	{

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using ProjectCHAOS.BaseClasses;
+using ProjectCHAOS.Systems;
 
-namespace ProjectCHAOS.Scoreboards
+namespace ProjectCHAOS.Gameplay.Scoreboards
 {
 	[Serializable]
     public class ScoreObject : ValueObject

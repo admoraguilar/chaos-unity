@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
 
-namespace ProjectCHAOS.Common
+namespace ProjectCHAOS.Systems
 {
 	public static class TypeUtilities
 	{

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 using UEditor = UnityEditor.Editor;
 
-namespace ProjectCHAOS.Common.Editor
+namespace ProjectCHAOS.Systems.FlowTrees.Editor
 {
 	[CustomEditor(typeof(FlowTree), true)]
 	public class FlowTreeEditor : UEditor

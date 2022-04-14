@@ -1,9 +1,9 @@
 using UnityEngine;
-using ProjectCHAOS.Behave;
-using ProjectCHAOS.Levels;
-using ProjectCHAOS.Common;
+using ProjectCHAOS.Systems;
+using ProjectCHAOS.Gameplay.Behave;
+using ProjectCHAOS.Gameplay.Levels;
 
-namespace ProjectCHAOS.Characters.AIs
+namespace ProjectCHAOS.Gameplay.Characters.AIs
 {
 	public class BasicAI : MonoBehaviour
 	{

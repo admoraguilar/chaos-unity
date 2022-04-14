@@ -1,5 +1,5 @@
 
-namespace ProjectCHAOS.Interactions
+namespace ProjectCHAOS.Gameplay.Interactions
 {
 	public interface IPickup
 	{

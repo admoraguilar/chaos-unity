@@ -3,7 +3,7 @@ using UnityEngine;
 
 using UObject = UnityEngine.Object;
 
-namespace ProjectCHAOS.Common
+namespace ProjectCHAOS.Systems
 {
 	[Serializable]
 	public class SerializableInterface<T> : SerializableInterface where T : class

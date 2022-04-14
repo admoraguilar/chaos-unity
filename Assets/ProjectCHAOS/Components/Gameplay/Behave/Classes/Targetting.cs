@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ProjectCHAOS.Behave
+namespace ProjectCHAOS.Gameplay.Behave
 {
 	[Serializable]
 	public class Targetting

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ProjectCHAOS.Inputs
+namespace ProjectCHAOS.Systems.Inputs
 {
 	public sealed class Controller<T> : Controller where T : class, IController
 	{

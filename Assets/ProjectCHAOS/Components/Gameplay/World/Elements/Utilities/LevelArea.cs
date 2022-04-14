@@ -1,7 +1,7 @@
 using UnityEngine;
-using ProjectCHAOS.Common;
+using ProjectCHAOS.Systems;
 
-namespace ProjectCHAOS.Levels
+namespace ProjectCHAOS.Gameplay.Levels
 {
 	public class LevelArea : MonoBehaviour
 	{

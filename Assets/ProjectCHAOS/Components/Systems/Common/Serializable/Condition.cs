@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ProjectCHAOS.Common
+namespace ProjectCHAOS.Systems
 {
 	[Serializable]
 	public sealed class Condition

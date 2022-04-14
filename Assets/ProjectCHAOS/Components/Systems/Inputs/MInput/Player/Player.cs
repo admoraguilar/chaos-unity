@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ProjectCHAOS.Common;
+using ProjectCHAOS.Systems;
 
-namespace ProjectCHAOS.Inputs
+namespace ProjectCHAOS.Systems.Inputs
 {
 	public class Player
 	{

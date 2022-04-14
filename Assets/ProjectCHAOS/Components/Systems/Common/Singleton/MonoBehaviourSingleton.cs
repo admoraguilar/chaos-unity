@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ProjectCHAOS.Common
+namespace ProjectCHAOS.Systems
 {
 	public class MonoBehaviourSingleton<T> : MonoBehaviour where T : MonoBehaviour
 	{

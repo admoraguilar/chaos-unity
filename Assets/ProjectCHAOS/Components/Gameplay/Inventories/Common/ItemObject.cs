@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using ProjectCHAOS.BaseClasses;
 using UnityEngine;
+using ProjectCHAOS.Systems;
 
-namespace ProjectCHAOS.Inventories
+namespace ProjectCHAOS.Gameplay.Inventories
 {
 	[Serializable]
     public class ItemObject : ValueObject
