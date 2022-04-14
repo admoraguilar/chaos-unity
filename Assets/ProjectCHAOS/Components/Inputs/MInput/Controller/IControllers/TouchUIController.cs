@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using Lean.Touch;
 
 namespace ProjectCHAOS.Inputs
 {
@@ -15,46 +14,25 @@ namespace ProjectCHAOS.Inputs
 		[SerializeField]
 		private Image _tapImage = null;
 
+		[Header("External References")]
 		[SerializeField]
-		private LeanSwipeBase _swipe = null;
+		private LeanTouchInput _leanTouchInput = null;
 
-		[SerializeField]
-		private LeanFingerTap _tap = null;
+		public Joystick joystick => _joystick;
 
-		public Joystick joystick
+		public Image swipeImage => _swipeImage;
+		
+		public Image tapImage => _tapImage;
+		
+		public LeanTouchInput leanTouchInput
 		{
-			get => _joystick;
-			private set => joystick = value;
+			get => _leanTouchInput;
+			private set => _leanTouchInput = value;
 		}
 
-		public Image swipeImage
+		public void Initialize(LeanTouchInput leanTouchInput)
 		{
-			get => _swipeImage;
-			private set => _swipeImage = value;
-		}
-
-		public LeanSwipeBase swipe
-		{
-			get => _swipe;
-			private set => _swipe = value;
-		}
-
-		public Image tapImage
-		{
-			get => _tapImage;
-			private set => _tapImage = value;
-		}
-
-		public LeanFingerTap tap
-		{
-			get => _tap;
-			private set => _tap = value;
-		}
-
-		public void Initialize(LeanSwipeBase swipe, LeanFingerTap tap)
-		{
-			this.swipe = swipe;
-			this.tap = tap;
+			this.leanTouchInput = leanTouchInput;
 		}
 
 		private void OnEnable()

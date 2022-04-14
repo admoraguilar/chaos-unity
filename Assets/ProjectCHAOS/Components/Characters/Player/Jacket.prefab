@@ -154,7 +154,6 @@ GameObject:
   - component: {fileID: 1072936960906782775}
   - component: {fileID: 1072936960906782773}
   - component: {fileID: 1072936960906782772}
-  - component: {fileID: 1072936960906782771}
   m_Layer: 0
   m_Name: Jacket
   m_TagString: Untagged
@@ -222,18 +221,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   responses: []
---- !u!114 &1072936960906782771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072936960906782728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdb521f2260b87044b5d0d2dd47034ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1072936961523952177
 GameObject:
   m_ObjectHideFlags: 0

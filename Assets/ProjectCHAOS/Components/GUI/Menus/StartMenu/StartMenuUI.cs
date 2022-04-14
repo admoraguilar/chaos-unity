@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using Lean.Touch;
+using ProjectCHAOS.Inputs;
 using ProjectCHAOS.Scores;
 
 namespace ProjectCHAOS.GUI.Menus
@@ -10,21 +11,22 @@ namespace ProjectCHAOS.GUI.Menus
 		public event Action OnTouchScreen = delegate { };
 
 		[SerializeField]
-		private LeanFingerTap _fingerTap = null;
-
-		[SerializeField]
-		private Scorer _scorer = null;
-
-		[SerializeField]
 		private ScoreUI _currentScoreUI = null;
 
 		[SerializeField]
 		private ScoreUI _bestScoreUI = null;
 
-		public LeanFingerTap fingerTap
+		[Header("External References")]
+		[SerializeField]
+		private LeanTouchInput _leanTouchInput = null;
+
+		[SerializeField]
+		private Scorer _scorer = null;
+
+		public LeanTouchInput leanTouchInput
 		{
-			get => _fingerTap;
-			private set => _fingerTap = value;
+			get => _leanTouchInput;
+			private set => _leanTouchInput = value;
 		}
 
 		public Scorer scorer
@@ -33,19 +35,25 @@ namespace ProjectCHAOS.GUI.Menus
 			private set => _scorer = value;
 		}
 
-		public void Initialize(LeanFingerTap fingerTap, Scorer scorer)
+		public void Initialize(LeanTouchInput leanTouchInput, Scorer scorer)
 		{
-			if(this.fingerTap != null) {
-				this.fingerTap.OnFinger.RemoveListener(OnLeanFinger);
+			if(leanTouchInput != null) {
+				LeanFingerTap tap = this.leanTouchInput.tap;
+				if(this.leanTouchInput != null) {
+					tap.OnFinger.RemoveListener(OnLeanFinger);
+				}
+
+				this.leanTouchInput = leanTouchInput;
+				tap = this.leanTouchInput.tap;
+				tap.OnFinger.AddListener(OnLeanFinger);
 			}
 
-			this.fingerTap = fingerTap;
-			this.fingerTap.OnFinger.AddListener(OnLeanFinger);
+			if(scorer != null) {
+				this.scorer = scorer;
 
-			this.scorer = scorer;
-
-			_currentScoreUI.Initialize(this.scorer);
-			_bestScoreUI.Initialize(this.scorer);
+				_currentScoreUI.Initialize(this.scorer);
+				_bestScoreUI.Initialize(this.scorer);
+			}	
 		}
 
 		private void OnLeanFinger(LeanFinger finger)
@@ -55,12 +63,16 @@ namespace ProjectCHAOS.GUI.Menus
 
 		private void OnEnable()
 		{
-			if(fingerTap != null) { fingerTap.OnFinger.AddListener(OnLeanFinger); }
+			if(leanTouchInput != null) {
+				leanTouchInput.tap.OnFinger.AddListener(OnLeanFinger);
+			}
 		}
 
 		private void OnDisable()
 		{
-			if(fingerTap != null) { fingerTap.OnFinger.RemoveListener(OnLeanFinger); }
+			if(leanTouchInput != null) {
+				leanTouchInput.tap.OnFinger.RemoveListener(OnLeanFinger);
+			}
 		}
 	}
 }

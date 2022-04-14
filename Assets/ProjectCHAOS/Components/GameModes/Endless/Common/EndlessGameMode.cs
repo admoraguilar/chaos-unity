@@ -26,10 +26,7 @@ namespace ProjectCHAOS.GameModes
 		private Score _score = null;
 
 		[SerializeField]
-		private LeanFingerTap _tap = null;
-
-		[SerializeField]
-		private LeanFingerSwipe _swipe = null;
+		private LeanTouchInput _leanTouchInput = null;
 
 		[Header("Game States")]
 		[SerializeField]
@@ -126,8 +123,8 @@ namespace ProjectCHAOS.GameModes
 
 		private void Awake()
 		{
-			_touchUi.Initialize(_swipe, _tap);
-			_startMenuUi.Initialize(_tap, _scorer);
+			_touchUi.Initialize(_leanTouchInput);
+			_startMenuUi.Initialize(_leanTouchInput, _scorer);
 			_hudScoreUi.Initialize(_scorer);
 
 			_score = _scorer.GetScore(0);
