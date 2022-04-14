@@ -1,5 +1,6 @@
 using UnityEngine;
 using ProjectCHAOS.Systems;
+using ProjectCHAOS.Gameplay.Characters.Players;
 
 namespace ProjectCHAOS.Gameplay.Spawners
 {
@@ -11,7 +12,12 @@ namespace ProjectCHAOS.Gameplay.Spawners
 		{
 			GameObject go = other.gameObject;
 			if(layerMask.Includes(go.layer)) {
-				Destroy(go);
+				PlayerCharacter playerCharacter = go.GetComponentInParent<PlayerCharacter>();
+				if(playerCharacter != null) {
+					playerCharacter.health.Kill();
+				} else {
+					Destroy(go);
+				}	
 			}
 		}
 	}

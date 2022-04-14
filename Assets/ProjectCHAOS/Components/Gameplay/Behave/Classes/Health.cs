@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ProjectCHAOS.Gameplay.Characters
+namespace ProjectCHAOS.Gameplay.Behave
 {
 	[Serializable]
 	public class Health
@@ -10,7 +10,7 @@ namespace ProjectCHAOS.Gameplay.Characters
 		public event Action<float> OnHealthChanged = delegate { };
 
 		[SerializeField]
-		private float _starting = 0f;
+		private float _starting = 100f;
 
 		[SerializeField]
 		private float _max = 100f;
@@ -51,6 +51,16 @@ namespace ProjectCHAOS.Gameplay.Characters
 					OnHealthChanged(delta);
 				}
 			}
+		}
+
+		public void Kill()
+		{
+			current = 0f;
+		}
+
+		public void Restore()
+		{
+			current = max;
 		}
 	}
 }
