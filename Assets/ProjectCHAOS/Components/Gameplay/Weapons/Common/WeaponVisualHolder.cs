@@ -9,8 +9,24 @@ namespace ProjectCHAOS.Gameplay.Weapons
 	{
 		public event Action OnFire = delegate { };
 
+		[SerializeField]
+		private float _fireRateMultiplier = 1f;
+
 		private Transform _parent = null;
 		private WeaponVisual _visual = null;
+
+		public float fireRateMultiplier
+		{
+			get => _fireRateMultiplier;
+			set {
+				_fireRateMultiplier = Mathf.Clamp(value, 1f, 5f);
+				if(visual != null) {
+					if(visual is AutomaticRifle rifle) {
+						rifle.fireRate.speedMultiplier = fireRateMultiplier;
+					}
+				}
+			}
+		}
 
 		public WeaponVisual visual
 		{
@@ -39,6 +55,9 @@ namespace ProjectCHAOS.Gameplay.Weapons
 			visual = UObject.Instantiate(
 				visualPrefab, _parent, 
 				false);
+			if(visual is AutomaticRifle rifle) {
+				rifle.fireRate.speedMultiplier = fireRateMultiplier;
+			}
 			visual.OnFire += InvokeOnFire;
 		}
 

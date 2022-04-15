@@ -15,6 +15,9 @@ namespace ProjectCHAOS.Gameplay.Behave
 		private float _max = 1f;
 
 		[SerializeField]
+		private float _speedMultiplier = 1f;
+
+		[SerializeField]
 		private bool _isResetOnMaxSet = true;
 
 		public float current
@@ -40,6 +43,12 @@ namespace ProjectCHAOS.Gameplay.Behave
 			}
 		}
 
+		public float speedMultiplier
+		{
+			get => _speedMultiplier;
+			set => _speedMultiplier = value;
+		}
+
 		public bool isResetOnMaxSet
 		{
 			get => _isResetOnMaxSet;
@@ -48,7 +57,7 @@ namespace ProjectCHAOS.Gameplay.Behave
 
 		public void Update() 
 		{
-			current += Time.deltaTime;
+			current += _speedMultiplier * Time.deltaTime;
 		}
 
 		public void Reset()

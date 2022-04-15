@@ -6,7 +6,6 @@ using ProjectCHAOS.Gameplay.Behave;
 using ProjectCHAOS.Gameplay.Levels;
 using ProjectCHAOS.Gameplay.Weapons;
 using ProjectCHAOS.Gameplay.Spawners;
-using ProjectCHAOS.Gameplay.Characters;
 using ProjectCHAOS.Gameplay.Characters.Players;
 using ProjectCHAOS.Gameplay.Characters.AIs;
 

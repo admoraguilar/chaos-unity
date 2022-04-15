@@ -11,6 +11,8 @@ namespace ProjectCHAOS.Gameplay.Behave
 		public float tackleSpeed = 24f;
 		public float tackleLength = 4f;
 
+		public float speedMultiplier = 1f;
+
 		private Vector3 _currentMotion = Vector3.zero;
 		private Vector3 _lastMotionWorldPosition = Vector3.zero;
 		private Vector3 _currentRotation = Vector3.zero;
@@ -65,16 +67,16 @@ namespace ProjectCHAOS.Gameplay.Behave
 			if(!_isTackling) {
 				if(_currentMotion != Vector3.zero) {
 					if(!_isDeployed) {
-						owner.Translate(_currentMotion * moveSpeed * Time.deltaTime, Space.World);
+						owner.Translate(_currentMotion * moveSpeed * speedMultiplier * Time.deltaTime, Space.World);
 					}
 
 					Quaternion toRotation = Quaternion.LookRotation(_currentMotion, owner.up);
-					owner.rotation = Quaternion.RotateTowards(owner.rotation, toRotation, rotateSpeed * Time.deltaTime);
+					owner.rotation = Quaternion.RotateTowards(owner.rotation, toRotation, rotateSpeed * speedMultiplier * Time.deltaTime);
 				}
 
 				_lastMotionWorldPosition = owner.position;
 			} else {
-				Vector3 tackleMotion = Vector3.Lerp(owner.position, _targetTackleWorldPosition, tackleSpeed * Time.deltaTime);
+				Vector3 tackleMotion = Vector3.Lerp(owner.position, _targetTackleWorldPosition, tackleSpeed * speedMultiplier * Time.deltaTime);
 				owner.position = tackleMotion;
 
 				if(Vector3.Distance(tackleMotion, _targetTackleWorldPosition) < .05f) {

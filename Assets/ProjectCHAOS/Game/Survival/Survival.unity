@@ -1268,6 +1268,7 @@ MonoBehaviour:
   _spawnRate:
     _current: 0
     _max: 1
+    _speedMultiplier: 1
     _isResetOnMaxSet: 1
   _spawnPointsList:
   - {fileID: 1426908834}
@@ -1370,6 +1371,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1038279216158039723, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}
+      propertyPath: _characterStats._fireRate._value
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1072936960906782728, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
@@ -1719,17 +1724,6 @@ Transform:
   m_Father: {fileID: 1452980115}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1219067444 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1072936960906782775, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}
-  m_PrefabInstance: {fileID: 981644036}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bd2813337dfa634dab812c03a803fc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1221923702 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1072936960567049911, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}
@@ -2608,7 +2602,7 @@ PrefabInstance:
     - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
       propertyPath: _character
       value: 
-      objectReference: {fileID: 1219067444}
+      objectReference: {fileID: 0}
     - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
       propertyPath: _basePortal
       value: 
@@ -2652,7 +2646,7 @@ PrefabInstance:
     - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
       propertyPath: _world._character
       value: 
-      objectReference: {fileID: 1219067444}
+      objectReference: {fileID: 0}
     - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
       propertyPath: _touchUiController
       value: 

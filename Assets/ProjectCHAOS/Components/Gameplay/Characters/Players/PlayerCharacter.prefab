@@ -137,9 +137,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1072936960906782774}
   - component: {fileID: -1038279216158039723}
-  - component: {fileID: 1072936960906782773}
-  - component: {fileID: 1072936960906782772}
   - component: {fileID: 4007043504698862778}
+  - component: {fileID: 3551004904467025625}
+  - component: {fileID: 1072936960906782772}
+  - component: {fileID: 1072936960906782773}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -184,33 +185,14 @@ MonoBehaviour:
     rotateSpeed: 500
     tackleSpeed: 25
     tackleLength: 4
---- !u!114 &1072936960906782773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072936960906782728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f70a9ae5919a5246bee7537d842f381, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerCharacter: {fileID: -1038279216158039723}
-  _weaponHandler: {fileID: 4007043504698862778}
---- !u!114 &1072936960906782772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072936960906782728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14310496ce5cc2549aa4769b073572f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  responses: []
+    speedMultiplier: 1
+  _characterStats:
+    _speed:
+      _value: 1
+      _max: 100
+    _fireRate:
+      _value: 1
+      _max: 100
 --- !u!114 &4007043504698862778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,6 +207,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _databaseBuilder: {fileID: 11400000, guid: 820ae973b4f746b459b3f0e99a0436fc, type: 2}
   _visualHolderTransform: {fileID: 7492764793600527820}
+--- !u!114 &3551004904467025625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072936960906782728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6df4682ff0358c4bb59a60859f385c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _handler: {fileID: 4007043504698862778}
+  _playerCharacter: {fileID: -1038279216158039723}
+--- !u!114 &1072936960906782772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072936960906782728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14310496ce5cc2549aa4769b073572f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  responses: []
+--- !u!114 &1072936960906782773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072936960906782728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f70a9ae5919a5246bee7537d842f381, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCharacter: {fileID: -1038279216158039723}
+  _weaponHandler: {fileID: 4007043504698862778}
 --- !u!1 &4944979709227566393
 GameObject:
   m_ObjectHideFlags: 0
