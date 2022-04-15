@@ -1730,6 +1730,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd2813337dfa634dab812c03a803fc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1221923702 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1072936960567049911, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}
+  m_PrefabInstance: {fileID: 981644036}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd121296ec24ec847b74a9e3b9412857, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1269355958
 GameObject:
   m_ObjectHideFlags: 0
@@ -2670,5 +2681,9 @@ PrefabInstance:
       propertyPath: _system._touchUIController
       value: 
       objectReference: {fileID: 1549296611}
+    - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
+      propertyPath: _world._playerCollisionEvents
+      value: 
+      objectReference: {fileID: 1221923702}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}

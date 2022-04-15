@@ -11,6 +11,7 @@ using ProjectCHAOS.Gameplay.Characters.Players;
 using ProjectCHAOS.Gameplay.Characters.AIs;
 
 using UObject = UnityEngine.Object;
+using MoreMountains.Tools;
 
 namespace ProjectCHAOS.Gameplay.GameModes.Survival
 {
@@ -48,6 +49,9 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 		[SerializeField]
 		private PlayerCharacter _playerCharacter = null;
 
+		[SerializeField]
+		private CollisionEvents _playerCollisionEvents = null;
+
 		public Map baseMap => _baseMap;
 
 		public Portal basePortal => _basePortal;
@@ -63,6 +67,8 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 		public CharacterMechanic character => _character;
 
 		public PlayerCharacter playerCharacter => _playerCharacter;
+
+		public CollisionEvents playerCollisionEvents => _playerCollisionEvents;
 
 		public void OnOutsideVisit()
 		{
@@ -128,6 +134,14 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 			}
 		}
 
+		private void OnPlayerCollisionEnter(Collision collision)
+		{
+			BasicAI basicAI = collision.gameObject.GetComponentInParent<BasicAI>();
+			if(basicAI != null) {
+				playerCharacter.health.Kill();
+			}
+		}
+
 		private void OnHealthEmpty()
 		{
 			OnPlayerCharacterHealthEmpty();
@@ -138,6 +152,8 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 			_basePortal.OnEnter += OnBasePortalEnter;
 			_outsidePortal.OnEnter += OnOutsidePortalEnter;
 			_spawner.OnSpawn += OnSpawn;
+
+			playerCollisionEvents.OnCollisionEnterResponse += OnPlayerCollisionEnter;
 		}
 
 		public void OnDisable()
@@ -145,6 +161,8 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 			_basePortal.OnEnter -= OnBasePortalEnter;
 			_outsidePortal.OnEnter -= OnOutsidePortalEnter;
 			_spawner.OnSpawn -= OnSpawn;
+
+			playerCollisionEvents.OnCollisionEnterResponse -= OnPlayerCollisionEnter;
 		}
 	}
 }
