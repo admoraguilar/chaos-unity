@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace ProjectCHAOS.Systems
 {
@@ -10,6 +11,12 @@ namespace ProjectCHAOS.Systems
 
         public string key => _key;
         public IReadOnlyDictionary<string, object> values => _values;
+
+		public ValueObject()
+		{
+			_key = UnityEngine.Random.Range(0, int.MaxValue).ToString();
+			_values = new Dictionary<string, object>();
+		}
 
         public ValueObject(string key)
         {

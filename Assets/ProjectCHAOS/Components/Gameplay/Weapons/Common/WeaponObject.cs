@@ -27,6 +27,13 @@ namespace ProjectCHAOS.Gameplay.Weapons
 			set => SetValue(currentMagAmmoCountKey, value);
 		}
 
+		public WeaponObject() : base()
+		{
+			name = string.Empty;
+			magSize = 30;
+			currentMagAmmoCount = magSize;
+		}
+
 		public WeaponObject(string key) : base(key)
 		{
 			name = string.Empty;

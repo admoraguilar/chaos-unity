@@ -13,7 +13,7 @@ namespace ProjectCHAOS.Gameplay.Weapons
 
 		public WeaponCycler(WeaponBag bag)
 		{
-			_bag = bag;
+			Initialize(bag);
 		}
 
 		public int index
@@ -22,7 +22,16 @@ namespace ProjectCHAOS.Gameplay.Weapons
 			private set => _index = value;
 		}
 
-		public WeaponBag bag => _bag;
+		public WeaponBag bag
+		{
+			get => _bag;
+			private set => _bag = value;
+		}
+
+		public void Initialize(WeaponBag bag)
+		{
+			this.bag = bag;
+		}
 
 		public WeaponObject SetWeapon(int index)
 		{

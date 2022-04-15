@@ -37,7 +37,7 @@ namespace ProjectCHAOS.Systems.Inputs.GameInputs
 			//	machineGun.StopFiring();
 			//}
 
-			weaponDriver.visual.StartFiring();
+			weaponDriver.visualHolder.visual.StartFiring();
 
 			if(_movementInputMap.didTap) {
 				characterMechanic.Deploy(!characterMechanic.isDeployed);

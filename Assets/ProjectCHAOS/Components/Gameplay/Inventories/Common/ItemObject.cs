@@ -44,6 +44,15 @@ namespace ProjectCHAOS.Gameplay.Inventories
             set => SetValue(spriteKey, value);
         }
 
+		public ItemObject() : base()
+		{
+			name = string.Empty;
+			quantity = 0;
+			category = "Default";
+			rarity = 0f;
+			sprite = null;
+		}
+
         public ItemObject(string key) : base(key)
         {
             name = string.Empty;

@@ -14,7 +14,7 @@ namespace ProjectCHAOS.Gameplay.Weapons
 	/// <summary>
 	/// Central behaviour for all things weapons.
 	/// Handles weapon: (could be separate classes though)
-	///		* cycling
+	///		* v cycler
 	///		* equipment
 	///		* pickup
 	///		* upgrades (individual or all gun types)
@@ -29,25 +29,44 @@ namespace ProjectCHAOS.Gameplay.Weapons
 	{
 		public event Action OnFire = delegate { };
 
-		[SerializeField]
-		private WeaponVisual _visual = null;
+		private WeaponVisualHolder _visualHolder = null;
+		private WeaponBag _bag = null;
+		private WeaponCycler _cycler = null;
 
-		private WeaponBag _bag = new WeaponBag();
+		public WeaponVisualHolder visualHolder
+		{
+			get => _visualHolder;
+			private set => _visualHolder = value;
+		}
 
-		public WeaponVisual visual => _visual;
+		public WeaponBag bag
+		{
+			get => _bag;
+			private set => _bag = value;
+		}
 
-		public WeaponBag bag => _bag;
+		public WeaponCycler cycler
+		{
+			get => _cycler;
+			private set => _cycler = value;
+		}
 
 		private void InvokeOnFire() => OnFire();
 
+		private void Awake()
+		{
+			bag = new WeaponBag();
+			cycler = new WeaponCycler(bag);
+		}
+
 		private void OnEnable()
 		{
-			visual.OnFire += InvokeOnFire;
+			
 		}
 
 		private void OnDisable()
 		{
-			visual.OnFire -= InvokeOnFire;
+			
 		}
 	}
 }

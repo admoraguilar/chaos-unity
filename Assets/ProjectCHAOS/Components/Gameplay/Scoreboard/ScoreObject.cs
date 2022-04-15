@@ -22,6 +22,12 @@ namespace ProjectCHAOS.Gameplay.Scoreboards
             set => SetValue(scoreKey, value);
         }
 
+		public ScoreObject() : base()
+		{
+			name = string.Empty;
+			score = 0;
+		}
+
         public ScoreObject(string key) : base(key)
         {
             name = string.Empty;
