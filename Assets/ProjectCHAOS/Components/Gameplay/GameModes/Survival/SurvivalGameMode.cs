@@ -3,8 +3,14 @@ using ProjectCHAOS.Systems.Inputs;
 using ProjectCHAOS.Systems.FlowTrees;
 using ProjectCHAOS.Gameplay.Scores;
 using ProjectCHAOS.Gameplay.Levels;
+using ProjectCHAOS.Gameplay.Spawners;
 using ProjectCHAOS.Gameplay.Characters;
 using ProjectCHAOS.Gameplay.Characters.Players;
+using ProjectCHAOS.Gameplay.Characters.AIs;
+using ProjectCHAOS.Gameplay.Behave;
+using System.Collections.Generic;
+using ProjectCHAOS.Gameplay.Weapons;
+using MoreMountains.Feedbacks;
 
 namespace ProjectCHAOS.Gameplay.GameModes
 {
@@ -34,6 +40,7 @@ namespace ProjectCHAOS.Gameplay.GameModes
 
 		[SerializeField]
 		private Scorer _scorer = null;
+		private Score _score = null;
 
 		[Header("UIs")]
 		[SerializeField]
@@ -57,6 +64,12 @@ namespace ProjectCHAOS.Gameplay.GameModes
 
 		[SerializeField]
 		private PlayerCharacter _playerCharacter = null;
+
+		[SerializeField]
+		private BasicSpawner _spawner = null;
+
+		[SerializeField]
+		private LevelArea _outsideLevelArea = null;
 
 		private void OnBasePortalEnter(GameObject onEnter)
 		{
@@ -82,6 +95,8 @@ namespace ProjectCHAOS.Gameplay.GameModes
 			_playerCharacter.health.OnHealthEmpty += OnPlayerCharacterHealthEmpty;
 			
 			_character.transform.position = _outsideMap.spawnPoints[0].position;
+
+			_spawner.Run();
 		}
 
 		private void OnOutsideDeadVisit()
@@ -92,6 +107,8 @@ namespace ProjectCHAOS.Gameplay.GameModes
 
 			// Do some transition here...
 			_character.transform.position = _baseMap.spawnPoints[0].position;
+
+			_spawner.Stop();
 
 			_outsideDead.Next();
 		}
@@ -108,6 +125,46 @@ namespace ProjectCHAOS.Gameplay.GameModes
 			_outside.Next();
 		}
 
+		private void OnSpawn(GameObject obj)
+		{
+			BasicAI basicAI = obj.GetComponent<BasicAI>();
+			if(basicAI != null) {
+				basicAI.Initialize(_outsideLevelArea);
+			}
+
+			// Get all collision events of enemy prefab
+			List<CollisionEvents> collisionEvents = new List<CollisionEvents>();
+			obj.GetComponentsInChildren(collisionEvents);
+
+			// Add a score on enemy die
+			foreach(CollisionEvents collisionEvent in collisionEvents) {
+				collisionEvent.OnTriggerEnterResponse += OnBulletCollisionResponse;
+
+				void OnBulletCollisionResponse(Collider collider)
+				{
+					Debug.Log($"Collision: {collider.gameObject.name}");
+
+					if(collider.gameObject.TryGetComponent(out Bullet bullet)) {
+						//Destroy(collisionEvent.gameObject);
+						MMFeedbacks feedbacks = collisionEvent.gameObject.GetComponentInChildren<MMFeedbacks>();
+						if(feedbacks != null && !feedbacks.IsPlaying) {
+							feedbacks.PlayFeedbacks();
+						}
+
+						Destroy(bullet.gameObject);
+
+						_score.current += Random.Range(1, 5);
+					}
+				}
+			}
+		}
+
+		private void Awake()
+		{
+			_score = _scorer.GetScore(0);
+			_touchUiController.Initialize(_leanTouchInput);
+		}
+
 		private void OnEnable()
 		{
 			_basePortal.OnEnter += OnBasePortalEnter;
@@ -117,6 +174,8 @@ namespace ProjectCHAOS.Gameplay.GameModes
 			_outside.OnVisit += OnOutsideVisit;
 			_outsideDead.OnVisit += OnOutsideDeadVisit;
 			_reload.OnVisit += OnReloadVisit;
+
+			_spawner.OnSpawn += OnSpawn;
 		}
 
 		private void OnDisable()
@@ -128,11 +187,8 @@ namespace ProjectCHAOS.Gameplay.GameModes
 			_outside.OnVisit -= OnOutsideVisit;
 			_outsideDead.OnVisit -= OnOutsideDeadVisit;
 			_reload.OnVisit -= OnReloadVisit;
-		}
 
-		private void Start()
-		{
-			_touchUiController.Initialize(_leanTouchInput);
+			_spawner.OnSpawn -= OnSpawn;
 		}
 	}
 }

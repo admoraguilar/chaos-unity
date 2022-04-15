@@ -31,11 +31,27 @@ namespace ProjectCHAOS.Gameplay.Weapons
 				UObject.Destroy(visual.gameObject);
 			}
 
+			if(obj == null) {
+				return;
+			}
+
 			WeaponVisual visualPrefab = obj.prefab;
 			visual = UObject.Instantiate(
 				visualPrefab, _parent, 
 				false);
 			visual.OnFire += InvokeOnFire;
+		}
+
+		public void StartFiring()
+		{
+			if(visual == null) { return; }
+			visual.StartFiring();
+		}
+
+		public void StopFiring()
+		{
+			if(visual == null) { return; }
+			visual.StopFiring();
 		}
 
 		private void InvokeOnFire() => OnFire();

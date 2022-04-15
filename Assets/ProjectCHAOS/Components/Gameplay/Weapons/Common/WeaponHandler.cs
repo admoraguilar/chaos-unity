@@ -3,14 +3,6 @@ using UnityEngine;
 
 namespace ProjectCHAOS.Gameplay.Weapons
 {
-	public class WeaponData
-	{
-		public string id;
-		public string name;
-		public int ammoCount;
-		public int magSize;
-	}
-
 	/// <summary>
 	/// Central behaviour for all things weapons.
 	/// Handles weapon: (could be separate classes though)
@@ -87,13 +79,13 @@ namespace ProjectCHAOS.Gameplay.Weapons
 
 		private void OnEnable()
 		{
-			visualHolder.visual.OnFire += InvokeOnFire;
+			visualHolder.OnFire += InvokeOnFire;
 			cycler.OnSetWeapon += OnSetWeapon;
 		}
 
 		private void OnDisable()
 		{
-			visualHolder.visual.OnFire -= InvokeOnFire;
+			visualHolder.OnFire -= InvokeOnFire;
 			cycler.OnSetWeapon -= OnSetWeapon;
 		}
 

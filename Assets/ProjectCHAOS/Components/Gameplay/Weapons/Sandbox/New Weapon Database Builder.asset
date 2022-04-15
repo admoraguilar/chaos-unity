@@ -18,10 +18,10 @@ MonoBehaviour:
     magSize: 30
     currentMagAmmountCount: 30
   - name: Machine Gun B
-    prefab: {fileID: 80450894415167288, guid: 269ad579483d9ff48905d8b93d00fc77, type: 3}
+    prefab: {fileID: 7077439477903200703, guid: cc78a64972f49e841b831d181f588c04, type: 3}
     magSize: 30
     currentMagAmmountCount: 30
   - name: Machine Gun C
-    prefab: {fileID: 80450894415167288, guid: b7389f19aeb5358409a8341b9fac943f, type: 3}
+    prefab: {fileID: 6407676419710527811, guid: 7f55e1dbe4fd9e64a88c4bdd108e4546, type: 3}
     magSize: 30
     currentMagAmmountCount: 30

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4771862272481320849
+--- !u!1001 &2385996757744169238
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,15 +9,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 767931731416510648, guid: 214e9d4e2b96d334296cbcc6e0ee9930, type: 3}
       propertyPath: m_Color.b
-      value: 0.45431155
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 767931731416510648, guid: 214e9d4e2b96d334296cbcc6e0ee9930, type: 3}
       propertyPath: m_Color.g
-      value: 0.3215686
+      value: 0.8599882
       objectReference: {fileID: 0}
     - target: {fileID: 767931731416510648, guid: 214e9d4e2b96d334296cbcc6e0ee9930, type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 767931731416510648, guid: 214e9d4e2b96d334296cbcc6e0ee9930, type: 3}
+      propertyPath: m_Intensity
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 767931731755594882, guid: 214e9d4e2b96d334296cbcc6e0ee9930, type: 3}
       propertyPath: m_RootOrder
@@ -29,11 +33,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 767931731755594882, guid: 214e9d4e2b96d334296cbcc6e0ee9930, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 767931731755594882, guid: 214e9d4e2b96d334296cbcc6e0ee9930, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 767931731755594882, guid: 214e9d4e2b96d334296cbcc6e0ee9930, type: 3}
       propertyPath: m_LocalRotation.w

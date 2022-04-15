@@ -11,6 +11,9 @@ namespace ProjectCHAOS.Gameplay.Behave
 		public event Action<Collision> OnCollisionEnterResponse = delegate { };
 		public event Action<Collision> OnCollisionStayResponse = delegate { };
 		public event Action<Collision> OnCollisionExitResponse = delegate { };
+		public event Action<Collider> OnTriggerEnterResponse = delegate { };
+		public event Action<Collider> OnTriggerStayResponse = delegate { };
+		public event Action<Collider> OnTriggerExitResponse = delegate { };
 
 		public void Clear()
 		{
@@ -19,6 +22,9 @@ namespace ProjectCHAOS.Gameplay.Behave
 			OnCollisionEnterResponse = delegate { };
 			OnCollisionStayResponse= delegate { };
 			OnCollisionExitResponse= delegate { };
+			OnTriggerEnterResponse = delegate { };
+			OnTriggerStayResponse = delegate { };
+			OnTriggerExitResponse = delegate { };
 		}
 
 		private void OnEnable()
@@ -44,6 +50,21 @@ namespace ProjectCHAOS.Gameplay.Behave
 		private void OnCollisionExit(Collision collision)
 		{
 			OnCollisionExitResponse(collision);
+		}
+
+		private void OnTriggerEnter(Collider other)
+		{
+			OnTriggerEnterResponse(other);
+		}
+
+		private void OnTriggerStay(Collider other)
+		{
+			OnTriggerStayResponse(other);
+		}
+
+		private void OnTriggerExit(Collider other)
+		{
+			OnTriggerExitResponse(other);
 		}
 	}
 }

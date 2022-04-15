@@ -35,12 +35,16 @@ namespace ProjectCHAOS.Gameplay.Weapons
 
 		public WeaponObject SetWeapon(int index)
 		{
-			WeaponObject result = bag[index];
 			if(_index != index) {
+				WeaponObject result = bag[index];
 				_index = Mathf.Clamp(index, 0, _bag.maxEntryCount);
 				OnSetWeapon(result);
+				return result;
+			} else {
+				_index = -1;
+				OnSetWeapon(null);
+				return null;
 			}
-			return result;
 		}
 	}
 }
