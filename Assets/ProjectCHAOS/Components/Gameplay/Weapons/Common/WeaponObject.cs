@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 using ProjectCHAOS.Systems;
 
 namespace ProjectCHAOS.Gameplay.Weapons
@@ -6,6 +7,7 @@ namespace ProjectCHAOS.Gameplay.Weapons
 	public class WeaponObject : ValueObject
 	{
 		public const string nameKey = "name";
+		public const string prefabKey = "prefabKey";
 		public const string magSizeKey = "magSize";
 		public const string currentMagAmmoCountKey = "currentMagAmmoCount";
 
@@ -13,6 +15,12 @@ namespace ProjectCHAOS.Gameplay.Weapons
 		{
 			get => GetValue<string>(nameKey);
 			set => SetValue(nameKey, value);
+		}
+
+		public WeaponVisual prefab
+		{
+			get => GetValue<WeaponVisual>(prefabKey);
+			set => SetValue(prefabKey, value);
 		}
 
 		public int magSize

@@ -40,7 +40,6 @@ namespace ProjectCHAOS.Gameplay.Weapons
 				_index = Mathf.Clamp(index, 0, _bag.maxEntryCount);
 				OnSetWeapon(result);
 			}
-
 			return result;
 		}
 	}

@@ -12,4 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f64c2b921ddc974da2fca2c3aeb71ea, type: 3}
   m_Name: New Weapon Database Builder
   m_EditorClassIdentifier: 
-  _objects: []
+  _objects:
+  - name: Machine Gun A
+    prefab: {fileID: 4838236944014778537, guid: 214e9d4e2b96d334296cbcc6e0ee9930, type: 3}
+    magSize: 30
+    currentMagAmmountCount: 30
+  - name: Machine Gun B
+    prefab: {fileID: 80450894415167288, guid: 269ad579483d9ff48905d8b93d00fc77, type: 3}
+    magSize: 30
+    currentMagAmmountCount: 30
+  - name: Machine Gun C
+    prefab: {fileID: 80450894415167288, guid: b7389f19aeb5358409a8341b9fac943f, type: 3}
+    magSize: 30
+    currentMagAmmountCount: 30

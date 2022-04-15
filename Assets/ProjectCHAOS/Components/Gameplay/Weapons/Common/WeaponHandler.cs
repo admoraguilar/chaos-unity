@@ -19,7 +19,7 @@ namespace ProjectCHAOS.Gameplay.Weapons
 	///		* pickup
 	///		* upgrades (individual or all gun types)
 	///		* buffs
-	///		* database
+	///		* v database
 	///		* v bag
 	///		* v object
 	///		* inventory connection
@@ -29,9 +29,22 @@ namespace ProjectCHAOS.Gameplay.Weapons
 	{
 		public event Action OnFire = delegate { };
 
+		[SerializeField]
+		private WeaponDatabaseBuilder _databaseBuilder = null;
+
+		[SerializeField]
+		private Transform _visualHolderTransform = null;
+
+		private WeaponDatabase _database = null;
 		private WeaponVisualHolder _visualHolder = null;
 		private WeaponBag _bag = null;
 		private WeaponCycler _cycler = null;
+
+		public WeaponDatabase database
+		{
+			get => _database;
+			private set => _database = value;
+		}
 
 		public WeaponVisualHolder visualHolder
 		{
@@ -53,20 +66,50 @@ namespace ProjectCHAOS.Gameplay.Weapons
 
 		private void InvokeOnFire() => OnFire();
 
+		private void OnSetWeapon(WeaponObject weaponObject)
+		{
+			visualHolder.SetVisual(weaponObject);
+		}
+
 		private void Awake()
 		{
+			database = _databaseBuilder.Build();
+			visualHolder = new WeaponVisualHolder();
 			bag = new WeaponBag();
 			cycler = new WeaponCycler(bag);
+
+			// Hack get all valid weapons in database
+			bag.AddRange(database.Get(w => w.IsValid()));
+
+			visualHolder.parent = _visualHolderTransform;
+			visualHolder.SetVisual(cycler.SetWeapon(0));
 		}
 
 		private void OnEnable()
 		{
-			
+			visualHolder.visual.OnFire += InvokeOnFire;
+			cycler.OnSetWeapon += OnSetWeapon;
 		}
 
 		private void OnDisable()
 		{
-			
+			visualHolder.visual.OnFire -= InvokeOnFire;
+			cycler.OnSetWeapon -= OnSetWeapon;
+		}
+
+		private void Update()
+		{
+			if(Input.GetKeyDown(KeyCode.Alpha1)) {
+				cycler.SetWeapon(0);
+			}
+
+			if(Input.GetKeyDown(KeyCode.Alpha2)) {
+				cycler.SetWeapon(1);
+			}
+
+			if(Input.GetKeyDown(KeyCode.Alpha3)) {
+				cycler.SetWeapon(2);
+			}
 		}
 	}
 }

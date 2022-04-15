@@ -14,6 +14,7 @@ namespace ProjectCHAOS.Gameplay.Weapons
 		public class WeaponDatabaseObjectBuilder : ValueObjectBuilder<WeaponObject>
 		{
 			public string name = string.Empty;
+			public WeaponVisual prefab = null;
 			public int magSize = 30;
 			public int currentMagAmmountCount = 30;
 
@@ -21,6 +22,7 @@ namespace ProjectCHAOS.Gameplay.Weapons
 			{
 				WeaponObject weapon = new WeaponObject();
 				weapon.name = name;
+				weapon.prefab = prefab;
 				weapon.magSize = magSize;
 				weapon.currentMagAmmoCount = currentMagAmmountCount;
 				return weapon;
