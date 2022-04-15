@@ -30,7 +30,7 @@ namespace ProjectCHAOS.Gameplay.Inventories
             }
 
             string result = string.Empty;
-            List<ItemObject> itemObjs = inventory.GetValues(
+            List<ItemObject> itemObjs = inventory.Get(
                 (ItemObject obj) => obj.IsValid(), 5,
                 new ValueObjectIntValueComparer<ItemObject>(ItemObject.quantityKey));
 

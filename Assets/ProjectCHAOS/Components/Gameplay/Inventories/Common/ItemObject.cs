@@ -65,8 +65,8 @@ namespace ProjectCHAOS.Gameplay.Inventories
         public override bool IsValid()
         {
             return base.IsValid() && 
-                (name != string.Empty && quantity >= 0 && 
-                category != string.Empty && rarity >= 0f);
+                name != string.Empty && quantity >= 0 && 
+                category != string.Empty && rarity >= 0f;
         }
     }
 }

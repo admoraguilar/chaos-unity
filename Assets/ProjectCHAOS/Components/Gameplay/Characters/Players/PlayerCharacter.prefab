@@ -172,8 +172,9 @@ GameObject:
   - component: {fileID: 1072936960906782775}
   - component: {fileID: 1072936960906782773}
   - component: {fileID: 1072936960906782772}
+  - component: {fileID: 4007043504698862778}
   m_Layer: 0
-  m_Name: Jacket
+  m_Name: PlayerCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterMechanic: {fileID: 1072936960906782775}
-  _machineGun: {fileID: 1072936961523952191}
+  _weaponDriver: {fileID: 0}
 --- !u!114 &1072936960906782772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +255,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   responses: []
+--- !u!114 &4007043504698862778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072936960906782728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafde2fd58069b148a92397cd3cf5c5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _visual: {fileID: 7570179367369687596}
 --- !u!1 &1072936961523952177
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1072936961523952176}
-  - component: {fileID: 1072936961523952191}
+  - component: {fileID: 7570179367369687596}
   - component: {fileID: 1072936961523952190}
   m_Layer: 0
   m_Name: MachineGun
@@ -290,7 +304,7 @@ Transform:
   m_Father: {fileID: 1072936960906782774}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1072936961523952191
+--- !u!114 &7570179367369687596
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -299,12 +313,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1072936961523952177}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dfa32a3aafde974da54c8f9193ab633, type: 3}
+  m_Script: {fileID: 11500000, guid: 2410906d8a3bc304bbfbe71efe82d45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7390499704359245690, guid: c6f74700b3769e041954351ad0e0b8fa, type: 3}
   muzzlePoint: {fileID: 1072936961523952176}
-  fireRate: 0.08
+  _fireRate:
+    _current: 0
+    _max: 0.08
+    _isResetOnMaxSet: 1
 --- !u!114 &1072936961523952190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71eed6071c025c14d8b15a341e4d8985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _machineGun: {fileID: 1072936961523952191}
+  _weaponVisual: {fileID: 7570179367369687596}
   _onFire:
     m_PersistentCalls:
       m_Calls:

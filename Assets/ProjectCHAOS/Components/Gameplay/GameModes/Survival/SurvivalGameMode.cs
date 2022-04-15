@@ -1,9 +1,9 @@
-using ProjectCHAOS.Gameplay.Characters;
-using ProjectCHAOS.Systems.Inputs;
-using ProjectCHAOS.Gameplay.Levels;
 using UnityEngine;
+using ProjectCHAOS.Systems.Inputs;
 using ProjectCHAOS.Systems.FlowTrees;
 using ProjectCHAOS.Gameplay.Scores;
+using ProjectCHAOS.Gameplay.Levels;
+using ProjectCHAOS.Gameplay.Characters;
 using ProjectCHAOS.Gameplay.Characters.Players;
 
 namespace ProjectCHAOS.Gameplay.GameModes

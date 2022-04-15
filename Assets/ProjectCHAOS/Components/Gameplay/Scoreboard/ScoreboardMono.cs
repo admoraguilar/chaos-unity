@@ -29,7 +29,7 @@ namespace ProjectCHAOS.Gameplay.Scoreboards
             }
 
             string result = string.Empty;
-            List<ScoreObject> scoreObjs = scoreboard.GetValues(
+            List<ScoreObject> scoreObjs = scoreboard.Get(
                 (ScoreObject obj) => obj.IsValid(), 5,
                 new ValueObjectIntValueComparer<ScoreObject>(ScoreObject.scoreKey));
 

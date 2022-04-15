@@ -629,7 +629,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1072936960906782728, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}
       propertyPath: m_Name
-      value: Jacket
+      value: PlayerCharacter
       objectReference: {fileID: 0}
     - target: {fileID: 1072936960906782774, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}
       propertyPath: m_RootOrder
@@ -677,7 +677,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1072936961523952177, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}

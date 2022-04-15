@@ -11,13 +11,13 @@ namespace ProjectCHAOS.Systems.Inputs.GameInputs
 		private CharacterMechanic _characterMechanic = null;
 		
 		[SerializeField]
-		private MachineGun _machineGun = null;
+		private WeaponHandler _weaponDriver = null;
 
 		private IMovementInputMap _movementInputMap = null;
 		private ICombatInputMap _combatInputMap = null;
 
 		public CharacterMechanic characterMechanic => this.GetCachedComponent(ref _characterMechanic);
-		public MachineGun machineGun => this.GetCachedComponent(ref _machineGun);
+		public WeaponHandler weaponDriver => this.GetCachedComponent(ref _weaponDriver);
 
 		private void Awake()
 		{
@@ -37,7 +37,7 @@ namespace ProjectCHAOS.Systems.Inputs.GameInputs
 			//	machineGun.StopFiring();
 			//}
 
-			machineGun.StartFiring();
+			weaponDriver.visual.StartFiring();
 
 			if(_movementInputMap.didTap) {
 				characterMechanic.Deploy(!characterMechanic.isDeployed);
