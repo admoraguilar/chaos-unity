@@ -633,8 +633,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 871119491}
-  - {fileID: 78393754}
+  - {fileID: 235973506}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -674,7 +673,7 @@ Transform:
   - {fileID: 1269355959}
   - {fileID: 1276822289}
   - {fileID: 745632109}
-  m_Father: {fileID: 74271205}
+  m_Father: {fileID: 235973506}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &78393755
@@ -946,6 +945,39 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200952822}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &235973505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 235973506}
+  m_Layer: 0
+  m_Name: World
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &235973506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235973505}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 871119491}
+  - {fileID: 78393754}
+  m_Father: {fileID: 74271205}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &254539345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,7 +1346,7 @@ Transform:
   - {fileID: 141321294}
   - {fileID: 993604078}
   - {fileID: 1721898608}
-  m_Father: {fileID: 74271205}
+  m_Father: {fileID: 235973506}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &871119492
@@ -2579,9 +2611,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 254539347}
     - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
+      propertyPath: _system._input
+      value: 
+      objectReference: {fileID: 1790177506337421901}
+    - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
       propertyPath: _leanTouchInput
       value: 
       objectReference: {fileID: 1790177506337421901}
+    - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
+      propertyPath: _system._scorer
+      value: 
+      objectReference: {fileID: 985600143}
+    - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
+      propertyPath: _world._baseMap
+      value: 
+      objectReference: {fileID: 871119492}
+    - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
+      propertyPath: _world._spawner
+      value: 
+      objectReference: {fileID: 745632110}
     - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
       propertyPath: _playerCharacter
       value: 
@@ -2591,7 +2639,35 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1269355963}
     - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
+      propertyPath: _world._character
+      value: 
+      objectReference: {fileID: 1219067444}
+    - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
       propertyPath: _touchUiController
+      value: 
+      objectReference: {fileID: 1549296611}
+    - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
+      propertyPath: _world._basePortal
+      value: 
+      objectReference: {fileID: 141321295}
+    - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
+      propertyPath: _world._outsideMap
+      value: 
+      objectReference: {fileID: 78393755}
+    - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
+      propertyPath: _world._outsidePortal
+      value: 
+      objectReference: {fileID: 254539347}
+    - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
+      propertyPath: _world._playerCharacter
+      value: 
+      objectReference: {fileID: 981644038}
+    - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
+      propertyPath: _world._outsideLevelArea
+      value: 
+      objectReference: {fileID: 1269355963}
+    - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
+      propertyPath: _system._touchUIController
       value: 
       objectReference: {fileID: 1549296611}
     m_RemovedComponents: []

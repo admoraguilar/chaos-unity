@@ -234,20 +234,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e4f78cf974959d448d7dad784aa15c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flowTree: {fileID: 5038887199543050498}
-  _base: {fileID: 5039383887067178963}
-  _outside: {fileID: 3320785078731132971}
-  _outsideDead: {fileID: 7594497997434702494}
-  _reload: {fileID: 4530165213907034133}
-  _leanTouchInput: {fileID: 0}
-  _scorer: {fileID: 0}
-  _touchUiController: {fileID: 0}
-  _baseMap: {fileID: 0}
-  _basePortal: {fileID: 0}
-  _outsideMap: {fileID: 0}
-  _outsidePortal: {fileID: 0}
-  _character: {fileID: 0}
-  _playerCharacter: {fileID: 0}
+  _system:
+    _input: {fileID: 0}
+    _scorer: {fileID: 0}
+    _touchUIController: {fileID: 0}
+  _world:
+    _baseMap: {fileID: 0}
+    _basePortal: {fileID: 0}
+    _outsideMap: {fileID: 0}
+    _outsidePortal: {fileID: 0}
+    _spawner: {fileID: 0}
+    _outsideLevelArea: {fileID: 0}
+    _character: {fileID: 0}
+    _playerCharacter: {fileID: 0}
+  _flow:
+    _tree: {fileID: 5038887199543050498}
+    _base: {fileID: 5039383887067178963}
+    _outside: {fileID: 3320785078731132971}
+    _outsideDead: {fileID: 7594497997434702494}
+    _reload: {fileID: 4530165213907034133}
 --- !u!1 &8789808067144165298
 GameObject:
   m_ObjectHideFlags: 0
