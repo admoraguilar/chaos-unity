@@ -245,8 +245,8 @@ MonoBehaviour:
     _outsidePortal: {fileID: 0}
     _spawner: {fileID: 0}
     _outsideLevelArea: {fileID: 0}
-    _character: {fileID: 0}
     _playerCharacter: {fileID: 0}
+    _playerCollisionEvents: {fileID: 0}
   _flow:
     _tree: {fileID: 5038887199543050498}
     _base: {fileID: 5039383887067178963}

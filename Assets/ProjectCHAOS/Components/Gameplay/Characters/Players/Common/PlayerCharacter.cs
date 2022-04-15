@@ -39,7 +39,7 @@ namespace ProjectCHAOS.Gameplay.Characters.Players
 
 		private void OnValidate()
 		{
-			characterStats.OnValidate();
+			characterStats.Editor_OnValidate();
 		}
 
 #endif
