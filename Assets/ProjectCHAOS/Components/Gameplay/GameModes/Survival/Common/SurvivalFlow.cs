@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using ProjectCHAOS.Systems.FlowTrees;
-using ProjectCHAOS.Gameplay.Characters;
+using ProjectCHAOS.Gameplay.Characters.Players;
 
 namespace ProjectCHAOS.Gameplay.GameModes.Survival
 {
@@ -63,7 +63,7 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 
 		}
 
-		private void OnCharacterBasePortalEnter(CharacterMechanic characterMechanic)
+		private void OnCharacterBasePortalEnter(PlayerCharacter character)
 		{
 			@base.Next();
 		}

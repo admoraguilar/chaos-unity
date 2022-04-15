@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ProjectCHAOS.Gameplay.Behave
 {
 	[Serializable]
-	public class Movement
+	public class SimpleMovement
 	{
 		private Vector3 _direction = Vector3.zero;
 		private float _speed = 0f;

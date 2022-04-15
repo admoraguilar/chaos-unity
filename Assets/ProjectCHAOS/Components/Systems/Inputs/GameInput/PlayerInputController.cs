@@ -1,6 +1,7 @@
 using UnityEngine;
 using ProjectCHAOS.Gameplay.Weapons;
 using ProjectCHAOS.Gameplay.Characters;
+using ProjectCHAOS.Gameplay.Characters.Players;
 
 namespace ProjectCHAOS.Systems.Inputs.GameInputs
 {
@@ -8,16 +9,16 @@ namespace ProjectCHAOS.Systems.Inputs.GameInputs
     {
 		[Header("References")]
 		[SerializeField]
-		private CharacterMechanic _characterMechanic = null;
+		private PlayerCharacter _playerCharacter = null;
 		
 		[SerializeField]
-		private WeaponHandler _weaponDriver = null;
+		private WeaponHandler _weaponHandler = null;
 
 		private IMovementInputMap _movementInputMap = null;
 		private ICombatInputMap _combatInputMap = null;
 
-		public CharacterMechanic characterMechanic => this.GetCachedComponent(ref _characterMechanic);
-		public WeaponHandler weaponDriver => this.GetCachedComponent(ref _weaponDriver);
+		public PlayerCharacter playerCharacter => this.GetCachedComponent(ref _playerCharacter);
+		public WeaponHandler weaponHandler => this.GetCachedComponent(ref _weaponHandler);
 
 		private void Awake()
 		{
@@ -27,7 +28,7 @@ namespace ProjectCHAOS.Systems.Inputs.GameInputs
 
 		private void Update()
 		{
-			characterMechanic.Move(_movementInputMap.moveInputAxis);
+			playerCharacter.movement.Move(_movementInputMap.moveInputAxis);
 
 			//if(_combatInputMap.isFiringDown) {
 			//	machineGun.StartFiring();
@@ -37,14 +38,14 @@ namespace ProjectCHAOS.Systems.Inputs.GameInputs
 			//	machineGun.StopFiring();
 			//}
 
-			weaponDriver.visualHolder.StartFiring();
+			weaponHandler.visualHolder.StartFiring();
 
 			if(_movementInputMap.didTap) {
-				characterMechanic.Deploy(!characterMechanic.isDeployed);
+				playerCharacter.movement.Deploy(!playerCharacter.movement.isDeployed);
 			}
 
 			if(_movementInputMap.didDoubleTap) {
-				characterMechanic.Tackle(characterMechanic.transform.forward);
+				playerCharacter.movement.Tackle(playerCharacter.transform.forward);
 			}
 		}
 	}

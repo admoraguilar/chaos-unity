@@ -7,7 +7,7 @@ namespace ProjectCHAOS.Gameplay.Characters.AIs
 {
 	public class BasicAI : MonoBehaviour
 	{
-		private Movement _movement = new Movement();
+		private SimpleMovement _movement = new SimpleMovement();
 		private Positioning _positioning = new Positioning();
 		private Targetting _targetting = new Targetting();
 
@@ -16,7 +16,7 @@ namespace ProjectCHAOS.Gameplay.Characters.AIs
 
 		private Transform _transform = null;
 
-		public Movement movement
+		public SimpleMovement movement
 		{
 			get => _movement;
 			private set => _movement = value;

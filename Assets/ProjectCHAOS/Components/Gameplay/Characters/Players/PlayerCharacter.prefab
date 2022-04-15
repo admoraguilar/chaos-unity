@@ -137,7 +137,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1072936960906782774}
   - component: {fileID: -1038279216158039723}
-  - component: {fileID: 1072936960906782775}
   - component: {fileID: 1072936960906782773}
   - component: {fileID: 1072936960906782772}
   - component: {fileID: 4007043504698862778}
@@ -180,22 +179,11 @@ MonoBehaviour:
   _health:
     _starting: 100
     _max: 100
---- !u!114 &1072936960906782775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072936960906782728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bd2813337dfa634dab812c03a803fc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 15
-  rotateSpeed: 500
-  tackleSpeed: 25
-  tackleLength: 4
+  _movement:
+    moveSpeed: 15
+    rotateSpeed: 500
+    tackleSpeed: 25
+    tackleLength: 4
 --- !u!114 &1072936960906782773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,8 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f70a9ae5919a5246bee7537d842f381, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterMechanic: {fileID: 1072936960906782775}
-  _weaponDriver: {fileID: 0}
+  _playerCharacter: {fileID: -1038279216158039723}
+  _weaponHandler: {fileID: 4007043504698862778}
 --- !u!114 &1072936960906782772
 MonoBehaviour:
   m_ObjectHideFlags: 0

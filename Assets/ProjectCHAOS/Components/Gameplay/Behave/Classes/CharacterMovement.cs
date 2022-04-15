@@ -1,14 +1,15 @@
+using System;
 using UnityEngine;
-using ProjectCHAOS.Systems;
 
-namespace ProjectCHAOS.Gameplay.Characters
+namespace ProjectCHAOS.Gameplay.Behave
 {
-    public class CharacterMechanic : MonoBehaviour
-    {
-		public float moveSpeed = 5f;
-		public float rotateSpeed = 10f;
-		public float tackleSpeed = 15f;
-		public float tackleLength = 8f;
+	[Serializable]
+	public class CharacterMovement
+	{
+		public float moveSpeed = 15f;
+		public float rotateSpeed = 500f;
+		public float tackleSpeed = 24f;
+		public float tackleLength = 4f;
 
 		private Vector3 _currentMotion = Vector3.zero;
 		private Vector3 _lastMotionWorldPosition = Vector3.zero;
@@ -18,11 +19,25 @@ namespace ProjectCHAOS.Gameplay.Characters
 		private bool _isDeployed = false;
 		private bool _isTackling = false;
 
-		private Transform _transform = null;
+		private Transform _owner = null;
 
 		public bool isDeployed => _isDeployed;
 
-        public new Transform transform => this.GetCachedComponent(ref _transform);
+		public Transform owner
+		{
+			get => _owner;
+			private set => _owner = value;
+		}
+
+		public bool isFunctional
+		{
+			get => owner != null;
+		}
+
+		public void Initialize(Transform owner)
+		{
+			this.owner = owner;
+		}
 
 		public void Move(Vector3 motion)
 		{
@@ -45,22 +60,22 @@ namespace ProjectCHAOS.Gameplay.Characters
 			_isTackling = true;
 		}
 
-		private void FixedUpdate()
+		public void FixedUpdate()
 		{
 			if(!_isTackling) {
 				if(_currentMotion != Vector3.zero) {
 					if(!_isDeployed) {
-						transform.Translate(_currentMotion * moveSpeed * Time.deltaTime, Space.World);
+						owner.Translate(_currentMotion * moveSpeed * Time.deltaTime, Space.World);
 					}
 
-					Quaternion toRotation = Quaternion.LookRotation(_currentMotion, transform.up);
-					transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotateSpeed * Time.deltaTime);
+					Quaternion toRotation = Quaternion.LookRotation(_currentMotion, owner.up);
+					owner.rotation = Quaternion.RotateTowards(owner.rotation, toRotation, rotateSpeed * Time.deltaTime);
 				}
 
-				_lastMotionWorldPosition = transform.position;
+				_lastMotionWorldPosition = owner.position;
 			} else {
-				Vector3 tackleMotion = Vector3.Lerp(transform.position, _targetTackleWorldPosition, tackleSpeed * Time.deltaTime);
-				transform.position = tackleMotion;
+				Vector3 tackleMotion = Vector3.Lerp(owner.position, _targetTackleWorldPosition, tackleSpeed * Time.deltaTime);
+				owner.position = tackleMotion;
 
 				if(Vector3.Distance(tackleMotion, _targetTackleWorldPosition) < .05f) {
 					_isTackling = false;

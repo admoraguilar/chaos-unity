@@ -18,7 +18,7 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 	[Serializable]
 	public class SurvivalWorld
 	{
-		public event Action<CharacterMechanic> OnCharacterBasePortalEnter = delegate { };
+		public event Action<PlayerCharacter> OnCharacterBasePortalEnter = delegate { };
 		public event Action<GameObject> OnBulletHit = delegate { };
 		public event Action OnPlayerCharacterHealthEmpty = delegate { };
 
@@ -44,9 +44,6 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 
 		[Header("All")]
 		[SerializeField]
-		private CharacterMechanic _character = null;
-
-		[SerializeField]
 		private PlayerCharacter _playerCharacter = null;
 
 		[SerializeField]
@@ -64,8 +61,6 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 
 		public LevelArea outsideLevelArea => _outsideLevelArea;
 
-		public CharacterMechanic character => _character;
-
 		public PlayerCharacter playerCharacter => _playerCharacter;
 
 		public CollisionEvents playerCollisionEvents => _playerCollisionEvents;
@@ -73,14 +68,14 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 		public void OnOutsideVisit()
 		{
 			playerCharacter.health.OnHealthEmpty += OnHealthEmpty;
-			character.transform.position = outsideMap.spawnPoints[0].position;
+			playerCharacter.transform.position = outsideMap.spawnPoints[0].position;
 			spawner.Run();
 		}
 
 		public void OnOutsideDeadVisit()
 		{
 			playerCharacter.health.OnHealthEmpty -= OnHealthEmpty;
-			character.transform.position = baseMap.spawnPoints[0].position;
+			playerCharacter.transform.position = baseMap.spawnPoints[0].position;
 			spawner.Stop();
 		}
 
@@ -91,13 +86,13 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 
 		private void OnBasePortalEnter(GameObject onEnter)
 		{
-			CharacterMechanic character = onEnter.GetComponentInParent<CharacterMechanic>();
+			PlayerCharacter character = onEnter.GetComponentInParent<PlayerCharacter>();
 			if(character != null) { OnCharacterBasePortalEnter(character); }
 		}
 
 		private void OnOutsidePortalEnter(GameObject onEnter)
 		{
-			CharacterMechanic character = onEnter.GetComponentInParent<CharacterMechanic>();
+			PlayerCharacter character = onEnter.GetComponentInParent<PlayerCharacter>();
 			if(character != null) {
 				character.transform.position = _baseMap.spawnPoints[0].position;
 			}
