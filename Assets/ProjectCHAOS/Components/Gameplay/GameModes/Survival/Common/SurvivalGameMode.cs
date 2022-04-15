@@ -17,7 +17,7 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 		private void Awake()
 		{
 			_system.Awake(_world);
-			_flow.Awake(_world);
+			_flow.Awake(_world, _system);
 		}
 
 		private void OnEnable()

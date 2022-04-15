@@ -38,8 +38,9 @@ namespace ProjectCHAOS.UI.Menus
 		public void Initialize(LeanTouchInput leanTouchInput, Scorer scorer)
 		{
 			if(leanTouchInput != null) {
-				LeanFingerTap tap = this.leanTouchInput.tap;
+				LeanFingerTap tap = null;
 				if(this.leanTouchInput != null) {
+					tap = this.leanTouchInput.tap;
 					tap.OnFinger.RemoveListener(OnLeanFinger);
 				}
 

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using ProjectCHAOS.UI.Global;
 using ProjectCHAOS.Systems.Inputs;
 using ProjectCHAOS.Gameplay.Scores;
 
@@ -21,7 +22,7 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 
 		[Header("UIs")]
 		[SerializeField]
-		private TouchUIController _touchUIController = null;
+		private GlobalUI _globalUi = null;
 
 		private SurvivalWorld _world = null;
 
@@ -35,12 +36,23 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 			private set => _score = value;
 		}
 
-		public TouchUIController touchUIController => _touchUIController;
+		public GlobalUI globalUi => _globalUi;
 
 		public SurvivalWorld world
 		{
 			get => _world;
 			private set => _world = value;
+		}
+
+		public void OnOutsideVisit()
+		{
+			globalUi.hudUi.gameObject.SetActive(true);
+		}
+
+		public void OnOutsideDeadVisit()
+		{
+			globalUi.hudUi.gameObject.SetActive(false);
+			score.Reset();
 		}
 
 		private void OnBulletHit(GameObject obj)
@@ -53,7 +65,10 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 			this.world = world;
 
 			score = scorer.GetScore(0);
-			touchUIController.Initialize(input);
+			globalUi.startMenuUI.Initialize(input, scorer);
+			globalUi.hudUi.scoreUi.Initialize(scorer);
+
+			globalUi.touchUiController.Initialize(input);
 		}
 
 		public void OnEnable()

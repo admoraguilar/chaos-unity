@@ -25,6 +25,7 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 		private Node _reload = null;
 
 		private SurvivalWorld _world = null;
+		private SurvivalSystem _system = null;
 
 		public FlowTree tree => _tree;
 
@@ -42,6 +43,12 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 			private set => _world = value;
 		}
 
+		public SurvivalSystem system
+		{
+			get => _system;
+			private set => _system = value;
+		}
+
 		private void OnBaseVisit()
 		{
 
@@ -50,11 +57,13 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 		private void OnOutsideVisit()
 		{
 			world.OnOutsideVisit();
+			system.OnOutsideVisit();
 		}
 
 		private void OnOutsideDeadVisit()
 		{
 			world.OnOutsideDeadVisit();
+			system.OnOutsideDeadVisit();
 			outsideDead.Next();
 		}
 
@@ -73,9 +82,10 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 			outside.Next();
 		}
 
-		public void Awake(SurvivalWorld world)
+		public void Awake(SurvivalWorld world, SurvivalSystem system)
 		{
 			this.world = world;
+			this.system = system;
 		}
 
 		public void OnEnable()

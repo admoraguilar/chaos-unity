@@ -2164,6 +2164,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7732c0feb50f93648bfb006c5b4155dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1549296613 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3624701385111016689, guid: b3e4f48d956def54f9e60f0f05eca4a7, type: 3}
+  m_PrefabInstance: {fileID: 1549296609}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3848f304b67f2c4aaa487aebff1b918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1627616296
 GameObject:
   m_ObjectHideFlags: 0
@@ -2651,6 +2662,10 @@ PrefabInstance:
       propertyPath: _outsideLevelArea
       value: 
       objectReference: {fileID: 1269355963}
+    - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
+      propertyPath: _system._globalUi
+      value: 
+      objectReference: {fileID: 1549296613}
     - target: {fileID: 7393306405054342274, guid: cde1bd1bcbb6d214aa1b8f4f55d0d086, type: 3}
       propertyPath: _world._character
       value: 
