@@ -1373,7 +1373,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -1038279216158039723, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}
       propertyPath: _characterStats._fireRate._value
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1072936960906782728, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}
       propertyPath: m_Name

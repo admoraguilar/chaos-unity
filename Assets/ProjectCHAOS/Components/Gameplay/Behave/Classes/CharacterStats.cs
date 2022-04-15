@@ -15,6 +15,12 @@ namespace ProjectCHAOS.Gameplay.Behave
 		public CharacterStat speed => _speed;
 
 		public CharacterStat fireRate => _fireRate;
+
+		public void OnValidate()
+		{
+			speed.value = speed.value;
+			fireRate.value = fireRate.value;
+		}
 	}
 
 	[Serializable]

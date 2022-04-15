@@ -30,24 +30,18 @@ namespace ProjectCHAOS.Gameplay.Characters.Players
 			_movement.Initialize(transform);
 		}
 
-		private void OnCharacterStatsSpeedChanged(float value)
-		{
-			_movement.speedMultiplier = value;
-		}
-
-		private void OnEnable()
-		{
-			_characterStats.speed.OnValueChange += OnCharacterStatsSpeedChanged;
-		}
-
-		private void OnDisable()
-		{
-			_characterStats.speed.OnValueChange -= OnCharacterStatsSpeedChanged;
-		}
-
 		private void FixedUpdate()
 		{
 			_movement.FixedUpdate();
 		}
+
+#if UNITY_EDITOR
+
+		private void OnValidate()
+		{
+			characterStats.OnValidate();
+		}
+
+#endif
 	}
 }
