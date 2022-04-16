@@ -35,22 +35,16 @@ namespace ProjectCHAOS.Gameplay.Weapons
 			set => SetValue(currentMagAmmoCountKey, value);
 		}
 
-		public WeaponObject() : base()
-		{
-			name = string.Empty;
-			magSize = 30;
-			currentMagAmmoCount = magSize;
-		}
+		public WeaponObject() : base() { }
 
-		public WeaponObject(string key) : base(key)
-		{
-			name = string.Empty;
-			magSize = 30;
-			currentMagAmmoCount = magSize;
-		}
+		public WeaponObject(string key) : base(key) { }
 
-		public WeaponObject(string key, IDictionary<string, object> values) : base(key, values)
+		public WeaponObject(string key, IDictionary<string, object> values) : base(key, values) { }
+
+		protected override void Initialize(string key = null, IDictionary<string, object> values = null)
 		{
+			base.Initialize(key, values);
+
 			name = string.Empty;
 			magSize = 30;
 			currentMagAmmoCount = magSize;

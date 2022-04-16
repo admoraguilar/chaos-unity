@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
+
+using URandom = UnityEngine.Random;
 
 namespace ProjectCHAOS.Systems
 {
@@ -14,21 +15,24 @@ namespace ProjectCHAOS.Systems
 
 		public ValueObject()
 		{
-			_key = UnityEngine.Random.Range(0, int.MaxValue).ToString();
-			_values = new Dictionary<string, object>();
+			Initialize();
 		}
 
         public ValueObject(string key)
         {
-            _key = key;
-            _values = new Dictionary<string, object>();
+			Initialize(key);
         }
 
         public ValueObject(string key, IDictionary<string, object> values)
         {
-            _key = key;
-            _values = new Dictionary<string, object>(values);
+			Initialize(key, values);
         }
+
+		protected virtual void Initialize(string key = null, IDictionary<string, object> values = null)
+		{
+			_key = key != null ? key : URandom.Range(0, int.MaxValue).ToString();
+			_values = values != null ? new Dictionary<string, object>(values) : new Dictionary<string, object>();
+		}
 
         public virtual bool IsValid()
         {

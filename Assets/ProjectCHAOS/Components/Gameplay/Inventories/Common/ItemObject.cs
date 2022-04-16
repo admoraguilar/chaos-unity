@@ -44,8 +44,16 @@ namespace ProjectCHAOS.Gameplay.Inventories
             set => SetValue(spriteKey, value);
         }
 
-		public ItemObject() : base()
+		public ItemObject() : base() { }
+
+        public ItemObject(string key) : base(key) { }
+
+        public ItemObject(string key, IDictionary<string, object> values) : base(key, values) { }
+
+		protected override void Initialize(string key = null, IDictionary<string, object> values = null)
 		{
+			base.Initialize(key, values);
+
 			name = string.Empty;
 			quantity = 0;
 			category = "Default";
@@ -53,25 +61,7 @@ namespace ProjectCHAOS.Gameplay.Inventories
 			sprite = null;
 		}
 
-        public ItemObject(string key) : base(key)
-        {
-            name = string.Empty;
-            quantity = 0;
-            category = "Default";
-            rarity = 0f;
-            sprite = null;
-        }
-
-        public ItemObject(string key, IDictionary<string, object> values) : base(key, values)
-        {
-            name = string.Empty;
-            quantity = 0;
-            category = "Default";
-            rarity = 0f;
-            sprite = null;
-        }
-
-        public override bool IsValid()
+		public override bool IsValid()
         {
             return base.IsValid() && 
                 name != string.Empty && quantity >= 0 && 
