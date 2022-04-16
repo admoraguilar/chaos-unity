@@ -5,6 +5,7 @@ using ProjectCHAOS.Systems.Inputs;
 using ProjectCHAOS.Gameplay.Scores;
 
 using URandom = UnityEngine.Random;
+using ProjectCHAOS.Gameplay.Scoreboards;
 
 namespace ProjectCHAOS.Gameplay.GameModes.Survival
 {
@@ -52,7 +53,24 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 		public void OnOutsideDeadVisit()
 		{
 			globalUi.hudUi.gameObject.SetActive(false);
-			score.Reset();
+
+			globalUi.scoreboardUi.OnBackButtonPressed += OnScoreboardUiBackButtonPressed;
+
+			ScoreObject scoreObj = new ScoreObject();
+			scoreObj.name = "Test";
+			scoreObj.score = score.current;
+			scoreObj.days = 1;
+			scoreObj.waves = 1;
+
+			globalUi.scoreboardUi.Populate(new ScoreObject[] { scoreObj, scoreObj });
+			globalUi.scoreboardUi.gameObject.SetActive(true);
+
+			void OnScoreboardUiBackButtonPressed()
+			{
+				globalUi.scoreboardUi.gameObject.SetActive(false);
+				score.Reset();
+				globalUi.scoreboardUi.OnBackButtonPressed -= OnScoreboardUiBackButtonPressed;
+			}
 		}
 
 		private void OnBulletHit(GameObject obj)

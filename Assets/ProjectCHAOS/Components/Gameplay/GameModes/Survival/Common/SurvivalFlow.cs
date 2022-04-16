@@ -69,7 +69,7 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 
 		private void OnReloadVisit()
 		{
-
+			world.OnReloadVisit();
 		}
 
 		private void OnCharacterBasePortalEnter(PlayerCharacter character)

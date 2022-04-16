@@ -154,6 +154,7 @@ MonoBehaviour:
   _touchUiController: {fileID: 1526198653238092828}
   _startMenuUi: {fileID: 2184250707975237185}
   _hudUi: {fileID: 6076931347022072396}
+  _scoreboardUi: {fileID: 2658531005088516587}
 --- !u!1001 &686017706167688954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -283,6 +284,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ec55b7a39c6797428edec0d4c4185c7, type: 3}
+--- !u!114 &2658531005088516587 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3270113216476813073, guid: 7ec55b7a39c6797428edec0d4c4185c7, type: 3}
+  m_PrefabInstance: {fileID: 686017706167688954}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c94ba471b2584c046830c230a8de83ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8665078585087004335 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8198154857840136277, guid: 7ec55b7a39c6797428edec0d4c4185c7, type: 3}

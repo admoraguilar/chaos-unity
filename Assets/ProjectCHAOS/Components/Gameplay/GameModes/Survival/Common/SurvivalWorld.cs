@@ -73,13 +73,13 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 
 		public void OnOutsideDeadVisit()
 		{
-			playerCharacter.health.OnHealthEmpty -= OnHealthEmpty;
-			playerCharacter.transform.position = baseMap.spawnPoints[0].position;
 			spawner.Stop();
 		}
 
 		public void OnReloadVisit()
 		{
+			playerCharacter.health.OnHealthEmpty -= OnHealthEmpty;
+			playerCharacter.transform.position = baseMap.spawnPoints[0].position;
 			playerCharacter.health.Restore();
 		}
 
