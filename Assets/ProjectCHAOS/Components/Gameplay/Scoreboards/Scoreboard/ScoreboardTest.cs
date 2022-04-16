@@ -5,7 +5,7 @@ using ProjectCHAOS.Systems;
 
 namespace ProjectCHAOS.Gameplay.Scoreboards
 {
-    public class ScoreboardMono : MonoBehaviour
+    public class ScoreboardTest : MonoBehaviour
     {
         private void Start()
         {
