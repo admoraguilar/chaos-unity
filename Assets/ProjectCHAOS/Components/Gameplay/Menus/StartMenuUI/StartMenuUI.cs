@@ -4,7 +4,7 @@ using Lean.Touch;
 using ProjectCHAOS.Systems.Inputs;
 using ProjectCHAOS.Gameplay.Scores;
 
-namespace ProjectCHAOS.UI.Menus
+namespace ProjectCHAOS.Gameplay.Menus
 {
 	public class StartMenuUI : MonoBehaviour
 	{

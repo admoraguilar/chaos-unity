@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using ProjectCHAOS.UI.Global;
+using ProjectCHAOS.UI;
 using ProjectCHAOS.Systems.Inputs;
 using ProjectCHAOS.Gameplay.Scores;
 

@@ -1,7 +1,7 @@
 using UnityEngine;
 using ProjectCHAOS.Gameplay.Scores;
 
-namespace ProjectCHAOS.UI
+namespace ProjectCHAOS.Gameplay.HUD
 {
 	public class HUDUI : MonoBehaviour
 	{
