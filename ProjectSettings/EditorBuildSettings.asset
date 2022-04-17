@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/ProjectCHAOS/Game/Sandbox/Main_Environment_2/Main_Environment_2.unity
-    guid: d4487418b65636a48835016d3638b158
+    path: Assets/ProjectCHAOS/Game/Endless/Endless.unity
+    guid: 751454fbb080d034d93bff9eab561e16
   m_configObjects: {}

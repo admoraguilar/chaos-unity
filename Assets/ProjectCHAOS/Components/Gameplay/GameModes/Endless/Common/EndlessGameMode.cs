@@ -91,11 +91,11 @@ namespace ProjectCHAOS.Gameplay.GameModes
 
 			// Add a score on enemy die
 			foreach(CollisionEvents collisionEvent in collisionEvents) {
-				collisionEvent.OnCollisionEnterResponse += OnBulletCollisionResponse;
+				collisionEvent.OnTriggerEnterResponse += OnBulletTriggerEnterResponse;
 
-				void OnBulletCollisionResponse(Collision collision)
+				void OnBulletTriggerEnterResponse(Collider collider)
 				{
-					if(collision.gameObject.TryGetComponent(out Bullet bullet)) {
+					if(collider.gameObject.TryGetComponent(out Bullet bullet)) {
 						//Destroy(collisionEvent.gameObject);
 						MMFeedbacks feedbacks = collisionEvent.gameObject.GetComponentInChildren<MMFeedbacks>();
 						if(feedbacks != null && !feedbacks.IsPlaying) {
