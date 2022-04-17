@@ -368,7 +368,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 767931731755594883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -390,11 +390,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dfa32a3aafde974da54c8f9193ab633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7390499704359245690, guid: c6f74700b3769e041954351ad0e0b8fa, type: 3}
+  bulletPrefab: {fileID: 4034649319203942983, guid: 8403e0cc19e2e7f40879fe65536cbafc, type: 3}
   muzzlePoint: {fileID: 767931730877688402}
   _fireRate:
     _current: 0
     _max: 0.08
+    _speedMultiplier: 1
     _isResetOnMaxSet: 1
 --- !u!114 &767931731755594892
 MonoBehaviour:

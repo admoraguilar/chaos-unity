@@ -1,21 +1,13 @@
-﻿using UnityEngine;
-using ProjectCHAOS.Systems;
+using UnityEngine;
 
 namespace ProjectCHAOS.Gameplay.Weapons
 {
-	public class Bullet : MonoBehaviour
+	public class SimpleBullet : Bullet
 	{
-		public float speed = 10f;
-		public float lifetime = 3f;
-
 		private Vector3 _direction = Vector3.zero;
 		private bool _isTravelling = false;
 
-		private Transform _transform = null;
-
-		public new Transform transform => this.GetCachedComponent(ref _transform);
-
-		public void Launch(Vector3 direction)
+		public override void Launch(Vector3 direction)
 		{
 			_direction = direction;
 			_isTravelling = true;
