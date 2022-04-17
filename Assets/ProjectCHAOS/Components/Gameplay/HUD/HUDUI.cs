@@ -9,6 +9,11 @@ namespace ProjectCHAOS.Gameplay.HUD
 		private ScoreUI _scoreUi = null;
 
 		public ScoreUI scoreUi => _scoreUi;
+
+		public void Initialize(Scorer scorer)
+		{
+			scoreUi.Initialize(scorer);
+		}
 	}
 }
 

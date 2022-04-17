@@ -1,15 +1,19 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Feedbacks;
+using ProjectCHAOS.UI;
 using ProjectCHAOS.Systems.FlowTrees;
 using ProjectCHAOS.Systems.Inputs;
-using ProjectCHAOS.Gameplay.Menus;
 using ProjectCHAOS.Gameplay.Behave;
 using ProjectCHAOS.Gameplay.Scores;
 using ProjectCHAOS.Gameplay.Levels;
 using ProjectCHAOS.Gameplay.Weapons;
 using ProjectCHAOS.Gameplay.Spawners;
 using ProjectCHAOS.Gameplay.Characters.AIs;
+
+using UObject = UnityEngine.Object;
+using ProjectCHAOS.Gameplay.Characters.Players;
 
 namespace ProjectCHAOS.Gameplay.GameModes
 {
@@ -19,18 +23,41 @@ namespace ProjectCHAOS.Gameplay.GameModes
 	[DefaultExecutionOrder(-1)]
 	public class EndlessGameMode : MonoBehaviour
 	{
-		[Header("Systems")]
 		[SerializeField]
-		private Scorer _scorer = null;
-		private Score _score = null;
-
+		private EndlessSystem _system = null;
+		
 		[SerializeField]
-		private LeanTouchInput _leanTouchInput = null;
+		private EndlessWorld _world = null;
+		
+		[SerializeField]
+		private EndlessFlow _flow = null;
 
-		[Header("Game States")]
+		public EndlessSystem system => _system;
+		public EndlessWorld world => _world;
+		public EndlessFlow flow => _flow;
+
+		private void Awake()
+		{
+			_flow.Awake(this);
+		}
+
+		private void OnEnable()
+		{
+			_flow.OnEnable();
+		}
+
+		private void OnDisable()
+		{
+			_flow.OnDisable();
+		}
+	}
+
+	[Serializable]
+	public class EndlessFlow
+	{
 		[SerializeField]
 		private Node _initializeFlow = null;
-		
+
 		[SerializeField]
 		private Node _startMenuFlow = null;
 
@@ -40,7 +67,173 @@ namespace ProjectCHAOS.Gameplay.GameModes
 		[SerializeField]
 		private Node _gameOverFlow = null;
 
-		[Header("Gameplay")]
+		[SerializeField]
+		private Node _reloadFlow = null;
+
+		private EndlessGameMode _gameMode = null;
+
+		private void OnInitializeVisit()
+		{
+			_gameMode.system.OnInitializeVisit();
+		}
+
+		private void OnStartMenuVisit()
+		{
+			_gameMode.system.OnStartMenuVisit();
+		}
+
+		private void OnStartMenuLeave()
+		{
+			_gameMode.system.OnStartMenuLeave();
+		}
+
+		private void OnGameVisit()
+		{
+			_gameMode.system.OnGameVisit();
+			_gameMode.world.OnGameVisit();
+		}
+
+		private void OnGameLeave()
+		{
+			_gameMode.system.OnGameLeave();
+		}
+
+		private void OnGameOverVisit()
+		{
+			_gameMode.world.OnGameOverVisit();
+			_gameOverFlow.Next();
+		}
+
+		private void OnStartMenuPressAnywhere()
+		{
+			_startMenuFlow.Next();
+		}
+
+		private void OnPlayerCharacterHealthEmpty()
+		{
+			_gameFlow.Next();
+		}
+
+		public void Awake(EndlessGameMode gameMode)
+		{
+			_gameMode = gameMode;
+
+			_gameMode.system.Awake();
+		}
+
+		public void OnEnable()
+		{
+			_initializeFlow.OnVisit += OnInitializeVisit;
+			_startMenuFlow.OnVisit += OnStartMenuVisit;
+			_startMenuFlow.OnLeave += OnStartMenuLeave;
+			_gameFlow.OnVisit += OnGameVisit;
+			_gameFlow.OnLeave += OnGameLeave;
+			_gameOverFlow.OnVisit += OnGameOverVisit;
+
+			_gameMode.system.OnStartMenuPressAnywhere += OnStartMenuPressAnywhere;
+			_gameMode.world.OnPlayerCharacterHealthEmpty += OnPlayerCharacterHealthEmpty;
+
+			_gameMode.system.OnEnable();
+			_gameMode.world.OnEnable();
+		}
+
+		public void OnDisable()
+		{
+			_initializeFlow.OnVisit -= OnInitializeVisit;
+			_startMenuFlow.OnVisit -= OnStartMenuVisit;
+			_startMenuFlow.OnLeave -= OnStartMenuLeave;
+			_gameFlow.OnVisit -= OnGameVisit;
+			_gameFlow.OnLeave -= OnGameLeave;
+			_gameOverFlow.OnVisit -= OnGameOverVisit;
+
+			_gameMode.system.OnStartMenuPressAnywhere -= OnStartMenuPressAnywhere;
+			_gameMode.world.OnPlayerCharacterHealthEmpty -= OnPlayerCharacterHealthEmpty;
+
+			_gameMode.system.OnDisable();
+			_gameMode.world.OnDisable();
+		}
+	}
+
+	[Serializable]
+	public class EndlessSystem
+	{
+		public event Action OnStartMenuPressAnywhere = delegate { };
+
+		[SerializeField]
+		private Scorer _scorer = null;
+		private Score _score = null;
+
+		[SerializeField]
+		private LeanTouchInput _leanTouchInput = null;
+
+		[SerializeField]
+		private GlobalUI _globalUi = null;
+
+		public void OnInitializeVisit()
+		{
+			_globalUi.HideAllUI();
+		}
+
+		public void OnStartMenuVisit()
+		{
+			_globalUi.startMenuUI.gameObject.SetActive(true);
+		}
+
+		public void OnStartMenuLeave()
+		{
+			_globalUi.startMenuUI.gameObject.SetActive(false);
+			_score.Reset();
+		}
+
+		public void OnGameVisit()
+		{
+			_globalUi.hudUi.gameObject.SetActive(true);
+			_globalUi.touchUiController.gameObject.SetActive(true);
+		}
+
+		public void OnGameLeave()
+		{
+			_globalUi.hudUi.gameObject.SetActive(false);
+			_globalUi.touchUiController.gameObject.SetActive(false);
+		}
+
+		public void OnGameOverVisit()
+		{
+
+		}
+
+		private void OnStartMenuPressedAnywhereMethod()
+		{
+			OnStartMenuPressAnywhere();
+		}
+
+		public void Awake()
+		{
+			_globalUi.Initialize(_leanTouchInput, _scorer);
+
+			_score = _scorer.GetScore(0);
+		}
+
+		public void OnEnable()
+		{
+			_globalUi.startMenuUI.OnPressAnywhere += OnStartMenuPressedAnywhereMethod;
+		}
+
+		public void OnDisable()
+		{
+			_globalUi.startMenuUI.OnPressAnywhere -= OnStartMenuPressedAnywhereMethod;
+		}
+	}
+	
+	[Serializable]
+	public class EndlessWorld
+	{
+		public event Action OnBulletHitEnemy = delegate { };
+		public event Action OnPlayerCharacterHealthEmpty = delegate { };
+
+		[SerializeField]
+		private PlayerCharacter _playerCharacter = null;
+
 		[SerializeField]
 		private CollisionEvents _playerCollisionEvents = null;
 
@@ -50,32 +243,17 @@ namespace ProjectCHAOS.Gameplay.GameModes
 		[SerializeField]
 		private BasicSpawner _spawner = null;
 
-		[Header("UIs")]
-		[SerializeField]
-		private DynamicJoystick _joystick = null;
-
-		[SerializeField]
-		private TouchUIController _touchUi = null;
-
-		[SerializeField]
-		private StartMenuUI _startMenuUi = null;
-
-		[SerializeField]
-		private ScoreUI _hudScoreUi = null;
-
-		private void OnStartMenuTouchScreen()
+		public void OnGameVisit()
 		{
-			_score.Reset();
-			_startMenuFlow.Next();
+			_playerCharacter.health.OnHealthEmpty += OnPlayerCharacterHealthEmptyInvoke;
+			_spawner.Run();
 		}
 
-		private void OnPlayerDies(Collision collision)
+		public void OnGameOverVisit()
 		{
-			GameObject go = collision.gameObject;
-			if(!go.CompareTag("Enemy")) { return; }
-
-			//_game.Next();
-			//_joystick.OnPointerUp(new PointerEventData(EventSystem.current));
+			_playerCharacter.health.OnHealthEmpty -= OnPlayerCharacterHealthEmptyInvoke;
+			_spawner.DespawnAll();
+			_spawner.Stop();
 		}
 
 		private void OnSpawn(GameObject go)
@@ -95,60 +273,44 @@ namespace ProjectCHAOS.Gameplay.GameModes
 
 				void OnBulletTriggerEnterResponse(Collider collider)
 				{
-					if(collider.gameObject.TryGetComponent(out Bullet bullet)) {
-						//Destroy(collisionEvent.gameObject);
+					if(basicAI != null && collider.gameObject.TryGetComponent(out Bullet bullet)) {
 						MMFeedbacks feedbacks = collisionEvent.gameObject.GetComponentInChildren<MMFeedbacks>();
 						if(feedbacks != null && !feedbacks.IsPlaying) {
 							feedbacks.PlayFeedbacks();
 						}
 
-						Destroy(bullet.gameObject);
+						UObject.Destroy(bullet.gameObject);
+						OnBulletHitEnemy();
 
-						_score.current += Random.Range(1, 5);
+						//_score.current += Random.Range(1, 5);
 					}
 				}
 			}
 		}
 
-		private void OnGameFlowVisit()
+		private void OnPlayerCollisionEnter(Collision collision)
 		{
-			_spawner.Run();
+			BasicAI basicAI = collision.gameObject.GetComponentInParent<BasicAI>();
+			if(basicAI != null) {
+				_playerCharacter.health.Kill();
+			}
 		}
 
-		private void OnGameOverFlowVisit()
+		private void OnPlayerCharacterHealthEmptyInvoke()
 		{
-			_spawner.DespawnAll();
+			OnPlayerCharacterHealthEmpty();
 		}
 
-		private void Awake()
+		public void OnEnable()
 		{
-			_touchUi.Initialize(_leanTouchInput);
-			_startMenuUi.Initialize(_leanTouchInput, _scorer);
-			_hudScoreUi.Initialize(_scorer);
-
-			_score = _scorer.GetScore(0);
-		}
-
-		private void OnEnable()
-		{
-			_startMenuUi.OnTouchScreen += OnStartMenuTouchScreen;
-			_playerCollisionEvents.OnCollisionEnterResponse += OnPlayerDies;
-
+			_playerCollisionEvents.OnCollisionEnterResponse += OnPlayerCollisionEnter;
 			_spawner.OnSpawn += OnSpawn;
-
-			_gameFlow.OnVisit += OnGameFlowVisit;
-			_gameOverFlow.OnVisit += OnGameOverFlowVisit;
 		}
 
-		private void OnDisable()
+		public void OnDisable()
 		{
-			_startMenuUi.OnTouchScreen -= OnStartMenuTouchScreen;
-			_playerCollisionEvents.OnCollisionEnterResponse -= OnPlayerDies;
-
+			_playerCollisionEvents.OnCollisionEnterResponse -= OnPlayerCollisionEnter;
 			_spawner.OnSpawn -= OnSpawn;
-
-			_gameFlow.OnVisit -= OnGameFlowVisit;
-			_gameOverFlow.OnVisit -= OnGameOverFlowVisit;
 		}
 	}
 }

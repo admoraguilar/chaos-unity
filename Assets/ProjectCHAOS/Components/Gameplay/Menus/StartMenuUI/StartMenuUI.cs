@@ -8,7 +8,7 @@ namespace ProjectCHAOS.Gameplay.Menus
 {
 	public class StartMenuUI : MonoBehaviour
 	{
-		public event Action OnTouchScreen = delegate { };
+		public event Action OnPressAnywhere = delegate { };
 
 		[SerializeField]
 		private ScoreUI _currentScoreUI = null;
@@ -59,7 +59,7 @@ namespace ProjectCHAOS.Gameplay.Menus
 
 		private void OnLeanFinger(LeanFinger finger)
 		{
-			OnTouchScreen();
+			OnPressAnywhere();
 		}
 
 		private void OnEnable()
