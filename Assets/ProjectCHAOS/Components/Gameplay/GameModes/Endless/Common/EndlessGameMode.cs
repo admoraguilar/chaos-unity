@@ -13,6 +13,7 @@ using ProjectCHAOS.Gameplay.Spawners;
 using ProjectCHAOS.Gameplay.Characters.AIs;
 
 using UObject = UnityEngine.Object;
+using URandom = UnityEngine.Random;
 using ProjectCHAOS.Gameplay.Characters.Players;
 
 namespace ProjectCHAOS.Gameplay.GameModes
@@ -118,7 +119,7 @@ namespace ProjectCHAOS.Gameplay.GameModes
 		{
 			_gameMode = gameMode;
 
-			_gameMode.system.Awake();
+			_gameMode.system.Awake(gameMode);
 		}
 
 		public void OnEnable()
@@ -169,6 +170,8 @@ namespace ProjectCHAOS.Gameplay.GameModes
 		[SerializeField]
 		private GlobalUI _globalUi = null;
 
+		private EndlessGameMode _gameMode = null;
+
 		public void OnInitializeVisit()
 		{
 			_globalUi.HideAllUI();
@@ -202,13 +205,20 @@ namespace ProjectCHAOS.Gameplay.GameModes
 
 		}
 
+		private void OnBulletHitEnemy()
+		{
+			_score.current += URandom.Range(1, 5);
+		}
+
 		private void OnStartMenuPressedAnywhereMethod()
 		{
 			OnStartMenuPressAnywhere();
 		}
 
-		public void Awake()
+		public void Awake(EndlessGameMode gameMode)
 		{
+			_gameMode = gameMode;
+
 			_globalUi.Initialize(_leanTouchInput, _scorer);
 
 			_score = _scorer.GetScore(0);
@@ -216,11 +226,15 @@ namespace ProjectCHAOS.Gameplay.GameModes
 
 		public void OnEnable()
 		{
+			_gameMode.world.OnBulletHitEnemy += OnBulletHitEnemy;
+
 			_globalUi.startMenuUI.OnPressAnywhere += OnStartMenuPressedAnywhereMethod;
 		}
 
 		public void OnDisable()
 		{
+			_gameMode.world.OnBulletHitEnemy -= OnBulletHitEnemy;
+
 			_globalUi.startMenuUI.OnPressAnywhere -= OnStartMenuPressedAnywhereMethod;
 		}
 	}
@@ -281,8 +295,6 @@ namespace ProjectCHAOS.Gameplay.GameModes
 
 						UObject.Destroy(bullet.gameObject);
 						OnBulletHitEnemy();
-
-						//_score.current += Random.Range(1, 5);
 					}
 				}
 			}
