@@ -206,6 +206,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _databaseBuilder: {fileID: 11400000, guid: 820ae973b4f746b459b3f0e99a0436fc, type: 2}
+  _startingLoadout: {fileID: 11400000, guid: 820ae973b4f746b459b3f0e99a0436fc, type: 2}
+  _shouldEquipWeaponAtStart: 1
   _visualHolderTransform: {fileID: 7492764793600527820}
 --- !u!114 &1072936960906782772
 MonoBehaviour:

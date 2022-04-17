@@ -25,6 +25,12 @@ namespace ProjectCHAOS.Gameplay.Weapons
 		private WeaponDatabaseBuilder _databaseBuilder = null;
 
 		[SerializeField]
+		private WeaponDatabaseBuilder _startingLoadout = null;
+
+		[SerializeField]
+		private bool _shouldEquipWeaponAtStart = false;
+
+		[SerializeField]
 		private Transform _visualHolderTransform = null;
 
 		private WeaponDatabase _database = null;
@@ -66,15 +72,14 @@ namespace ProjectCHAOS.Gameplay.Weapons
 		private void Awake()
 		{
 			database = _databaseBuilder.Build();
+
 			visualHolder = new WeaponVisualHolder();
-			bag = new WeaponBag();
-			cycler = new WeaponCycler(bag);
-
-			// Hack get all valid weapons in database
-			bag.AddRange(database.Get(w => w.IsValid()));
-
 			visualHolder.parent = _visualHolderTransform;
-			visualHolder.SetVisual(cycler.SetWeapon(0));
+
+			bag = new WeaponBag();
+			bag.AddRange(_startingLoadout.Build().Get(w => w.IsValid())); // Hack get all valid weapons in database
+
+			cycler = new WeaponCycler(bag);
 		}
 
 		private void OnEnable()
@@ -89,18 +94,10 @@ namespace ProjectCHAOS.Gameplay.Weapons
 			cycler.OnSetWeapon -= OnSetWeapon;
 		}
 
-		private void Update()
+		private void Start()
 		{
-			if(Input.GetKeyDown(KeyCode.Alpha1)) {
-				cycler.SetWeapon(0);
-			}
-
-			if(Input.GetKeyDown(KeyCode.Alpha2)) {
-				cycler.SetWeapon(1);
-			}
-
-			if(Input.GetKeyDown(KeyCode.Alpha3)) {
-				cycler.SetWeapon(2);
+			if(_shouldEquipWeaponAtStart) {
+				visualHolder.SetVisual(cycler.SetWeapon(0));
 			}
 		}
 	}

@@ -7,7 +7,7 @@ namespace ProjectCHAOS.Gameplay.Weapons
 	{
 		public event Action<WeaponObject> OnSetWeapon = delegate { };
 
-		private int _index = 0;
+		private int _index = -1;
 
 		private WeaponBag _bag = null;
 

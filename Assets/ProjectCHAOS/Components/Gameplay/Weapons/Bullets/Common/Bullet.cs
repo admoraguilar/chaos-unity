@@ -12,6 +12,6 @@ namespace ProjectCHAOS.Gameplay.Weapons
 
 		public new Transform transform => this.GetCachedComponent(ref _transform);
 
-		public abstract void Launch(Vector3 direction);
+		public abstract bool Launch(Transform owner, Transform target, Vector3 direction);
 	}
 }

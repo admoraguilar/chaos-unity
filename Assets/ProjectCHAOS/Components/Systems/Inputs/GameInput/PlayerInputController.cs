@@ -1,6 +1,5 @@
 using UnityEngine;
 using ProjectCHAOS.Gameplay.Weapons;
-using ProjectCHAOS.Gameplay.Characters;
 using ProjectCHAOS.Gameplay.Characters.Players;
 
 namespace ProjectCHAOS.Systems.Inputs.GameInputs
@@ -29,14 +28,6 @@ namespace ProjectCHAOS.Systems.Inputs.GameInputs
 		private void Update()
 		{
 			playerCharacter.movement.Move(_movementInputMap.moveInputAxis);
-
-			//if(_combatInputMap.isFiringDown) {
-			//	machineGun.StartFiring();
-			//}
-
-			//if(_combatInputMap.isFiringUp) {
-			//	machineGun.StopFiring();
-			//}
 
 			weaponHandler.visualHolder.StartFiring();
 
