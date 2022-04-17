@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Feedbacks;
 using ProjectCHAOS.UI;
+using ProjectCHAOS.Systems;
 using ProjectCHAOS.Systems.FlowTrees;
 using ProjectCHAOS.Systems.Inputs;
 using ProjectCHAOS.Gameplay.Behave;
@@ -302,7 +303,7 @@ namespace ProjectCHAOS.Gameplay.GameModes
 
 		private void OnPlayerCollisionEnter(Collision collision)
 		{
-			BasicAI basicAI = collision.gameObject.GetComponentInParent<BasicAI>();
+			BasicAI basicAI = collision.gameObject.GetComponentInParentAndChildren<BasicAI>();
 			if(basicAI != null) {
 				_playerCharacter.health.Kill();
 			}

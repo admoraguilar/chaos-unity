@@ -11,6 +11,7 @@ using ProjectCHAOS.Gameplay.Characters.AIs;
 
 using UObject = UnityEngine.Object;
 using MoreMountains.Tools;
+using ProjectCHAOS.Systems;
 
 namespace ProjectCHAOS.Gameplay.GameModes.Survival
 {
@@ -130,7 +131,7 @@ namespace ProjectCHAOS.Gameplay.GameModes.Survival
 
 		private void OnPlayerCollisionEnter(Collision collision)
 		{
-			BasicAI basicAI = collision.gameObject.GetComponentInParent<BasicAI>();
+			BasicAI basicAI = collision.gameObject.GetComponentInParentAndChildren<BasicAI>();
 			if(basicAI != null) {
 				playerCharacter.health.Kill();
 			}
