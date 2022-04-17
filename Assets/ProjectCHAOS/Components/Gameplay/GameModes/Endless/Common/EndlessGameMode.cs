@@ -12,10 +12,10 @@ using ProjectCHAOS.Gameplay.Levels;
 using ProjectCHAOS.Gameplay.Weapons;
 using ProjectCHAOS.Gameplay.Spawners;
 using ProjectCHAOS.Gameplay.Characters.AIs;
+using ProjectCHAOS.Gameplay.Characters.Players;
 
 using UObject = UnityEngine.Object;
 using URandom = UnityEngine.Random;
-using ProjectCHAOS.Gameplay.Characters.Players;
 
 namespace ProjectCHAOS.Gameplay.GameModes
 {

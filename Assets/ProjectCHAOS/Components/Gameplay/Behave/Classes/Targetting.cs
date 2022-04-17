@@ -6,6 +6,43 @@ namespace ProjectCHAOS.Gameplay.Behave
 	[Serializable]
 	public class Targetting
 	{
+		public static Vector3 CalculateDirectionToTarget(Transform from, Transform to) =>
+			CalculateDirectionToTarget(from.position, to.position);
+
+		public static Vector3 CalculateDirectionToTarget(Vector3 from, Vector3 to)
+		{
+			Vector3 result = from - to;
+			return result.normalized;
+		}
+
+		public static Transform GetNearestTransform(
+			Vector3 origin, float radius, 
+			int layerMask, Transform owner = null)
+		{
+			Collider[] results = Physics.OverlapSphere(origin, radius, layerMask);
+			Transform target = null;
+
+			if(results.Length > 0) {
+				target = results[0].transform;
+			}
+
+			foreach(Collider result in results) {
+				if(result.transform == owner) {
+					continue;
+				}
+
+				Transform resultTransform = result.transform;
+				float targetDistance = Vector3.Distance(origin, target.position);
+				float resultDistance = Vector3.Distance(origin, resultTransform.position);
+				if(resultDistance < targetDistance) {
+					target = resultTransform;
+				}
+			}
+
+			return target;
+		}
+
+
 		private Transform _target = null;
 		private Vector3 _targetPoint = Vector3.zero;
 		private Transform _owner = null;
@@ -48,9 +85,9 @@ namespace ProjectCHAOS.Gameplay.Behave
 		{
 			if(!isFunctional) { return Vector3.zero; }
 
-			Vector3 dir = targetPoint - owner.position;
+			Vector3 dir = CalculateDirectionToTarget(targetPoint, owner.position);
 			dir.y = 0f;
-			return dir.normalized;
+			return dir;
 		}
 
 		public float GetDistanceToTarget()

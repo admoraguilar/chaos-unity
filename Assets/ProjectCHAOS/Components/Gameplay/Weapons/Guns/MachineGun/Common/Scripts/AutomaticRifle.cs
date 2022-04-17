@@ -28,43 +28,14 @@ namespace ProjectCHAOS.Gameplay.Weapons
 			_isFiring = false;
 		}
 
-		private Transform GetTarget()
-		{
-			Collider[] results = Physics.OverlapSphere(transform.position, 30f, layerMask.value);
-			Transform target = null;
-
-			if(results.Length > 0) {
-				target = results[0].transform;
-			}
-
-			foreach(Collider result in results) {
-				if(result.transform == transform) {
-					continue;
-				}
-
-				Transform resultTransform = result.transform;
-				float targetDistance = Vector3.Distance(transform.position, target.position);
-				float resultDistance = Vector3.Distance(transform.position, resultTransform.position);
-				if(resultDistance < targetDistance) {
-					target = resultTransform;
-				}
-			}
-
-			return target;
-		}
-
-		private Vector3 CalculateDirectionToTarget(Transform from, Transform to)
-		{
-			Vector3 result = from.position - to.position;
-			return result.normalized;
-		}
-
 		private void OnFireRateElapsed()
 		{
 			if(_isFiring) {
-				Transform target = GetTarget();
+				Transform target = Targetting.GetNearestTransform(
+					transform.position, 30f, 
+					layerMask.value, transform);
 				if(target != null) {
-					Vector3 direction = CalculateDirectionToTarget(transform, target);
+					Vector3 direction = Targetting.CalculateDirectionToTarget(transform, target);
 					Bullet bullet = Instantiate(
 						bulletPrefab, muzzlePoint.position,
 						Quaternion.LookRotation(direction));

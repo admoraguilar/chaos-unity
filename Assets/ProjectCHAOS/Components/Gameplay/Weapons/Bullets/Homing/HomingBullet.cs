@@ -1,4 +1,5 @@
 using UnityEngine;
+using ProjectCHAOS.Gameplay.Behave;
 
 namespace ProjectCHAOS.Gameplay.Weapons
 {
@@ -21,16 +22,10 @@ namespace ProjectCHAOS.Gameplay.Weapons
 			return true;
 		}
 
-		private Vector3 CalculateDirectionToTarget(Transform from, Transform to)
-		{
-			Vector3 result = from.position - to.position;
-			return result.normalized;
-		}
-
 		private void FixedUpdate()
 		{
 			if(_isTravelling && _target != null) {
-				_lastDirectionToTarget = CalculateDirectionToTarget(transform, _target);
+				_lastDirectionToTarget = Targetting.CalculateDirectionToTarget(transform, _target);
 				_lastTargetPosition = _target.position;
 				transform.rotation = Quaternion.LookRotation(_lastDirectionToTarget, Vector3.up);
 				transform.position = Vector3.MoveTowards(transform.position, _lastTargetPosition, speed * Time.deltaTime);
