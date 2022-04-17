@@ -137,8 +137,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 799819013285454203}
-  - component: {fileID: 7228792171688672773}
-  - component: {fileID: 8239815401041758132}
   - component: {fileID: 1938745180977020729}
   - component: {fileID: 8717265567119712346}
   - component: {fileID: 6468355214610543923}
@@ -159,7 +157,7 @@ Transform:
   m_GameObject: {fileID: 5976419995930329605}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2587735499203904296}
@@ -168,56 +166,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7228792171688672773
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5976419995930329605}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8239815401041758132
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5976419995930329605}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: b778da19b7343c64c8ef70854362be84, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!54 &1938745180977020729
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -245,7 +193,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 1.4, z: 0.8}
+  m_Size: {x: 3.25, y: 5.3, z: 3.2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6468355214610543923
 MonoBehaviour:
@@ -642,7 +590,7 @@ MonoBehaviour:
   PlayEvents:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8239815401041758132}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -710,7 +658,7 @@ MonoBehaviour:
     Quantized: 0
     TargetBPM: 120
   DebugActive: 0
-  TargetRenderer: {fileID: 8239815401041758132}
+  TargetRenderer: {fileID: 976986921273345511}
   Method: 0
   Loop: 1
   AlwaysNewMaterial: 1
@@ -781,37 +729,13 @@ MonoBehaviour:
   PlayEvents:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7228792171688672773}
+      - m_Target: {fileID: 6823653854244550942}
         m_TargetAssemblyTypeName: UnityEngine.MeshFilter, UnityEngine
         m_MethodName: set_mesh
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Mesh, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8239815401041758132}
-        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1563349820878451003}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -916,7 +840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1319714872567399, guid: 2d2bba3b84f8753468a7a1ca7e330bc8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 45
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 1319714872567399, guid: 2d2bba3b84f8753468a7a1ca7e330bc8, type: 3}
       propertyPath: m_LocalScale.y
@@ -924,7 +848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1319714872567399, guid: 2d2bba3b84f8753468a7a1ca7e330bc8, type: 3}
       propertyPath: m_LocalScale.z
-      value: 45
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 1319714872567399, guid: 2d2bba3b84f8753468a7a1ca7e330bc8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -976,13 +900,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d2bba3b84f8753468a7a1ca7e330bc8, type: 3}
---- !u!1 &1563349820878451003 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3918107069940094068, guid: 2d2bba3b84f8753468a7a1ca7e330bc8, type: 3}
+--- !u!23 &976986921273345511 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3342585245981204648, guid: 2d2bba3b84f8753468a7a1ca7e330bc8, type: 3}
   m_PrefabInstance: {fileID: 2588949660955092303}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2587735499203904296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1319714872567399, guid: 2d2bba3b84f8753468a7a1ca7e330bc8, type: 3}
+  m_PrefabInstance: {fileID: 2588949660955092303}
+  m_PrefabAsset: {fileID: 0}
+--- !u!33 &6823653854244550942 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: 9034140558206966865, guid: 2d2bba3b84f8753468a7a1ca7e330bc8, type: 3}
   m_PrefabInstance: {fileID: 2588949660955092303}
   m_PrefabAsset: {fileID: 0}
