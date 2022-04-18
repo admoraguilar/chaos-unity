@@ -11,10 +11,14 @@ namespace ProjectCHAOS.Gameplay.GameModes
 
 		public void OnDisable() => OnDoDisable();
 
+		public void Start() => OnDoStart();
+
 		protected virtual void OnInitialize() { }
 	
 		protected virtual void OnDoEnable() { }
 
 		protected virtual void OnDoDisable() { }
+
+		protected virtual void OnDoStart() { }
 	}
 }

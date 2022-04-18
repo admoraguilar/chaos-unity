@@ -31,12 +31,20 @@ namespace ProjectCHAOS.Gameplay.GameModes
 
 		private void OnEnable()
 		{
+			_flow.OnEnable();
 			OnDoEnable();
 		}
 
 		private void OnDisable()
 		{
+			_flow.OnDisable();
 			OnDoDisable();
+		}
+
+		private void Start()
+		{
+			_flow.Start();
+			OnDoStart();
 		}
 
 		protected virtual void OnDoAwake() { }
@@ -44,5 +52,7 @@ namespace ProjectCHAOS.Gameplay.GameModes
 		protected virtual void OnDoEnable() { }
 
 		protected virtual void OnDoDisable() { }
+
+		protected virtual void OnDoStart() { }
 	}
 }

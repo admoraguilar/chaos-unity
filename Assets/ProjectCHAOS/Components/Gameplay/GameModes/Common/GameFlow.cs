@@ -1,7 +1,9 @@
 ﻿using System;
+using UnityEngine;
 
 namespace ProjectCHAOS.Gameplay.GameModes
 {
+	[DefaultExecutionOrder(-1)]
 	[Serializable]
 	public abstract class GameFlow<TWorld, TSystem>
 		where TWorld : GameWorld
@@ -47,10 +49,19 @@ namespace ProjectCHAOS.Gameplay.GameModes
 			OnDoDisable();
 		}
 
+		public void Start()
+		{
+			world.Start();
+			system.Start();
+			OnDoStart();
+		}
+
 		protected virtual void OnInitialize(TSystem system, TWorld world) { }
 
 		protected virtual void OnDoEnable() { }
 
 		protected virtual void OnDoDisable() { }
+
+		protected virtual void OnDoStart() { }
 	}
 }
