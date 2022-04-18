@@ -62,7 +62,7 @@ namespace ProjectCHAOS.Scores
 			best = 0;
 		}
 
-		public void InternalSet(int id, int current, int best)
+		internal void InternalSet(int id, int current, int best)
 		{
 			this.id = id;
 			this.current = current;

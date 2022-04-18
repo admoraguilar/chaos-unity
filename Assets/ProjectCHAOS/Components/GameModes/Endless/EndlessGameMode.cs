@@ -9,6 +9,7 @@ using ProjectCHAOS.Behave;
 using ProjectCHAOS.Levels;
 using ProjectCHAOS.Weapons;
 using ProjectCHAOS.Spawners;
+using ProjectCHAOS.GameSerialization;
 using ProjectCHAOS.Characters.AIs;
 using ProjectCHAOS.Characters.Players;
 
@@ -40,6 +41,9 @@ namespace ProjectCHAOS.GameModes.Endless
 		private Node _reloadFlow = null;
 
 		[Space]
+		[SerializeField]
+		private GameSerializer _gameSerializer = null;
+
 		[SerializeField]
 		private Scorer _scorer = null;
 		private Score _score = null;
@@ -109,7 +113,7 @@ namespace ProjectCHAOS.GameModes.Endless
 			_spawner.DespawnAll();
 			_spawner.Stop();
 
-			_scorer.SaveData();
+			_gameSerializer.Save();
 			_globalUi.touchUiController.SimulateOnPointerUp();
 
 			_gameOverFlow.Next();
@@ -183,8 +187,11 @@ namespace ProjectCHAOS.GameModes.Endless
 
 		private void Awake()
 		{
-			_globalUi.Initialize(_leanTouchInput, _scorer);
+			_gameSerializer.Initialize(_scorer, _playerCharacter);
+			_gameSerializer.Load();
 
+			_globalUi.Initialize(_leanTouchInput, _scorer);
+			
 			_score = _scorer.GetScore(0);
 		}
 

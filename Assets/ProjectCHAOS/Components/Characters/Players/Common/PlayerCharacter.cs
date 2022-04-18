@@ -1,5 +1,4 @@
 using UnityEngine;
-using ProjectCHAOS;
 using ProjectCHAOS.Behave;
 
 namespace ProjectCHAOS.Characters.Players
