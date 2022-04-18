@@ -35,6 +35,11 @@ namespace ProjectCHAOS.Gameplay.GameModes.Endless
 		[SerializeField]
 		private BasicSpawner _spawner = null;
 
+		public void OnInitializeVisit()
+		{
+			_playerCharacter.transform.position = _map.spawnPoints[0].position;
+		}
+
 		public void OnGameVisit()
 		{
 			_playerCharacter.health.OnHealthEmpty += OnPlayerCharacterHealthEmptyInvoke;
@@ -46,6 +51,11 @@ namespace ProjectCHAOS.Gameplay.GameModes.Endless
 			_playerCharacter.health.OnHealthEmpty -= OnPlayerCharacterHealthEmptyInvoke;
 			_spawner.DespawnAll();
 			_spawner.Stop();
+		}
+
+		public void OnReloadVisit()
+		{
+			_playerCharacter.transform.position = _map.spawnPoints[0].position;
 		}
 
 		private void OnSpawn(GameObject go)

@@ -24,6 +24,7 @@ namespace ProjectCHAOS.Gameplay.GameModes.Endless
 
 		private void OnInitializeVisit()
 		{
+			world.OnInitializeVisit();
 			system.OnInitializeVisit();
 		}
 
@@ -50,8 +51,14 @@ namespace ProjectCHAOS.Gameplay.GameModes.Endless
 
 		private void OnGameOverVisit()
 		{
+			system.OnGameOverVisit();
 			world.OnGameOverVisit();
 			_gameOverFlow.Next();
+		}
+
+		private void OnReloadVisit()
+		{
+			world.OnReloadVisit();
 		}
 
 		private void OnStartMenuPressAnywhere()
@@ -72,6 +79,7 @@ namespace ProjectCHAOS.Gameplay.GameModes.Endless
 			_gameFlow.OnVisit += OnGameVisit;
 			_gameFlow.OnLeave += OnGameLeave;
 			_gameOverFlow.OnVisit += OnGameOverVisit;
+			_reloadFlow.OnVisit += OnReloadVisit;
 
 			system.OnStartMenuPressAnywhere += OnStartMenuPressAnywhere;
 			world.OnPlayerCharacterHealthEmpty += OnPlayerCharacterHealthEmpty;
@@ -85,6 +93,7 @@ namespace ProjectCHAOS.Gameplay.GameModes.Endless
 			_gameFlow.OnVisit -= OnGameVisit;
 			_gameFlow.OnLeave -= OnGameLeave;
 			_gameOverFlow.OnVisit -= OnGameOverVisit;
+			_reloadFlow.OnVisit -= OnReloadVisit;
 
 			system.OnStartMenuPressAnywhere -= OnStartMenuPressAnywhere;
 			world.OnPlayerCharacterHealthEmpty -= OnPlayerCharacterHealthEmpty;

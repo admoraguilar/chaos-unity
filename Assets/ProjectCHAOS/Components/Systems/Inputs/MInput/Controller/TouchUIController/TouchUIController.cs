@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace ProjectCHAOS.Systems.Inputs
@@ -33,6 +34,11 @@ namespace ProjectCHAOS.Systems.Inputs
 		public void Initialize(LeanTouchInput leanTouchInput)
 		{
 			this.leanTouchInput = leanTouchInput;
+		}
+
+		public void SimulateOnPointerUp()
+		{
+			joystick.OnPointerUp(new PointerEventData(EventSystem.current));
 		}
 
 		private void OnEnable()

@@ -53,7 +53,7 @@ namespace ProjectCHAOS.Gameplay.GameModes.Endless
 
 		public void OnGameOverVisit()
 		{
-
+			_globalUi.touchUiController.SimulateOnPointerUp();
 		}
 
 		private void OnBulletHitEnemy()
