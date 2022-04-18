@@ -139,8 +139,10 @@ GameObject:
   - component: {fileID: 799819013285454203}
   - component: {fileID: 1938745180977020729}
   - component: {fileID: 8717265567119712346}
+  - component: {fileID: 7641132351545646489}
   - component: {fileID: 6468355214610543923}
   - component: {fileID: 8707932147691890155}
+  - component: {fileID: 7156710654612838413}
   m_Layer: 7
   m_Name: HordePiece
   m_TagString: Enemy
@@ -197,6 +199,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.25, y: 5.3, z: 3.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7641132351545646489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5976419995930329605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 637e3aefc6fa3ec4d892d1103ac18661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health:
+    _starting: 100
+    _max: 100
 --- !u!114 &6468355214610543923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,6 +238,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdad0c6cf6f38754ca362778fa6c6332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7156710654612838413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5976419995930329605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4eb52792c9fd445a28107fb6ccc391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  _onHealthEmpty:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2382186431458530650}
+        m_TargetAssemblyTypeName: MoreMountains.Feedbacks.MMFeedbacks, MoreMountains.Feedbacks
+        m_MethodName: PlayFeedbacks
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6561243770250234964
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,6 +283,7 @@ GameObject:
   - component: {fileID: 8202654554765434572}
   - component: {fileID: 1353331819379223992}
   - component: {fileID: 1213971107263633824}
+  - component: {fileID: 6096879535910646934}
   m_Layer: 0
   m_Name: Feedback
   m_TagString: Untagged
@@ -274,6 +322,7 @@ MonoBehaviour:
   - {fileID: 8034856982386525386}
   - {fileID: 1213971107263633824}
   - {fileID: 1353331819379223992}
+  - {fileID: 6096879535910646934}
   - {fileID: 8202654554765434572}
   - {fileID: 282531725748681115}
   InitializationMode: 2
@@ -570,6 +619,53 @@ MonoBehaviour:
   NestParticles: 0
   ApplyRotation: 0
   ApplyScale: 0
+--- !u!114 &6096879535910646934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6561243770250234964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbeb74f1ccfa52540b6fd5784df42533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Active: 1
+  Label: Play SFX
+  Chance: 100
+  Timing:
+    TimescaleMode: 0
+    InitialDelay: 0
+    CooldownDuration: 0
+    ExcludeFromHoldingPauses: 0
+    InterruptsOnStop: 1
+    NumberOfRepeats: 0
+    RepeatForever: 0
+    DelayBetweenRepeats: 1
+    MMFeedbacksDirectionCondition: 0
+    PlayDirection: 0
+    ConstantIntensity: 0
+    UseIntensityInterval: 0
+    IntensityIntervalMin: 0
+    IntensityIntervalMax: 0
+    Sequence: {fileID: 0}
+    TrackID: 0
+    Quantized: 0
+    TargetBPM: 120
+  DebugActive: 0
+  TargetAudioSource: {fileID: 4391238083032373386}
+  Mode: 0
+  RandomSfx:
+  - {fileID: 8300000, guid: b60a48e88cfe81847a71c2233e41e05c, type: 3}
+  - {fileID: 8300000, guid: d12e0de85bdf5ce47b86560f083aed69, type: 3}
+  - {fileID: 8300000, guid: 64bd0b04050c386478564581713df7c2, type: 3}
+  - {fileID: 8300000, guid: 03121196daa8f7c47ae197439f990426, type: 3}
+  MinVolume: 1
+  MaxVolume: 1
+  MinPitch: 1
+  MaxPitch: 1
+  SfxAudioMixerGroup: {fileID: 0}
 --- !u!1001 &2588949660955092303
 PrefabInstance:
   m_ObjectHideFlags: 0

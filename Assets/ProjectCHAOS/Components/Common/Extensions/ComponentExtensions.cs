@@ -5,13 +5,13 @@ namespace ProjectCHAOS
 {
     public static class ComponentExtensions
     {
-        public static T GetCachedComponent<T>(this Component component, ref T cache) where T : Component
+        public static T GetCachedComponent<T>(this Component component, ref T cache)
 		{
             if(cache == null) { cache = component.GetComponent<T>(); }
             return cache;
 		}
 
-		public static IList<T> GetComponentsInParentAndChildren<T>(this Component component, bool includeInactive = false) where T : Component
+		public static IList<T> GetComponentsInParentAndChildren<T>(this Component component, bool includeInactive = false)
 		{
 			List<T> results = new List<T>();
 			results.AddRange(component.GetComponentsInParent<T>(includeInactive));
@@ -19,7 +19,7 @@ namespace ProjectCHAOS
 			return results;
 		}
 
-		public static T GetComponentInParentAndChildren<T>(this Component component, bool includeInactive = false) where T : Component
+		public static T GetComponentInParentAndChildren<T>(this Component component, bool includeInactive = false)
 		{
 			T result = component.GetComponentInParent<T>(includeInactive);
 			if(result == null) { result = component.GetComponentInChildren<T>(includeInactive); }

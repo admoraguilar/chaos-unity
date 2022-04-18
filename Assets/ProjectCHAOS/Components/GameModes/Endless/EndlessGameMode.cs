@@ -145,12 +145,13 @@ namespace ProjectCHAOS.GameModes.Endless
 
 		private void OnSpawn(GameObject go)
 		{
+			// Setup AI
 			BasicAI basicAI = go.GetComponent<BasicAI>();
 			if(basicAI != null) {
 				basicAI.Initialize(_levelArea);
 			}
 
-			// Get all collision events of enemy prefab
+			// Get all collision events of enemy prefabs
 			List<CollisionEvents> collisionEvents = new List<CollisionEvents>();
 			go.GetComponentsInChildren(collisionEvents);
 
@@ -161,9 +162,9 @@ namespace ProjectCHAOS.GameModes.Endless
 				void OnBulletTriggerEnterResponse(Collider collider)
 				{
 					if(basicAI != null && collider.gameObject.TryGetComponent(out Bullet bullet)) {
-						MMFeedbacks feedbacks = collisionEvent.gameObject.GetComponentInChildren<MMFeedbacks>();
-						if(feedbacks != null && !feedbacks.IsPlaying) {
-							feedbacks.PlayFeedbacks();
+						PieceAI pieceAI = collisionEvent.gameObject.GetComponentInParentAndChildren<PieceAI>();
+						if(pieceAI != null) {
+							pieceAI.health.Kill();
 						}
 
 						Destroy(bullet.gameObject);
