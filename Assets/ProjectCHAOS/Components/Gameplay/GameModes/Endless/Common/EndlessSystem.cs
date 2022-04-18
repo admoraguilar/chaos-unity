@@ -3,9 +3,10 @@ using UnityEngine;
 using ProjectCHAOS.UI;
 using ProjectCHAOS.Systems.Inputs;
 using ProjectCHAOS.Gameplay.Scores;
+
 using URandom = UnityEngine.Random;
 
-namespace ProjectCHAOS.Gameplay.GameModes
+namespace ProjectCHAOS.Gameplay.GameModes.Endless
 {
 	[Serializable]
 	public class EndlessSystem : GameSystem<EndlessWorld>

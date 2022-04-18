@@ -2,7 +2,7 @@
 using UnityEngine;
 using ProjectCHAOS.Systems.FlowTrees;
 
-namespace ProjectCHAOS.Gameplay.GameModes
+namespace ProjectCHAOS.Gameplay.GameModes.Endless
 {
 	[Serializable]
 	public class EndlessFlow : GameFlow<EndlessWorld, EndlessSystem>

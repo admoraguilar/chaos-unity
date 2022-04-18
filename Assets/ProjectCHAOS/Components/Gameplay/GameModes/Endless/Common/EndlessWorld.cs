@@ -12,7 +12,7 @@ using ProjectCHAOS.Gameplay.Characters.Players;
 
 using UObject = UnityEngine.Object;
 
-namespace ProjectCHAOS.Gameplay.GameModes
+namespace ProjectCHAOS.Gameplay.GameModes.Endless
 {
 	[Serializable]
 	public class EndlessWorld : GameWorld
