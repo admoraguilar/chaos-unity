@@ -3,7 +3,6 @@ using UnityEngine.Events;
 
 namespace ProjectCHAOS.Behave
 {
-	[RequireComponent(typeof(IHealth))]
 	public class HealthEvents : MonoBehaviour
 	{
 		[SerializeField]

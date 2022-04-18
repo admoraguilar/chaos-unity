@@ -162,9 +162,9 @@ namespace ProjectCHAOS.GameModes.Endless
 				void OnBulletTriggerEnterResponse(Collider collider)
 				{
 					if(basicAI != null && collider.gameObject.TryGetComponent(out Bullet bullet)) {
-						PieceAI pieceAI = collisionEvent.gameObject.GetComponentInParentAndChildren<PieceAI>();
-						if(pieceAI != null) {
-							pieceAI.health.Kill();
+						IHealth healthAI = collisionEvent.gameObject.GetComponentInParentAndChildren<IHealth>();
+						if(healthAI != null) {
+							healthAI.health.Kill();
 						}
 
 						Destroy(bullet.gameObject);

@@ -4,8 +4,14 @@ using ProjectCHAOS.Levels;
 
 namespace ProjectCHAOS.Characters.AIs
 {
-	public class BasicAI : MonoBehaviour
+	public class BasicAI : MonoBehaviour, IHealth
 	{
+		[SerializeField]
+		private Health _health = null;
+
+		[SerializeField]
+		private float _speed = 10f;
+
 		private SimpleMovement _movement = new SimpleMovement();
 		private Positioning _positioning = new Positioning();
 		private Targetting _targetting = new Targetting();
@@ -14,6 +20,8 @@ namespace ProjectCHAOS.Characters.AIs
 		private LevelArea _levelArea = null;
 
 		private Transform _transform = null;
+
+		public Health health => _health;
 
 		public SimpleMovement movement => _movement;
 
@@ -48,7 +56,7 @@ namespace ProjectCHAOS.Characters.AIs
 			targetting.targetPoint = positioning.GetPosition();
 
 			movement.space = Space.World;
-			movement.speed = 10f;
+			movement.speed = _speed;
 			movement.direction = targetting.GetDirectionToTarget();
 		}
 
