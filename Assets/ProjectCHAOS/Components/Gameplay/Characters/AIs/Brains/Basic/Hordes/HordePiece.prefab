@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 8717265567119712346}
   - component: {fileID: 6468355214610543923}
   - component: {fileID: 8707932147691890155}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HordePiece
   m_TagString: Enemy
   m_Icon: {fileID: 0}

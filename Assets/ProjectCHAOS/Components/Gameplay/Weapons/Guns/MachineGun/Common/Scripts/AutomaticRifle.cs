@@ -34,6 +34,7 @@ namespace ProjectCHAOS.Gameplay.Weapons
 				Transform target = Targetting.GetNearestTransform(
 					transform.position, 30f, 
 					layerMask.value, transform);
+				
 				if(target != null) {
 					Vector3 direction = Targetting.CalculateDirectionToTarget(transform, target);
 					Bullet bullet = Instantiate(

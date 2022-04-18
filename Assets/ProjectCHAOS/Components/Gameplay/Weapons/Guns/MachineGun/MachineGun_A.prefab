@@ -394,7 +394,7 @@ MonoBehaviour:
   muzzlePoint: {fileID: 767931730877688402}
   layerMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 128
   _fireRate:
     _current: 0
     _max: 0.08

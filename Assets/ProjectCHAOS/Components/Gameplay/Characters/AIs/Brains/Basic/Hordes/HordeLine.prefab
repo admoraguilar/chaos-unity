@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3822476349894079054}
   - component: {fileID: 3822476349894079055}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HordeLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}

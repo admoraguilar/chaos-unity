@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ProjectCHAOS.Systems
@@ -8,6 +9,14 @@ namespace ProjectCHAOS.Systems
 		{
             if(cache == null) { cache = component.GetComponent<T>(); }
             return cache;
+		}
+
+		public static IList<T> GetComponentsInParentAndChildren<T>(this Component component, bool includeInactive = false) where T : Component
+		{
+			List<T> results = new List<T>();
+			results.AddRange(component.GetComponentsInParent<T>(includeInactive));
+			results.AddRange(component.GetComponentsInChildren<T>(includeInactive));
+			return results;
 		}
 
 		public static T GetComponentInParentAndChildren<T>(this Component component, bool includeInactive = false) where T : Component
