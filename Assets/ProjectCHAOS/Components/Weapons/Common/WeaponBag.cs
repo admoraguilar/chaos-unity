@@ -1,4 +1,4 @@
-using ProjectCHAOS;
+using ProjectCHAOS.ValueBoards;
 
 namespace ProjectCHAOS.Weapons
 {

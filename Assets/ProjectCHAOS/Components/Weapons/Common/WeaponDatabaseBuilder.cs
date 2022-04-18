@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using ProjectCHAOS;
+using ProjectCHAOS.ValueBoards;
 
 namespace ProjectCHAOS.Weapons
 {

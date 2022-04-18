@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ProjectCHAOS
+namespace ProjectCHAOS.ValueBoards
 {
     public class ValueObjectIntValueComparer<T> : IComparer<T> where T : ValueObject
     {

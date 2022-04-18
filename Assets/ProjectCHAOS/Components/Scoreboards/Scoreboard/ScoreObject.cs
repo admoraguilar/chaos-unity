@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using ProjectCHAOS;
+using ProjectCHAOS.ValueBoards;
 
 namespace ProjectCHAOS.Scoreboards
 {

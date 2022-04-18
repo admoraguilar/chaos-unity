@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ProjectCHAOS
+namespace ProjectCHAOS.ValueBoards
 {
 	public abstract class ValueBoardBuilder<
 		TValueBoard, TValueObject, 

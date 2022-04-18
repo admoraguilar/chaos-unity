@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using URandom = UnityEngine.Random;
 
-namespace ProjectCHAOS
+namespace ProjectCHAOS.ValueBoards
 {
     public class ValueObject
     {

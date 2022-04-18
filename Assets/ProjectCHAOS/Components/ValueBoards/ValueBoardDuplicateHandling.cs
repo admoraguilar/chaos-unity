@@ -1,4 +1,4 @@
-﻿namespace ProjectCHAOS
+﻿namespace ProjectCHAOS.ValueBoards
 {
     public enum ValueBoardDuplicateHandling
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using ProjectCHAOS;
+using ProjectCHAOS.ValueBoards;
 
 namespace ProjectCHAOS.Scoreboards
 {

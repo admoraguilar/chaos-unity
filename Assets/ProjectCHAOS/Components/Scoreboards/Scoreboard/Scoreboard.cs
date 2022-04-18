@@ -1,5 +1,5 @@
 using System;
-using ProjectCHAOS;
+using ProjectCHAOS.ValueBoards;
 
 namespace ProjectCHAOS.Scoreboards
 {

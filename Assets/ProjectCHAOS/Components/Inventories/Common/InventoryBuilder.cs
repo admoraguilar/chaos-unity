@@ -1,6 +1,6 @@
-using ProjectCHAOS;
 using System;
 using UnityEngine;
+using ProjectCHAOS.ValueBoards;
 
 namespace ProjectCHAOS.Inventories
 {
