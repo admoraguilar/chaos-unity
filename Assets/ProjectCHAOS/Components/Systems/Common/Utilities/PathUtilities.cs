@@ -1,4 +1,5 @@
 using System.IO;
+using UnityEngine;
 
 namespace ProjectCHAOS.Systems
 {
@@ -8,7 +9,7 @@ namespace ProjectCHAOS.Systems
 		{
 			string directory = path;
 			if(Path.HasExtension(directory)) { directory = Path.GetDirectoryName(path); }
-			if(Directory.Exists(directory)) { Directory.CreateDirectory(directory); }
+			if(!Directory.Exists(directory)) { Directory.CreateDirectory(directory); }
 			return path;
 		}
 	}

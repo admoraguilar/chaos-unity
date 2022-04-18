@@ -18,6 +18,8 @@ namespace ProjectCHAOS.Gameplay.Scores
 		[SerializeField]
 		private int _best = 0;
 
+		public int objectVersion => 0;
+
 		public int id
 		{
 			get => _id;
@@ -58,6 +60,13 @@ namespace ProjectCHAOS.Gameplay.Scores
 		{
 			current = 0;
 			best = 0;
+		}
+
+		public void InternalSet(int id, int current, int best)
+		{
+			this.id = id;
+			this.current = current;
+			this.best = best;
 		}
 	}
 }

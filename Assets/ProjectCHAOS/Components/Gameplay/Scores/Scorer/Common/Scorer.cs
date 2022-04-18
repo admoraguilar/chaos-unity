@@ -1,8 +1,7 @@
-using System.IO;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using Newtonsoft.Json;
-using ProjectCHAOS.Systems;
+using ProjectCHAOS.Systems.DataSerialization;
 
 namespace ProjectCHAOS.Gameplay.Scores
 {
@@ -11,13 +10,7 @@ namespace ProjectCHAOS.Gameplay.Scores
 		[SerializeField]
 		private List<Score> _scoreList = new List<Score>();
 
-		private string _dataStoreLocation
-		{
-			get {
-				string path = Path.Combine(Application.persistentDataPath, "scores.json");
-				return PathUtilities.GetPath(path);
-			}
-		}
+		private DataSerializer _dataSerializer = new DataSerializer("scores");
 
 		public Score GetScore(int id)
 		{
@@ -29,21 +22,32 @@ namespace ProjectCHAOS.Gameplay.Scores
 			return result;
 		}
 
-		public void Load()
+		public void LoadData()
 		{
-			if(!File.Exists(_dataStoreLocation)) {
-				Debug.LogWarning($"[{typeof(Scorer)}] No score data exists.");
-				return;
+			ScoreDataV1 data = new ScoreDataV1();
+			data = _dataSerializer.LoadObjectVersion<ScoreDataV1>();
+			foreach(ScoreDataV1.Score dataScore in data.scores) {
+				Score score = GetScore(dataScore.id);
+				score.InternalSet(dataScore.id, score.current, dataScore.best);
 			}
-
-			string data = File.ReadAllText(_dataStoreLocation);
-			_scoreList = JsonConvert.DeserializeObject<List<Score>>(data);
 		}
 
-		public void Save()
+		public void SaveData()
 		{
-			string data = JsonConvert.SerializeObject(_scoreList);
-			File.WriteAllText(_dataStoreLocation, data);
+			ScoreDataV1 data = new ScoreDataV1();
+			data.scores.AddRange(
+				_scoreList.Select(
+					s => new ScoreDataV1.Score { 
+						id = s.id, 
+						best = s.best 
+					})
+			);
+			_dataSerializer.SaveObjectVersion(data);
+		}
+
+		public void ClearData()
+		{
+			_dataSerializer.Clear();
 		}
 
 		public void Clear()
