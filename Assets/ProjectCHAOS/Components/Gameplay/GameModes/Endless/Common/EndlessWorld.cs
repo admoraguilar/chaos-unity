@@ -21,6 +21,9 @@ namespace ProjectCHAOS.Gameplay.GameModes.Endless
 		public event Action OnPlayerCharacterHealthEmpty = delegate { };
 
 		[SerializeField]
+		private Map _map = null;
+
+		[SerializeField]
 		private PlayerCharacter _playerCharacter = null;
 
 		[SerializeField]
@@ -99,5 +102,7 @@ namespace ProjectCHAOS.Gameplay.GameModes.Endless
 			_playerCollisionEvents.OnCollisionEnterResponse -= OnPlayerCollisionEnter;
 			_spawner.OnSpawn -= OnSpawn;
 		}
+
+		
 	}
 }

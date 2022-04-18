@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using ProjectCHAOS.Systems;
@@ -17,11 +18,12 @@ namespace ProjectCHAOS.Gameplay.Spawners
 		private Timing _spawnRate = null;
 
 		[SerializeField]
-		private List<Transform> _spawnPointsList = new List<Transform>();
+		private List<Collider> _spawnPointBoundsList = null;
 
 		[SerializeField]
 		private bool _shouldSpawnOnStart = false;
 
+		private SimplePointGenerator _pointGenerator = new SimplePointGenerator();
 		private List<GameObject> _spawnedList = new List<GameObject>();
 		private bool _isSpawning = false;
 
@@ -37,10 +39,10 @@ namespace ProjectCHAOS.Gameplay.Spawners
 			private set => _spawnRate = value;
 		}
 
-		public List<Transform> spawnPoints
+		public List<Collider> spawnPointBounds
 		{
-			get => _spawnPointsList;
-			private set => _spawnPointsList = value;
+			get => _spawnPointBoundsList;
+			private set => _spawnPointBoundsList = value;
 		}
 
 		public bool shouldSpawnOnStart
@@ -82,8 +84,10 @@ namespace ProjectCHAOS.Gameplay.Spawners
 
 		public void Spawn()
 		{
-			Transform spawnPoint = _spawnPointsList.Random();
-			GameObject spawnedObject = Instantiate(_toSpawnPrefabList.Random(), spawnPoint, false);
+			Vector3 spawnPoint = _pointGenerator.GetRandomPoint();
+			GameObject spawnedObject = Instantiate(
+				_toSpawnPrefabList.Random(), spawnPoint, 
+				Quaternion.identity);
 			_spawnedList.Add(spawnedObject);
 
 			OnSpawn(spawnedObject);
@@ -91,6 +95,7 @@ namespace ProjectCHAOS.Gameplay.Spawners
 
 		private void Start()
 		{
+			_pointGenerator.Initialize(spawnPointBounds.Select(c => c.bounds).ToList());
 			spawnRate.OnReachMax += Spawn;
 		}
 

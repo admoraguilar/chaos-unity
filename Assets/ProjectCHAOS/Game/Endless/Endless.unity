@@ -671,6 +671,17 @@ Light:
   m_CorrespondingSourceObject: {fileID: 4995998683540130567, guid: f5f33706a5911764685c8ea2b2030218, type: 3}
   m_PrefabInstance: {fileID: 1598764912}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1660848632 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8799558568930591585, guid: f5f33706a5911764685c8ea2b2030218, type: 3}
+  m_PrefabInstance: {fileID: 1598764912}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 850b416d1505e44438ea777d81e54045, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1668529794 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2053737843861102214, guid: 3a355413cc7d2e046ac30fb7e77bf0b2, type: 3}
@@ -1028,6 +1039,10 @@ PrefabInstance:
       propertyPath: _hudScoreUi
       value: 
       objectReference: {fileID: 2042550923}
+    - target: {fileID: 7965129921636789450, guid: 3fccb895d9b44ac4fad73a801b418874, type: 3}
+      propertyPath: _world._map
+      value: 
+      objectReference: {fileID: 1660848632}
     - target: {fileID: 7965129921636789450, guid: 3fccb895d9b44ac4fad73a801b418874, type: 3}
       propertyPath: _startMenuUi
       value: 
