@@ -3,6 +3,11 @@ using UnityEngine;
 
 namespace ProjectCHAOS.Gameplay.Behave
 {
+	public interface IHealth
+	{
+		public Health health { get; }
+	}
+
 	[Serializable]
 	public class Health
 	{

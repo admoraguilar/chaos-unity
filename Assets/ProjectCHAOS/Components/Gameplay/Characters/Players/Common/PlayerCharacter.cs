@@ -4,10 +4,10 @@ using ProjectCHAOS.Gameplay.Behave;
 
 namespace ProjectCHAOS.Gameplay.Characters.Players
 {
-	public class PlayerCharacter : MonoBehaviour
+	public class PlayerCharacter : MonoBehaviour, IHealth
 	{
 		[SerializeField]
-		private Health _health = new Health();
+		private Health _health = null;
 
 		[SerializeField]
 		private CharacterMovement _movement = null;

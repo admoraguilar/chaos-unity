@@ -16,23 +16,11 @@ namespace ProjectCHAOS.Gameplay.Characters.AIs
 
 		private Transform _transform = null;
 
-		public SimpleMovement movement
-		{
-			get => _movement;
-			private set => _movement = value;
-		}
+		public SimpleMovement movement => _movement;
 
-		public Positioning positioning
-		{
-			get => _positioning;
-			private set => _positioning = value;
-		}
+		public Positioning positioning => _positioning;
 
-		public Targetting targetting
-		{
-			get => _targetting;
-			private set	=>_targetting = value;
-		}
+		public Targetting targetting => _targetting;
 
 		public LevelArea levelArea
 		{
