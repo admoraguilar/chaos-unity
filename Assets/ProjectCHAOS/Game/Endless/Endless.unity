@@ -1004,6 +1004,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7965129921636789450, guid: 3fccb895d9b44ac4fad73a801b418874, type: 3}
+      propertyPath: _map
+      value: 
+      objectReference: {fileID: 1660848632}
+    - target: {fileID: 7965129921636789450, guid: 3fccb895d9b44ac4fad73a801b418874, type: 3}
       propertyPath: _tap
       value: 
       objectReference: {fileID: 0}
@@ -1024,9 +1028,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 227273367}
     - target: {fileID: 7965129921636789450, guid: 3fccb895d9b44ac4fad73a801b418874, type: 3}
-      propertyPath: _gameFlow
+      propertyPath: _globalUi
       value: 
-      objectReference: {fileID: 8363740514226248939}
+      objectReference: {fileID: 818447807}
     - target: {fileID: 7965129921636789450, guid: 3fccb895d9b44ac4fad73a801b418874, type: 3}
       propertyPath: _joystick
       value: 
@@ -1048,18 +1052,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2132759002}
     - target: {fileID: 7965129921636789450, guid: 3fccb895d9b44ac4fad73a801b418874, type: 3}
-      propertyPath: _gameOverFlow
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7965129921636789450, guid: 3fccb895d9b44ac4fad73a801b418874, type: 3}
-      propertyPath: _startMenuFlow
-      value: 
-      objectReference: {fileID: 8363740514226248938}
-    - target: {fileID: 7965129921636789450, guid: 3fccb895d9b44ac4fad73a801b418874, type: 3}
-      propertyPath: _initializeFlow
-      value: 
-      objectReference: {fileID: 8363740514226248940}
-    - target: {fileID: 7965129921636789450, guid: 3fccb895d9b44ac4fad73a801b418874, type: 3}
       propertyPath: _leanTouchInput
       value: 
       objectReference: {fileID: 302530019}
@@ -1071,6 +1063,10 @@ PrefabInstance:
       propertyPath: _world._spawner
       value: 
       objectReference: {fileID: 2080191436}
+    - target: {fileID: 7965129921636789450, guid: 3fccb895d9b44ac4fad73a801b418874, type: 3}
+      propertyPath: _playerCharacter
+      value: 
+      objectReference: {fileID: 1357059395}
     - target: {fileID: 7965129921636789450, guid: 3fccb895d9b44ac4fad73a801b418874, type: 3}
       propertyPath: _system._globalUi
       value: 
@@ -1101,36 +1097,3 @@ PrefabInstance:
       objectReference: {fileID: 1318773146}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fccb895d9b44ac4fad73a801b418874, type: 3}
---- !u!114 &8363740514226248938 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7965129920299514740, guid: 3fccb895d9b44ac4fad73a801b418874, type: 3}
-  m_PrefabInstance: {fileID: 8363740514226248936}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdc46896980650c4dbdbd5247981a79b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8363740514226248939 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7965129921154311707, guid: 3fccb895d9b44ac4fad73a801b418874, type: 3}
-  m_PrefabInstance: {fileID: 8363740514226248936}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdc46896980650c4dbdbd5247981a79b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8363740514226248940 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7965129921756710475, guid: 3fccb895d9b44ac4fad73a801b418874, type: 3}
-  m_PrefabInstance: {fileID: 8363740514226248936}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a24679dadf04b5f44a1655004a2f6a9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

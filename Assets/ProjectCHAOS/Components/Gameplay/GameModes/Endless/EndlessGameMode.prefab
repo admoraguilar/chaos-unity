@@ -234,21 +234,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2fb5cab4759fa242a47db84d679ab11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _system:
-    _scorer: {fileID: 0}
-    _leanTouchInput: {fileID: 0}
-    _globalUi: {fileID: 0}
-  _world:
-    _playerCharacter: {fileID: 0}
-    _playerCollisionEvents: {fileID: 0}
-    _levelArea: {fileID: 0}
-    _spawner: {fileID: 0}
-  _flow:
-    _initializeFlow: {fileID: 7965129921756710475}
-    _startMenuFlow: {fileID: 7965129920299514740}
-    _gameFlow: {fileID: 7965129921154311707}
-    _gameOverFlow: {fileID: 7467211782668780356}
-    _reloadFlow: {fileID: 3573548142675784531}
+  _initializeFlow: {fileID: 7965129921756710475}
+  _startMenuFlow: {fileID: 7965129920299514740}
+  _gameFlow: {fileID: 7965129921154311707}
+  _gameOverFlow: {fileID: 7467211782668780356}
+  _reloadFlow: {fileID: 3573548142675784531}
+  _scorer: {fileID: 0}
+  _leanTouchInput: {fileID: 0}
+  _globalUi: {fileID: 0}
+  _map: {fileID: 0}
+  _playerCharacter: {fileID: 0}
+  _playerCollisionEvents: {fileID: 0}
+  _levelArea: {fileID: 0}
+  _spawner: {fileID: 0}
 --- !u!1 &7965129921756710473
 GameObject:
   m_ObjectHideFlags: 0
