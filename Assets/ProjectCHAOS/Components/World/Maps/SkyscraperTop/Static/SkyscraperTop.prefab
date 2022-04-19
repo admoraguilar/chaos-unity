@@ -49,10 +49,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _toSpawnPrefabList:
-  - {fileID: 4800912273809565063, guid: 0260946b8f09f6147987173afeb37843, type: 3}
+  - {fileID: 2414343024100401967, guid: 8cb970503c04ac2478b84e32921c4596, type: 3}
   - {fileID: 3822476349894079042, guid: d3d943ca9316b2e4981d2048956ea905, type: 3}
   - {fileID: 2414343024100401967, guid: b6e77bbc0d1b43a4996c8f17d86a1a9f, type: 3}
   - {fileID: 8496956338128790003, guid: 9c8d72ac35f598744a671bb8f1abefc7, type: 3}
+  - {fileID: 8496956338128790003, guid: d27b44f923717f74dbaaad7c42150016, type: 3}
   _spawnRate:
     _current: 0
     _max: 1
@@ -1367,7 +1368,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8523177260047293677
 Transform:
   m_ObjectHideFlags: 0
