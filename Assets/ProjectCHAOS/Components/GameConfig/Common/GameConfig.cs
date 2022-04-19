@@ -16,7 +16,7 @@ namespace ProjectCHAOS.Configurations
 			}
 		}
 
-		private void Awake()
+		public void Initialize()
 		{
 			targetFramerate = targetFramerate;
 		}

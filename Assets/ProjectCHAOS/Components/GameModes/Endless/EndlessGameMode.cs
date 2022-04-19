@@ -17,6 +17,7 @@ using URandom = UnityEngine.Random;
 using ProjectCHAOS.Upgrades;
 using ProjectCHAOS.Drops;
 using ProjectCHAOS.Pickups;
+using ProjectCHAOS.Configurations;
 
 namespace ProjectCHAOS.GameModes.Endless
 {
@@ -43,6 +44,9 @@ namespace ProjectCHAOS.GameModes.Endless
 		private Node _reloadFlow = null;
 
 		[Space]
+		[SerializeField]
+		private GameConfig _gameConfig = null;
+
 		[SerializeField]
 		private GameSerializer _gameSerializer = null;
 
@@ -210,6 +214,8 @@ namespace ProjectCHAOS.GameModes.Endless
 
 		private void Awake()
 		{
+			_gameConfig.Initialize();
+
 			_gameSerializer.Initialize(_scorer, _playerCharacter);
 			_gameSerializer.Load();
 
