@@ -13,9 +13,10 @@ using ProjectCHAOS.GameSerialization;
 using ProjectCHAOS.Characters.AIs;
 using ProjectCHAOS.Characters.Players;
 
-using UObject = UnityEngine.Object;
 using URandom = UnityEngine.Random;
 using ProjectCHAOS.Upgrades;
+using ProjectCHAOS.Drops;
+using ProjectCHAOS.Pickups;
 
 namespace ProjectCHAOS.GameModes.Endless
 {
@@ -49,6 +50,9 @@ namespace ProjectCHAOS.GameModes.Endless
 		private Upgrader _upgrader = null;
 
 		[SerializeField]
+		private PickupHandler _pickupHandler = null;
+
+		[SerializeField]
 		private Scorer _scorer = null;
 		private Score _score = null;
 
@@ -73,6 +77,10 @@ namespace ProjectCHAOS.GameModes.Endless
 
 		[SerializeField]
 		private BasicSpawner _spawner = null;
+
+		[Header("Drops")]
+		[SerializeField]
+		private DropObject _dropsOnAi = null;
 
 		#region FLOW
 
@@ -172,10 +180,15 @@ namespace ProjectCHAOS.GameModes.Endless
 				{
 					if(basicAI != null && collider.gameObject.TryGetComponent(out Bullet bullet)) {
 						IHealth healthAI = collisionEvent.gameObject.GetComponentInParentAndChildren<IHealth>();
-						if(healthAI != null) {
-							healthAI.health.Kill();
+						if(healthAI != null) { healthAI.health.Kill(); }
+
+						// Drop 
+						if(_dropsOnAi.CanDrop()) {
+							GameObject aiDrop = _dropsOnAi.Get();
+							Instantiate(aiDrop, basicAI.transform.position, Quaternion.identity);
 						}
 
+						// Destroy bullet
 						Destroy(bullet.gameObject);
 						OnBulletHitEnemy();
 					}
@@ -202,6 +215,10 @@ namespace ProjectCHAOS.GameModes.Endless
 
 			_upgrader.AddUpgradables(new Transform[] {
 				_playerCharacter.transform
+			});
+
+			_pickupHandler.Initialize(new Transform[] {
+				_upgrader.transform
 			});
 
 			_globalUi.Initialize(
