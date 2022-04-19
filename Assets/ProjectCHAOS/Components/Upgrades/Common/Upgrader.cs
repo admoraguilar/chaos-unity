@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace ProjectCHAOS.Upgrades
@@ -27,9 +28,13 @@ namespace ProjectCHAOS.Upgrades
 					value = 0;
 				} else if(value < -1){
 					value = objects.Count - 1;
+				} else if(isAllReachedMax) {
+					value = -1;
 				}
 
 				_objectIndex = value;
+
+				Debug.Log(objectIndex);
 
 				// Skip object indexes that reached max upgrade already
 				if(_objectIndex > -1 && _objects[_objectIndex].isReachedMax) {
@@ -38,6 +43,19 @@ namespace ProjectCHAOS.Upgrades
 				}
 
 				OnObjectIndexChanged(value);
+			}
+		}
+
+		public bool isAllReachedMax
+		{
+			get {
+				foreach(UpgradeObject upgradeObject in _objects) {
+					if(!upgradeObject.isReachedMax) {
+						return false;
+					}
+				}
+
+				return true;
 			}
 		}
 
