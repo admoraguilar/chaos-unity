@@ -20,12 +20,19 @@ namespace ProjectCHAOS.Upgrades
 			}
 		}
 
-		public void Upgrade(Transform transform, int forceObjectIndex = -2, int forceUpgradeIndex = -2)
+		public void Upgrade(Transform toUpgrade, int forceObjectIndex = -2, int forceUpgradeIndex = -2)
 		{
 			if(forceObjectIndex < -1) { objectIndex++; } 
 			else { objectIndex = forceObjectIndex; }
 
-			_objects[objectIndex].Upgrade(transform, forceUpgradeIndex);
+			_objects[objectIndex].Upgrade(toUpgrade, forceUpgradeIndex);
+		}
+
+		public void ResetAll(Transform toUpgrade)
+		{
+			foreach(UpgradeObject @object in _objects) {
+				@object.Reset(toUpgrade);
+			}
 		}
 	}
 }

@@ -3,6 +3,11 @@ using UnityEngine;
 
 namespace ProjectCHAOS.Behave
 {
+	public interface ICharacterStats
+	{
+		public CharacterStats characterStats { get; }
+	}
+
 	[Serializable]
 	public class CharacterStats
 	{

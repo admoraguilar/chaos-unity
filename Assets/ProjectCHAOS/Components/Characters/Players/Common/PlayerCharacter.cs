@@ -3,7 +3,7 @@ using ProjectCHAOS.Behave;
 
 namespace ProjectCHAOS.Characters.Players
 {
-	public class PlayerCharacter : MonoBehaviour, IHealth
+	public class PlayerCharacter : MonoBehaviour, IHealth, ICharacterStats
 	{
 		[SerializeField]
 		private Health _health = null;

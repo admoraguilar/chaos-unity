@@ -7,6 +7,7 @@ namespace ProjectCHAOS.Upgrades
 	public abstract class UpgradeObject<T> : UpgradeObject
 		where T : UpgradeBehaviour
 	{
+		[SerializeField]
 		private List<T> _behaviours = null;
 
 		public IReadOnlyList<T> behaviours => _behaviours;
@@ -21,6 +22,8 @@ namespace ProjectCHAOS.Upgrades
 
 	public abstract class UpgradeObject : ScriptableObject
 	{
+		public new string name = string.Empty;
+
 		[NonSerialized]
 		private int _index = -1;
 
