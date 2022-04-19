@@ -22,14 +22,16 @@ namespace ProjectCHAOS.Upgrades
 		{
 			get => _objectIndex;
 			set {
+				// Loop object index on objects index
 				if(value >= _objects.Count) {
-					value = -1;
+					value = 0;
 				} else if(value < -1){
 					value = objects.Count - 1;
 				}
 
 				_objectIndex = value;
 
+				// Skip object indexes that reached max upgrade already
 				if(_objectIndex > -1 && _objects[_objectIndex].isReachedMax) {
 					objectIndex++;
 					return;

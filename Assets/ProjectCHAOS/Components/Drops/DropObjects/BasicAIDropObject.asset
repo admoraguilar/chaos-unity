@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70862a16236268842b8e23d97ff9c621, type: 3}
   m_Name: BasicAIDropObject
   m_EditorClassIdentifier: 
-  chance: 2
+  chance: 3
   _drops:
   - weight: 10
     prefab: {fileID: 3007082793469006023, guid: b0bb189d6b8ec844e9310403dd60bcd6, type: 3}
