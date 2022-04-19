@@ -2,6 +2,8 @@ using UnityEngine;
 using ProjectCHAOS.Inputs;
 using ProjectCHAOS.Scores;
 using ProjectCHAOS.Scoreboards;
+using ProjectCHAOS.Upgrades;
+using System.Collections.Generic;
 
 namespace ProjectCHAOS.UI
 {
@@ -19,6 +21,9 @@ namespace ProjectCHAOS.UI
 		[SerializeField]
 		private ScoreboardUI _scoreboardUi = null;
 
+		[SerializeField]
+		private UpgraderUI _upgraderUi = null;
+
 		public TouchUIController touchUiController => _touchUiController;
 
 		public StartMenuUI startMenuUI => _startMenuUi;
@@ -27,11 +32,16 @@ namespace ProjectCHAOS.UI
 
 		public ScoreboardUI scoreboardUi => _scoreboardUi;
 
-		public void Initialize(LeanTouchInput leanTouchInput, Scorer scorer)
+		public UpgraderUI upgraderUi => _upgraderUi;
+
+		public void Initialize(
+			LeanTouchInput leanTouchInput, Scorer scorer, 
+			Upgrader upgrader)
 		{
 			touchUiController.Initialize(leanTouchInput);
 			startMenuUI.Initialize(leanTouchInput, scorer);
 			hudUi.Initialize(scorer);
+			upgraderUi.Initialize(upgrader);
 		}
 
 		public void HideAllUI()
@@ -40,6 +50,7 @@ namespace ProjectCHAOS.UI
 			startMenuUI.gameObject.SetActive(false);
 			hudUi.gameObject.SetActive(false);
 			scoreboardUi.gameObject.SetActive(false);
+			upgraderUi?.gameObject.SetActive(false);
 		}
 	}
 }

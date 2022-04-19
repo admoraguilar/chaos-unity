@@ -12,9 +12,9 @@ namespace ProjectCHAOS.Upgrades
 
 		public IReadOnlyList<T> behaviours => _behaviours;
 
-		protected override int maxIndex => behaviours.Count;
+		public override int maxIndex => behaviours.Count - 1;
 
-		protected override void OnUpgrade(Transform toUpgrade, int forceIndex = -2)
+		protected override void OnUpgradeMethod(Transform toUpgrade, int forceIndex = -2)
 		{
 			behaviours[forceIndex].Upgrade(toUpgrade);
 		}
@@ -22,32 +22,58 @@ namespace ProjectCHAOS.Upgrades
 
 	public abstract class UpgradeObject : ScriptableObject
 	{
+		public event Action<UpgradeObject, Transform, int> OnUpgrade = delegate { };
+
 		public new string name = string.Empty;
 
 		[NonSerialized]
-		private int _index = -1;
+		private int _index = 0;
 
-		protected abstract int maxIndex { get; }
+		public bool isReachedMax => index >= maxIndex;
+
+		public abstract int maxIndex { get; }
 
 		public int index
 		{
 			get => _index;
-			set {
-				index = Mathf.Clamp(value, -1, maxIndex);
+			private set {
+				_index = Mathf.Clamp(value, 0, maxIndex);
+			}
+		}
+
+		public void Upgrade(IEnumerable<Transform> toUpgrades, int forceIndex = -2)
+		{
+			foreach(Transform toUpgrade in toUpgrades) {
+				Upgrade(toUpgrade, forceIndex);
 			}
 		}
 
 		public void Upgrade(Transform toUpgrade, int forceIndex = -2)
 		{
-			if(forceIndex < -1) { index++; } else { index = forceIndex; }
-			OnUpgrade(toUpgrade, index);
+			if(isReachedMax) {
+				Debug.Log("Max index reached");
+				return;
+			}
+
+			if(forceIndex < -1) { index++; } 
+			else { index = forceIndex; }
+
+			OnUpgradeMethod(toUpgrade, index);
+			OnUpgrade(this, toUpgrade, index);
 		}
 
-		protected abstract void OnUpgrade(Transform toUpgrade, int forceIndex = -2);
+		protected abstract void OnUpgradeMethod(Transform toUpgrade, int forceIndex = -2);
+
+		public void Reset(IEnumerable<Transform> toUpgrades)
+		{
+			foreach(Transform toUpgrade in toUpgrades) {
+				Reset(toUpgrade);
+			}
+		}
 
 		public void Reset(Transform toUpgrade)
 		{
-			Upgrade(toUpgrade, -1);
+			Upgrade(toUpgrade, 0);
 		}
 	}
 }

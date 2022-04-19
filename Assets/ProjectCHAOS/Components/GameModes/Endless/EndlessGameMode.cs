@@ -15,6 +15,7 @@ using ProjectCHAOS.Characters.Players;
 
 using UObject = UnityEngine.Object;
 using URandom = UnityEngine.Random;
+using ProjectCHAOS.Upgrades;
 
 namespace ProjectCHAOS.GameModes.Endless
 {
@@ -43,6 +44,9 @@ namespace ProjectCHAOS.GameModes.Endless
 		[Space]
 		[SerializeField]
 		private GameSerializer _gameSerializer = null;
+
+		[SerializeField]
+		private Upgrader _upgrader = null;
 
 		[SerializeField]
 		private Scorer _scorer = null;
@@ -95,6 +99,7 @@ namespace ProjectCHAOS.GameModes.Endless
 			_playerCharacter.health.OnHealthEmpty += OnPlayerCharacterHealthEmpty;
 
 			_globalUi.hudUi.gameObject.SetActive(true);
+			_globalUi.upgraderUi.gameObject.SetActive(true);
 			_globalUi.touchUiController.gameObject.SetActive(true);
 
 			_spawner.Run();
@@ -102,7 +107,11 @@ namespace ProjectCHAOS.GameModes.Endless
 
 		private void OnGameLeave()
 		{
+			_upgrader.ResetObjectIndex();
+			_upgrader.ResetAll();
+
 			_globalUi.hudUi.gameObject.SetActive(false);
+			_globalUi.upgraderUi.gameObject.SetActive(false);
 			_globalUi.touchUiController.gameObject.SetActive(false);
 		}
 
@@ -191,7 +200,13 @@ namespace ProjectCHAOS.GameModes.Endless
 			_gameSerializer.Initialize(_scorer, _playerCharacter);
 			_gameSerializer.Load();
 
-			_globalUi.Initialize(_leanTouchInput, _scorer);
+			_upgrader.AddUpgradables(new Transform[] {
+				_playerCharacter.transform
+			});
+
+			_globalUi.Initialize(
+				_leanTouchInput, _scorer,
+				_upgrader);
 			
 			_score = _scorer.GetScore(0);
 		}
