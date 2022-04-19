@@ -1,7 +1,7 @@
 using System.Linq;
-using ProjectCHAOS.GameSerialization;
+using ProjectCHAOS.Scores;
 
-namespace ProjectCHAOS.Scores
+namespace ProjectCHAOS.GameSerialization
 {
 	public class ScorerSerializer : GameDataSerializer
 	{

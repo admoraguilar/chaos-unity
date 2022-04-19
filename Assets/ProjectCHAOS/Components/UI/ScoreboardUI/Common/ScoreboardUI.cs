@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using ProjectCHAOS.Scoreboards;
 
-namespace ProjectCHAOS.Scoreboards
+namespace ProjectCHAOS.UI
 {
 	public class ScoreboardUI : MonoBehaviour
 	{

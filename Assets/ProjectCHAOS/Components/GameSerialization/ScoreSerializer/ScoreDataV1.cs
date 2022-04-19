@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using ProjectCHAOS.DataSerialization;
 
-namespace ProjectCHAOS.Scores
+namespace ProjectCHAOS.GameSerialization
 {
 	[Serializable]
 	public class ScoreDataV1 : IObjectVersion

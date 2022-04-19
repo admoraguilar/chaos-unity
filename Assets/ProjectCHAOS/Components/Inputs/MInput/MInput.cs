@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using ProjectCHAOS.Inputs.GameInputs;
+using ProjectCHAOS.GameInputs;
 
 namespace ProjectCHAOS.Inputs
 {

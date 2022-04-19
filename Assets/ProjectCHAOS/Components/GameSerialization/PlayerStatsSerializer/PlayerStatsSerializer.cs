@@ -1,7 +1,7 @@
 using ProjectCHAOS.Behave;
-using ProjectCHAOS.GameSerialization;
+using ProjectCHAOS.Characters.Players;
 
-namespace ProjectCHAOS.Characters.Players
+namespace ProjectCHAOS.GameSerialization
 {
 	public class PlayerStatsSerializer : GameDataSerializer
 	{

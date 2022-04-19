@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using ProjectCHAOS.Inputs;
 
-namespace ProjectCHAOS.Inputs
+namespace ProjectCHAOS.UI
 {
 	public class TouchUIController : MonoBehaviour, IController
 	{

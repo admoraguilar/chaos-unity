@@ -1,8 +1,9 @@
 using UnityEngine;
+using ProjectCHAOS.Inputs;
 using ProjectCHAOS.Weapons;
 using ProjectCHAOS.Characters.Players;
 
-namespace ProjectCHAOS.Inputs.GameInputs
+namespace ProjectCHAOS.GameInputs
 {
     public class PlayerInputController : MonoBehaviour
     {

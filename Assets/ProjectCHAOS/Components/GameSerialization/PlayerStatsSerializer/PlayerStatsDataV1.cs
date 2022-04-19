@@ -1,7 +1,7 @@
 using System;
 using ProjectCHAOS.DataSerialization;
 
-namespace ProjectCHAOS.Characters.Players
+namespace ProjectCHAOS.GameSerialization
 {
 	[Serializable]
 	public class PlayerStatsDataV1 : IObjectVersion

@@ -1,9 +1,7 @@
 using UnityEngine;
 using ProjectCHAOS.Inputs;
-using ProjectCHAOS.HUD;
-using ProjectCHAOS.Menus;
-using ProjectCHAOS.Scoreboards;
 using ProjectCHAOS.Scores;
+using ProjectCHAOS.Scoreboards;
 
 namespace ProjectCHAOS.UI
 {
