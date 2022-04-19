@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using UnityEngine;
 
 namespace ProjectCHAOS.Behave
@@ -22,6 +23,8 @@ namespace ProjectCHAOS.Behave
 		private bool _isTackling = false;
 
 		private Transform _owner = null;
+		private CharacterController _ownerCharacterController = null;
+		private Rigidbody _ownerRigidbody = null;
 
 		public bool isDeployed => _isDeployed;
 
@@ -31,14 +34,30 @@ namespace ProjectCHAOS.Behave
 			private set => _owner = value;
 		}
 
+		public CharacterController ownerCharacterController
+		{
+			get => _ownerCharacterController;
+			private set => _ownerCharacterController = value;
+		}
+
+		public Rigidbody ownerRigidbody
+		{
+			get => _ownerRigidbody;
+			private set => _ownerRigidbody = value;
+		}
+
 		public bool isFunctional
 		{
 			get => owner != null;
 		}
 
-		public void Initialize(Transform owner)
+		public void Initialize(
+			Transform owner, CharacterController characterController, 
+			Rigidbody rigidbody)
 		{
 			this.owner = owner;
+			this.ownerCharacterController = characterController;
+			this.ownerRigidbody = rigidbody;
 		}
 
 		public void Move(Vector3 motion)
@@ -67,7 +86,7 @@ namespace ProjectCHAOS.Behave
 			if(!_isTackling) {
 				if(_currentMotion != Vector3.zero) {
 					if(!_isDeployed) {
-						owner.Translate(_currentMotion * moveSpeed * speedMultiplier * Time.deltaTime, Space.World);
+						ownerCharacterController.Move(_currentMotion * moveSpeed * speedMultiplier * Time.deltaTime);
 					}
 
 					Quaternion toRotation = Quaternion.LookRotation(_currentMotion, owner.up);
@@ -77,7 +96,7 @@ namespace ProjectCHAOS.Behave
 				_lastMotionWorldPosition = owner.position;
 			} else {
 				Vector3 tackleMotion = Vector3.Lerp(owner.position, _targetTackleWorldPosition, tackleSpeed * speedMultiplier * Time.deltaTime);
-				owner.position = tackleMotion;
+				ownerRigidbody.MovePosition(tackleMotion);
 
 				if(Vector3.Distance(tackleMotion, _targetTackleWorldPosition) < .05f) {
 					_isTackling = false;

@@ -32,13 +32,13 @@ namespace ProjectCHAOS.GameInputs
 
 			weaponHandler.visualHolder.StartFiring();
 
-			if(_movementInputMap.didTap) {
-				playerCharacter.movement.Deploy(!playerCharacter.movement.isDeployed);
-			}
+			//if(_movementInputMap.didTap) {
+			//	playerCharacter.movement.Deploy(!playerCharacter.movement.isDeployed);
+			//}
 
-			if(_movementInputMap.didDoubleTap) {
-				playerCharacter.movement.Tackle(playerCharacter.transform.forward);
-			}
+			//if(_movementInputMap.didDoubleTap) {
+			//	playerCharacter.movement.Tackle(playerCharacter.transform.forward);
+			//}
 		}
 	}
 }

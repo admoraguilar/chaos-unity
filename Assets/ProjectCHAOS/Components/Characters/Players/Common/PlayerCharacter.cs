@@ -15,6 +15,8 @@ namespace ProjectCHAOS.Characters.Players
 		private CharacterStats _characterStats = null;
 
 		private Transform _transform = null;
+		private CharacterController _characterController = null;
+		private Rigidbody _rigidbody = null;
 
 		public Health health => _health;
 
@@ -24,9 +26,13 @@ namespace ProjectCHAOS.Characters.Players
 
 		public new Transform transform => this.GetCachedComponent(ref _transform);
 
+		public CharacterController characterController => this.GetCachedComponent(ref _characterController);
+
+		public new Rigidbody rigidbody => this.GetCachedComponent(ref _rigidbody);
+
 		private void Awake()
 		{
-			_movement.Initialize(transform);
+			_movement.Initialize(transform, characterController, rigidbody);
 		}
 
 		private void FixedUpdate()
