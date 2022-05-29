@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using ProjectCHAOS.Levels;
+using ProjectCHAOS.Worlds;
 
 namespace ProjectCHAOS.Behave
 {

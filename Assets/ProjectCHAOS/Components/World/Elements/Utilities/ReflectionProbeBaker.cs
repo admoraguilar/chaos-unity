@@ -1,7 +1,7 @@
 using UnityEngine;
 using ProjectCHAOS;
 
-namespace ProjectCHAOS.Levels
+namespace ProjectCHAOS.Worlds
 {
 	public class ReflectionProbeBaker : MonoBehaviour
 	{

@@ -366,7 +366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2053737844004696180, guid: 3a355413cc7d2e046ac30fb7e77bf0b2, type: 3}
       propertyPath: orthographic size
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2053737845075028511, guid: 3a355413cc7d2e046ac30fb7e77bf0b2, type: 3}
       propertyPath: m_CameraDistance
@@ -402,11 +402,7 @@ PrefabInstance:
       objectReference: {fileID: 1357059390}
     - target: {fileID: 2053737845337142516, guid: 3a355413cc7d2e046ac30fb7e77bf0b2, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
-      value: 0.56233764
-      objectReference: {fileID: 0}
-    - target: {fileID: 2053737845337142516, guid: 3a355413cc7d2e046ac30fb7e77bf0b2, type: 3}
-      propertyPath: m_Lens.OrthographicSize
-      value: 50
+      value: 0.562601
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a355413cc7d2e046ac30fb7e77bf0b2, type: 3}

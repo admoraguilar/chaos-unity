@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ProjectCHAOS.Spawners;
 
-namespace ProjectCHAOS.Levels
+namespace ProjectCHAOS.Worlds
 {
 	public class Map : MonoBehaviour
 	{

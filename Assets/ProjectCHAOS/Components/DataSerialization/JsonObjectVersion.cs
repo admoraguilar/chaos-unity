@@ -1,11 +1,10 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Globalization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
-using System.Globalization;
-using System.Runtime.Serialization;
 
 namespace ProjectCHAOS.DataSerialization
 {
