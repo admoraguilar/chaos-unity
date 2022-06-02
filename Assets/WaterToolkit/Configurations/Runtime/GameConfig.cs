@@ -9,7 +9,7 @@ namespace WaterToolkit.Configurations
 		private static void RunOnLoad()
 		{
 			if(Instance == null) {
-				Debug.LogWarning($"[{nameof(GameConfig)}] No {nameof(GameConfig)} detected.");
+				Debug.LogWarning($"[{nameof(GameConfig)}] No {nameof(GameConfig)} detected in (Player Settings -> Other Settings -> Preloaded Assets).");
 				return;
 			}
 

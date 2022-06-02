@@ -2,6 +2,8 @@ using UnityEngine;
 using WaterToolkit.GameInputs;
 using WaterToolkit.Weapons;
 using WaterToolkit.Characters.Players;
+using WaterToolkit.Configurations;
+using WaterToolkit.Blackboards;
 
 namespace WaterToolkit.GameInputs
 {
@@ -28,7 +30,7 @@ namespace WaterToolkit.GameInputs
 
 		private void Update()
 		{
-			playerCharacter.movement.Move(_movementInputMap.moveInputAxis);
+			//playerCharacter.movement.Move(_movementInputMap.moveInputAxis);
 
 			weaponHandler.visualHolder.StartFiring();
 

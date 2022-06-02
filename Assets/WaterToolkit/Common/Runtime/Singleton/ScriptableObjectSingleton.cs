@@ -13,31 +13,35 @@ using UnityEditor;
 
 namespace WaterToolkit
 {
-	public class ScriptableObjectSingleton<T> : ScriptableObject where T : ScriptableObject
+	public abstract class ScriptableObjectSingleton<T> : ScriptableObjectSingleton where T : ScriptableObjectSingleton
 	{
 		private static T _instance = default;
 
-		public static T Instance
-		{
-			get {
-				if(_instance == null) {
-					throw new NullReferenceException($"No scriptable object instance found. Make sure you have one initialized for [{nameof(T)}] on Player Settings -> Other Settings -> Preloaded Assets.");
-				}
-				return _instance;
-			}
-		}
+		protected static T Instance => _instance;
 
 		private void OnEnable()
 		{
 #if UNITY_EDITOR
 
-			List<UObject> preloadedAssets = PlayerSettings.GetPreloadedAssets().ToList();
-			preloadedAssets.RemoveAll(asset => object.ReferenceEquals(asset, null));
+			List<UObject> preloadedAssets = _ScriptableSingletonUtilities.RefreshPreloadedAssets();
 
 #endif
+			
+			if(!_ScriptableSingletonUtilities.IsInstanceNull(_instance) && _instance != this) {
+#if UNITY_EDITOR
 
-			if(_instance != null && _instance != this) {
+				// Hack to simulate cancelling an asset creation
+				EditorApplication.delayCall += () => {
+					EditorWindow.focusedWindow.SendEvent(Event.KeyboardEvent("[esc]"));
+					Selection.activeObject = _instance;
+					DestroyImmediate(this, true);
+				};
+
+#else
+
 				DestroyImmediate(this, true);
+
+#endif
 				return;
 			}
 
@@ -45,11 +49,8 @@ namespace WaterToolkit
 
 #if UNITY_EDITOR
 
-			if(!preloadedAssets.Contains(_instance)) {
-				preloadedAssets.Add(_instance);
-				PlayerSettings.SetPreloadedAssets(preloadedAssets.ToArray());
-			}
-			
+			_ScriptableSingletonUtilities.AddToPreloadedAssets(_instance);
+
 #endif
 		}
 
@@ -61,6 +62,34 @@ namespace WaterToolkit
 		}
 	}
 
+	public abstract class ScriptableObjectSingleton : ScriptableObject { }
+
+
+	class _ScriptableSingletonUtilities
+	{
+#if UNITY_EDITOR
+
+		internal static void AddToPreloadedAssets(UObject instance)
+		{
+			List<UObject> preloadedAssets = RefreshPreloadedAssets();
+			if(!IsInstanceNull(instance) && !preloadedAssets.Contains(instance)) {
+				preloadedAssets.Add(instance);
+				PlayerSettings.SetPreloadedAssets(preloadedAssets.ToArray());
+			}
+		}
+
+		internal static List<UObject> RefreshPreloadedAssets()
+		{
+			List<UObject> preloadedAssets = PlayerSettings.GetPreloadedAssets().ToList();
+			preloadedAssets.RemoveAll(asset => IsInstanceNull(asset));
+			PlayerSettings.SetPreloadedAssets(preloadedAssets.ToArray());
+			return preloadedAssets;
+		}
+
+#endif
+
+		internal static bool IsInstanceNull(UObject instance) => object.ReferenceEquals(instance, null);
+	}
 
 #if UNITY_EDITOR
 
@@ -70,16 +99,23 @@ namespace WaterToolkit
 		private static void OnEditorInitialize()
 		{
 			// Touch the preloaded assets so it'll always be loaded upon the opening of the editor
-			PlayerSettings.GetPreloadedAssets();
+			List<UObject> preloadedAssets = _ScriptableSingletonUtilities.RefreshPreloadedAssets();
+
+			Type[] derivatives = typeof(ScriptableObjectSingleton<>).GetAllTypeDerivatives();
+			foreach(Type derivative in derivatives) {
+				UObject[] instances = Resources.FindObjectsOfTypeAll(derivative);
+				if(instances.Length > 0) {
+					_ScriptableSingletonUtilities.AddToPreloadedAssets(instances[0]); 
+				}
+
+			}
 
 			EditorApplication.projectChanged += OnProjectChanged;
 		}
 
 		private static void OnProjectChanged()
 		{
-			List<UObject> preloadedAssets = PlayerSettings.GetPreloadedAssets().ToList();
-			preloadedAssets.RemoveAll(asset => object.ReferenceEquals(asset, null));
-			PlayerSettings.SetPreloadedAssets(preloadedAssets.ToArray());
+			_ScriptableSingletonUtilities.RefreshPreloadedAssets();
 		}
 	}
 
