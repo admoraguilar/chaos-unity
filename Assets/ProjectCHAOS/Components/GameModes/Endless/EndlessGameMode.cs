@@ -214,8 +214,6 @@ namespace WaterToolkit.GameModes.Endless
 
 		private void Awake()
 		{
-			_gameConfig.Initialize();
-
 			_gameSerializer.Initialize(_scorer, _playerCharacter);
 			_gameSerializer.Load();
 

@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using WaterToolkit;
 
 namespace WaterToolkit.Configurations
 {
@@ -11,15 +10,22 @@ namespace WaterToolkit.Configurations
         private static void RunOnLoad()
 		{
 			if(Instance == null) {
-				Debug.LogWarning($"[{typeof(Bootstrapper)}] There's no GameConfig, please create one.");
+				Debug.LogWarning($"[{nameof(Bootstrapper)}] No {nameof(Bootstrapper)} detected.");
 				return;
 			}
 
 			if(!Instance.isEnabled) { return; }
-			SceneManager.LoadSceneAsync(Instance.sceneName, LoadSceneMode.Additive);
+
+			foreach(GameObject prefab in Instance.prefabs) {
+				GameObject prefabInstance = Instantiate(prefab);
+				DontDestroyOnLoad(prefabInstance);
+			}
+
+			SceneManager.LoadSceneAsync(Instance.sceneName);
 		}
 
 		public bool isEnabled = false;
         public string sceneName = string.Empty;
+		public GameObject[] prefabs = null;
 	}
 }

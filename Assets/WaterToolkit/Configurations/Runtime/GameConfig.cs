@@ -2,8 +2,20 @@ using UnityEngine;
 
 namespace WaterToolkit.Configurations
 {
-	public class GameConfig : MonoBehaviour
+	[CreateAssetMenu(menuName = "WaterToolkit/Configurations/Game Config")]
+	public class GameConfig : ScriptableObjectSingleton<GameConfig>
 	{
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+		private static void RunOnLoad()
+		{
+			if(Instance == null) {
+				Debug.LogWarning($"[{nameof(GameConfig)}] No {nameof(GameConfig)} detected.");
+				return;
+			}
+
+			Instance.targetFramerate = Instance.targetFramerate;
+		}
+
 		[SerializeField]
 		private int _targetFramerate = 60;
 
@@ -14,11 +26,6 @@ namespace WaterToolkit.Configurations
 				_targetFramerate = value;
 				Application.targetFrameRate = _targetFramerate;
 			}
-		}
-
-		public void Initialize()
-		{
-			targetFramerate = targetFramerate;
 		}
 	}
 }
