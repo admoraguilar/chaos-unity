@@ -1,7 +1,7 @@
 using UnityEngine;
 using WaterToolkit;
-using WaterToolkit.GameInputs;
 using WaterToolkit.Weapons;
+using WaterToolkit.GameInputs;
 using ProjectCHAOS.Characters.Players;
 
 namespace ProjectCHAOS.GameInputs

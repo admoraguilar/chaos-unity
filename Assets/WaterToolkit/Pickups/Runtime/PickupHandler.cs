@@ -55,8 +55,10 @@ namespace WaterToolkit.Pickups
 			Pickup pickup = collider.GetComponent<Pickup>();
 			if(pickup != null) {
 				int key = pickup.@object.GetInstanceID();
-				PickupObject obj = _objectsDict[key];
-				obj.Pickup(transform);
+				if(_objectsDict.ContainsKey(key)) {
+					PickupObject obj = _objectsDict[key];
+					obj.Pickup(transform);
+				}
 
 				Destroy(pickup.gameObject);
 			}
