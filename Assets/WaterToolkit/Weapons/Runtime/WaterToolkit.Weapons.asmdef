@@ -1,0 +1,18 @@
+{
+    "name": "WaterToolkit.Weapons",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a16fe458cf33d0249ad2404a4f890917",
+        "GUID:035b729a979c2e243b44febaa77d5484",
+        "GUID:4a64edad3e0c27f4f96416e2c6647ba5"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

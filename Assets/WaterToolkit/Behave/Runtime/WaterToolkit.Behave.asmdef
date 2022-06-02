@@ -1,0 +1,16 @@
+{
+    "name": "WaterToolkit.Behave",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a16fe458cf33d0249ad2404a4f890917"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

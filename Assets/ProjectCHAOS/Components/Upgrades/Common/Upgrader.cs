@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-namespace ProjectCHAOS.Upgrades
+namespace WaterToolkit.Upgrades
 {
 	public class Upgrader : MonoBehaviour
 	{

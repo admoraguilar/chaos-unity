@@ -1,7 +1,7 @@
 using System;
-using ProjectCHAOS.DataSerialization;
+using WaterToolkit.DataSerialization;
 
-namespace ProjectCHAOS.GameSerialization
+namespace WaterToolkit.GameSerialization
 {
 	[Serializable]
 	public class PlayerStatsDataV1 : IObjectVersion

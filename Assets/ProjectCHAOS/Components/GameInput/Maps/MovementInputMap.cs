@@ -1,9 +1,9 @@
 using UnityEngine;
 using Lean.Touch;
-using ProjectCHAOS.UI;
-using ProjectCHAOS.Inputs;
+using WaterToolkit.UI;
+using WaterToolkit.Inputs;
 
-namespace ProjectCHAOS.GameInputs
+namespace WaterToolkit.GameInputs
 {
 	public interface IMovementInputMap : IMap
 	{

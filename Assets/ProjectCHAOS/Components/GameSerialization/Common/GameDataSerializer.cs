@@ -1,6 +1,6 @@
-using ProjectCHAOS.DataSerialization;
+using WaterToolkit.DataSerialization;
 
-namespace ProjectCHAOS.GameSerialization
+namespace WaterToolkit.GameSerialization
 {
 	public abstract class GameDataSerializer
 	{

@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
-using ProjectCHAOS.Behave;
+using WaterToolkit.Behave;
 
-namespace ProjectCHAOS.Upgrades
+namespace WaterToolkit.Upgrades
 {
 	[CreateAssetMenu(menuName = "ProjectCHAOS/Upgrades/Speed")]
 	public class SpeedUpgradeObject : UpgradeObject<SpeedUpgradeBehaviour> { }

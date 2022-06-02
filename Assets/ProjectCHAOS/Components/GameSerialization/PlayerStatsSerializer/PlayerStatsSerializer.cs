@@ -1,7 +1,7 @@
-using ProjectCHAOS.Behave;
-using ProjectCHAOS.Characters.Players;
+using WaterToolkit.Behave;
+using WaterToolkit.Characters.Players;
 
-namespace ProjectCHAOS.GameSerialization
+namespace WaterToolkit.GameSerialization
 {
 	public class PlayerStatsSerializer : GameDataSerializer
 	{

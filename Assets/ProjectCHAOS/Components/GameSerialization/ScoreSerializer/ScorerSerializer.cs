@@ -1,7 +1,7 @@
 using System.Linq;
-using ProjectCHAOS.Scores;
+using WaterToolkit.Scores;
 
-namespace ProjectCHAOS.GameSerialization
+namespace WaterToolkit.GameSerialization
 {
 	public class ScorerSerializer : GameDataSerializer
 	{
@@ -17,8 +17,7 @@ namespace ProjectCHAOS.GameSerialization
 		{
 			ScoreDataV1 data = dataSerializer.LoadObjectVersion<ScoreDataV1>();
 			foreach(ScoreDataV1.Score dataScore in data.scores) {
-				Score score = _scorer.GetScore(dataScore.id);
-				score.InternalSet(dataScore.id, score.current, dataScore.best);
+				_scorer.GetScore(dataScore.id, new Score(dataScore.id, 0, dataScore.best));
 			}
 		}
 

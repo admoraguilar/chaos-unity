@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ProjectCHAOS.Behave
+namespace WaterToolkit.Behave
 {
 	public interface ICharacterStats
 	{
@@ -12,14 +12,14 @@ namespace ProjectCHAOS.Behave
 	public class CharacterStats
 	{
 		[SerializeField]
-		private CharacterStat _speed = new CharacterStat(1f);
+		private EntityStat _speed = new EntityStat(1f);
 
 		[SerializeField]
-		private CharacterStat _fireRate = new CharacterStat(1f);
+		private EntityStat _fireRate = new EntityStat(1f);
 
-		public CharacterStat speed => _speed;
+		public EntityStat speed => _speed;
 
-		public CharacterStat fireRate => _fireRate;
+		public EntityStat fireRate => _fireRate;
 
 #if UNITY_EDITOR
 		public void Editor_OnValidate()

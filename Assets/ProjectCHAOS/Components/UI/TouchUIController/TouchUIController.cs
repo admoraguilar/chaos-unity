@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using ProjectCHAOS.Inputs;
+using WaterToolkit.Inputs;
 
-namespace ProjectCHAOS.UI
+namespace WaterToolkit.UI
 {
 	public class TouchUIController : MonoBehaviour, IController
 	{

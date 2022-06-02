@@ -1,8 +1,8 @@
 using UnityEngine;
 using TMPro;
-using ProjectCHAOS.Scores;
+using WaterToolkit.Scores;
 
-namespace ProjectCHAOS.UI
+namespace WaterToolkit.UI
 {
 	public class ScoreUI : MonoBehaviour
 	{

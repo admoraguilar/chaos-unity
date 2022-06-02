@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using ProjectCHAOS.Scoreboards;
+using WaterToolkit.Scoreboards;
 
-namespace ProjectCHAOS.UI
+namespace WaterToolkit.UI
 {
 	public class ScoreboardUI : MonoBehaviour
 	{

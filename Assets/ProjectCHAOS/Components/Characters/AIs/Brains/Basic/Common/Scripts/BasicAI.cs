@@ -1,8 +1,8 @@
 using UnityEngine;
-using ProjectCHAOS.Behave;
-using ProjectCHAOS.Worlds;
+using WaterToolkit.Behave;
+using WaterToolkit.Worlds;
 
-namespace ProjectCHAOS.Characters.AIs
+namespace WaterToolkit.Characters.AIs
 {
 	public class BasicAI : MonoBehaviour, IHealth
 	{

@@ -1,9 +1,9 @@
 using UnityEngine;
-using ProjectCHAOS.Inputs;
-using ProjectCHAOS.Weapons;
-using ProjectCHAOS.Characters.Players;
+using WaterToolkit.Inputs;
+using WaterToolkit.Weapons;
+using WaterToolkit.Characters.Players;
 
-namespace ProjectCHAOS.GameInputs
+namespace WaterToolkit.GameInputs
 {
     public class PlayerInputController : MonoBehaviour
     {

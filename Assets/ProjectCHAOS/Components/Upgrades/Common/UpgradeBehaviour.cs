@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ProjectCHAOS.Upgrades
+namespace WaterToolkit.Upgrades
 {
 	public abstract class UpgradeBehaviour
 	{

@@ -1,25 +1,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Feedbacks;
-using ProjectCHAOS.UI;
-using ProjectCHAOS.Inputs;
-using ProjectCHAOS.FlowTrees;
-using ProjectCHAOS.Scores;
-using ProjectCHAOS.Behave;
-using ProjectCHAOS.Worlds;
-using ProjectCHAOS.Weapons;
-using ProjectCHAOS.Spawners;
-using ProjectCHAOS.GameSerialization;
-using ProjectCHAOS.Characters.AIs;
-using ProjectCHAOS.Characters.Players;
+using WaterToolkit.UI;
+using WaterToolkit.Inputs;
+using WaterToolkit.FlowTrees;
+using WaterToolkit.Scores;
+using WaterToolkit.Behave;
+using WaterToolkit.Worlds;
+using WaterToolkit.Weapons;
+using WaterToolkit.Spawners;
+using WaterToolkit.GameSerialization;
+using WaterToolkit.Characters.AIs;
+using WaterToolkit.Characters.Players;
 
 using URandom = UnityEngine.Random;
-using ProjectCHAOS.Upgrades;
-using ProjectCHAOS.Drops;
-using ProjectCHAOS.Pickups;
-using ProjectCHAOS.Configurations;
+using WaterToolkit.Upgrades;
+using WaterToolkit.Drops;
+using WaterToolkit.Pickups;
+using WaterToolkit.Configurations;
 
-namespace ProjectCHAOS.GameModes.Endless
+namespace WaterToolkit.GameModes.Endless
 {
 	/// <summary>
 	/// Could be split to small sub-classes in order to have better readability.

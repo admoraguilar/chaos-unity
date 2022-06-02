@@ -1,7 +1,7 @@
 using UnityEngine;
-using ProjectCHAOS.Scores;
+using WaterToolkit.Scores;
 
-namespace ProjectCHAOS.UI
+namespace WaterToolkit.UI
 {
 	public class HUDUI : MonoBehaviour
 	{

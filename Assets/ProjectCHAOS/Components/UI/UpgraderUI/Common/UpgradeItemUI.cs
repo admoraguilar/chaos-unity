@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using TMPro;
 
-namespace ProjectCHAOS.UI
+namespace WaterToolkit.UI
 {
 	public class UpgradeItemUI : MonoBehaviour
 	{

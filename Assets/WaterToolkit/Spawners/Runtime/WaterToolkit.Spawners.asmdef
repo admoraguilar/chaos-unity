@@ -1,0 +1,18 @@
+{
+    "name": "WaterToolkit.Spawner",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a16fe458cf33d0249ad2404a4f890917",
+        "GUID:035b729a979c2e243b44febaa77d5484",
+        "GUID:45a7629b2fcfecb48b9489101e22dc26"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,16 @@
+{
+    "name": "WaterToolkit.Pickups",
+    "rootNamespace": "",
+    "references": [
+        "GUID:035b729a979c2e243b44febaa77d5484"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

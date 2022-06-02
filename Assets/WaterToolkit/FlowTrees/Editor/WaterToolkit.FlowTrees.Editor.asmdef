@@ -1,0 +1,16 @@
+{
+    "name": "WaterToolkit.FlowTrees.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:c92b54f4b2df84c4ca6dacda60dd5a34"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,8 +1,8 @@
 using UnityEngine;
-using ProjectCHAOS;
-using ProjectCHAOS.Weapons;
+using WaterToolkit;
+using WaterToolkit.Weapons;
 
-namespace ProjectCHAOS.Characters.Players
+namespace WaterToolkit.Characters.Players
 {
 	public class PlayerStatsLinker : MonoBehaviour
 	{

@@ -1,7 +1,7 @@
 using UnityEngine;
-using ProjectCHAOS.Behave;
+using WaterToolkit.Behave;
 
-namespace ProjectCHAOS.Characters.Players
+namespace WaterToolkit.Characters.Players
 {
 	public class PlayerCharacter : MonoBehaviour, IHealth, ICharacterStats
 	{
@@ -9,7 +9,7 @@ namespace ProjectCHAOS.Characters.Players
 		private Health _health = null;
 
 		[SerializeField]
-		private CharacterMovement _movement = null;
+		private EntityMovement _movement = null;
 
 		[SerializeField]
 		private CharacterStats _characterStats = null;
@@ -20,7 +20,7 @@ namespace ProjectCHAOS.Characters.Players
 
 		public Health health => _health;
 
-		public CharacterMovement movement => _movement;
+		public EntityMovement movement => _movement;
 
 		public CharacterStats characterStats => _characterStats;
 

@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 using Lean.Touch;
-using ProjectCHAOS.Inputs;
-using ProjectCHAOS.Scores;
+using WaterToolkit.Inputs;
+using WaterToolkit.Scores;
 
-namespace ProjectCHAOS.UI
+namespace WaterToolkit.UI
 {
 	public class StartMenuUI : MonoBehaviour
 	{

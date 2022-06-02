@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
-using ProjectCHAOS.Inputs;
+using WaterToolkit.Inputs;
 
-namespace ProjectCHAOS.GameInputs
+namespace WaterToolkit.GameInputs
 {
 	public interface ICombatInputMap : IMap
 	{
