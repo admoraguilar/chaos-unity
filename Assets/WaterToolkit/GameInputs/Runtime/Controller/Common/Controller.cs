@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WaterToolkit.Inputs
+namespace WaterToolkit.GameInputs
 {
 	public sealed class Controller<T> : Controller where T : class, IController
 	{

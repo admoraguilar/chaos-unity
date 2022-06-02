@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using WaterToolkit;
 
-namespace WaterToolkit.Inputs
+namespace WaterToolkit.GameInputs
 {
 	public class Player
 	{
@@ -10,7 +10,7 @@ namespace WaterToolkit.Inputs
 			get {
 				if(_monoDel == null) {
 					_monoDel = MonoDelegate.GetOrCreate(
-						$"{nameof(MInput)}.{nameof(Player)}", true);
+						$"{nameof(GameInput)}.{nameof(Player)}", true);
 				}
 				return _monoDel;
 			}

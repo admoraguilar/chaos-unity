@@ -1,5 +1,5 @@
 using UnityEngine;
-using WaterToolkit.Inputs;
+using WaterToolkit.GameInputs;
 using WaterToolkit.Weapons;
 using WaterToolkit.Characters.Players;
 
@@ -22,8 +22,8 @@ namespace WaterToolkit.GameInputs
 
 		private void Awake()
 		{
-			_movementInputMap = MInput.GetPlayer(0).GetMap<IMovementInputMap>();
-			_combatInputMap = MInput.GetPlayer(0).GetMap<ICombatInputMap>();
+			_movementInputMap = GameInput.GetPlayer(0).GetMap<IMovementInputMap>();
+			_combatInputMap = GameInput.GetPlayer(0).GetMap<ICombatInputMap>();
 		}
 
 		private void Update()

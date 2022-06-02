@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Feedbacks;
 using WaterToolkit.UI;
-using WaterToolkit.Inputs;
+using WaterToolkit.GameInputs;
 using WaterToolkit.Scores;
 using WaterToolkit.Behave;
 using WaterToolkit.Worlds;

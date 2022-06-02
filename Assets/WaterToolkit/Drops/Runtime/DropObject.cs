@@ -6,7 +6,7 @@ using URandom = UnityEngine.Random;
 
 namespace WaterToolkit.Drops
 {
-	[CreateAssetMenu(menuName = "ProjectCHAOS/Drops/Drop Object")]
+	[CreateAssetMenu(menuName = "WaterToolkit/Drops/Drop Object")]
 	public class DropObject : ScriptableObject
 	{
 		[Range(0f, 100f)]

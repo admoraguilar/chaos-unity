@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace WaterToolkit.Inputs
+namespace WaterToolkit.GameInputs
 {
-	public static class MInput
+	public static class GameInput
 	{
 		private static Dictionary<Type, List<Controller>> _controllers = new Dictionary<Type, List<Controller>>();
 		private static Dictionary<int, Player> _players = new Dictionary<int, Player>();

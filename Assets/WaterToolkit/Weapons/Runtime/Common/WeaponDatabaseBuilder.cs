@@ -4,7 +4,7 @@ using WaterToolkit.ValueBoards;
 
 namespace WaterToolkit.Weapons
 {
-	[CreateAssetMenu(menuName = "ProjectCHAOS/Weapon Database Builder")]
+	[CreateAssetMenu(menuName = "WaterToolkit/Weapons/Weapon Database Builder")]
 	public class WeaponDatabaseBuilder : 
 		ValueBoardBuilder<
 			WeaponDatabase, WeaponObject,

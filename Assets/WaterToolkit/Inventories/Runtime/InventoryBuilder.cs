@@ -4,7 +4,7 @@ using WaterToolkit.ValueBoards;
 
 namespace WaterToolkit.Inventories
 {
-    [CreateAssetMenu(menuName = "ProjectCHAOS/Inventory Builder")]
+    [CreateAssetMenu(menuName = "WaterToolkit/Inventories/Inventory Builder")]
     public class InventoryBuilder : 
 		ValueBoardBuilder<
 			Inventory, ItemObject, 

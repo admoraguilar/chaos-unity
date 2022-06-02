@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using Lean.Touch;
-using WaterToolkit.Inputs;
+using WaterToolkit.GameInputs;
 using WaterToolkit.Scores;
 
 namespace WaterToolkit.UI

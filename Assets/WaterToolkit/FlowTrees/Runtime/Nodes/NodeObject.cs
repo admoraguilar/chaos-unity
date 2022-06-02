@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace WaterToolkit.FlowTrees
 {
-	[CreateAssetMenu(menuName = "Midnight.Unity/Flow Tree/Node Object")]
+	[CreateAssetMenu(menuName = "WaterToolkit/Flow Trees/Node Object")]
 	public class NodeObject : ScriptableObject
 	{
 		public static implicit operator Node(NodeObject nodeObject) => nodeObject.node;

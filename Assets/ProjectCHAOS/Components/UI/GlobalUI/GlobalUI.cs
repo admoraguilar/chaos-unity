@@ -1,5 +1,5 @@
 using UnityEngine;
-using WaterToolkit.Inputs;
+using WaterToolkit.GameInputs;
 using WaterToolkit.Scores;
 using WaterToolkit.Scoreboards;
 using WaterToolkit.Upgrades;

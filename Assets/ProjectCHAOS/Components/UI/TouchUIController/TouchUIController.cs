@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using WaterToolkit.Inputs;
+using WaterToolkit.GameInputs;
 
 namespace WaterToolkit.UI
 {
@@ -44,12 +44,12 @@ namespace WaterToolkit.UI
 
 		private void OnEnable()
 		{
-			MInput.GetController<TouchUIController>(0).Initialize(this);
+			GameInput.GetController<TouchUIController>(0).Initialize(this);
 		}
 
 		private void OnDisable()
 		{
-			MInput.GetController<TouchUIController>(0).Deinitialize();
+			GameInput.GetController<TouchUIController>(0).Deinitialize();
 		}
 	}
 }

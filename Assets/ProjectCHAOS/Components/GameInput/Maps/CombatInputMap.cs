@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using WaterToolkit.Inputs;
+using WaterToolkit.GameInputs;
 
 namespace WaterToolkit.GameInputs
 {

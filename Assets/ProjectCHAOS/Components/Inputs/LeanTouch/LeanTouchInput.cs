@@ -1,7 +1,7 @@
 using UnityEngine;
 using Lean.Touch;
 
-namespace WaterToolkit.Inputs
+namespace WaterToolkit.GameInputs
 {
 	public class LeanTouchInput : MonoBehaviour
 	{

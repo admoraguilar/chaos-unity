@@ -1,5 +1,5 @@
 ﻿
-namespace WaterToolkit.Inputs
+namespace WaterToolkit.GameInputs
 {
 	public interface IMap
 	{

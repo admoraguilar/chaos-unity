@@ -1,7 +1,7 @@
 using UnityEngine;
 using Lean.Touch;
 using WaterToolkit.UI;
-using WaterToolkit.Inputs;
+using WaterToolkit.GameInputs;
 
 namespace WaterToolkit.GameInputs
 {
@@ -61,14 +61,14 @@ namespace WaterToolkit.GameInputs
 
 		public void Initialize() 
 		{
-			_touchUI = MInput.GetController<TouchUIController>(0);
+			_touchUI = GameInput.GetController<TouchUIController>(0);
 			_touchUI.OnInitialize += OnTouchUIInitialize;
 			_touchUI.OnDeinitialize += OnTouchUIDeinitialize;
 		}
 
 		public void Deinitialize() 
 		{
-			_touchUI = MInput.GetController<TouchUIController>(0);
+			_touchUI = GameInput.GetController<TouchUIController>(0);
 			_touchUI.OnInitialize -= OnTouchUIInitialize;
 			_touchUI.OnDeinitialize -= OnTouchUIDeinitialize;
 		}
