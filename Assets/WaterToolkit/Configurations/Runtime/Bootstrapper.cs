@@ -4,7 +4,7 @@ using WaterToolkit;
 
 namespace WaterToolkit.Configurations
 {
-    [CreateAssetMenu(menuName = "ProjectCHAOS/Configurations/Bootstrapper")]
+    [CreateAssetMenu(menuName = "WaterToolkit/Configurations/Bootstrapper")]
     public class Bootstrapper : ScriptableObjectSingleton<Bootstrapper>
     {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
