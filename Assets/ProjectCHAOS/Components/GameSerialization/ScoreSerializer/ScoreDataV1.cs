@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using WaterToolkit.DataSerialization;
 
-namespace WaterToolkit.GameSerialization
+namespace ProjectCHAOS.GameSerialization
 {
 	[Serializable]
 	public class ScoreDataV1 : IObjectVersion

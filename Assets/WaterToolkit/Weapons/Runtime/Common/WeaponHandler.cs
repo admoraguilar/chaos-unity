@@ -22,10 +22,10 @@ namespace WaterToolkit.Weapons
 		public event Action OnFire = delegate { };
 
 		[SerializeField]
-		private WeaponDatabaseBuilder _databaseBuilder = null;
+		private WeaponSetBuilder _databaseBuilder = null;
 
 		[SerializeField]
-		private WeaponDatabaseBuilder _startingLoadout = null;
+		private WeaponSetBuilder _startingLoadout = null;
 
 		[SerializeField]
 		private bool _shouldEquipWeaponAtStart = false;
@@ -33,12 +33,12 @@ namespace WaterToolkit.Weapons
 		[SerializeField]
 		private Transform _visualHolderTransform = null;
 
-		private WeaponDatabase _database = null;
+		private WeaponSet _database = null;
 		private WeaponVisualHolder _visualHolder = null;
 		private WeaponBag _bag = null;
 		private WeaponCycler _cycler = null;
 
-		public WeaponDatabase database
+		public WeaponSet database
 		{
 			get => _database;
 			private set => _database = value;

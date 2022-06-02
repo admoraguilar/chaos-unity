@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using MoreMountains.Feedbacks;
-using WaterToolkit.UI;
-using WaterToolkit.GameInputs;
+using WaterToolkit;
 using WaterToolkit.Scores;
 using WaterToolkit.Behave;
 using WaterToolkit.Worlds;
@@ -11,14 +9,15 @@ using WaterToolkit.Weapons;
 using WaterToolkit.Spawners;
 using WaterToolkit.FlowTrees;
 using WaterToolkit.Scoreboards;
-using WaterToolkit.Characters.Players;
-using WaterToolkit.Characters.AIs;
+using ProjectCHAOS.UI;
+using ProjectCHAOS.GameInputs;
+using ProjectCHAOS.Characters.AIs;
+using ProjectCHAOS.Characters.Players;
 
 using UObject = UnityEngine.Object;
 using URandom = UnityEngine.Random;
 
-
-namespace WaterToolkit.GameModes.Survival
+namespace ProjectCHAOS.GameModes.Survival
 {
 	[DefaultExecutionOrder(-1)]
 	public class SurvivalGameMode : MonoBehaviour

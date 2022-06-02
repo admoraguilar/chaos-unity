@@ -2,9 +2,10 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using WaterToolkit.Upgrades;
+using WaterToolkit;
+using ProjectCHAOS.Upgrades;
 
-namespace WaterToolkit.UI
+namespace ProjectCHAOS.UI
 {
 	public class UpgraderUI : MonoBehaviour
 	{

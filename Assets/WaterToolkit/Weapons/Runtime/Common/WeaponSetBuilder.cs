@@ -5,13 +5,13 @@ using WaterToolkit.ValueBoards;
 namespace WaterToolkit.Weapons
 {
 	[CreateAssetMenu(menuName = "WaterToolkit/Weapons/Weapon Database Builder")]
-	public class WeaponDatabaseBuilder : 
+	public class WeaponSetBuilder : 
 		ValueBoardBuilder<
-			WeaponDatabase, WeaponObject,
-			WeaponDatabaseBuilder.WeaponDatabaseObjectBuilder>
+			WeaponSet, WeaponObject,
+			WeaponSetBuilder.WeaponSetObjectBuilder>
 	{
 		[Serializable]
-		public class WeaponDatabaseObjectBuilder : ValueObjectBuilder<WeaponObject>
+		public class WeaponSetObjectBuilder : ValueObjectBuilder<WeaponObject>
 		{
 			public string name = string.Empty;
 			public WeaponVisual prefab = null;

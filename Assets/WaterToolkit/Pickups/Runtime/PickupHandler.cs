@@ -1,6 +1,6 @@
-using WaterToolkit.Behave;
 using System.Collections.Generic;
 using UnityEngine;
+using WaterToolkit.Behave;
 
 namespace WaterToolkit.Pickups
 {

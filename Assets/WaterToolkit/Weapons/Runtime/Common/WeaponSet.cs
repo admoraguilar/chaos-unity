@@ -2,5 +2,5 @@ using WaterToolkit.ValueBoards;
 
 namespace WaterToolkit.Weapons
 {
-	public class WeaponDatabase : ValueBoard<WeaponObject> { }
+	public class WeaponSet : ValueBoard<WeaponObject> { }
 }

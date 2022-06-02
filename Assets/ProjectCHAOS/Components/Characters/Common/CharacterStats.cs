@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
+using WaterToolkit.Behave;
 
-namespace WaterToolkit.Behave
+namespace ProjectCHAOS.Characters
 {
 	public interface ICharacterStats
 	{
@@ -22,11 +23,13 @@ namespace WaterToolkit.Behave
 		public EntityStat fireRate => _fireRate;
 
 #if UNITY_EDITOR
+
 		public void Editor_OnValidate()
 		{
 			speed.value = speed.value;
 			fireRate.value = fireRate.value;
 		}
+
 #endif
 	}
 }

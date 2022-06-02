@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cefe0798ee8283e4bbed37c4678749ac, type: 3}
   m_Name: BlackboardInitializer
   m_EditorClassIdentifier: 
-  _sceneInstance: {fileID: 1617622924300801234, guid: 6316edd292fe28342bd68908a80bff82, type: 3}
+  _sceneInstancePrefab: {fileID: 1617622924300801234, guid: 6316edd292fe28342bd68908a80bff82, type: 3}

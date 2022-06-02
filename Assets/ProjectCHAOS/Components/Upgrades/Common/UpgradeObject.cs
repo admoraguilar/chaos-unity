@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace WaterToolkit.Upgrades
+namespace ProjectCHAOS.Upgrades
 {
 	public abstract class UpgradeObject<T> : UpgradeObject
 		where T : UpgradeBehaviour

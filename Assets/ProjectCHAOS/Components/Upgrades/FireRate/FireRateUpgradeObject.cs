@@ -1,8 +1,9 @@
 using System;
 using UnityEngine;
-using WaterToolkit.Behave;
+using WaterToolkit;
+using ProjectCHAOS.Characters;
 
-namespace WaterToolkit.Upgrades
+namespace ProjectCHAOS.Upgrades
 {
 	[CreateAssetMenu(menuName = "ProjectCHAOS/Upgrades/Fire Rate")]
 	public class FireRateUpgradeObject : UpgradeObject<FireRateUpgradeBehaviour> { }

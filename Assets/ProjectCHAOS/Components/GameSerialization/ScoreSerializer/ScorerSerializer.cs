@@ -1,7 +1,7 @@
 using System.Linq;
 using WaterToolkit.Scores;
 
-namespace WaterToolkit.GameSerialization
+namespace ProjectCHAOS.GameSerialization
 {
 	public class ScorerSerializer : GameDataSerializer
 	{

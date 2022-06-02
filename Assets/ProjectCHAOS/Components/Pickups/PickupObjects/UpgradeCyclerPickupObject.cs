@@ -1,8 +1,9 @@
 ﻿using System;
 using UnityEngine;
-using WaterToolkit.Upgrades;
+using WaterToolkit.Pickups;
+using ProjectCHAOS.Upgrades;
 
-namespace WaterToolkit.Pickups
+namespace ProjectCHAOS.Pickups
 {
 	[CreateAssetMenu(menuName = "ProjectCHAOS/Pickups/Upgrade Cycler")]
 	public class UpgradeCyclerPickupObject : PickupObject

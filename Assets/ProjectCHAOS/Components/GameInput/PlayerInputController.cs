@@ -1,11 +1,10 @@
 using UnityEngine;
+using WaterToolkit;
 using WaterToolkit.GameInputs;
 using WaterToolkit.Weapons;
-using WaterToolkit.Characters.Players;
-using WaterToolkit.Configurations;
-using WaterToolkit.Blackboards;
+using ProjectCHAOS.Characters.Players;
 
-namespace WaterToolkit.GameInputs
+namespace ProjectCHAOS.GameInputs
 {
     public class PlayerInputController : MonoBehaviour
     {

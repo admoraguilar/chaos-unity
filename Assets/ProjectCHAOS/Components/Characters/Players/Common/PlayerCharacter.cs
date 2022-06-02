@@ -1,7 +1,9 @@
 using UnityEngine;
+using WaterToolkit;
 using WaterToolkit.Behave;
+using ProjectCHAOS.Characters;
 
-namespace WaterToolkit.Characters.Players
+namespace ProjectCHAOS.Characters.Players
 {
 	public class PlayerCharacter : MonoBehaviour, IHealth, ICharacterStats
 	{

@@ -1,11 +1,9 @@
 using UnityEngine;
-using WaterToolkit.GameInputs;
 using WaterToolkit.Scores;
-using WaterToolkit.Scoreboards;
-using WaterToolkit.Upgrades;
-using System.Collections.Generic;
+using ProjectCHAOS.Upgrades;
+using ProjectCHAOS.GameInputs;
 
-namespace WaterToolkit.UI
+namespace ProjectCHAOS.UI
 {
 	public class GlobalUI : MonoBehaviour
 	{

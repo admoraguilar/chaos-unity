@@ -1,7 +1,7 @@
 using UnityEngine;
 using WaterToolkit.Behave;
 
-namespace WaterToolkit.Characters.AIs
+namespace ProjectCHAOS.Characters.AIs
 {
 	public class PieceAI : MonoBehaviour, IHealth
 	{

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f64c2b921ddc974da2fca2c3aeb71ea, type: 3}
-  m_Name: New Weapon Database Builder
+  m_Name: WeaponDatabaseBuilder
   m_EditorClassIdentifier: 
   _objects:
   - name: Machine Gun A

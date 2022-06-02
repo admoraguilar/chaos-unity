@@ -1,8 +1,8 @@
 using UnityEngine;
 using WaterToolkit.Scores;
-using WaterToolkit.Characters.Players;
+using ProjectCHAOS.Characters.Players;
 
-namespace WaterToolkit.GameSerialization
+namespace ProjectCHAOS.GameSerialization
 {
 	public class GameSerializer : MonoBehaviour
 	{

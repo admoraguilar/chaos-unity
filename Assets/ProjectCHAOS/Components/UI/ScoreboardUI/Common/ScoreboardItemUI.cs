@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-namespace WaterToolkit.UI
+namespace ProjectCHAOS.UI
 {
 	public class ScoreboardItemUI : MonoBehaviour
 	{

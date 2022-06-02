@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using WaterToolkit.Scores;
 
-namespace WaterToolkit.UI
+namespace ProjectCHAOS.UI
 {
 	public class ScoreUI : MonoBehaviour
 	{

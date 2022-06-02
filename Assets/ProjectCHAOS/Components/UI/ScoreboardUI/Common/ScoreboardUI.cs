@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using WaterToolkit.Scoreboards;
 
-namespace WaterToolkit.UI
+namespace ProjectCHAOS.UI
 {
 	public class ScoreboardUI : MonoBehaviour
 	{
