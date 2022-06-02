@@ -45,9 +45,6 @@ namespace ProjectCHAOS.GameModes.Endless
 
 		[Space]
 		[SerializeField]
-		private GameConfig _gameConfig = null;
-
-		[SerializeField]
 		private GameSerializer _gameSerializer = null;
 
 		[SerializeField]

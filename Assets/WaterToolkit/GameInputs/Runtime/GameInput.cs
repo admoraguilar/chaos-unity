@@ -25,19 +25,10 @@ namespace WaterToolkit.GameInputs
 		public static Player GetPlayer(int index)
 		{
 			if(!_players.TryGetValue(index, out Player player)) {
-				player = CreateDefaultPlayer();
+				player = new Player();
 				SetupPlayer(index, player);
 			}
 			return player;
-
-			Player CreateDefaultPlayer()
-			{
-				// TODO: MInput shouldn't now about specific GameInput
-				Player player = new Player();
-				//player.AddMap(new MobileMovementInputMap());
-				//player.AddMap(new PCCombatInputMap());
-				return player;
-			}
 		}
 
 		public static void SetupPlayer(int index, Player player)

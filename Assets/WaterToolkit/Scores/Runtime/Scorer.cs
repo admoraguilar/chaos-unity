@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,9 +11,9 @@ namespace WaterToolkit.Scores
 
 		public Score GetScore(int id, Score defaultScore = null)
 		{
-			Score result = _scoreList.Find(s => s.id == id);
+			Score result = _scoreList.FirstOrDefault(s => s.id == id);
 			if(result == null) {
-				result = defaultScore;
+				result = defaultScore != null ? defaultScore : new Score(0);
 				_scoreList.Add(result);
 			}
 			return result;

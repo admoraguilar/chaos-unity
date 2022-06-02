@@ -23,13 +23,18 @@ namespace ProjectCHAOS.GameInputs
 
 		private void Awake()
 		{
+			Player player = new Player();
+			player.AddMap(new MobileMovementInputMap());
+			player.AddMap(new PCCombatInputMap());
+			GameInput.SetupPlayer(0, player);
+
 			_movementInputMap = GameInput.GetPlayer(0).GetMap<IMovementInputMap>();
 			_combatInputMap = GameInput.GetPlayer(0).GetMap<ICombatInputMap>();
 		}
 
 		private void Update()
 		{
-			//playerCharacter.movement.Move(_movementInputMap.moveInputAxis);
+			playerCharacter.movement.Move(_movementInputMap.moveInputAxis);
 
 			weaponHandler.visualHolder.StartFiring();
 

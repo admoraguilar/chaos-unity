@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace WaterToolkit.Blackboards
 {
-	public static class Blackboard
+	[CreateAssetMenu(menuName = "WaterToolkit/Internal/Blackboard")]
+	public class Blackboard : ScriptableObjectSingleton<Blackboard>
 	{
 		private static Dictionary<Type, List<IBlackboard>> _blackboards = new Dictionary<Type, List<IBlackboard>>();
 
@@ -22,6 +24,16 @@ namespace WaterToolkit.Blackboards
 			return (T)blackboards[0];
 		}
 
+		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+		private static void RunOnLoad()
+		{
+			if(Instance._sceneInstancePrefab == null) { return; }
+
+			GameObject sceneInstance = Instantiate(Instance._sceneInstancePrefab);
+			sceneInstance.name = Instance._sceneInstancePrefab.name;
+			DontDestroyOnLoad(sceneInstance);
+		}
+
 		private static List<IBlackboard> GetBlackboardContainer(Type type)
 		{
 			if(!_blackboards.TryGetValue(type, out List<IBlackboard> blackboards)) {
@@ -29,6 +41,9 @@ namespace WaterToolkit.Blackboards
 			}
 			return blackboards;
 		}
+
+		[SerializeField]
+		private GameObject _sceneInstancePrefab = null;
 	}
 }
 
