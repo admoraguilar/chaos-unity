@@ -9,19 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f64c2b921ddc974da2fca2c3aeb71ea, type: 3}
-  m_Name: WeaponDatabaseBuilder
+  m_Script: {fileID: 11500000, guid: e5a7ed6f2abb97c43a9fd2c60a3fe829, type: 3}
+  m_Name: WeaponSet
   m_EditorClassIdentifier: 
-  _objects:
+  duplicateHandling: 0
+  _entries:
   - name: Machine Gun A
     prefab: {fileID: 4838236944014778537, guid: 214e9d4e2b96d334296cbcc6e0ee9930, type: 3}
     magSize: 30
-    currentMagAmmountCount: 30
+    currentMagAmmoCount: 30
   - name: Machine Gun B
     prefab: {fileID: 7077439477903200703, guid: cc78a64972f49e841b831d181f588c04, type: 3}
     magSize: 30
-    currentMagAmmountCount: 30
+    currentMagAmmoCount: 30
   - name: Machine Gun C
     prefab: {fileID: 6407676419710527811, guid: 7f55e1dbe4fd9e64a88c4bdd108e4546, type: 3}
     magSize: 30
-    currentMagAmmountCount: 30
+    currentMagAmmoCount: 30

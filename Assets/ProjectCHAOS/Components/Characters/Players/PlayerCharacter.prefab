@@ -224,8 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafde2fd58069b148a92397cd3cf5c5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _databaseBuilder: {fileID: 11400000, guid: 820ae973b4f746b459b3f0e99a0436fc, type: 2}
-  _startingLoadout: {fileID: 11400000, guid: 820ae973b4f746b459b3f0e99a0436fc, type: 2}
+  _startingLoadout: {fileID: 11400000, guid: d249cbd28c58133409c2a0b2039ac71c, type: 2}
   _shouldEquipWeaponAtStart: 1
   _visualHolderTransform: {fileID: 7492764793600527820}
 --- !u!114 &1072936960906782772

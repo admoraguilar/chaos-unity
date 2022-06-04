@@ -1,11 +1,15 @@
+using UnityEngine;
 using WaterToolkit.GameDatabases;
 
 namespace WaterToolkit.Weapons
 {
-	public class WeaponBag : GameDatabaseCollection<WeaponObject>
+	[CreateAssetMenu(menuName = "WaterToolkit/Weapons/Weapon Bag")]
+	public class WeaponBag : GameCollection<WeaponObject>
 	{
-		public WeaponBag() : base()
+		protected override void OnEnable()
 		{
+			base.OnEnable();
+
 			maxEntryCount = 8;
 		}
 	}

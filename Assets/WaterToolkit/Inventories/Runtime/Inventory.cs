@@ -1,8 +1,8 @@
-using System;
+using UnityEngine;
 using WaterToolkit.GameDatabases;
 
 namespace WaterToolkit.Inventories
 {
-	[Serializable]
-    public class Inventory : GameDatabaseCollection<ItemObject> { }
+	[CreateAssetMenu(menuName = "WaterToolkit/Inventories/Inventory")]
+    public class Inventory : GameCollection<ItemObject> { }
 }

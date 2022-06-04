@@ -1,8 +1,8 @@
-using System;
+using UnityEngine;
 using WaterToolkit.GameDatabases;
 
 namespace WaterToolkit.Scoreboards
 {
-	[Serializable]
-    public class Scoreboard : GameDatabaseCollection<ScoreObject> { }
+	[CreateAssetMenu(menuName = "WaterToolkit/Scoreboards/Scoreboard")]
+	public class Scoreboard : GameCollection<ScoreObject> { }
 }

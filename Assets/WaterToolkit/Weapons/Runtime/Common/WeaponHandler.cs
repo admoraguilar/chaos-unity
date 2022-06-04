@@ -22,27 +22,17 @@ namespace WaterToolkit.Weapons
 		public event Action OnFire = delegate { };
 
 		[SerializeField]
-		private WeaponSetBuilder _databaseBuilder = null;
-
-		[SerializeField]
-		private WeaponSetBuilder _startingLoadout = null;
+		private WeaponSet _startingLoadout = null;
 
 		[SerializeField]
 		private bool _shouldEquipWeaponAtStart = false;
 
 		[SerializeField]
 		private Transform _visualHolderTransform = null;
-
-		private WeaponSet _database = null;
+		
 		private WeaponVisualHolder _visualHolder = null;
 		private WeaponBag _bag = null;
 		private WeaponCycler _cycler = null;
-
-		public WeaponSet database
-		{
-			get => _database;
-			private set => _database = value;
-		}
 
 		public WeaponVisualHolder visualHolder
 		{
@@ -71,13 +61,11 @@ namespace WaterToolkit.Weapons
 
 		private void Awake()
 		{
-			database = _databaseBuilder.Build();
-
 			visualHolder = new WeaponVisualHolder();
 			visualHolder.parent = _visualHolderTransform;
 
 			bag = new WeaponBag();
-			bag.AddRange(_startingLoadout.Build().Get(w => w.IsValid())); // Hack get all valid weapons in database
+			bag.AddRange(_startingLoadout.Get(w => w.IsValid())); // Hack get all valid weapons in database
 
 			cycler = new WeaponCycler(bag);
 		}

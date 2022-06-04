@@ -1,6 +1,8 @@
+using UnityEngine;
 using WaterToolkit.GameDatabases;
 
 namespace WaterToolkit.Weapons
 {
-	public class WeaponSet : GameDatabaseCollection<WeaponObject> { }
+	[CreateAssetMenu(menuName = "WaterToolkit/Weapons/Weapon Set")]
+	public class WeaponSet : GameCollection<WeaponObject> { }
 }

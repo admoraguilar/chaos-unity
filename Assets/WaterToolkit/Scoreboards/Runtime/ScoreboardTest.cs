@@ -16,22 +16,22 @@ namespace WaterToolkit.Scoreboards
         {
             Scoreboard scoreboard = new Scoreboard
             {
-                duplicateHandling = GameDatabaseCollectionDuplicateHandling.Override
+                duplicateHandling = ItemDuplicateHandling.Override
             };
 
             for(int i = 0; i < 10; i++)
             {
-                ScoreObject scoreObj = new ScoreObject($"{UnityEngine.Random.Range(0, 99999)}");
-                scoreObj.AddValue(ScoreObject.nameKey, $"Player{i}");
-                scoreObj.AddValue(ScoreObject.scoreKey, UnityEngine.Random.Range(3, 99));
-                scoreObj.AddValue("day", UnityEngine.Random.Range(1, 5));
+                ScoreObject scoreObj = new ScoreObject();
+				scoreObj.name = $"Player{i}";
+				scoreObj.score = UnityEngine.Random.Range(3, 99);
+				scoreObj.days = UnityEngine.Random.Range(1, 5);
                 scoreboard.Add(scoreObj);
             }
 
             string result = string.Empty;
             List<ScoreObject> scoreObjs = scoreboard.Get(
                 (ScoreObject obj) => obj.IsValid(), 5,
-                new GameDatabaseCollectionIntValueComparer<ScoreObject>(ScoreObject.scoreKey));
+                (ScoreObject a, ScoreObject b) => new IntValueComparer().Compare(a.score, b.score));
 
             result += $"Scoreboard Results: {Environment.NewLine}";
             foreach(ScoreObject scoreObj in scoreObjs)
