@@ -3,7 +3,7 @@ using WaterToolkit.GameDatabases;
 
 namespace WaterToolkit.Weapons
 {
-	public class WeaponObject : GameDatabaseObject
+	public class WeaponObject : GameDatabaseCollectionObject
 	{
 		public const string nameKey = "name";
 		public const string prefabKey = "prefabKey";

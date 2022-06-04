@@ -4,5 +4,5 @@ using WaterToolkit.GameDatabases;
 namespace WaterToolkit.Scoreboards
 {
 	[Serializable]
-    public class Scoreboard : GameDatabase<ScoreObject> { }
+    public class Scoreboard : GameDatabaseCollection<ScoreObject> { }
 }

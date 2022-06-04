@@ -4,9 +4,9 @@ using WaterToolkit.GameDatabases;
 
 namespace WaterToolkit.Weapons
 {
-	[CreateAssetMenu(menuName = "WaterToolkit/Weapons/Weapon Database Builder")]
-	public class WeaponSetBuilder : 
-		GameDatabaseBuilder<
+	[CreateAssetMenu(menuName = "WaterToolkit/Weapons/Weapon Set Builder")]
+	public class WeaponSetBuilder :
+		GameDatabaseCollectionBuilder<
 			WeaponSet, WeaponObject,
 			WeaponSetBuilder.WeaponSetObjectBuilder>
 	{

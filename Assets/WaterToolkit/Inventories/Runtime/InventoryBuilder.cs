@@ -5,8 +5,8 @@ using WaterToolkit.GameDatabases;
 namespace WaterToolkit.Inventories
 {
     [CreateAssetMenu(menuName = "WaterToolkit/Inventories/Inventory Builder")]
-    public class InventoryBuilder : 
-		GameDatabaseBuilder<
+    public class InventoryBuilder :
+		GameDatabaseCollectionBuilder<
 			Inventory, ItemObject, 
 			InventoryBuilder.ItemObjectBuilder>
     {

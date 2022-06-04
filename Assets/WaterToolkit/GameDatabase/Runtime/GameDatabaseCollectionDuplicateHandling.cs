@@ -1,6 +1,6 @@
 ﻿namespace WaterToolkit.GameDatabases
 {
-    public enum GameDatabaseDuplicateHandling
+    public enum GameDatabaseCollectionDuplicateHandling
     {
         Override
     };

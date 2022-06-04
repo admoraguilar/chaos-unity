@@ -6,8 +6,8 @@ using WaterToolkit.GameDatabases;
 namespace WaterToolkit.Inventories
 {
 	[Serializable]
-    public class ItemObject : GameDatabaseObject
-    {
+    public class ItemObject : GameDatabaseCollectionObject
+	{
         public const string nameKey = "name";
         public const string quantityKey = "quantity";
         public const string categoryKey = "category";

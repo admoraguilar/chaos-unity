@@ -16,7 +16,7 @@ namespace WaterToolkit.Scoreboards
         {
             Scoreboard scoreboard = new Scoreboard
             {
-                duplicateHandling = GameDatabaseDuplicateHandling.Override
+                duplicateHandling = GameDatabaseCollectionDuplicateHandling.Override
             };
 
             for(int i = 0; i < 10; i++)
@@ -31,7 +31,7 @@ namespace WaterToolkit.Scoreboards
             string result = string.Empty;
             List<ScoreObject> scoreObjs = scoreboard.Get(
                 (ScoreObject obj) => obj.IsValid(), 5,
-                new GameDatabaseIntValueComparer<ScoreObject>(ScoreObject.scoreKey));
+                new GameDatabaseCollectionIntValueComparer<ScoreObject>(ScoreObject.scoreKey));
 
             result += $"Scoreboard Results: {Environment.NewLine}";
             foreach(ScoreObject scoreObj in scoreObjs)

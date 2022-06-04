@@ -16,7 +16,7 @@ namespace WaterToolkit.Inventories
         {
             Inventory inventory = new Inventory
             {
-                duplicateHandling = GameDatabaseDuplicateHandling.Override
+                duplicateHandling = GameDatabaseCollectionDuplicateHandling.Override
             };
 
             for(int i = 0; i < 10; i++)
@@ -32,7 +32,7 @@ namespace WaterToolkit.Inventories
             string result = string.Empty;
             List<ItemObject> itemObjs = inventory.Get(
                 (ItemObject obj) => obj.IsValid(), 5,
-                new GameDatabaseIntValueComparer<ItemObject>(ItemObject.quantityKey));
+                new GameDatabaseCollectionIntValueComparer<ItemObject>(ItemObject.quantityKey));
 
             result += $"Inventory: {Environment.NewLine}";
             foreach(ItemObject itemObj in itemObjs)

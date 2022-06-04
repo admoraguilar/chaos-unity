@@ -5,8 +5,8 @@ using WaterToolkit.GameDatabases;
 namespace WaterToolkit.Scoreboards
 {
 	[Serializable]
-    public class ScoreObject : GameDatabaseObject
-    {
+    public class ScoreObject : GameDatabaseCollectionObject
+	{
         public const string nameKey = "name";
         public const string scoreKey = "score";
 		public const string daysKey = "days";

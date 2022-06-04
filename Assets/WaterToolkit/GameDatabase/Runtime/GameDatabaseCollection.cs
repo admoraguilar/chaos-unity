@@ -5,12 +5,12 @@ using System.Collections.Generic;
 namespace WaterToolkit.GameDatabases
 {
     [Serializable]
-    public class GameDatabase<T> where T : GameDatabaseObject
+    public class GameDatabaseCollection<T> where T : GameDatabaseCollectionObject
     {
 		public event Action<T> OnAdd = delegate { };
 		public event Action<T> OnRemove = delegate { };
 
-        public GameDatabaseDuplicateHandling duplicateHandling = GameDatabaseDuplicateHandling.Override;
+        public GameDatabaseCollectionDuplicateHandling duplicateHandling = GameDatabaseCollectionDuplicateHandling.Override;
 
         private List<T> _entries = new List<T>();
 		private int _maxEntryCount = int.MaxValue;
@@ -59,7 +59,7 @@ namespace WaterToolkit.GameDatabases
 				return;
 			}
 
-            if(duplicateHandling == GameDatabaseDuplicateHandling.Override)
+            if(duplicateHandling == GameDatabaseCollectionDuplicateHandling.Override)
             {
                 _entries.Remove(value);
             }

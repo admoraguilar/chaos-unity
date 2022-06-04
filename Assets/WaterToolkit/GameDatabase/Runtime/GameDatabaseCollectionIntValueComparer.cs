@@ -2,11 +2,11 @@
 
 namespace WaterToolkit.GameDatabases
 {
-    public class GameDatabaseIntValueComparer<T> : IComparer<T> where T : GameDatabaseObject
+    public class GameDatabaseCollectionIntValueComparer<T> : IComparer<T> where T : GameDatabaseCollectionObject
     {
         private string _key = string.Empty;
 
-        public GameDatabaseIntValueComparer(string key)
+        public GameDatabaseCollectionIntValueComparer(string key)
         {
             _key = key;
         }

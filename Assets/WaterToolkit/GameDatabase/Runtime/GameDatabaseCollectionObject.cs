@@ -5,7 +5,7 @@ using URandom = UnityEngine.Random;
 
 namespace WaterToolkit.GameDatabases
 {
-    public class GameDatabaseObject
+    public class GameDatabaseCollectionObject
     {
         private string _key;
         private Dictionary<string, object> _values;
@@ -13,17 +13,17 @@ namespace WaterToolkit.GameDatabases
         public string key => _key;
         public IReadOnlyDictionary<string, object> values => _values;
 
-		public GameDatabaseObject()
+		public GameDatabaseCollectionObject()
 		{
 			Initialize();
 		}
 
-        public GameDatabaseObject(string key)
+        public GameDatabaseCollectionObject(string key)
         {
 			Initialize(key);
         }
 
-        public GameDatabaseObject(string key, IDictionary<string, object> values)
+        public GameDatabaseCollectionObject(string key, IDictionary<string, object> values)
         {
 			Initialize(key, values);
         }
