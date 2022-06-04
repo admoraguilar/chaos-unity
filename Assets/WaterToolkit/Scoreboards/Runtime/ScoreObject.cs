@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using WaterToolkit.ValueBoards;
+using WaterToolkit.GameDatabases;
 
 namespace WaterToolkit.Scoreboards
 {
 	[Serializable]
-    public class ScoreObject : ValueObject
+    public class ScoreObject : GameDatabaseObject
     {
         public const string nameKey = "name";
         public const string scoreKey = "score";

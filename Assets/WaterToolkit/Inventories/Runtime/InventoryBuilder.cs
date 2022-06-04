@@ -1,12 +1,12 @@
 using System;
 using UnityEngine;
-using WaterToolkit.ValueBoards;
+using WaterToolkit.GameDatabases;
 
 namespace WaterToolkit.Inventories
 {
     [CreateAssetMenu(menuName = "WaterToolkit/Inventories/Inventory Builder")]
     public class InventoryBuilder : 
-		ValueBoardBuilder<
+		GameDatabaseBuilder<
 			Inventory, ItemObject, 
 			InventoryBuilder.ItemObjectBuilder>
     {

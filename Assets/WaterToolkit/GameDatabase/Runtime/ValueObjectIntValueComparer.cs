@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 
-namespace WaterToolkit.ValueBoards
+namespace WaterToolkit.GameDatabases
 {
-    public class ValueObjectIntValueComparer<T> : IComparer<T> where T : ValueObject
+    public class GameDatabaseIntValueComparer<T> : IComparer<T> where T : GameDatabaseObject
     {
         private string _key = string.Empty;
 
-        public ValueObjectIntValueComparer(string key)
+        public GameDatabaseIntValueComparer(string key)
         {
             _key = key;
         }

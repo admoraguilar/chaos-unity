@@ -1,6 +1,6 @@
-using WaterToolkit.ValueBoards;
+using WaterToolkit.GameDatabases;
 
 namespace WaterToolkit.Weapons
 {
-	public class WeaponSet : ValueBoard<WeaponObject> { }
+	public class WeaponSet : GameDatabase<WeaponObject> { }
 }

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using WaterToolkit.ValueBoards;
+using WaterToolkit.GameDatabases;
 
 namespace WaterToolkit.Inventories
 {
@@ -16,7 +16,7 @@ namespace WaterToolkit.Inventories
         {
             Inventory inventory = new Inventory
             {
-                duplicateHandling = ValueBoardDuplicateHandling.Override
+                duplicateHandling = GameDatabaseDuplicateHandling.Override
             };
 
             for(int i = 0; i < 10; i++)
@@ -32,7 +32,7 @@ namespace WaterToolkit.Inventories
             string result = string.Empty;
             List<ItemObject> itemObjs = inventory.Get(
                 (ItemObject obj) => obj.IsValid(), 5,
-                new ValueObjectIntValueComparer<ItemObject>(ItemObject.quantityKey));
+                new GameDatabaseIntValueComparer<ItemObject>(ItemObject.quantityKey));
 
             result += $"Inventory: {Environment.NewLine}";
             foreach(ItemObject itemObj in itemObjs)

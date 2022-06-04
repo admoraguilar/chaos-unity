@@ -2,15 +2,15 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace WaterToolkit.ValueBoards
+namespace WaterToolkit.GameDatabases
 {
     [Serializable]
-    public class ValueBoard<T> where T : ValueObject
+    public class GameDatabase<T> where T : GameDatabaseObject
     {
 		public event Action<T> OnAdd = delegate { };
 		public event Action<T> OnRemove = delegate { };
 
-        public ValueBoardDuplicateHandling duplicateHandling = ValueBoardDuplicateHandling.Override;
+        public GameDatabaseDuplicateHandling duplicateHandling = GameDatabaseDuplicateHandling.Override;
 
         private List<T> _entries = new List<T>();
 		private int _maxEntryCount = int.MaxValue;
@@ -59,7 +59,7 @@ namespace WaterToolkit.ValueBoards
 				return;
 			}
 
-            if(duplicateHandling == ValueBoardDuplicateHandling.Override)
+            if(duplicateHandling == GameDatabaseDuplicateHandling.Override)
             {
                 _entries.Remove(value);
             }

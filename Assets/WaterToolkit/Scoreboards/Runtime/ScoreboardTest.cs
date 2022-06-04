@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using WaterToolkit.ValueBoards;
+using WaterToolkit.GameDatabases;
 
 namespace WaterToolkit.Scoreboards
 {
@@ -16,7 +16,7 @@ namespace WaterToolkit.Scoreboards
         {
             Scoreboard scoreboard = new Scoreboard
             {
-                duplicateHandling = ValueBoardDuplicateHandling.Override
+                duplicateHandling = GameDatabaseDuplicateHandling.Override
             };
 
             for(int i = 0; i < 10; i++)
@@ -31,7 +31,7 @@ namespace WaterToolkit.Scoreboards
             string result = string.Empty;
             List<ScoreObject> scoreObjs = scoreboard.Get(
                 (ScoreObject obj) => obj.IsValid(), 5,
-                new ValueObjectIntValueComparer<ScoreObject>(ScoreObject.scoreKey));
+                new GameDatabaseIntValueComparer<ScoreObject>(ScoreObject.scoreKey));
 
             result += $"Scoreboard Results: {Environment.NewLine}";
             foreach(ScoreObject scoreObj in scoreObjs)

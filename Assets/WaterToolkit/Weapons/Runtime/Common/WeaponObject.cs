@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using WaterToolkit.ValueBoards;
+using WaterToolkit.GameDatabases;
 
 namespace WaterToolkit.Weapons
 {
-	public class WeaponObject : ValueObject
+	public class WeaponObject : GameDatabaseObject
 	{
 		public const string nameKey = "name";
 		public const string prefabKey = "prefabKey";

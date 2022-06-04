@@ -1,8 +1,8 @@
 using System;
-using WaterToolkit.ValueBoards;
+using WaterToolkit.GameDatabases;
 
 namespace WaterToolkit.Scoreboards
 {
 	[Serializable]
-    public class Scoreboard : ValueBoard<ScoreObject> { }
+    public class Scoreboard : GameDatabase<ScoreObject> { }
 }

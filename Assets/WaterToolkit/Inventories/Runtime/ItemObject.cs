@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using WaterToolkit.ValueBoards;
+using WaterToolkit.GameDatabases;
 
 namespace WaterToolkit.Inventories
 {
 	[Serializable]
-    public class ItemObject : ValueObject
+    public class ItemObject : GameDatabaseObject
     {
         public const string nameKey = "name";
         public const string quantityKey = "quantity";

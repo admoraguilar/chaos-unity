@@ -1,8 +1,8 @@
 using System;
-using WaterToolkit.ValueBoards;
+using WaterToolkit.GameDatabases;
 
 namespace WaterToolkit.Inventories
 {
 	[Serializable]
-    public class Inventory : ValueBoard<ItemObject> { }
+    public class Inventory : GameDatabase<ItemObject> { }
 }

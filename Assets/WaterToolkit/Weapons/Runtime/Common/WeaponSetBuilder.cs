@@ -1,12 +1,12 @@
 using System;
 using UnityEngine;
-using WaterToolkit.ValueBoards;
+using WaterToolkit.GameDatabases;
 
 namespace WaterToolkit.Weapons
 {
 	[CreateAssetMenu(menuName = "WaterToolkit/Weapons/Weapon Database Builder")]
 	public class WeaponSetBuilder : 
-		ValueBoardBuilder<
+		GameDatabaseBuilder<
 			WeaponSet, WeaponObject,
 			WeaponSetBuilder.WeaponSetObjectBuilder>
 	{

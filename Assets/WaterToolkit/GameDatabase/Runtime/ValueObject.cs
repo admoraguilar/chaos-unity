@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 using URandom = UnityEngine.Random;
 
-namespace WaterToolkit.ValueBoards
+namespace WaterToolkit.GameDatabases
 {
-    public class ValueObject
+    public class GameDatabaseObject
     {
         private string _key;
         private Dictionary<string, object> _values;
@@ -13,17 +13,17 @@ namespace WaterToolkit.ValueBoards
         public string key => _key;
         public IReadOnlyDictionary<string, object> values => _values;
 
-		public ValueObject()
+		public GameDatabaseObject()
 		{
 			Initialize();
 		}
 
-        public ValueObject(string key)
+        public GameDatabaseObject(string key)
         {
 			Initialize(key);
         }
 
-        public ValueObject(string key, IDictionary<string, object> values)
+        public GameDatabaseObject(string key, IDictionary<string, object> values)
         {
 			Initialize(key, values);
         }
