@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ba966692e3e80e4dbb9faed48f032f9, type: 3}
   m_Name: New Game Database
   m_EditorClassIdentifier: 
+  _collections:
+  - {fileID: 11400000, guid: 8d6db83fe6b649c4097887d4a85300f1, type: 2}
+  - {fileID: 11400000, guid: d249cbd28c58133409c2a0b2039ac71c, type: 2}

@@ -14,14 +14,11 @@ namespace WaterToolkit.Scoreboards
 
         public void Run()
         {
-            Scoreboard scoreboard = new Scoreboard
-            {
-                duplicateHandling = ItemDuplicateHandling.Override
-            };
+            Scoreboard scoreboard = new Scoreboard();
 
             for(int i = 0; i < 10; i++)
             {
-                ScoreObject scoreObj = new ScoreObject();
+                ScoreItem scoreObj = new ScoreItem();
 				scoreObj.name = $"Player{i}";
 				scoreObj.score = UnityEngine.Random.Range(3, 99);
 				scoreObj.days = UnityEngine.Random.Range(1, 5);
@@ -29,12 +26,12 @@ namespace WaterToolkit.Scoreboards
             }
 
             string result = string.Empty;
-            List<ScoreObject> scoreObjs = scoreboard.Get(
-                (ScoreObject obj) => obj.IsValid(), 5,
-                (ScoreObject a, ScoreObject b) => new IntValueComparer().Compare(a.score, b.score));
+            List<ScoreItem> scoreObjs = scoreboard.Get(
+                (ScoreItem obj) => obj.IsValid(), 5,
+                (ScoreItem a, ScoreItem b) => new IntValueComparer().Compare(a.score, b.score));
 
             result += $"Scoreboard Results: {Environment.NewLine}";
-            foreach(ScoreObject scoreObj in scoreObjs)
+            foreach(ScoreItem scoreObj in scoreObjs)
             {
                 result += scoreObj.ToString();
             }

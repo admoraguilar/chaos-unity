@@ -12,13 +12,12 @@ namespace WaterToolkit.GameDatabases
 		public event Action<T> OnAdd = delegate { };
 		public event Action<T> OnRemove = delegate { };
 
-		public ItemDuplicateHandling duplicateHandling = ItemDuplicateHandling.Override;
-
 		[SerializeField]
-		private List<T> _entries = new List<T>();
+		protected List<T> _entries = new List<T>();
 
 		[NonSerialized]
-		private List<T> _entriesRuntime = new List<T>();
+		protected List<T> _entriesRuntime = new List<T>();
+
 		private int _maxEntryCount = int.MaxValue;
 
 		public T this[int index] => _entriesRuntime[index];
@@ -66,11 +65,6 @@ namespace WaterToolkit.GameDatabases
 				return;
 			}
 
-			// This doesn't work...
-			if(duplicateHandling == ItemDuplicateHandling.Override) {
-				_entriesRuntime.Remove(item);
-			}
-
 			_entriesRuntime.Add(item);
 			OnAdd(item);
 		}
@@ -82,16 +76,6 @@ namespace WaterToolkit.GameDatabases
 			}
 			_entriesRuntime.Clear();
 		}
-
-		public bool Contains(T item) => _entriesRuntime.Contains(item);
-
-		public void CopyTo(T[] array, int arrayIndex) => _entriesRuntime.CopyTo(array, arrayIndex);
-
-		public IEnumerator<T> GetEnumerator() => _entriesRuntime.GetEnumerator();
-
-		public int IndexOf(T item) => _entriesRuntime.IndexOf(item);
-
-		public void Insert(int index, T item) => _entriesRuntime.Insert(index, item);
 
 		public void RemoveAll(Predicate<T> match)
 		{
@@ -125,6 +109,16 @@ namespace WaterToolkit.GameDatabases
 			get => _entriesRuntime[index];
 			set => throw new NotImplementedException();
 		}
+
+		bool ICollection<T>.Contains(T item) => _entriesRuntime.Contains(item);
+
+		void ICollection<T>.CopyTo(T[] array, int arrayIndex) => _entriesRuntime.CopyTo(array, arrayIndex);
+
+		int IList<T>.IndexOf(T item) => _entriesRuntime.IndexOf(item);
+
+		void IList<T>.Insert(int index, T item) => _entriesRuntime.Insert(index, item);
+
+		IEnumerator<T> IEnumerable<T>.GetEnumerator() => _entriesRuntime.GetEnumerator();
 
 		IEnumerator IEnumerable.GetEnumerator() => ((IList)_entriesRuntime).GetEnumerator();
 	}

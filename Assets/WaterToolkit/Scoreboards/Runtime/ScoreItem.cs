@@ -3,7 +3,7 @@
 namespace WaterToolkit.Scoreboards
 {
 	[Serializable]
-    public class ScoreObject
+    public class ScoreItem
 	{
 		public string name = string.Empty;
 		public int score = 0;
@@ -12,7 +12,7 @@ namespace WaterToolkit.Scoreboards
 
 		public bool IsValid()
         {
-            return name != string.Empty && score >= 0;
+            return string.IsNullOrEmpty(name) && score >= 0;
         }
-    }
+	}
 }

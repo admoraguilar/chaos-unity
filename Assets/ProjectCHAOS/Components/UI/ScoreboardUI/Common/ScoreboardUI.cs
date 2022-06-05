@@ -21,14 +21,14 @@ namespace ProjectCHAOS.UI
 
 		private List<ScoreboardItemUI> _itemUiInstances = new List<ScoreboardItemUI>();
 
-		public void Populate(IEnumerable<ScoreObject> scores)
+		public void Populate(IEnumerable<ScoreItem> scores)
 		{
 			foreach(ScoreboardItemUI instance in _itemUiInstances) {
 				Destroy(instance.gameObject);
 			}
 
 			int entryNumber = 1;
-			foreach(ScoreObject score in scores) {
+			foreach(ScoreItem score in scores) {
 				ScoreboardItemUI itemUi = Instantiate(_itemUiPrefab, _contentParent);
 				itemUi.gameObject.SetActive(true);
 

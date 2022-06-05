@@ -54,7 +54,7 @@ namespace WaterToolkit.Weapons
 
 		private void InvokeOnFire() => OnFire();
 
-		private void OnSetWeapon(WeaponObject weaponObject)
+		private void OnSetWeapon(WeaponItem weaponObject)
 		{
 			visualHolder.SetVisual(weaponObject);
 		}

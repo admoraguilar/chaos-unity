@@ -4,5 +4,5 @@ using WaterToolkit.GameDatabases;
 namespace WaterToolkit.Weapons
 {
 	[CreateAssetMenu(menuName = "WaterToolkit/Weapons/Weapon Set")]
-	public class WeaponSet : GameCollection<WeaponObject> { }
+	public class WeaponSet : GameCollection<WeaponItem> { }
 }

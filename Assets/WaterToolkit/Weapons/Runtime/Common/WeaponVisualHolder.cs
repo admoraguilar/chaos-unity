@@ -40,7 +40,7 @@ namespace WaterToolkit.Weapons
 			set => _parent = value;
 		}
 
-		public void SetVisual(WeaponObject obj)
+		public void SetVisual(WeaponItem obj)
 		{
 			if(visual != null) {
 				visual.OnFire -= InvokeOnFire;

@@ -5,7 +5,7 @@ namespace WaterToolkit.Weapons
 {
 	public class WeaponCycler
 	{
-		public event Action<WeaponObject> OnSetWeapon = delegate { };
+		public event Action<WeaponItem> OnSetWeapon = delegate { };
 
 		private int _index = -1;
 
@@ -33,10 +33,10 @@ namespace WaterToolkit.Weapons
 			this.bag = bag;
 		}
 
-		public WeaponObject SetWeapon(int index)
+		public WeaponItem SetWeapon(int index)
 		{
 			if(_index != index) {
-				WeaponObject result = bag[index];
+				WeaponItem result = bag[index];
 				_index = Mathf.Clamp(index, 0, _bag.maxEntryCount);
 				OnSetWeapon(result);
 				return result;

@@ -97,13 +97,13 @@ namespace ProjectCHAOS.GameModes.Survival
 
 			_globalUi.scoreboardUi.OnBackButtonPressed += OnScoreboardUiBackButtonPressed;
 
-			ScoreObject scoreObj = new ScoreObject();
+			ScoreItem scoreObj = new ScoreItem();
 			scoreObj.name = "Test";
 			scoreObj.score = _score.current;
 			scoreObj.days = 1;
 			scoreObj.waves = 1;
 
-			_globalUi.scoreboardUi.Populate(new ScoreObject[] { scoreObj, scoreObj });
+			_globalUi.scoreboardUi.Populate(new ScoreItem[] { scoreObj, scoreObj });
 			_globalUi.scoreboardUi.gameObject.SetActive(true);
 
 			_outsideDead.Next();

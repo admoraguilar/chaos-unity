@@ -14,14 +14,11 @@ namespace WaterToolkit.Inventories
 
         public void Run()
         {
-            Inventory inventory = new Inventory
-            {
-                duplicateHandling = ItemDuplicateHandling.Override
-            };
+            Inventory inventory = new Inventory();
 
             for(int i = 0; i < 10; i++)
             {
-                ItemObject itemObj = new ItemObject();
+                InventoryItem itemObj = new InventoryItem();
 				itemObj.name = $"Item{i}";
 				itemObj.quantity = UnityEngine.Random.Range(3, 99);
 				itemObj.category = "Common";
@@ -30,12 +27,12 @@ namespace WaterToolkit.Inventories
             }
 
             string result = string.Empty;
-            List<ItemObject> itemObjs = inventory.Get(
-                (ItemObject obj) => obj.IsValid(), 5,
-                (ItemObject a, ItemObject b) => new IntValueComparer().Compare(a.quantity, b.quantity));
+            List<InventoryItem> itemObjs = inventory.Get(
+                (InventoryItem obj) => obj.IsValid(), 5,
+                (InventoryItem a, InventoryItem b) => new IntValueComparer().Compare(a.quantity, b.quantity));
 
             result += $"Inventory: {Environment.NewLine}";
-            foreach(ItemObject itemObj in itemObjs)
+            foreach(InventoryItem itemObj in itemObjs)
             {
                 result += itemObj.ToString();
             }
