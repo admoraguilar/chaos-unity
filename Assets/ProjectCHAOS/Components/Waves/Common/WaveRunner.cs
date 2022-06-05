@@ -36,7 +36,7 @@ namespace ProjectCHAOS.Waves
 		{
 			get => _index;
 			set {
-				index = Mathf.Clamp(value, 0, collection.Count);
+				_index = Mathf.Clamp(value, 0, collection.Count);
 				data = collection[index];
 			}
 		}
@@ -52,7 +52,8 @@ namespace ProjectCHAOS.Waves
 		public void EndStep()
 		{
 			OnEndStep(data);
-			_index++;
+			index++;
+			data.DestroyPrefabInstance();
 		}
 
 		private void Awake()

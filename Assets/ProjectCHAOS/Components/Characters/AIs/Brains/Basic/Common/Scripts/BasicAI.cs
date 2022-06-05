@@ -13,6 +13,9 @@ namespace ProjectCHAOS.Characters.AIs
 		[SerializeField]
 		private float _speed = 10f;
 
+		[SerializeField]
+		private bool _isParent = false;
+
 		private SimpleMovement _movement = new SimpleMovement();
 		private Positioning _positioning = new Positioning();
 		private Targetting _targetting = new Targetting();
@@ -74,6 +77,12 @@ namespace ProjectCHAOS.Characters.AIs
 
 			if(targetting.GetDistanceToTarget() > 0.5f) {
 				movement.Update();
+			}
+
+			if(_isParent) {
+				if(transform.childCount <= 0) {
+					Destroy(gameObject);
+				}
 			}
 		}
 

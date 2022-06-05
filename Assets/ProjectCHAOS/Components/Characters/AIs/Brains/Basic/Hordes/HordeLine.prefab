@@ -53,6 +53,7 @@ MonoBehaviour:
     _starting: 100
     _max: 100
   _speed: 10
+  _isParent: 1
   _levelArea: {fileID: 0}
 --- !u!1001 &1624067041496325903
 PrefabInstance:

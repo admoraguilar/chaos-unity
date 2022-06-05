@@ -73,23 +73,33 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _data:
-  - waveType: mob
+  - type: mob
     difficultyFactor: 0
-  - waveType: mob
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
+  - type: mob
     difficultyFactor: 0.13306676
-  - waveType: mob
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
+  - type: mob
     difficultyFactor: 0.2403684
-  - waveType: angel
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
+  - type: angel
     difficultyFactor: 0.251818
-  - waveType: mob
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
+  - type: mob
     difficultyFactor: 0.20614111
-  - waveType: mob
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
+  - type: mob
     difficultyFactor: 0.17626622
-  - waveType: mob
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
+  - type: mob
     difficultyFactor: 0.20236462
-  - waveType: mob
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
+  - type: mob
     difficultyFactor: 0.25775698
-  - waveType: pre-boss
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
+  - type: pre-boss
     difficultyFactor: 0.34499153
-  - waveType: boss
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
+  - type: boss
     difficultyFactor: 0.45
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}

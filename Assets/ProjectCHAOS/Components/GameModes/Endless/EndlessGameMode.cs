@@ -9,7 +9,6 @@ using WaterToolkit.Weapons;
 using WaterToolkit.Pickups;
 using WaterToolkit.Spawners;
 using WaterToolkit.FlowTrees;
-using WaterToolkit.Configurations;
 using ProjectCHAOS.UI;
 using ProjectCHAOS.Upgrades;
 using ProjectCHAOS.GameInputs;
@@ -18,6 +17,7 @@ using ProjectCHAOS.Characters.AIs;
 using ProjectCHAOS.GameSerialization;
 
 using URandom = UnityEngine.Random;
+using ProjectCHAOS.Waves;
 
 namespace ProjectCHAOS.GameModes.Endless
 {
@@ -63,6 +63,9 @@ namespace ProjectCHAOS.GameModes.Endless
 		[SerializeField]
 		private GlobalUI _globalUi = null;
 
+		[SerializeField]
+		private WaveRunner _waveRunner = null;
+
 		[Header("World")]
 		[SerializeField]
 		private Map _map = null;
@@ -77,7 +80,7 @@ namespace ProjectCHAOS.GameModes.Endless
 		private LevelArea _levelArea = null;
 
 		[SerializeField]
-		private BasicSpawner _spawner = null;
+		private SimpleSpawner _spawner = null;
 
 		[Header("Drops")]
 		[SerializeField]
@@ -111,7 +114,7 @@ namespace ProjectCHAOS.GameModes.Endless
 			_globalUi.upgraderUi.gameObject.SetActive(true);
 			_globalUi.touchUiController.gameObject.SetActive(true);
 
-			_spawner.Run();
+			_waveRunner.BeginStep();
 		}
 
 		private void OnGameLeave()
@@ -128,8 +131,7 @@ namespace ProjectCHAOS.GameModes.Endless
 		{
 			_playerCharacter.health.OnHealthEmpty -= OnPlayerCharacterHealthEmpty;
 
-			_spawner.DespawnAll();
-			_spawner.Stop();
+			_waveRunner.EndStep();
 
 			_gameSerializer.Save();
 			_globalUi.touchUiController.SimulateOnPointerUp();
@@ -155,6 +157,34 @@ namespace ProjectCHAOS.GameModes.Endless
 		#endregion
 
 		#region EVENTS
+
+		private void OnMobFinish()
+		{
+			Debug.Log("Mob done!!!");
+			_waveRunner.EndStep();
+
+			if(_waveRunner.index < _waveRunner.collection.Count) {
+				_waveRunner.BeginStep();
+			} else {
+				Debug.Log("Wave done!!!");
+			}
+		}
+
+		private void OnWaveBeginStep(WaveData data)
+		{
+			MobBehaviour mob = data.instance.GetComponent<MobBehaviour>();
+			mob.spawner.OnSpawn += OnSpawn;
+			mob.OnFinish += OnMobFinish;
+			mob.Run();
+		}
+
+		private void OnWaveEndStep(WaveData data)
+		{
+			MobBehaviour mob = data.instance.GetComponent<MobBehaviour>();
+			mob.spawner.OnSpawn -= OnSpawn;
+			mob.OnFinish -= OnMobFinish;
+			mob.Stop();
+		}
 
 		private void OnBulletHitEnemy()
 		{
@@ -240,8 +270,10 @@ namespace ProjectCHAOS.GameModes.Endless
 			_reloadFlow.OnVisit += OnReloadVisit;
 
 			_playerCollisionEvents.OnCollisionEnterResponse += OnPlayerCollisionEnter;
-			_spawner.OnSpawn += OnSpawn;
+			//_spawner.OnSpawn += OnSpawn;
 			_globalUi.startMenuUI.OnPressAnywhere += OnStartMenuPressedAnywhere;
+			_waveRunner.OnBeginStep += OnWaveBeginStep;
+			_waveRunner.OnEndStep += OnWaveEndStep;
 		}
 
 		private void OnDisable()
@@ -255,8 +287,10 @@ namespace ProjectCHAOS.GameModes.Endless
 			_reloadFlow.OnVisit -= OnReloadVisit;
 
 			_playerCollisionEvents.OnCollisionEnterResponse -= OnPlayerCollisionEnter;
-			_spawner.OnSpawn -= OnSpawn;
+			//_spawner.OnSpawn -= OnSpawn;
 			_globalUi.startMenuUI.OnPressAnywhere -= OnStartMenuPressedAnywhere;
+			_waveRunner.OnBeginStep -= OnWaveBeginStep;
+			_waveRunner.OnEndStep -= OnWaveEndStep;
 		}
 
 		#endregion

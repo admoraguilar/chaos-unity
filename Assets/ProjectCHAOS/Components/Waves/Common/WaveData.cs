@@ -30,18 +30,19 @@ namespace ProjectCHAOS.Waves
 		}
 
 		public WaveData(WaveData data) : 
-			this(0, data.type, data.difficultyFactor) { }
+			this(0, data.type, data.difficultyFactor, data.prefab) { }
 
 		public WaveData(int groupIndex, WaveData data) :
-			this(groupIndex, data.type, data.difficultyFactor) { }
+			this(groupIndex, data.type, data.difficultyFactor, data.prefab) { }
 
-		public WaveData(string waveType, float difficultyFactor) :
-			this(0, waveType, difficultyFactor) { } 
+		public WaveData(string waveType, float difficultyFactor, GameObject prefab) :
+			this(0, waveType, difficultyFactor, prefab) { } 
 
-		public WaveData(int groupIndex, string type, float difficultyFactor)
+		public WaveData(int groupIndex, string type, float difficultyFactor, GameObject prefab)
 		{
 			this.type = type;
 			this.difficultyFactor = difficultyFactor;
+			this.prefab = prefab;
 			this.groupIndex = groupIndex;
 		}
 

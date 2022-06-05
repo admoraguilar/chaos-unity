@@ -15,154 +15,154 @@ MonoBehaviour:
   _entries:
   - type: mob
     difficultyFactor: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.13306676
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.2403684
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: angel
     difficultyFactor: 0.251818
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.20614111
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.17626622
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.20236462
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.25775698
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: pre-boss
     difficultyFactor: 0.34499153
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: boss
     difficultyFactor: 0.45
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.13306676
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.2403684
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: angel
     difficultyFactor: 0.251818
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.20614111
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.17626622
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.20236462
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.25775698
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: pre-boss
     difficultyFactor: 0.34499153
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: boss
     difficultyFactor: 0.45
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.13306676
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.2403684
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: angel
     difficultyFactor: 0.251818
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.20614111
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.17626622
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.20236462
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.25775698
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: pre-boss
     difficultyFactor: 0.34499153
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: boss
     difficultyFactor: 0.45
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.13306676
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.2403684
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: angel
     difficultyFactor: 0.251818
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.20614111
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.17626622
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.20236462
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.25775698
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: pre-boss
     difficultyFactor: 0.34499153
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: boss
     difficultyFactor: 0.45
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.13306676
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.2403684
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: angel
     difficultyFactor: 0.251818
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.20614111
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.17626622
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.20236462
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: mob
     difficultyFactor: 0.25775698
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: pre-boss
     difficultyFactor: 0.34499153
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   - type: boss
     difficultyFactor: 0.45
-    prefab: {fileID: 0}
+    prefab: {fileID: 2434414271894376889, guid: 342eceb4d622bea4da5b4fb0ca8893b3, type: 3}
   _operators:
   - {fileID: 11400000, guid: c2dd26ce6874f6744899b60a0c45be84, type: 2}
   - {fileID: 11400000, guid: 81469fcb3cbcdf247a45a23f7900640d, type: 2}

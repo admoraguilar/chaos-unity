@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7270947319001444338}
-  - component: {fileID: 2575816938537654795}
+  - component: {fileID: 4614885025297758190}
+  - component: {fileID: 5009156800766083216}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -36,7 +37,7 @@ Transform:
   m_Father: {fileID: 8303846926662620510}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2575816938537654795
+--- !u!114 &4614885025297758190
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,26 +46,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 16986550332906069}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfdfc98970ca90e4080e525f94873ba3, type: 3}
+  m_Script: {fileID: 11500000, guid: 26f5c1c15f541864db0678716107be0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _toSpawnPrefabList:
+  _selectionMethod: 1
+  _updateMethod: 1
+  _prefabList:
   - {fileID: 2414343024100401967, guid: 8cb970503c04ac2478b84e32921c4596, type: 3}
   - {fileID: 3822476349894079042, guid: d3d943ca9316b2e4981d2048956ea905, type: 3}
   - {fileID: 2414343024100401967, guid: b6e77bbc0d1b43a4996c8f17d86a1a9f, type: 3}
   - {fileID: 8496956338128790003, guid: 9c8d72ac35f598744a671bb8f1abefc7, type: 3}
   - {fileID: 8496956338128790003, guid: d27b44f923717f74dbaaad7c42150016, type: 3}
-  _spawnRate:
-    _current: 0
-    _max: 1
-    _speedMultiplier: 1
-    _isResetOnMaxSet: 1
-  _spawnPointBoundsList:
-  - {fileID: 3261187159854412616}
-  - {fileID: 114065068894850711}
-  - {fileID: 3708399533248024928}
-  - {fileID: 6864704970607063889}
-  _shouldSpawnOnStart: 0
+  _pointProvider:
+    _object: {fileID: 5009156800766083216}
+--- !u!114 &5009156800766083216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16986550332906069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 022f7ea81c440ec4194aba73aacf84e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points:
+  - {fileID: 6855999834557892116}
+  - {fileID: 7309570859821857477}
+  - {fileID: 7512808057456681913}
+  - {fileID: 5807682507098098530}
+  space: 0
 --- !u!1 &187468444128932593
 GameObject:
   m_ObjectHideFlags: 0

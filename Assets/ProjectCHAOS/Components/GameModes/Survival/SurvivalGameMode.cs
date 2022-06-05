@@ -61,7 +61,7 @@ namespace ProjectCHAOS.GameModes.Survival
 		private Portal _outsidePortal = null;
 
 		[SerializeField]
-		private BasicSpawner _spawner = null;
+		private SimpleSpawner _spawner = null;
 
 		[SerializeField]
 		private LevelArea _outsideLevelArea = null;
