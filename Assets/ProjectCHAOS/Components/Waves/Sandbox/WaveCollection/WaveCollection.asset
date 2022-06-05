@@ -1,0 +1,168 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d948a4bdca1b0b748b6fad14386074e2, type: 3}
+  m_Name: WaveCollection
+  m_EditorClassIdentifier: 
+  _entries:
+  - type: mob
+    difficultyFactor: 0
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.13306676
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.2403684
+    prefab: {fileID: 0}
+  - type: angel
+    difficultyFactor: 0.251818
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.20614111
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.17626622
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.20236462
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.25775698
+    prefab: {fileID: 0}
+  - type: pre-boss
+    difficultyFactor: 0.34499153
+    prefab: {fileID: 0}
+  - type: boss
+    difficultyFactor: 0.45
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.13306676
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.2403684
+    prefab: {fileID: 0}
+  - type: angel
+    difficultyFactor: 0.251818
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.20614111
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.17626622
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.20236462
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.25775698
+    prefab: {fileID: 0}
+  - type: pre-boss
+    difficultyFactor: 0.34499153
+    prefab: {fileID: 0}
+  - type: boss
+    difficultyFactor: 0.45
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.13306676
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.2403684
+    prefab: {fileID: 0}
+  - type: angel
+    difficultyFactor: 0.251818
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.20614111
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.17626622
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.20236462
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.25775698
+    prefab: {fileID: 0}
+  - type: pre-boss
+    difficultyFactor: 0.34499153
+    prefab: {fileID: 0}
+  - type: boss
+    difficultyFactor: 0.45
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.13306676
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.2403684
+    prefab: {fileID: 0}
+  - type: angel
+    difficultyFactor: 0.251818
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.20614111
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.17626622
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.20236462
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.25775698
+    prefab: {fileID: 0}
+  - type: pre-boss
+    difficultyFactor: 0.34499153
+    prefab: {fileID: 0}
+  - type: boss
+    difficultyFactor: 0.45
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.13306676
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.2403684
+    prefab: {fileID: 0}
+  - type: angel
+    difficultyFactor: 0.251818
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.20614111
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.17626622
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.20236462
+    prefab: {fileID: 0}
+  - type: mob
+    difficultyFactor: 0.25775698
+    prefab: {fileID: 0}
+  - type: pre-boss
+    difficultyFactor: 0.34499153
+    prefab: {fileID: 0}
+  - type: boss
+    difficultyFactor: 0.45
+    prefab: {fileID: 0}
+  _operators:
+  - {fileID: 11400000, guid: c2dd26ce6874f6744899b60a0c45be84, type: 2}
+  - {fileID: 11400000, guid: 81469fcb3cbcdf247a45a23f7900640d, type: 2}

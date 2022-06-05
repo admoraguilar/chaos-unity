@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f0d133c019cd3d4da08d60c05c7d221, type: 3}
-  m_Name: ManualWaveGenerator
+  m_Name: ManualWaveOperator
   m_EditorClassIdentifier: 
   _difficultyCurve:
     serializedVersion: 2

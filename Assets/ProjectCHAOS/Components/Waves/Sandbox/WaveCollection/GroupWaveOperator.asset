@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83cf56e5f1ff9104bb99b9195679abce, type: 3}
-  m_Name: GroupWaveGenerator
+  m_Name: GroupWaveOperator
   m_EditorClassIdentifier: 
   _groupCount: 4

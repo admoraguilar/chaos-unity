@@ -46,6 +46,11 @@ namespace WaterToolkit.Weapons
 			}
 		}
 
+		private void Start()
+		{
+			_fireRate.Run();
+		}
+
 		private void OnEnable()
 		{
 			_fireRate.OnReachMax += OnFireRateElapsed;

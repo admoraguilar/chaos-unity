@@ -61,17 +61,19 @@ namespace WaterToolkit.Spawners
 		public void Run()
 		{
 			isSpawning = true;
+			spawnRate.Run();
 		}
 
 		public void Pause()
 		{
 			isSpawning = false;
+			spawnRate.Pause();
 		}
 
 		public void Stop()
 		{
 			isSpawning = false;
-			spawnRate.Reset();
+			spawnRate.Stop();
 		}
 
 		public void DespawnAll()

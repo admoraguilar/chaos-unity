@@ -20,6 +20,8 @@ namespace WaterToolkit.Behave
 		[SerializeField]
 		private bool _isResetOnMaxSet = true;
 
+		private bool _isRunning = false;
+
 		public float current
 		{
 			get => _current;
@@ -27,7 +29,7 @@ namespace WaterToolkit.Behave
 				_current = value;
 				if(_current > max) {
 					OnReachMax();
-					_current = 0f;
+					Reset();
 				}
 			}
 		}
@@ -38,7 +40,7 @@ namespace WaterToolkit.Behave
 			set {
 				_max = value;
 				if(_isResetOnMaxSet) {
-					_current = 0f;
+					Reset();
 				}
 			}
 		}
@@ -55,14 +57,33 @@ namespace WaterToolkit.Behave
 			set => _isResetOnMaxSet = value;
 		}
 
+		public void Run()
+		{
+			_isRunning = true;
+		}
+
+		public void Pause()
+		{
+			_isRunning = false;
+		}
+
+		public void Stop()
+		{
+			Reset(true);
+		}
+
 		public void Update() 
 		{
+			if(!_isRunning) { return; }
 			current += _speedMultiplier * Time.deltaTime;
 		}
 
-		public void Reset()
+		public void Reset(bool shouldStop = false)
 		{
 			current = 0f;
+			if(shouldStop) {
+				_isRunning = false;
+			}
 		}
 	}
 }
