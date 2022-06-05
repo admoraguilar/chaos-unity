@@ -102,6 +102,7 @@ namespace WaterToolkit.Spawners
 			GameObject instance = Instantiate(
 				prefab, transform.position, 
 				transform.rotation, _container);
+			instance.name = prefab.name;
 			_instanceList.Add(instance);
 			totalSpawnCount++;
 			OnSpawn(instance);

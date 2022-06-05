@@ -20,7 +20,7 @@ namespace WaterToolkit.Waves
 		public int groupIndex
 		{
 			get => _groupIndex;
-			set => _groupIndex = value;
+			private set => _groupIndex = value;
 		}
 
 		public GameObject instance
@@ -29,14 +29,8 @@ namespace WaterToolkit.Waves
 			private set => _instance = value;
 		}
 
-		public WaveData(WaveData data) : 
-			this(0, data.type, data.difficultyFactor, data.prefab) { }
-
 		public WaveData(int groupIndex, WaveData data) :
 			this(groupIndex, data.type, data.difficultyFactor, data.prefab) { }
-
-		public WaveData(string waveType, float difficultyFactor, GameObject prefab) :
-			this(0, waveType, difficultyFactor, prefab) { } 
 
 		public WaveData(int groupIndex, string type, float difficultyFactor, GameObject prefab)
 		{
@@ -46,12 +40,13 @@ namespace WaterToolkit.Waves
 			this.groupIndex = groupIndex;
 		}
 
-		public void CreatePrefabInstance()
+		internal void CreatePrefabInstance(Transform container)
 		{
-			instance = UObject.Instantiate(prefab);
+			instance = UObject.Instantiate(prefab, container);
+			instance.name = prefab.name;
 		}
 
-		public void DestroyPrefabInstance()
+		internal void DestroyPrefabInstance()
 		{
 			UObject.Destroy(instance);
 			instance = null;

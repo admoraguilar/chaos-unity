@@ -52,7 +52,7 @@ namespace WaterToolkit.Waves
 			_hasBegunStep = true;
 			if(index <= 0) { OnStart(); }
 
-			data.CreatePrefabInstance();
+			data.CreatePrefabInstance(transform);
 			OnBeginStep(data);
 
 			return data;
@@ -62,9 +62,9 @@ namespace WaterToolkit.Waves
 		{
 			_hasBegunStep = false;
 			OnEndStep(data);
-			index++;
 			data.DestroyPrefabInstance();
 
+			index++;
 			if(index >= collection.Count) { OnComplete(); }
 
 			return data;
