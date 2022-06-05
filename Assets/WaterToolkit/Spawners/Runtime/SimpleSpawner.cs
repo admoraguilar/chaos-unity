@@ -119,7 +119,7 @@ namespace WaterToolkit.Spawners
 		public virtual void Despawn(GameObject go)
 		{
 			totalDespawnCount++;
-			if(Application.isPlaying) { OnDespawn(go); }
+			OnDespawn(go);
 			Destroy(go);
 		}
 
