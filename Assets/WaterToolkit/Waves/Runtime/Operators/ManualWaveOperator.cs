@@ -8,9 +8,9 @@ using UnityEditor;
 
 #endif
 
-namespace ProjectCHAOS.Waves
+namespace WaterToolkit.Waves
 {
-	[CreateAssetMenu(menuName = "ProjectCHAOS/Waves/Operators/Manual")]
+	[CreateAssetMenu(menuName = "WaterToolkit/Waves/Operators/Manual")]
 	public class ManualWaveOperator : WaveOperator
 	{
 		[SerializeField]

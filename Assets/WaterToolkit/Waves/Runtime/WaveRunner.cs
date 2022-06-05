@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
-using WaterToolkit;
 
-namespace ProjectCHAOS.Waves
+namespace WaterToolkit.Waves
 {
 	public class WaveRunner : MonoBehaviour
 	{
+		public event Action OnStart = delegate { };
+		public event Action OnComplete = delegate { };
 		public event Action<WaveData> OnBeginStep = delegate { };
 		public event Action<WaveData> OnEndStep = delegate { };
 
@@ -14,6 +15,7 @@ namespace ProjectCHAOS.Waves
 
 		private WaveData _data = null;
 		private int _index = 0;
+		private bool _hasBegunStep = false;
 
 		private Transform _transform = null;
 
@@ -21,6 +23,8 @@ namespace ProjectCHAOS.Waves
 		{
 			get => _collection;
 			set {
+				if(_hasBegunStep) { EndStep(); }
+
 				_collection = value;
 				index = 0;
 			}
@@ -43,17 +47,27 @@ namespace ProjectCHAOS.Waves
 
 		public new Transform transform => this.GetCachedComponent(ref _transform);
 
-		public void BeginStep()
+		public WaveData BeginStep()
 		{
+			_hasBegunStep = true;
+			if(index <= 0) { OnStart(); }
+
 			data.CreatePrefabInstance();
 			OnBeginStep(data);
+
+			return data;
 		}
 
-		public void EndStep()
+		public WaveData EndStep()
 		{
+			_hasBegunStep = false;
 			OnEndStep(data);
 			index++;
 			data.DestroyPrefabInstance();
+
+			if(index >= collection.Count) { OnComplete(); }
+
+			return data;
 		}
 
 		private void Awake()

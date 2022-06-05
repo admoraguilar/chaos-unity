@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ProjectCHAOS.Waves
+namespace WaterToolkit.Waves
 {
 	[CreateAssetMenu(menuName = "ProjectCHAOS/Waves/Operators/Group")]
 	public class GroupWaveOperator : WaveOperator

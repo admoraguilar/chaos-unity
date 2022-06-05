@@ -3,7 +3,7 @@ using UnityEngine;
 
 using UObject = UnityEngine.Object;
 
-namespace ProjectCHAOS.Waves
+namespace WaterToolkit.Waves
 {
 	[Serializable]
 	public class WaveData

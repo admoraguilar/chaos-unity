@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using WaterToolkit;
 using WaterToolkit.Drops;
+using WaterToolkit.Waves;
 using WaterToolkit.Scores;
 using WaterToolkit.Behave;
 using WaterToolkit.Worlds;
 using WaterToolkit.Weapons;
 using WaterToolkit.Pickups;
-using WaterToolkit.Spawners;
 using WaterToolkit.FlowTrees;
 using ProjectCHAOS.UI;
 using ProjectCHAOS.Upgrades;
@@ -17,7 +17,6 @@ using ProjectCHAOS.Characters.AIs;
 using ProjectCHAOS.GameSerialization;
 
 using URandom = UnityEngine.Random;
-using ProjectCHAOS.Waves;
 
 namespace ProjectCHAOS.GameModes.Endless
 {
@@ -78,9 +77,6 @@ namespace ProjectCHAOS.GameModes.Endless
 
 		[SerializeField]
 		private LevelArea _levelArea = null;
-
-		[SerializeField]
-		private SimpleSpawner _spawner = null;
 
 		[Header("Drops")]
 		[SerializeField]
@@ -270,7 +266,6 @@ namespace ProjectCHAOS.GameModes.Endless
 			_reloadFlow.OnVisit += OnReloadVisit;
 
 			_playerCollisionEvents.OnCollisionEnterResponse += OnPlayerCollisionEnter;
-			//_spawner.OnSpawn += OnSpawn;
 			_globalUi.startMenuUI.OnPressAnywhere += OnStartMenuPressedAnywhere;
 			_waveRunner.OnBeginStep += OnWaveBeginStep;
 			_waveRunner.OnEndStep += OnWaveEndStep;
@@ -287,7 +282,6 @@ namespace ProjectCHAOS.GameModes.Endless
 			_reloadFlow.OnVisit -= OnReloadVisit;
 
 			_playerCollisionEvents.OnCollisionEnterResponse -= OnPlayerCollisionEnter;
-			//_spawner.OnSpawn -= OnSpawn;
 			_globalUi.startMenuUI.OnPressAnywhere -= OnStartMenuPressedAnywhere;
 			_waveRunner.OnBeginStep -= OnWaveBeginStep;
 			_waveRunner.OnEndStep -= OnWaveEndStep;

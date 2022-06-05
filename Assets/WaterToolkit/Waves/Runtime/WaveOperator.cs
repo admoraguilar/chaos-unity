@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace ProjectCHAOS.Waves
+namespace WaterToolkit.Waves
 {
 	public abstract class WaveOperator : ScriptableObject
 	{

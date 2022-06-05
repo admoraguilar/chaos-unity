@@ -19,13 +19,16 @@ namespace WaterToolkit.Spawners
 		private UpdateMethod _updateMethod = UpdateMethod.Update;
 
 		[SerializeField]
-		private List<GameObject> _prefabList = new List<GameObject>();
-
-		[SerializeField]
 		private Timing _timer = new Timing();
 
 		[SerializeField]
+		private Transform _container = null;
+
+		[SerializeField]
 		private bool _isSpawnAtStart = false;
+
+		[SerializeField]
+		private List<GameObject> _prefabList = new List<GameObject>();
 
 		private List<GameObject> _runtimePrefabList = new List<GameObject>();
 		private List<GameObject> _instanceList = new List<GameObject>();
@@ -96,7 +99,9 @@ namespace WaterToolkit.Spawners
 		{
 			GameObject prefab = GetPrefab();
 			
-			GameObject instance = Instantiate(prefab, transform.position, transform.rotation);
+			GameObject instance = Instantiate(
+				prefab, transform.position, 
+				transform.rotation, _container);
 			_instanceList.Add(instance);
 			totalSpawnCount++;
 			OnSpawn(instance);

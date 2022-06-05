@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using WaterToolkit.GameDatabases;
 
-namespace ProjectCHAOS.Waves
+namespace WaterToolkit.Waves
 {
-	[CreateAssetMenu(menuName = "ProjectCHAOS/Waves/Collection")]
+	[CreateAssetMenu(menuName = "WaterToolkit/Waves/Collection")]
 	public class WaveCollection : GameCollection<WaveData>
 	{
 		[SerializeField]
