@@ -18,7 +18,13 @@ namespace WaterToolkit.Editor
 			public SerializableInterfaceProperties(PropertyDrawer propertyDrawer, SerializedProperty property)
 			{
 				objectProp = property.FindPropertyRelative(_objectPropName);
-				objectType = GetPropertyType(propertyDrawer).BaseType.GetGenericArguments()[0];
+
+				Type propertyType = GetPropertyType(propertyDrawer);
+				if(propertyType.BaseType == typeof(SerializableInterface)) {
+					objectType = propertyType.GetGenericArguments()[0];
+				} else {
+					objectType = propertyType.BaseType.GetGenericArguments()[0];
+				}
 			}
 
 			private Type GetPropertyType(PropertyDrawer propertyDrawer)
