@@ -12,8 +12,6 @@ namespace WaterToolkit.Spawners
 
 		public List<GameObject> prefabList { get; }
 
-		public List<GameObject> instanceList { get; }
-
 		public int cycleCount { get; }
 		
 		public int totalSpawnCount { get; }

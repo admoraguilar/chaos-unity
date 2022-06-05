@@ -6,19 +6,7 @@ using WaterToolkit.Behave;
 
 namespace WaterToolkit.Spawners
 {
-	public enum PrefabSelectionMethod
-	{
-		Sequential,
-		Random
-	};
-
-	public enum UpdateMethod
-	{
-		Update,
-		FixedUpdate
-	};
-
-    public class SimpleSpawner : MonoBehaviour, ISpawner
+	public class SimpleSpawner : MonoBehaviour, ISpawner
     {
 		public event Action<GameObject> OnSpawn = delegate { };
 		public event Action<GameObject> OnDespawn = delegate { };
@@ -35,6 +23,9 @@ namespace WaterToolkit.Spawners
 
 		[SerializeField]
 		private Timing _timer = new Timing();
+
+		[SerializeField]
+		private bool _isSpawnAtStart = false;
 
 		private List<GameObject> _runtimePrefabList = new List<GameObject>();
 		private List<GameObject> _instanceList = new List<GameObject>();
@@ -58,9 +49,13 @@ namespace WaterToolkit.Spawners
 
 		public List<GameObject> prefabList => _prefabList;
 
-		public List<GameObject> instanceList => _instanceList;
-
 		public Timing timer => _timer;
+
+		public bool isSpawnAtStart
+		{
+			get => _isSpawnAtStart;
+			set => _isSpawnAtStart = value;
+		}
 
 		public int cycleCount
 		{
@@ -76,13 +71,8 @@ namespace WaterToolkit.Spawners
 
 		public int totalDespawnCount
 		{
-			get {
-				_totalDespawnCount += _instanceList.RemoveAll(go => go == null);
-				return _totalDespawnCount;
-			}
-			private set {
-				_totalDespawnCount = value;
-			}
+			get => _totalDespawnCount;
+			private set => _totalDespawnCount = value;
 		}
 
 		public new Transform transform => this.GetCachedComponent(ref _transform);
@@ -95,11 +85,11 @@ namespace WaterToolkit.Spawners
 
 		public void Resetup(bool shouldStop = false)
 		{
+			_runtimePrefabList.Clear();
+			timer.Reset(shouldStop);
 			cycleCount = 0;
 			totalSpawnCount = 0;
 			totalDespawnCount = 0;
-			_runtimePrefabList.Clear();
-			timer.Reset(shouldStop);
 		}
 
 		public virtual GameObject Spawn()
@@ -108,23 +98,39 @@ namespace WaterToolkit.Spawners
 			
 			GameObject instance = Instantiate(prefab, transform.position, transform.rotation);
 			_instanceList.Add(instance);
+			totalSpawnCount++;
 			OnSpawn(instance);
 
-			totalSpawnCount++;
+			LifecycleEvents lifecycleEvents = instance.GetComponent<LifecycleEvents>();
+			if(lifecycleEvents == null) {
+				lifecycleEvents = instance.AddComponent<LifecycleEvents>();
+			}
+			lifecycleEvents.OnDestroyResponse += OnDestroyResponse;
 
 			return instance;
+
+			void OnDestroyResponse()
+			{
+				lifecycleEvents.OnDestroyResponse -= OnDestroyResponse;
+				Despawn(instance);
+			}
+		}
+
+		public virtual void Despawn(GameObject go)
+		{
+			totalDespawnCount++;
+			if(Application.isPlaying) { OnDespawn(go); }
+			Destroy(go);
 		}
 
 		public virtual IReadOnlyCollection<GameObject> DespawnAll()
 		{
-			totalDespawnCount += _instanceList.RemoveAll(go => go == null);
+			_instanceList.RemoveAll(go => go == null);
 
 			List<GameObject> toDestroy = _instanceList.ToList();
 			foreach(GameObject go in _instanceList) {
 				toDestroy.Add(go);
-				OnDespawn(go);
-				Destroy(go);
-				_totalDespawnCount++;
+				Despawn(go);
 			}
 
 			return toDestroy;
@@ -149,7 +155,15 @@ namespace WaterToolkit.Spawners
 			return prefab;
 		}
 
-		private void OnTimerReachMax() => Spawn();
+		private void OnTimerReachMax()
+		{
+			Spawn();
+		}
+
+		private void Start()
+		{
+			if(_isSpawnAtStart) { Run(); }
+		}
 
 		private void OnEnable()
 		{

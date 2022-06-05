@@ -29,7 +29,9 @@ namespace ProjectCHAOS.Characters.AIs
 
 		private void OnSpawnerDespawn(GameObject instance)
 		{
-			
+			if(spawner.cycleCount >= 1 && spawner.totalDespawnCount >= spawner.prefabList.Count) {
+				OnFinish();
+			}
 		}
 
 		public void Run()
@@ -45,13 +47,6 @@ namespace ProjectCHAOS.Characters.AIs
 			spawner.OnDespawn -= OnSpawnerDespawn;
 			spawner.DespawnAll();
 			spawner.Resetup(true);
-		}
-
-		private void Update()
-		{
-			if(spawner.cycleCount >= 1 && spawner.totalDespawnCount >= spawner.prefabList.Count) {
-				OnFinish();
-			}
 		}
 	}
 }
