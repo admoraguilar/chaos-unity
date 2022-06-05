@@ -7,7 +7,7 @@ using URandom = UnityEngine.Random;
 namespace WaterToolkit.Procedural
 {
 	[Serializable]
-	public class SimplePointGenerator
+	public class SimplePointGenerator : IPointProvider
 	{
 		private IList<Bounds> _boundsList = default;
 
