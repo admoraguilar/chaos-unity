@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using WaterToolkit;
+using WaterToolkit.Behave;
 using ProjectCHAOS.Characters;
 
 namespace ProjectCHAOS.Upgrades
@@ -21,7 +22,11 @@ namespace ProjectCHAOS.Upgrades
 				return false;
 			}
 
-			characterStats.characterStats.speed.value = speed;
+			characterStats.characterStats.speed.current.ReplaceModifier(
+				new FloatMultiplierModifier {
+					id = nameof(SpeedUpgradeBehaviour),
+					multiplier = speed
+				});
 			return true;
 		}
 	}

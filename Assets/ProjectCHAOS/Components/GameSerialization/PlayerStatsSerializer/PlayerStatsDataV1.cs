@@ -6,8 +6,8 @@ namespace ProjectCHAOS.GameSerialization
 	[Serializable]
 	public class PlayerStatsDataV1 : IObjectVersion
 	{
-		public float speed = 0f;
-		public float fireRate = 0f;
+		public float speed = 1f;
+		public float fireRate = 1f;
 
 		public int objectVersion => 0;
 

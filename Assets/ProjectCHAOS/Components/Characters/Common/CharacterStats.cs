@@ -26,8 +26,14 @@ namespace ProjectCHAOS.Characters
 
 		public void Editor_OnValidate()
 		{
-			speed.value = speed.value;
-			fireRate.value = fireRate.value;
+			speed.current.baseValue = speed.current.baseValue;
+			fireRate.current.baseValue = fireRate.current.baseValue;
+
+			speed.current.OnValidate();
+			speed.max.OnValidate();
+
+			fireRate.current.OnValidate();
+			fireRate.max.OnValidate();
 		}
 
 #endif

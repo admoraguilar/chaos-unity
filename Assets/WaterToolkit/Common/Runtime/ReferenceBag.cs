@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using WaterToolkit;
+using System.Collections.Generic;
 
-namespace ProjectCHAOS.Powerups
+namespace WaterToolkit
 {
 	public class ReferenceBag
 	{

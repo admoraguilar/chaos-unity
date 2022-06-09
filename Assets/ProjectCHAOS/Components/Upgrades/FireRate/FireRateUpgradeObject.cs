@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using WaterToolkit;
+using WaterToolkit.Behave;
 using ProjectCHAOS.Characters;
 
 namespace ProjectCHAOS.Upgrades
@@ -21,7 +22,11 @@ namespace ProjectCHAOS.Upgrades
 				return false;
 			}
 
-			characterStats.characterStats.fireRate.value = fireRate;
+			characterStats.characterStats.fireRate.current.ReplaceModifier(
+				new FloatMultiplierModifier {
+					id = nameof(FireRateUpgradeBehaviour),
+					multiplier = fireRate
+				});
 			return true;
 		}
 	}

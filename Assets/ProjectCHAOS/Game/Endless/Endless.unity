@@ -559,6 +559,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1076657265}
     m_Modifications:
+    - target: {fileID: -1038279216158039723, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}
+      propertyPath: _characterStats._speed._max._baseValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -1038279216158039723, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}
+      propertyPath: _characterStats._fireRate._max._baseValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -1038279216158039723, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}
+      propertyPath: _characterStats._speed._current._baseValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1038279216158039723, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}
+      propertyPath: _characterStats._speed._max._modifiedValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -1038279216158039723, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}
+      propertyPath: _characterStats._fireRate._current._baseValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1038279216158039723, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}
+      propertyPath: _characterStats._fireRate._max._modifiedValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: -1038279216158039723, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}
+      propertyPath: _characterStats._speed._current._modifiedValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1038279216158039723, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}
+      propertyPath: _characterStats._fireRate._current._modifiedValue
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1072936960906782728, guid: 3a0ddb6fe268a164d95c45a1bef45715, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter

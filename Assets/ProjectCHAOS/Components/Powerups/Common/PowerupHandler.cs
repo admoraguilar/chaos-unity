@@ -12,9 +12,18 @@ namespace ProjectCHAOS.Powerups
 
 		public new Transform transform => this.GetCachedComponent(ref _transform);
 
+		private void OnPowerupAdd(PowerupSpec powerup)
+		{
+			powerup.Use();
+		}
+
+		private void OnPowerupRemove(PowerupSpec powerup)
+		{
+
+		}
+
 		private void Awake()
 		{
-			_powerups.Initialize();
 			foreach(PowerupSpec powerup in _powerups) {
 				powerup.Initialize(new object[] { this, transform });
 			}
@@ -25,6 +34,18 @@ namespace ProjectCHAOS.Powerups
 			foreach(PowerupSpec powerup in _powerups) {
 				powerup.Use();
 			}
+		}
+
+		private void OnEnable()
+		{
+			_powerups.OnAdd += OnPowerupAdd;
+			_powerups.OnRemove += OnPowerupRemove;
+		}
+
+		private void OnDisable()
+		{
+			_powerups.OnAdd -= OnPowerupAdd;
+			_powerups.OnRemove -= OnPowerupRemove;
 		}
 	}
 }

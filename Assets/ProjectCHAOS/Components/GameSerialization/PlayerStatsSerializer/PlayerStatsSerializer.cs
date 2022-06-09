@@ -17,16 +17,16 @@ namespace ProjectCHAOS.GameSerialization
 		{
 			PlayerStatsDataV1 data = dataSerializer.LoadObjectVersion<PlayerStatsDataV1>();
 			CharacterStats stats = _character.characterStats;
-			stats.speed.value = data.speed;
-			stats.fireRate.value = data.fireRate;
+			stats.speed.current.baseValue = data.speed;
+			stats.fireRate.current.baseValue = data.fireRate;
 		}
 
 		public override void Save()
 		{
 			PlayerStatsDataV1 data = new PlayerStatsDataV1();
 			CharacterStats stats = _character.characterStats;
-			data.speed = stats.speed.value;
-			data.fireRate = stats.fireRate.value;
+			data.speed = stats.speed.current.baseValue;
+			data.fireRate = stats.fireRate.current.baseValue;
 			dataSerializer.SaveObjectVersion(data);
 		}
 	}

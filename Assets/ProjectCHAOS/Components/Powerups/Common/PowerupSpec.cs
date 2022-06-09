@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using WaterToolkit;
 
 namespace ProjectCHAOS.Powerups
 {
@@ -16,7 +17,9 @@ namespace ProjectCHAOS.Powerups
 			this.references.AddRange(references);
 		}
 
-		public abstract void Use();
+		public virtual void Use() { }
+
+		public virtual void Revoke() { }
 
 		public abstract PowerupSpec Clone();
 

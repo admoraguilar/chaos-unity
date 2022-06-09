@@ -9,7 +9,13 @@ namespace ProjectCHAOS.Powerups
 
 		public override void Use()
 		{
-			Debug.Log($"using SpeedPowerup, {name}, yay");
+			Transform transform = references.Get<Transform>();
+			Debug.Log($"using SpeedPowerup, {name} - {transform.name}, yay");
+		}
+
+		public override void Revoke()
+		{
+			
 		}
 
 		public override PowerupSpec Clone()

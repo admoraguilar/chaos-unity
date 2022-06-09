@@ -16,32 +16,32 @@ namespace ProjectCHAOS.Characters.Players
 
 		public WeaponHandler weaponHandler => this.GetCachedComponent(ref _weaponHandler);
 
-		private void OnCharacterStatsSpeedChanged(float value)
+		private void OnCharacterStatsSpeedChanged()
 		{
-			_playerCharacter.movement.speedMultiplier = value;
+			_playerCharacter.movement.speedMultiplier = _playerCharacter.characterStats.speed.current.modifiedValue;
 		}
 
-		private void OnPlayerStatsFireRateChanged(float value)
+		private void OnPlayerStatsFireRateChanged()
 		{
-			_weaponHandler.visualHolder.fireRateMultiplier = value;
+			_weaponHandler.visualHolder.fireRateMultiplier = _playerCharacter.characterStats.fireRate.current.modifiedValue;
 		}
 
 		private void OnEnable()
 		{
-			_playerCharacter.characterStats.speed.OnValueChange += OnCharacterStatsSpeedChanged;
-			_playerCharacter.characterStats.fireRate.OnValueChange += OnPlayerStatsFireRateChanged;
+			_playerCharacter.characterStats.speed.current.OnModifiersChanged += OnCharacterStatsSpeedChanged;
+			_playerCharacter.characterStats.fireRate.current.OnModifiersChanged += OnPlayerStatsFireRateChanged;
 		}
 
 		private void OnDisable()
 		{
-			_playerCharacter.characterStats.speed.OnValueChange -= OnCharacterStatsSpeedChanged;
-			_playerCharacter.characterStats.fireRate.OnValueChange -= OnPlayerStatsFireRateChanged;
+			_playerCharacter.characterStats.speed.current.OnModifiersChanged -= OnCharacterStatsSpeedChanged;
+			_playerCharacter.characterStats.fireRate.current.OnModifiersChanged -= OnPlayerStatsFireRateChanged;
 		}
 
 		private void Start()
 		{
-			OnCharacterStatsSpeedChanged(_playerCharacter.characterStats.speed.value);
-			OnPlayerStatsFireRateChanged(_playerCharacter.characterStats.fireRate.value);
+			OnCharacterStatsSpeedChanged();
+			OnPlayerStatsFireRateChanged();
 		}
 	}
 }
