@@ -38,7 +38,7 @@ namespace WaterToolkit.Behave
 			get {
 				_modifiedValue = _baseValue;
 				foreach(StatModifier<T> modifier in _modifiers) {
-					_modifiedValue = modifier.Modify(_modifiedValue);
+					_modifiedValue = modifier.Modify(baseValue, _modifiedValue);
 				}
 				_modifiedValue = _modifiedValueGetter != null ? _modifiedValueGetter(_modifiedValue) : _modifiedValue;
 				return _modifiedValue;

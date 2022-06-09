@@ -7,6 +7,9 @@ namespace WaterToolkit.Behave
 	{
 		public float multiplier = 1f;
 
-		public override float Modify(float value) => value * multiplier;
+		public override float Modify(float baseValue, float inModifiedValue)
+		{
+			return inModifiedValue + (baseValue * multiplier);
+		}
 	}
 }

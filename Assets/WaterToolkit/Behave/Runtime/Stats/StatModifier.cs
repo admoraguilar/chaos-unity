@@ -7,6 +7,6 @@ namespace WaterToolkit.Behave
 	{
 		public string id = string.Empty;
 
-		public abstract T Modify(T value);
+		public abstract T Modify(T baseValue, T inModifiedValue);
 	}
 }
