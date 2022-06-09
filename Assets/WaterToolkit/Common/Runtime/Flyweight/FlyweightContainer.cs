@@ -62,6 +62,8 @@ namespace WaterToolkit
 
 		public T Find(Predicate<T> match)
 		{
+			Initialize();
+
 			return _list.Find(match);
 		}
 
