@@ -17,6 +17,7 @@ using ProjectCHAOS.Characters.AIs;
 using ProjectCHAOS.GameSerialization;
 
 using URandom = UnityEngine.Random;
+using ProjectCHAOS.Powerups;
 
 namespace ProjectCHAOS.GameModes.Endless
 {
@@ -51,6 +52,9 @@ namespace ProjectCHAOS.GameModes.Endless
 
 		[SerializeField]
 		private PickupHandler _pickupHandler = null;
+
+		[SerializeField]
+		private PowerupHandler _powerupHandler = null;
 
 		[SerializeField]
 		private Scorer _scorer = null;
@@ -246,6 +250,10 @@ namespace ProjectCHAOS.GameModes.Endless
 
 			_pickupHandler.Initialize(new Transform[] {
 				_upgrader.transform
+			});
+
+			_powerupHandler.Initialize(new object[] {
+				_playerCharacter
 			});
 
 			_globalUi.Initialize(

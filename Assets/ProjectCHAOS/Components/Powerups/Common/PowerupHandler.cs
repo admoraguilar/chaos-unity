@@ -1,5 +1,8 @@
+using System.Collections.Generic;
 using UnityEngine;
 using WaterToolkit;
+
+using UObject = UnityEngine.Object;
 
 namespace ProjectCHAOS.Powerups
 {
@@ -19,14 +22,19 @@ namespace ProjectCHAOS.Powerups
 
 		private void OnPowerupRemove(PowerupSpec powerup)
 		{
+			powerup.Revoke();
+		}
 
+		public void Initialize(IEnumerable<object> references)
+		{
+			foreach(PowerupSpec powerup in _powerups) {
+				powerup.Initialize(references);
+			}
 		}
 
 		private void Awake()
 		{
-			foreach(PowerupSpec powerup in _powerups) {
-				powerup.Initialize(new object[] { this, transform });
-			}
+			Initialize(new object[] { this, transform });	
 		}
 
 		private void Start()
