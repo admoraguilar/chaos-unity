@@ -11,10 +11,6 @@ namespace ProjectCHAOS.Powerups
 		[SerializeField]
 		private FlyweightContainer<PowerupSpec> _powerups = null;
 
-		private Transform _transform = null;
-
-		public new Transform transform => this.GetCachedComponent(ref _transform);
-
 		private void OnPowerupAdd(PowerupSpec powerup)
 		{
 			powerup.Use();
@@ -34,7 +30,7 @@ namespace ProjectCHAOS.Powerups
 
 		private void Awake()
 		{
-			Initialize(new object[] { this, transform });	
+			Initialize(new object[] { this });	
 		}
 
 		private void Start()

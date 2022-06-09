@@ -248,8 +248,8 @@ namespace ProjectCHAOS.GameModes.Endless
 				_playerCharacter.transform
 			});
 
-			_pickupHandler.Initialize(new Transform[] {
-				_upgrader.transform
+			_pickupHandler.Initialize(new object[] {
+				_upgrader
 			});
 
 			_powerupHandler.Initialize(new object[] {

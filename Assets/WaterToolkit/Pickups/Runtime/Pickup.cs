@@ -5,8 +5,8 @@ namespace WaterToolkit.Pickups
 	public class Pickup : MonoBehaviour
 	{
 		[SerializeField]
-		private PickupObject _object = null;
+		private PickupSpec _object = null;
 
-		public PickupObject @object => _object;
+		public PickupSpec @object => _object;
 	}
 }

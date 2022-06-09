@@ -12,13 +12,6 @@ using UnityEditor;
 
 namespace WaterToolkit
 {
-	public interface IFlyweightObject<T>
-	{
-		int id { get; }
-
-		T Clone();
-	}
-
 	[Serializable]
 	public class FlyweightContainer<T> : IReadOnlyList<T> where T : IFlyweightObject<T>
 	{
@@ -67,6 +60,11 @@ namespace WaterToolkit
 			}
 		}
 
+		public T Find(Predicate<T> match)
+		{
+			return _list.Find(match);
+		}
+
 		public void AddRange(IEnumerable<T> objs)
 		{
 			foreach(T item in objs) { Add(item); }
@@ -90,7 +88,7 @@ namespace WaterToolkit
 		{
 			Initialize();
 
-			_list.RemoveAll(item => item.id == obj.id);
+			_list.RemoveAll(item => object.Equals(item.source, obj.source));
 			OnRemove(obj);
 		}
 

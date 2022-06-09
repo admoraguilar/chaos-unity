@@ -2,6 +2,7 @@
     "name": "WaterToolkit.Pickups",
     "rootNamespace": "",
     "references": [
+        "GUID:a16fe458cf33d0249ad2404a4f890917",
         "GUID:035b729a979c2e243b44febaa77d5484"
     ],
     "includePlatforms": [],
