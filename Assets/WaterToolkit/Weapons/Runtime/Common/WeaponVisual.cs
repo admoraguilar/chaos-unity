@@ -1,12 +1,11 @@
 using System;
 using UnityEngine;
-using WaterToolkit;
 
 namespace WaterToolkit.Weapons
 {
 	public abstract class WeaponVisual : MonoBehaviour
 	{
-		public event Action OnFire = delegate { };
+		public event Action<WeaponFireInfo> OnFire = delegate { };
 
 		private Transform _transform = null;
 
@@ -15,6 +14,6 @@ namespace WaterToolkit.Weapons
 		public abstract void StartFiring();
 		public abstract void StopFiring();
 
-		protected void InvokeOnFire() => OnFire();
+		protected void SendFireEvent(WeaponFireInfo fireInfo) => OnFire(fireInfo);
 	}
 }

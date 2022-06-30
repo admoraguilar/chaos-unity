@@ -36,12 +36,22 @@ namespace WaterToolkit.Weapons
 					layerMask.value, transform);
 				
 				if(target != null) {
-					Vector3 direction = Targetting.CalculateDirectionToTarget(transform, target);
+					Vector3 bulletLookDirection = Targetting.CalculateDirectionToTarget(transform, target);
 					Bullet bullet = Instantiate(
 						bulletPrefab, muzzlePoint.position,
-						Quaternion.LookRotation(direction));
-					bullet.Launch(transform, target, transform.forward);
-					InvokeOnFire();
+						Quaternion.LookRotation(bulletLookDirection));
+					BulletLaunchInfo bulletLaunchInfo = new BulletLaunchInfo {
+						owner = transform,
+						targetTransform = target,
+						direction = transform.forward
+					};
+
+					bullet.Launch(bulletLaunchInfo);
+
+					SendFireEvent(new WeaponFireInfo {
+						visual = this,
+						bullet = bullet
+					});
 				}
 			}
 		}

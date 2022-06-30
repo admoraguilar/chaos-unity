@@ -19,7 +19,7 @@ namespace WaterToolkit.Weapons
 	/// </summary>
 	public class WeaponHandler : MonoBehaviour
 	{
-		public event Action OnFire = delegate { };
+		public event Action<WeaponFireInfo> OnFire = delegate { };
 
 		[SerializeField]
 		private WeaponSet _startingLoadout = null;
@@ -52,7 +52,7 @@ namespace WaterToolkit.Weapons
 			private set => _cycler = value;
 		}
 
-		private void InvokeOnFire() => OnFire();
+		private void InvokeOnFire(WeaponFireInfo fireInfo) => OnFire(fireInfo);
 
 		private void OnSetWeapon(WeaponItem weaponObject)
 		{

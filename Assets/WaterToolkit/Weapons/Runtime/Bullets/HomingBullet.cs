@@ -5,35 +5,49 @@ namespace WaterToolkit.Weapons
 {
 	public class HomingBullet : Bullet
 	{
-		private Vector3 _direction = Vector3.zero;
 		private bool _isTravelling = false;
 
-		private Transform _target = null;
 		private Vector3 _lastDirectionToTarget = Vector3.zero;
 		private Vector3 _lastTargetPosition = Vector3.zero;
 
-		public override bool Launch(Transform owner, Transform target, Vector3 direction)
+		protected override void OnLaunch()
 		{
-			_direction = direction;
 			_isTravelling = true;
-			_target = target;
-
 			Destroy(gameObject, lifetime);
-			return true;
 		}
+
+		//private void OnDestroy()
+		//{
+		//	SendEndLifetimeEvent(new BulletHitInfo {
+		//		position = transform.position,
+		//		isSuccess = false
+		//	});
+		//}
 
 		private void FixedUpdate()
 		{
-			if(_isTravelling && _target != null) {
-				_lastDirectionToTarget = Targetting.CalculateDirectionToTarget(transform, _target);
-				_lastTargetPosition = _target.position;
+			if(_isTravelling && launchInfo.targetTransform != null) {
+				_lastDirectionToTarget = Targetting.CalculateDirectionToTarget(transform, launchInfo.targetTransform);
+				_lastTargetPosition = launchInfo.targetTransform.position;
 				transform.rotation = Quaternion.LookRotation(_lastDirectionToTarget, Vector3.up);
 				transform.position = Vector3.MoveTowards(transform.position, _lastTargetPosition, speed * Time.deltaTime);
 			}
 
-			if(_isTravelling && _target == null) {
-				transform.position += -transform.forward * speed * Time.deltaTime;
+			if(_isTravelling && launchInfo.targetTransform == null) {
+				transform.position += speed * Time.deltaTime * -transform.forward;
 			}
+		}
+
+		private void OnTriggerEnter(Collider other)
+		{
+			if(!layer.Includes(other.gameObject.layer)) { return; }
+
+			SendEndLifetimeEvent(new BulletHitInfo {
+				position = other.transform.position,
+				isSuccess = true
+			});
+
+			Destroy(gameObject);
 		}
 	}
 }

@@ -77,6 +77,9 @@ namespace ProjectCHAOS.GameModes.Endless
 		private PlayerCharacter _playerCharacter = null;
 
 		[SerializeField]
+		private WeaponHandler _weaponHandler = null;
+
+		[SerializeField]
 		private CollisionEvents _playerCollisionEvents = null;
 
 		[SerializeField]
@@ -264,7 +267,8 @@ namespace ProjectCHAOS.GameModes.Endless
 			});
 
 			_powerupHandler.Initialize(new object[] {
-				_playerCharacter
+				_playerCharacter,
+				_weaponHandler
 			});
 
 			_globalUi.Initialize(

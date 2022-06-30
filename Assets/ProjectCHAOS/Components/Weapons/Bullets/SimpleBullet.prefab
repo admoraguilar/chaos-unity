@@ -129,3 +129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   lifetime: 3
+  layer:
+    serializedVersion: 2
+    m_Bits: 128

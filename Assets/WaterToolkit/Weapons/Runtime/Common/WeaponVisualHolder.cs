@@ -7,7 +7,7 @@ namespace WaterToolkit.Weapons
 {
 	public class WeaponVisualHolder
 	{
-		public event Action OnFire = delegate { };
+		public event Action<WeaponFireInfo> OnFire = delegate { };
 
 		[SerializeField]
 		private float _fireRateMultiplier = 1f;
@@ -73,6 +73,6 @@ namespace WaterToolkit.Weapons
 			visual.StopFiring();
 		}
 
-		private void InvokeOnFire() => OnFire();
+		private void InvokeOnFire(WeaponFireInfo fireInfo) => OnFire(fireInfo);
 	}
 }
