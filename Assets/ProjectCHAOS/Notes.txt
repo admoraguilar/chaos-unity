@@ -1,0 +1,41 @@
+Last things done:
+* ReferenceBag, Flyweight, Stat
+* Refactor PickupHandler
+
+Next things to be done:
+* Implement PowerupsChoiceUI after every wave (ala Archero)
+	* Cleanup Flyweight implementation
+	* Cleanup PowerupsChoiceUI implementation
+
+* Remove Upgrader and Upgrader Pickups
+* Enemy types, enemy juice
+* Minor game polish
+
+* Mileston - Game Loop Shift
+
+Next:
+* Leaderboards
+* Economy - Energy, Diamond, Coins
+* Shop
+	* Incrementals - Increase Base Stats
+	* Powerups
+	* Equipment (Increase base stats give starting powerups)
+
+
+* Ways to make the economy more relevant
+	* Tribal Wars-like meta
+		* Rust
+		* Clash of Clans
+		* Backyard Monster
+	* User market
+		* Steam cards-like
+		* NFTs-like
+	
+	* Per
+		* World ranking
+		* World reset
+		* Hall of Fame
+
+
+
+(dir -r -Include *.cs | select-string . ).count

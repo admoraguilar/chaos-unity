@@ -12,7 +12,7 @@ namespace ProjectCHAOS.Powerups
 		public override void Use()
 		{
 			PlayerCharacter character = references.Get<PlayerCharacter>();
-			character.characterStats.fireRate.current.ReplaceModifier(
+			character.characterStats.fireRate.current.AddModifier(
 				new FloatMultiplierModifier {
 					id = nameof(FireRatePowerup),
 					multiplier = multiplier
@@ -31,9 +31,9 @@ namespace ProjectCHAOS.Powerups
 
 		public override PowerupSpec Clone()
 		{
-			FireRatePowerup fireRatePowerup = CreateInstance<FireRatePowerup>();
-			fireRatePowerup.multiplier = multiplier;
-			return FinishClone(fireRatePowerup);
+			FireRatePowerup powerup = CreateInstance<FireRatePowerup>();
+			powerup.multiplier = multiplier;
+			return FinishClone(powerup);
 		}
 	}
 }

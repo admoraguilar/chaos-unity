@@ -12,7 +12,7 @@ namespace ProjectCHAOS.Powerups
 		public override void Use()
 		{
 			PlayerCharacter character = references.Get<PlayerCharacter>();
-			character.characterStats.speed.current.ReplaceModifier(
+			character.characterStats.speed.current.AddModifier(
 				new FloatMultiplierModifier {
 					id = nameof(FireRatePowerup),
 					multiplier = multiplier
@@ -22,7 +22,7 @@ namespace ProjectCHAOS.Powerups
 		public override void Revoke()
 		{
 			PlayerCharacter character = references.Get<PlayerCharacter>();
-			character.characterStats.speed.current.ReplaceModifier(
+			character.characterStats.speed.current.RemoveModifier(
 				new FloatMultiplierModifier {
 					id = nameof(FireRatePowerup),
 					multiplier = multiplier

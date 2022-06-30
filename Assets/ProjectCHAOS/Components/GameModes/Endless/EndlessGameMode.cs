@@ -162,12 +162,6 @@ namespace ProjectCHAOS.GameModes.Endless
 		{
 			Debug.Log("Mob done!!!");
 			_waveRunner.EndStep();
-
-			if(_waveRunner.index < _waveRunner.collection.Count) {
-				_waveRunner.BeginStep();
-			} else {
-				Debug.Log("Wave done!!!");
-			}
 		}
 
 		private void OnWaveBeginStep(WaveData data)
@@ -184,6 +178,23 @@ namespace ProjectCHAOS.GameModes.Endless
 			mob.spawner.OnSpawn -= OnSpawn;
 			mob.OnFinish -= OnMobFinish;
 			mob.Stop();
+
+			if(_waveRunner.index < _waveRunner.collection.Count) {
+				_globalUi.powerupChoiceUi.OnChoiceSelect += OnPowerupChoiceSelect;
+				_globalUi.powerupChoiceUi.gameObject.SetActive(true);
+			} else {
+				Debug.Log("Wave done!!!");
+			}
+
+			void OnPowerupChoiceSelect(PowerupSpec powerupSpec)
+			{
+				_globalUi.powerupChoiceUi.OnChoiceSelect -= OnPowerupChoiceSelect;
+				_globalUi.powerupChoiceUi.gameObject.SetActive(false);
+
+				Debug.Log($"Powerup selected: {powerupSpec.GetType().Name}");
+				
+				_waveRunner.BeginStep();
+			}
 		}
 
 		private void OnBulletHitEnemy()
@@ -258,7 +269,7 @@ namespace ProjectCHAOS.GameModes.Endless
 
 			_globalUi.Initialize(
 				_leanTouchInput, _scorer,
-				_upgrader);
+				_upgrader, _powerupHandler);
 			
 			_score = _scorer.GetScore(0);
 		}

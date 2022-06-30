@@ -1,18 +1,22 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using WaterToolkit;
-
-using UObject = UnityEngine.Object;
 
 namespace ProjectCHAOS.Powerups
 {
 	public class PowerupHandler : MonoBehaviour
 	{
 		[SerializeField]
-		private FlyweightContainer<PowerupSpec> _powerups = null;
+		private Flyweight<PowerupSpec> _powerups = null;
+
+		public Flyweight<PowerupSpec> powerups => _powerups;
+
+		private List<object> _references = new List<object>();
 
 		private void OnPowerupAdd(PowerupSpec powerup)
 		{
+			powerup.Initialize(_references);
 			powerup.Use();
 		}
 
@@ -23,9 +27,7 @@ namespace ProjectCHAOS.Powerups
 
 		public void Initialize(IEnumerable<object> references)
 		{
-			foreach(PowerupSpec powerup in _powerups) {
-				powerup.Initialize(references);
-			}
+			_references.AddRange(references);
 		}
 
 		private void Awake()
@@ -35,9 +37,7 @@ namespace ProjectCHAOS.Powerups
 
 		private void Start()
 		{
-			foreach(PowerupSpec powerup in _powerups) {
-				powerup.Use();
-			}
+			_powerups.Initialize();
 		}
 
 		private void OnEnable()

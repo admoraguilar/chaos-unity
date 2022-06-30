@@ -13,7 +13,7 @@ using UnityEditor;
 namespace WaterToolkit
 {
 	[Serializable]
-	public class FlyweightContainer<T> : IReadOnlyList<T> where T : IFlyweightObject<T>
+	public class Flyweight<T> : IReadOnlyList<T> where T : IFlyweightObject<T>
 	{
 		public event Action<T> OnAdd = delegate { };
 		public event Action<T> OnRemove = delegate { };

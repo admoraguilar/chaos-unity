@@ -1,6 +1,7 @@
 using UnityEngine;
 using WaterToolkit.Scores;
 using ProjectCHAOS.Upgrades;
+using ProjectCHAOS.Powerups;
 using ProjectCHAOS.GameInputs;
 
 namespace ProjectCHAOS.UI
@@ -22,6 +23,9 @@ namespace ProjectCHAOS.UI
 		[SerializeField]
 		private UpgraderUI _upgraderUi = null;
 
+		[SerializeField]
+		private PowerupChoiceUI _powerupChoiceUi = null;
+
 		public TouchUIController touchUiController => _touchUiController;
 
 		public StartMenuUI startMenuUI => _startMenuUi;
@@ -32,14 +36,17 @@ namespace ProjectCHAOS.UI
 
 		public UpgraderUI upgraderUi => _upgraderUi;
 
+		public PowerupChoiceUI powerupChoiceUi => _powerupChoiceUi;
+
 		public void Initialize(
 			LeanTouchInput leanTouchInput, Scorer scorer, 
-			Upgrader upgrader)
+			Upgrader upgrader, PowerupHandler powerupHandler)
 		{
 			touchUiController.Initialize(leanTouchInput);
 			startMenuUI.Initialize(leanTouchInput, scorer);
 			hudUi.Initialize(scorer);
 			upgraderUi.Initialize(upgrader);
+			powerupChoiceUi.Initialize(powerupHandler);
 		}
 
 		public void HideAllUI()
@@ -49,6 +56,7 @@ namespace ProjectCHAOS.UI
 			hudUi.gameObject.SetActive(false);
 			scoreboardUi.gameObject.SetActive(false);
 			upgraderUi?.gameObject.SetActive(false);
+			powerupChoiceUi?.gameObject.SetActive(false);
 		}
 	}
 }
