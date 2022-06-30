@@ -8,15 +8,12 @@ namespace ProjectCHAOS.Powerups
 	public class PowerupHandler : MonoBehaviour
 	{
 		[SerializeField]
-		private Flyweight<PowerupSpec> _powerups = null;
+		private FlyweightSpec<PowerupSpec> _powerups = null;
 
-		public Flyweight<PowerupSpec> powerups => _powerups;
-
-		private List<object> _references = new List<object>();
+		public FlyweightSpec<PowerupSpec> powerups => _powerups;
 
 		private void OnPowerupAdd(PowerupSpec powerup)
 		{
-			powerup.Initialize(_references);
 			powerup.Use();
 		}
 
@@ -25,14 +22,14 @@ namespace ProjectCHAOS.Powerups
 			powerup.Revoke();
 		}
 
-		public void Initialize(IEnumerable<object> references)
+		public void AddReferences(IEnumerable<object> references)
 		{
-			_references.AddRange(references);
+			powerups.AddReferences(references);
 		}
 
 		private void Awake()
 		{
-			Initialize(new object[] { this });	
+			AddReferences(new object[] { this });	
 		}
 
 		private void Start()

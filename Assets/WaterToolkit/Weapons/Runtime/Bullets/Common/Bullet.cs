@@ -9,7 +9,7 @@ namespace WaterToolkit.Weapons
 
 		public float speed = 50f;
 		public float lifetime = 3f;
-		public LayerMask layer = default;
+		public LayerMask layerMask = default;
 
 		private BulletLaunchInfo _bulletLaunchInfo = default;
 

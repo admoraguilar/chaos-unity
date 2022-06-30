@@ -235,7 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startingLoadout: {fileID: 11400000, guid: d249cbd28c58133409c2a0b2039ac71c, type: 2}
   _shouldEquipWeaponAtStart: 1
-  _visualHolderTransform: {fileID: 7492764793600527820}
+  _visualContainer: {fileID: 7492764793600527820}
 --- !u!114 &1072936960906782772
 MonoBehaviour:
   m_ObjectHideFlags: 0

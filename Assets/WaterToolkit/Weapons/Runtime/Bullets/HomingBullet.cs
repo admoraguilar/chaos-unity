@@ -6,6 +6,7 @@ namespace WaterToolkit.Weapons
 	public class HomingBullet : Bullet
 	{
 		private bool _isTravelling = false;
+		private bool _isHitSuccess = false;
 
 		private Vector3 _lastDirectionToTarget = Vector3.zero;
 		private Vector3 _lastTargetPosition = Vector3.zero;
@@ -16,13 +17,13 @@ namespace WaterToolkit.Weapons
 			Destroy(gameObject, lifetime);
 		}
 
-		//private void OnDestroy()
-		//{
-		//	SendEndLifetimeEvent(new BulletHitInfo {
-		//		position = transform.position,
-		//		isSuccess = false
-		//	});
-		//}
+		private void OnDestroy()
+		{
+			SendEndLifetimeEvent(new BulletHitInfo {
+				position = transform.position,
+				isSuccess = _isHitSuccess
+			});
+		}
 
 		private void FixedUpdate()
 		{
@@ -40,13 +41,9 @@ namespace WaterToolkit.Weapons
 
 		private void OnTriggerEnter(Collider other)
 		{
-			if(!layer.Includes(other.gameObject.layer)) { return; }
+			if(!layerMask.Includes(other.gameObject.layer)) { return; }
 
-			SendEndLifetimeEvent(new BulletHitInfo {
-				position = other.transform.position,
-				isSuccess = true
-			});
-
+			_isHitSuccess = true;
 			Destroy(gameObject);
 		}
 	}

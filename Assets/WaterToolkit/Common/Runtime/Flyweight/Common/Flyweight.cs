@@ -48,7 +48,7 @@ namespace WaterToolkit
 
 		private bool _isInitialized = false;
 
-		public void Initialize()
+		public virtual void Initialize()
 		{
 			if(_isInitialized) { return; }
 			_isInitialized = true;
@@ -58,7 +58,11 @@ namespace WaterToolkit
 				_list.Clear();
 				AddRange(original);
 			}
+
+			OnInitialize();
 		}
+
+		protected virtual void OnInitialize() { }
 
 		public T Find(Predicate<T> match)
 		{
@@ -78,8 +82,12 @@ namespace WaterToolkit
 
 			T instance = isPlaying ? obj.Clone() : obj;
 			_list.Add(instance);
+
+			Internal_OnAdd(instance);
 			OnAdd(instance);
 		}
+
+		protected virtual void Internal_OnAdd(T obj) { }
 
 		public void RemoveRange(IEnumerable<T> objs)
 		{
@@ -91,8 +99,12 @@ namespace WaterToolkit
 			Initialize();
 
 			_list.RemoveAll(item => object.Equals(item.source, obj.source));
+
+			Internal_OnRemove(obj);
 			OnRemove(obj);
 		}
+
+		protected virtual void Internal_OnRemove(T obj) { }
 
 		public IEnumerator<T> GetEnumerator()
 		{

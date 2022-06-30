@@ -28,6 +28,11 @@ namespace WaterToolkit.Weapons
 			_isFiring = false;
 		}
 
+		internal override void OnStatsChange()
+		{
+			fireRate.speedMultiplier = holder.fireRateMultiplier;
+		}
+
 		private void OnFireRateElapsed()
 		{
 			if(_isFiring) {
@@ -37,9 +42,12 @@ namespace WaterToolkit.Weapons
 				
 				if(target != null) {
 					Vector3 bulletLookDirection = Targetting.CalculateDirectionToTarget(transform, target);
+					
 					Bullet bullet = Instantiate(
 						bulletPrefab, muzzlePoint.position,
 						Quaternion.LookRotation(bulletLookDirection));
+					bullet.layerMask = layerMask;
+
 					BulletLaunchInfo bulletLaunchInfo = new BulletLaunchInfo {
 						owner = transform,
 						targetTransform = target,
@@ -48,10 +56,7 @@ namespace WaterToolkit.Weapons
 
 					bullet.Launch(bulletLaunchInfo);
 
-					SendFireEvent(new WeaponFireInfo {
-						visual = this,
-						bullet = bullet
-					});
+					SendFireEvent(bullet);
 				}
 			}
 		}
