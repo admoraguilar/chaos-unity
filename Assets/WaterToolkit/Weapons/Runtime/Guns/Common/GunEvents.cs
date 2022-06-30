@@ -9,7 +9,7 @@ namespace WaterToolkit.Weapons
 		private WeaponVisual _weaponVisual = null;
 
 		[SerializeField]
-		private UnityEvent _onFire = null;
+		private UnityEvent<WeaponFireInfo> _onFire = null;
 
 		private void OnEnable()
 		{

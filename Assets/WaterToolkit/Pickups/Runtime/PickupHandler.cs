@@ -7,21 +7,14 @@ namespace WaterToolkit.Pickups
 	public class PickupHandler : MonoBehaviour
 	{
 		[SerializeField]
-		private Flyweight<PickupSpec> _pickups = new Flyweight<PickupSpec>();
+		private FlyweightSpec<PickupSpec> _pickups = new FlyweightSpec<PickupSpec>();
 
 		[SerializeField]
 		private CollisionEvents _collisionEvents = null;
-
-		private List<object> _references = new List<object>();
-
-		private void OnPickupAdd(PickupSpec pickup)
+		
+		public void AddReferences(IEnumerable<object> references)
 		{
-			pickup.Initialize(_references);
-		}
-
-		public void Initialize(IEnumerable<object> references)
-		{
-			_references.AddRange(references);
+			_pickups.AddReferences(references);
 		}
 
 		private void OnTriggerEnterResponse(Collider collider)
@@ -37,7 +30,7 @@ namespace WaterToolkit.Pickups
 
 		private void Awake()
 		{
-			Initialize(new object[] { this });
+			AddReferences(new object[] { this });
 		}
 
 		private void Start()
@@ -48,13 +41,11 @@ namespace WaterToolkit.Pickups
 		private void OnEnable()
 		{
 			_collisionEvents.OnTriggerEnterResponse += OnTriggerEnterResponse;
-			_pickups.OnAdd += OnPickupAdd;
 		}
 
 		private void OnDisable()
 		{
 			_collisionEvents.OnTriggerEnterResponse -= OnTriggerEnterResponse;
-			_pickups.OnAdd -= OnPickupAdd;
 		}
 	}
 }

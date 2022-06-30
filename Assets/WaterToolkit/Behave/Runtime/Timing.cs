@@ -15,7 +15,7 @@ namespace WaterToolkit.Behave
 		private float _max = 1f;
 
 		[SerializeField]
-		private float _speedMultiplier = 1f;
+		private float _speed = 1f;
 
 		[SerializeField]
 		private bool _isResetOnMaxSet = true;
@@ -47,8 +47,8 @@ namespace WaterToolkit.Behave
 
 		public float speedMultiplier
 		{
-			get => _speedMultiplier;
-			set => _speedMultiplier = value;
+			get => _speed;
+			set => _speed = value;
 		}
 
 		public bool isResetOnMaxSet
@@ -75,7 +75,7 @@ namespace WaterToolkit.Behave
 		public void Update() 
 		{
 			if(!_isRunning) { return; }
-			current += _speedMultiplier * Time.deltaTime;
+			current += speedMultiplier * Time.deltaTime;
 		}
 
 		public void Reset(bool shouldStop = false)

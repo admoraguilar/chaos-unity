@@ -19,7 +19,7 @@ namespace WaterToolkit.Weapons
 	/// </summary>
 	public class WeaponHandler : MonoBehaviour
 	{
-		public event Action OnFire = delegate { };
+		public event Action<WeaponFireInfo> OnFire = delegate { };
 
 		[SerializeField]
 		private WeaponSet _startingLoadout = null;
@@ -28,7 +28,7 @@ namespace WaterToolkit.Weapons
 		private bool _shouldEquipWeaponAtStart = false;
 
 		[SerializeField]
-		private Transform _visualHolderTransform = null;
+		private Transform _visualContainer = null;
 		
 		private WeaponVisualHolder _visualHolder = null;
 		private WeaponBag _bag = null;
@@ -52,7 +52,7 @@ namespace WaterToolkit.Weapons
 			private set => _cycler = value;
 		}
 
-		private void InvokeOnFire() => OnFire();
+		private void InvokeOnFire(WeaponFireInfo fireInfo) => OnFire(fireInfo);
 
 		private void OnSetWeapon(WeaponItem weaponObject)
 		{
@@ -62,7 +62,7 @@ namespace WaterToolkit.Weapons
 		private void Awake()
 		{
 			visualHolder = new WeaponVisualHolder();
-			visualHolder.parent = _visualHolderTransform;
+			visualHolder.container = _visualContainer;
 
 			bag = new WeaponBag();
 			bag.AddRange(_startingLoadout.Get(w => w.IsValid())); // Hack get all valid weapons in database

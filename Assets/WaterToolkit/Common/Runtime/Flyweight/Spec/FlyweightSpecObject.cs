@@ -1,18 +1,14 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-#if UNITY_EDITOR
-
-
-#endif
-
 namespace WaterToolkit
 {
-	public abstract class FlyweightSpec<T> : ScriptableObject, IFlyweightObject<T>
-		where T : FlyweightSpec<T>
+	public abstract class FlyweightSpecObject<T> : ScriptableObject, IFlyweightObject<T>
+		where T : FlyweightSpecObject<T>
 	{
 		private T _source = null;
 		private ReferenceBag _references = new ReferenceBag();
+		private bool _isInitialized = false;
 
 		public T source => _source;
 
@@ -20,6 +16,9 @@ namespace WaterToolkit
 
 		public void Initialize(IEnumerable<object> references)
 		{
+			if(_isInitialized) { return; }
+			_isInitialized = true;
+
 			this.references.AddRange(references);
 			OnInitialize();
 		}

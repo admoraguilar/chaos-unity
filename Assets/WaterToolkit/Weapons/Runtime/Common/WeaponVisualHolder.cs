@@ -7,12 +7,12 @@ namespace WaterToolkit.Weapons
 {
 	public class WeaponVisualHolder
 	{
-		public event Action OnFire = delegate { };
+		public event Action<WeaponFireInfo> OnFire = delegate { };
 
 		[SerializeField]
 		private float _fireRateMultiplier = 1f;
 
-		private Transform _parent = null;
+		private Transform _container = null;
 		private WeaponVisual _visual = null;
 
 		public float fireRateMultiplier
@@ -20,11 +20,7 @@ namespace WaterToolkit.Weapons
 			get => _fireRateMultiplier;
 			set {
 				_fireRateMultiplier = Mathf.Clamp(value, 1f, 5f);
-				if(visual != null) {
-					if(visual is AutomaticRifle rifle) {
-						rifle.fireRate.speedMultiplier = fireRateMultiplier;
-					}
-				}
+				if(visual != null) { visual.OnStatsChange(); }
 			}
 		}
 
@@ -34,10 +30,10 @@ namespace WaterToolkit.Weapons
 			private set => _visual = value;
 		}
 
-		public Transform parent
+		public Transform container
 		{
-			get => _parent;
-			set => _parent = value;
+			get => _container;
+			set => _container = value;
 		}
 
 		public void SetVisual(WeaponItem obj)
@@ -53,12 +49,12 @@ namespace WaterToolkit.Weapons
 
 			WeaponVisual visualPrefab = obj.prefab;
 			visual = UObject.Instantiate(
-				visualPrefab, _parent, 
+				visualPrefab, _container, 
 				false);
-			if(visual is AutomaticRifle rifle) {
-				rifle.fireRate.speedMultiplier = fireRateMultiplier;
-			}
+			visual.holder = this;
 			visual.OnFire += InvokeOnFire;
+
+			visual.OnStatsChange();
 		}
 
 		public void StartFiring()
@@ -73,6 +69,6 @@ namespace WaterToolkit.Weapons
 			visual.StopFiring();
 		}
 
-		private void InvokeOnFire() => OnFire();
+		private void InvokeOnFire(WeaponFireInfo fireInfo) => OnFire(fireInfo);
 	}
 }

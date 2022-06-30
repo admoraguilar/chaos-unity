@@ -2,7 +2,7 @@
 
 namespace ProjectCHAOS.Powerups
 {
-	public abstract class PowerupSpec : FlyweightSpec<PowerupSpec>
+	public abstract class PowerupSpec : FlyweightSpecObject<PowerupSpec>
 	{
 		public virtual void Use() { }
 
